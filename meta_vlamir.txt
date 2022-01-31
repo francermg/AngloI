@@ -1,0 +1,1100 @@
+SET SQL DIALECT 3;
+
+CREATE DATABASE 'C:\Anglo\Anglo.gdb'
+USER 'SYSDBA' PASSWORD '123'
+PAGE_SIZE 4096
+DEFAULT CHARACTER SET NONE;
+
+CREATE DOMAIN NOTA AS NUMERIC(4,1);
+
+CREATE DOMAIN PERCENTUAL AS NUMERIC(9,2);
+
+CREATE DOMAIN VALOR_MONETARIO AS NUMERIC(9,2);
+
+CREATE GENERATOR GEN1;
+SET GENERATOR GEN1 TO 0;
+
+CREATE GENERATOR GEN_ALUNOS;
+SET GENERATOR GEN_ALUNOS TO 0;
+
+CREATE GENERATOR GEN_ALUNOS2;
+SET GENERATOR GEN_ALUNOS2 TO 0;
+
+CREATE TABLE ALUNOS (
+    CODIGO INTEGER NOT NULL,
+    NOME VARCHAR(60) CHARACTER SET NONE NOT NULL,
+    ENDERECO VARCHAR(40) CHARACTER SET NONE,
+    COMPLEMENTO VARCHAR(20) CHARACTER SET NONE,
+    BAIRRO VARCHAR(20) CHARACTER SET NONE,
+    CIDADE VARCHAR(25) CHARACTER SET NONE,
+    UF CHAR(2) CHARACTER SET NONE,
+    CEP CHAR(9) CHARACTER SET NONE,
+    RG VARCHAR(15) CHARACTER SET NONE,
+    NASC_DATA DATE,
+    NASC_CIDADE VARCHAR(25) CHARACTER SET NONE,
+    NASC_UF CHAR(2) CHARACTER SET NONE,
+    SEXO CHAR(1) CHARACTER SET NONE,
+    PAI_NOME VARCHAR(50) CHARACTER SET NONE,
+    PAI_PROFISSAO VARCHAR(20) CHARACTER SET NONE,
+    PAI_NASCIMENTO DATE,
+    MAE_NOME VARCHAR(50) CHARACTER SET NONE,
+    MAE_PROFISSAO VARCHAR(20) CHARACTER SET NONE,
+    MAE_NASCIMENTO DATE,
+    FONE VARCHAR(30) CHARACTER SET NONE,
+    DATA_MATRICULA DATE,
+    BIMESTRE SMALLINT,
+    CURSO INTEGER,
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    CHAMADA SMALLINT,
+    STATUS CHAR(1) CHARACTER SET NONE,
+    DATA_SAIDA DATE,
+    BOLSA NUMERIC(9,2),
+    OBS_HIST BLOB sub_type 1 segment size 128,
+    SACADO VARCHAR(40) CHARACTER SET NONE,
+    FINAL CHAR(1) CHARACTER SET NONE,
+    MATERIAL SMALLINT,
+    VENCIMENTO SMALLINT,
+    ANO SMALLINT,
+    CURSINHO SMALLINT,
+    BLOQUETO_1SEM SMALLINT,
+    BLOQUETO_2SEM SMALLINT,
+    MES_MATERIAL SMALLINT,
+    SENHA VARCHAR(10) CHARACTER SET NONE);
+
+CREATE TABLE ALUNOS_ANT (
+    CODIGO INTEGER NOT NULL,
+    NOME VARCHAR(60) CHARACTER SET NONE NOT NULL,
+    ENDERECO VARCHAR(40) CHARACTER SET NONE,
+    COMPLEMENTO VARCHAR(20) CHARACTER SET NONE,
+    BAIRRO VARCHAR(20) CHARACTER SET NONE,
+    CIDADE VARCHAR(25) CHARACTER SET NONE,
+    UF CHAR(2) CHARACTER SET NONE,
+    CEP CHAR(9) CHARACTER SET NONE,
+    RG VARCHAR(15) CHARACTER SET NONE,
+    NASC_DATA DATE,
+    NASC_CIDADE VARCHAR(25) CHARACTER SET NONE,
+    NASC_UF CHAR(2) CHARACTER SET NONE,
+    SEXO CHAR(1) CHARACTER SET NONE,
+    PAI_NOME VARCHAR(50) CHARACTER SET NONE,
+    PAI_PROFISSAO VARCHAR(20) CHARACTER SET NONE,
+    PAI_NASCIMENTO DATE,
+    MAE_NOME VARCHAR(50) CHARACTER SET NONE,
+    MAE_PROFISSAO VARCHAR(20) CHARACTER SET NONE,
+    MAE_NASCIMENTO DATE,
+    FONE VARCHAR(30) CHARACTER SET NONE,
+    DATA_MATRICULA DATE,
+    BIMESTRE SMALLINT,
+    CURSO INTEGER,
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    CHAMADA SMALLINT,
+    STATUS CHAR(1) CHARACTER SET NONE,
+    DATA_SAIDA DATE,
+    BOLSA NUMERIC(9,2),
+    OBS_HIST BLOB sub_type 1 segment size 128,
+    SACADO VARCHAR(40) CHARACTER SET NONE,
+    FINAL CHAR(1) CHARACTER SET NONE,
+    MATERIAL SMALLINT,
+    VENCIMENTO SMALLINT,
+    ANO SMALLINT,
+    CURSINHO SMALLINT,
+    BLOQUETO_1SEM SMALLINT,
+    BLOQUETO_2SEM SMALLINT,
+    MES_MATERIAL SMALLINT,
+    SENHA VARCHAR(10) CHARACTER SET NONE);
+
+CREATE TABLE AULAS_DADAS (
+    SERIE SMALLINT NOT NULL,
+    TURMA CHAR(1) CHARACTER SET NONE NOT NULL,
+    DATA DATE NOT NULL,
+    AULA SMALLINT NOT NULL,
+    DISCIPLINA INTEGER);
+
+CREATE TABLE BIMESTRES (
+    CODIGO SMALLINT NOT NULL,
+    DESCRICAO VARCHAR(15) CHARACTER SET NONE,
+    INICIO DATE,
+    FIM DATE);
+
+CREATE TABLE BLOQUETOS (
+    NOSSO_NUMERO INTEGER NOT NULL,
+    ALUNO INTEGER,
+    PARCELA SMALLINT,
+    EMISSAO DATE,
+    VENCIMENTO DATE,
+    VALOR VALOR_MONETARIO,
+    PAGAMENTO DATE,
+    VALOR_PAGO VALOR_MONETARIO,
+    MENSALIDADE VALOR_MONETARIO,
+    MATERIAL VALOR_MONETARIO,
+    DESCONTO VALOR_MONETARIO,
+    TIPO_PG SMALLINT);
+
+CREATE TABLE DIAS_LETIVOS (
+    DATA DATE NOT NULL);
+
+CREATE TABLE DISCIPLINAS (
+    CODIGO INTEGER NOT NULL,
+    NOME VARCHAR(40) CHARACTER SET NONE,
+    NOME_RES CHAR(4) CHARACTER SET NONE,
+    MAX_FALTAS PERCENTUAL);
+
+CREATE TABLE FALTAS (
+    ALU_CODIGO INTEGER NOT NULL,
+    DIS_CODIGO INTEGER NOT NULL,
+    DATA DATE NOT NULL,
+    AULA SMALLINT NOT NULL,
+    QTDADE SMALLINT);
+
+CREATE TABLE GRADE (
+    SERIE SMALLINT NOT NULL,
+    DISCIPLINA INTEGER NOT NULL,
+    SEQUENCIA SMALLINT NOT NULL,
+    CH_SEMANAL INTEGER,
+    CH_OFICIAL INTEGER,
+    CH_N_OFICIAL INTEGER,
+    TIPO CHAR(2) CHARACTER SET NONE);
+
+CREATE TABLE MAPA_AULA (
+    TUR_SERIE SMALLINT NOT NULL,
+    TUR_TURMA CHAR(1) CHARACTER SET NONE NOT NULL,
+    DIA_SEMANA SMALLINT NOT NULL,
+    AULA SMALLINT NOT NULL,
+    DIS_CODIGO INTEGER);
+
+CREATE TABLE NOTAS (
+    ALUNO INTEGER NOT NULL,
+    DISCIPLINA INTEGER NOT NULL,
+    BIMESTRE SMALLINT NOT NULL,
+    NOTA1 NOTA,
+    NOTA2 NOTA,
+    NOTA3 NOTA,
+    NOTA NOTA,
+    RECUPBIM NOTA);
+
+CREATE TABLE PARAMETROS (
+    CODIGO INTEGER NOT NULL,
+    PROX_BLOQUETO INTEGER,
+    LOCALPAG VARCHAR(80) CHARACTER SET NONE,
+    MENSAGEM1 VARCHAR(80) CHARACTER SET NONE,
+    MENSAGEM2 VARCHAR(80) CHARACTER SET NONE,
+    MENSAGEMSACADO VARCHAR(80) CHARACTER SET NONE,
+    CEDENTE VARCHAR(80) CHARACTER SET NONE,
+    CAD_ALU_ORIG VARCHAR(120) CHARACTER SET NONE,
+    DIRETORIO_SCA VARCHAR(120) CHARACTER SET NONE,
+    VCTO_PADRAO INTEGER,
+    MENSALIDADE_1 VALOR_MONETARIO,
+    MENSALIDADE_2 VALOR_MONETARIO,
+    MENSALIDADE_3 VALOR_MONETARIO,
+    MATERIAL_1 VALOR_MONETARIO,
+    MATERIAL_2 VALOR_MONETARIO,
+    MATERIAL_3 VALOR_MONETARIO,
+    BLQ_TOP SMALLINT,
+    BLQ_BOTTOM SMALLINT,
+    BLQ_LEFT SMALLINT,
+    BLQ_RIGHT SMALLINT,
+    MEDIA NOTA,
+    RECUPBIM1 CHAR(1) CHARACTER SET NONE,
+    RECUPBIM2 CHAR(1) CHARACTER SET NONE,
+    RECUPBIM3 CHAR(1) CHARACTER SET NONE,
+    TEMPO_CARTAO NUMERIC(4,1),
+    MES_MATERIAL1 SMALLINT,
+    MES_MATERIAL2 SMALLINT,
+    MES_MATERIAL3 SMALLINT,
+    COR_ZEBRADO INTEGER,
+    SOM_OK_FREQUENCIA INTEGER,
+    SOM_OK_DURACAO INTEGER,
+    SOM_ERRO_FREQUENCIA INTEGER,
+    SOM_ERRO_DURACAO INTEGER,
+    TEXTO_REQUERIMENTO VARCHAR(32000) CHARACTER SET NONE);
+
+CREATE TABLE TURMAS (
+    SERIE SMALLINT NOT NULL,
+    TURMA CHAR(1) CHARACTER SET NONE NOT NULL,
+    PERIODO SMALLINT,
+    VAGAS INTEGER);
+
+ALTER TABLE ALUNOS ADD CONSTRAINT PK_ALUNOS PRIMARY KEY (CODIGO);
+ALTER TABLE AULAS_DADAS ADD CONSTRAINT PK_AULAS_DADAS PRIMARY KEY (SERIE, TURMA, DATA, AULA);
+ALTER TABLE BIMESTRES ADD CONSTRAINT PK_BIMESTRES PRIMARY KEY (CODIGO);
+ALTER TABLE BLOQUETOS ADD CONSTRAINT PK_BLOQUETOS PRIMARY KEY (NOSSO_NUMERO);
+ALTER TABLE DIAS_LETIVOS ADD CONSTRAINT PK_DIAS_LETIVOS PRIMARY KEY (DATA);
+ALTER TABLE DISCIPLINAS ADD CONSTRAINT PK_DISCIPLINAS PRIMARY KEY (CODIGO);
+ALTER TABLE FALTAS ADD CONSTRAINT PK_FALTAS PRIMARY KEY (ALU_CODIGO, DIS_CODIGO, DATA, AULA);
+ALTER TABLE GRADE ADD CONSTRAINT PK_GRADE PRIMARY KEY (SERIE, DISCIPLINA);
+ALTER TABLE MAPA_AULA ADD CONSTRAINT PK_MAPA_AULA PRIMARY KEY (TUR_SERIE, TUR_TURMA, DIA_SEMANA, AULA);
+ALTER TABLE NOTAS ADD CONSTRAINT PK_NOTAS PRIMARY KEY (ALUNO, DISCIPLINA, BIMESTRE);
+ALTER TABLE TURMAS ADD CONSTRAINT PK_TURMAS PRIMARY KEY (SERIE, TURMA);
+ALTER TABLE AULAS_DADAS ADD  CONSTRAINT FK_AULAS_DADAS1 FOREIGN KEY (SERIE, TURMA) REFERENCES TURMAS (SERIE, TURMA);
+ALTER TABLE AULAS_DADAS ADD  CONSTRAINT FK_AULAS_DADAS2 FOREIGN KEY (DISCIPLINA) REFERENCES DISCIPLINAS (CODIGO);
+ALTER TABLE AULAS_DADAS ADD  CONSTRAINT FK_AULAS_DADAS3 FOREIGN KEY (DATA) REFERENCES DIAS_LETIVOS (DATA);
+ALTER TABLE MAPA_AULA ADD  CONSTRAINT FK_MAPA_AULA1 FOREIGN KEY (TUR_SERIE, TUR_TURMA) REFERENCES TURMAS (SERIE, TURMA);
+ALTER TABLE MAPA_AULA ADD  CONSTRAINT FK_MAPA_AULA2 FOREIGN KEY (DIS_CODIGO) REFERENCES DISCIPLINAS (CODIGO);
+ALTER TABLE NOTAS ADD  CONSTRAINT FK_NOTAS FOREIGN KEY (ALUNO) REFERENCES ALUNOS (CODIGO);
+ALTER TABLE NOTAS ADD  CONSTRAINT FK_NOTAS2 FOREIGN KEY (DISCIPLINA) REFERENCES DISCIPLINAS (CODIGO);
+ALTER TABLE NOTAS ADD  CONSTRAINT FK_NOTAS3 FOREIGN KEY (BIMESTRE) REFERENCES BIMESTRES (CODIGO);
+CREATE INDEX ALUNOS_IDX ON ALUNOS (NOME);
+CREATE INDEX BLOQUETOS_IDX1 ON BLOQUETOS (ALUNO);
+CREATE INDEX FALTAS_IDX1 ON FALTAS (DATA);
+
+
+SET TERM ^ ; 
+
+CREATE PROCEDURE ALU_RECUP_BIM (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    BIMESTRE SMALLINT,
+    MEDIA NUMERIC(4,1))
+RETURNS (
+    ALU_COD INTEGER,
+    ALU_CHAMADA SMALLINT,
+    ALU_NOME VARCHAR(60) CHARACTER SET NONE,
+    N_01 CHAR(1) CHARACTER SET NONE,
+    N_02 CHAR(1) CHARACTER SET NONE,
+    N_03 CHAR(1) CHARACTER SET NONE,
+    N_04 CHAR(1) CHARACTER SET NONE,
+    N_05 CHAR(1) CHARACTER SET NONE,
+    N_06 CHAR(1) CHARACTER SET NONE,
+    N_07 CHAR(1) CHARACTER SET NONE,
+    N_08 CHAR(1) CHARACTER SET NONE,
+    N_09 CHAR(1) CHARACTER SET NONE,
+    N_10 CHAR(1) CHARACTER SET NONE,
+    N_11 CHAR(1) CHARACTER SET NONE,
+    N_12 CHAR(1) CHARACTER SET NONE,
+    N_13 CHAR(1) CHARACTER SET NONE,
+    N_14 CHAR(1) CHARACTER SET NONE,
+    N_15 CHAR(1) CHARACTER SET NONE)
+AS
+declare variable Seq_Cod INTEGER;
+declare variable Dis_Cod INTEGER;
+declare variable Nnota NUMERIC(4,1);
+declare variable NStat CHAR;
+begin
+  for select CODIGO,CHAMADA,NOME from ALUNOS
+    where SERIE = :Serie AND TURMA = :Turma
+    order by CHAMADA into :Alu_Cod,:Alu_Chamada,:Alu_Nome
+    do begin
+    Seq_Cod = 0;
+    while (Seq_Cod < 15) do begin
+      Seq_Cod = Seq_Cod + 1;
+      for select DISCIPLINA from GRADE
+        where SERIE = :Serie and TIPO <> 'OF'
+        and SEQUENCIA = :Seq_Cod
+        into :Dis_Cod   do begin
+        select NOTA from NOTAS
+          where ALUNO = :Alu_Cod and DISCIPLINA = :Dis_Cod
+          and BIMESTRE = :Bimestre
+          into :Nnota;
+        if (Nnota < Media) then NStat = 'X'; else NStat = '';
+        if (Seq_Cod = 01) then N_01 = NStat;
+        if (Seq_Cod = 02) then N_02 = NStat;
+        if (Seq_Cod = 03) then N_03 = NStat;
+        if (Seq_Cod = 04) then N_04 = NStat;
+        if (Seq_Cod = 05) then N_05 = NStat;
+        if (Seq_Cod = 06) then N_06 = NStat;
+        if (Seq_Cod = 07) then N_07 = NStat;
+        if (Seq_Cod = 08) then N_08 = NStat;
+        if (Seq_Cod = 09) then N_09 = NStat;
+        if (Seq_Cod = 10) then N_10 = NStat;
+        if (Seq_Cod = 11) then N_11 = NStat;
+        if (Seq_Cod = 12) then N_12 = NStat;
+        if (Seq_Cod = 13) then N_13 = NStat;
+        if (Seq_Cod = 14) then N_14 = NStat;
+        if (Seq_Cod = 15) then N_15 = NStat;
+      end
+    end
+    suspend;
+  end
+end
+
+^
+
+CREATE PROCEDURE BOLETIM (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    NOME_INI VARCHAR(60) CHARACTER SET NONE,
+    NOME_FIN VARCHAR(60) CHARACTER SET NONE,
+    TP_BOL CHAR(1) CHARACTER SET NONE,
+    BIMESTRE SMALLINT,
+    TP_NOTA SMALLINT,
+    MEDIA NUMERIC(4,1))
+RETURNS (
+    COD_ALU INTEGER,
+    NOME VARCHAR(60) CHARACTER SET NONE,
+    CHAMADA SMALLINT,
+    DIS_NOME VARCHAR(40) CHARACTER SET NONE,
+    N1 NUMERIC(4,1),
+    N2 NUMERIC(4,1),
+    N3 NUMERIC(4,1),
+    N4 NUMERIC(4,1),
+    F1 SMALLINT,
+    F2 SMALLINT,
+    F3 SMALLINT,
+    F4 SMALLINT,
+    TOT_F SMALLINT,
+    MEDIA_ANUAL NUMERIC(4,1),
+    ACIMA_MEDIA CHAR(1) CHARACTER SET NONE)
+AS
+declare variable ProcessaAluno CHAR;
+declare variable Acodigo INTEGER;
+declare variable Dis_Cod SMALLINT;
+declare variable Nbim SMALLINT;
+declare variable Nnota NUMERIC(4,1);
+declare variable DtIni DATE;
+declare variable DtFim DATE;
+declare variable Fqtdade INTEGER;
+declare variable Ftot INTEGER;
+declare variable Cont INTEGER;
+declare variable MediaTrunc SMALLINT;
+declare variable ParteDec NUMERIC(1,1);
+begin
+  for select CODIGO, NOME, CHAMADA from ALUNOS
+    where SERIE = :serie and TURMA = :turma and STATUS = 'A' and
+    NOME >= :nome_ini and NOME <= :nome_fin
+    order by NOME into :Acodigo, :Nome, :Chamada
+    do begin
+    Cod_Alu = Acodigo;
+    Cont = 0;
+    ProcessaAluno = 'S';
+    select max(NOTA) from NOTAS
+      where ALUNO = :Acodigo and BIMESTRE = :Bimestre
+      and NOTA < :Media into :Nnota;
+    /* Tp_Nota = 0 - TODAS */
+    /* Tp_Nota = 1 - Acima da Média */
+    /* Tp_Nota = 2 - Abaixo da Média */
+    if ((Tp_Nota = 1) and (Nnota is not null)) then
+      ProcessaAluno = 'N';
+    if ((Tp_Nota = 2) and (Nnota is null)) then
+      ProcessaAluno = 'N';
+    if (ProcessaAluno = 'S') then begin
+       for select G.DISCIPLINA, D.NOME from GRADE G
+         join DISCIPLINAS D on D.CODIGO = G.DISCIPLINA
+         where SERIE = :serie and (G.TIPO <> 'OF' or :Tp_Bol = 'F')
+         order by SEQUENCIA into :Dis_Cod, :Dis_Nome
+         do begin
+         N1 = null; N2 = null; N3 = null; N4 = null;
+         for select BIMESTRE, NOTA from NOTAS
+           where ALUNO = :Acodigo and DISCIPLINA = :Dis_Cod
+           into :Nbim, :Nnota
+           do begin
+           if (Nbim = 1) then N1 = Nnota;
+           if (Nbim = 2) then N2 = Nnota;
+           if (Nbim = 3) then N3 = Nnota;
+           if (Nbim = 4) then N4 = Nnota;
+         end    /* do for - NOTAS */
+         Ftot = 0;
+         Tot_F = null;
+         F1 = null; F2 = null; F3 = null; F4 = null;
+         for select CODIGO,INICIO,FIM from BIMESTRES
+           into :Nbim, :DtIni, :DtFim do begin
+           select sum(QTDADE) from FALTAS
+             where DATA >= :DtIni and DATA <= :DtFim
+             and DIS_CODIGO = :Dis_Cod and ALU_CODIGO = :Acodigo
+             into :Fqtdade;
+           if (Nbim = 1) then F1 = Fqtdade;
+           if (Nbim = 2) then F2 = Fqtdade;
+           if (Nbim = 3) then F3 = Fqtdade;
+           if (Nbim = 4) then F4 = Fqtdade;
+           if (Fqtdade is not null) then Ftot = Ftot + Fqtdade;
+         end    /* do for - FALTAS */
+         if (Ftot <> 0) then Tot_F = Ftot;
+         Nnota = 0;
+         Nbim = 0;
+         if (N1 is not null) then begin
+           Nnota = Nnota + (N1*1);
+           Nbim = Nbim + 1;
+         end
+         if (N2 is not null) then begin
+           Nnota = Nnota + (N2*2);
+           Nbim = Nbim + 2;
+           N2 = N2 * 2;
+         end
+         if (N3 is not null) then begin
+           Nnota = Nnota + (N3*3);
+           Nbim = Nbim + 3;
+           N3 = N3 * 3;
+         end
+         if (N4 is not null) then begin
+           Nnota = Nnota + (N4*4);
+           Nbim = Nbim + 4;
+           N4 = N4 * 4;
+         end
+         Media_Anual = null;
+         if (Nbim <> 0) then Media_Anual = Nnota / Nbim;
+         MediaTrunc = Media_Anual;
+         ParteDec = (Media_Anual - MediaTrunc) * 10;
+         if (ParteDec >= -1 and ParteDec <= 1) then ParteDec = 0;
+         if (ParteDec = 5) then ParteDec = 0;
+         if (ParteDec >= 2 and ParteDec <= 4) then ParteDec = 5;
+         if (ParteDec >= -4 and ParteDec <= -2) then ParteDec = -5;
+         Media_Anual = MediaTrunc + (ParteDec/10);
+         Acima_Media = '';
+         if (Media_Anual is not null) then
+           if (Media_Anual < Media) then Acima_Media = 'N';
+            else Acima_Media = 'S';
+         suspend;
+         Cont = Cont + 1;
+       end    /* do for - DISCIPLINAS */
+    end    /* do if (Processa_Aluno = 'S') */
+    if (TP_BOL = 'F') then begin
+      DIS_NOME = null;
+      N1 = null; N2 = null; N3 = null; N4 = null;
+      F1 = null; F2 = null; F3 = null; F4 = null;
+      TOT_F = null; MEDIA_ANUAL = null;
+      Acima_Media = '';
+      while (Cont < 25) do begin
+        suspend;
+        Cont = Cont + 1;
+      end    /* do While Cont */
+    end    /* do if - TP_BOL */
+  end    /* do for - ALUNOS */
+end
+
+^
+
+CREATE PROCEDURE BOLETIM_R (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    NOME_INI VARCHAR(60) CHARACTER SET NONE,
+    NOME_FIN VARCHAR(60) CHARACTER SET NONE,
+    TP_BOL CHAR(1) CHARACTER SET NONE,
+    BIMESTRE SMALLINT,
+    TP_NOTA SMALLINT,
+    TP_RECBIM SMALLINT,
+    MEDIA NUMERIC(4,1))
+RETURNS (
+    COD_ALU INTEGER,
+    NOME VARCHAR(60) CHARACTER SET NONE,
+    CHAMADA SMALLINT,
+    DIS_NOME VARCHAR(40) CHARACTER SET NONE,
+    N1 NUMERIC(4,1),
+    N2 NUMERIC(4,1),
+    N3 NUMERIC(4,1),
+    N4 NUMERIC(4,1),
+    R1 NUMERIC(4,1),
+    R2 NUMERIC(4,1),
+    R3 NUMERIC(4,1),
+    R4 NUMERIC(4,1),
+    M1 NUMERIC(4,1),
+    M2 NUMERIC(4,1),
+    M3 NUMERIC(4,1),
+    M4 NUMERIC(4,1),
+    F1 SMALLINT,
+    F2 SMALLINT,
+    F3 SMALLINT,
+    F4 SMALLINT,
+    TOT_F SMALLINT,
+    MEDIA_ANUAL NUMERIC(4,1),
+    ACIMA_MEDIA CHAR(1) CHARACTER SET NONE)
+AS
+declare variable ProcessaAluno CHAR;
+declare variable Acodigo INTEGER;
+declare variable Dis_Cod SMALLINT;
+declare variable Nbim SMALLINT;
+declare variable Nnota NUMERIC(4,1);
+declare variable Nrecup NUMERIC(4,1);
+declare variable DtIni DATE;
+declare variable DtFim DATE;
+declare variable Fqtdade INTEGER;
+declare variable Ftot INTEGER;
+declare variable Cont INTEGER;
+declare variable MediaTrunc SMALLINT;
+declare variable ParteDec NUMERIC(1,1);
+begin
+  for select CODIGO, NOME, CHAMADA from ALUNOS
+    where SERIE = :serie and TURMA = :turma and
+    (STATUS = 'A' or STATUS = 'T') and
+    NOME >= :nome_ini and NOME <= :nome_fin
+    order by NOME into :Acodigo, :Nome, :Chamada
+    do begin
+    Cod_Alu = Acodigo;
+    Cont = 0;
+    ProcessaAluno = 'S';
+    select max(NOTA) from NOTAS
+      where ALUNO = :Acodigo and BIMESTRE = :Bimestre
+      and NOTA < :Media into :Nnota;
+    /* Tp_Nota = 0 - TODAS */
+    /* Tp_Nota = 1 - Acima da Média */
+    /* Tp_Nota = 2 - Abaixo da Média */
+    if ((Tp_Nota = 1) and (Nnota is not null)) then
+      ProcessaAluno = 'N';
+    if ((Tp_Nota = 2) and (Nnota is null)) then
+      ProcessaAluno = 'N';
+    select max(RECUPBIM) from NOTAS
+      where ALUNO = :Acodigo and BIMESTRE = :Bimestre
+      and RECUPBIM IS NOT NULL into :Nnota;
+    /* Tp_RecBim = 0 - TODOS */
+    /* Tp_RecBim = 1 - Alunos que tiveram Recup.Bimestral */
+    /* Tp_RecBim = 2 - Alunos que não tiveram Recup.Bimestral */
+    if ((Tp_RecBim = 1) and (Nnota is null)) then
+      ProcessaAluno = 'N';
+    if ((Tp_RecBim = 2) and (Nnota is not null)) then
+      ProcessaAluno = 'N';
+    if (ProcessaAluno = 'S') then begin
+       for select G.DISCIPLINA, D.NOME from GRADE G
+         join DISCIPLINAS D on D.CODIGO = G.DISCIPLINA
+         where SERIE = :serie and (G.TIPO <> 'OF' or :Tp_Bol = 'F')
+         order by SEQUENCIA into :Dis_Cod, :Dis_Nome
+         do begin
+         N1 = null; N2 = null; N3 = null; N4 = null;
+         R1 = null; R2 = null; R3 = null; R4 = null;
+         for select BIMESTRE, NOTA, RECUPBIM from NOTAS
+           where ALUNO = :Acodigo and DISCIPLINA = :Dis_Cod
+           into :Nbim, :Nnota, :Nrecup
+           do begin
+           if (Nbim = 1) then begin N1 = Nnota; R1 = Nrecup; end
+           if (Nbim = 2) then begin N2 = Nnota; R2 = Nrecup; end
+           if (Nbim = 3) then begin N3 = Nnota; R3 = Nrecup; end
+           if (Nbim = 4) then begin N4 = Nnota; R4 = Nrecup; end
+         end    /* do for - NOTAS */
+         Ftot = 0;
+         Tot_F = null;
+         F1 = null; F2 = null; F3 = null; F4 = null;
+         for select CODIGO,INICIO,FIM from BIMESTRES
+           into :Nbim, :DtIni, :DtFim do begin
+           select sum(QTDADE) from FALTAS
+             where DATA >= :DtIni and DATA <= :DtFim
+             and DIS_CODIGO = :Dis_Cod and ALU_CODIGO = :Acodigo
+             into :Fqtdade;
+           if (Nbim = 1) then F1 = Fqtdade;
+           if (Nbim = 2) then F2 = Fqtdade;
+           if (Nbim = 3) then F3 = Fqtdade;
+           if (Nbim = 4) then F4 = Fqtdade;
+           if (Fqtdade is not null) then Ftot = Ftot + Fqtdade;
+         end    /* do for - FALTAS */
+         if (Ftot <> 0) then Tot_F = Ftot;
+         M1 = null; M2 = null; M3 = null; M4 = null;
+         if (R1 is null) then M1 = N1; else
+           if (N1 > R1) then M1 = N1; else M1 = R1;
+         if (R2 is null) then M2 = N2; else
+           if (N2 > R2) then M2 = N2; else M2 = R2;
+         if (R3 is null) then M3 = N3; else
+           if (N3 > R3) then M3 = N3; else M3 = R3;
+         if (R4 is null) then M4 = N4; else
+           if (N4 > R4) then M4 = N4; else M4 = R4;
+         Nnota = 0;
+         Nbim = 0;
+         if (M1 is not null) then begin
+           Nnota = Nnota + (M1*1);
+           Nbim = Nbim + 1;
+         end
+         if (M2 is not null) then begin
+           Nnota = Nnota + (M2*2);
+           Nbim = Nbim + 2;
+           N2 = N2 * 2;  R2 = R2 * 2;  M2 = M2 * 2;
+         end
+         if (M3 is not null) then begin
+           Nnota = Nnota + (M3*3);
+           Nbim = Nbim + 3;
+           N3 = N3 * 3;  R3 = R3 * 3;  M3 = M3 * 3;
+         end
+         if (M4 is not null) then begin
+           Nnota = Nnota + (M4*4);
+           Nbim = Nbim + 4;
+           N4 = N4 * 4;  R4 = R4 * 4;  M4 = M4 * 4;
+         end
+         Media_Anual = null;
+         if (Nbim <> 0) then Media_Anual = Nnota / Nbim;
+         MediaTrunc = Media_Anual;
+         ParteDec = (Media_Anual - MediaTrunc) * 10;
+         if (ParteDec >= -1 and ParteDec <= 1) then ParteDec = 0;
+         if (ParteDec = 5) then ParteDec = 0;
+         if (ParteDec >= 2 and ParteDec <= 4) then ParteDec = 5;
+         if (ParteDec >= -4 and ParteDec <= -2) then ParteDec = -5;
+         Media_Anual = MediaTrunc + (ParteDec/10);
+         Acima_Media = '';
+         if (Media_Anual is not null) then
+           if (Media_Anual < Media) then Acima_Media = 'N';
+            else Acima_Media = 'S';
+         suspend;
+         Cont = Cont + 1;
+       end    /* do for - DISCIPLINAS */
+    end    /* do if (Processa_Aluno = 'S') */
+    if (TP_BOL = 'F') then begin
+      DIS_NOME = null;
+      N1 = null; N2 = null; N3 = null; N4 = null;
+      R1 = null; R2 = null; R3 = null; R4 = null;
+      M1 = null; M2 = null; M3 = null; M4 = null;
+      F1 = null; F2 = null; F3 = null; F4 = null;
+      TOT_F = null; MEDIA_ANUAL = null;
+      Acima_Media = '';
+      while (Cont < 25) do begin
+        suspend;
+        Cont = Cont + 1;
+      end    /* do While Cont */
+    end    /* do if - TP_BOL */
+  end    /* do for - ALUNOS */
+end
+
+^
+
+CREATE PROCEDURE EXCLUI_FALTAS (
+    DATA DATE,
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE)
+AS
+declare variable Acodigo INTEGER;
+begin
+  if (Serie = 0) then begin
+     delete from FALTAS where DATA = :Data;
+  end
+  if (Serie <> 0) then begin
+     for select CODIGO from ALUNOS
+       where (SERIE = :Serie and TURMA = :Turma)
+       into :Acodigo do
+         delete from FALTAS
+           where DATA = :Data and ALU_CODIGO = :Acodigo;
+  end
+end
+
+^
+
+CREATE PROCEDURE FALTAS_ALUNO (
+    ALUNO INTEGER,
+    DIA DATE)
+RETURNS (
+    AULA SMALLINT,
+    DIS_CODIGO INTEGER,
+    DIS_NOME_RES CHAR(4) CHARACTER SET NONE,
+    DIS_NOME VARCHAR(40) CHARACTER SET NONE,
+    SIT CHAR(1) CHARACTER SET NONE)
+AS
+declare variable Dia_Sem SMALLINT;
+declare variable Serie SMALLINT;
+declare variable Turma CHAR;
+begin
+  Dia_Sem = Extract(WeekDay from Dia) + 1;
+  AULA = 1;
+  select SERIE,TURMA from ALUNOS where CODIGO = :aluno
+    into :Serie,:Turma;
+  while (AULA <=7) do begin
+      DIS_CODIGO = null;
+      DIS_NOME_RES = null;
+      DIS_NOME = null;
+      for select M.DIS_CODIGO, D.NOME_RES, D.NOME from MAPA_AULA M
+        inner join DISCIPLINAS D on D.CODIGO = M.DIS_CODIGO
+        where M.TUR_SERIE = :Serie and M.TUR_TURMA = :Turma
+        and M.AULA = :Aula and M.DIA_SEMANA = :Dia_Sem
+        into :dis_codigo, :dis_nome_res, :dis_nome do begin
+        SIT = '.';
+        suspend;
+      end
+      AULA = AULA + 1;
+  end
+end
+
+^
+
+CREATE PROCEDURE INC_FALTAS_ALUNO (
+    ALUNO INTEGER,
+    DISCIPLINA INTEGER,
+    DIA DATE,
+    QTDADE INTEGER)
+AS
+declare variable Dia_Sem SMALLINT;
+declare variable Aserie SMALLINT;
+declare variable Aturma CHAR;
+declare variable Aaula SMALLINT;
+begin
+  Dia_Sem = Extract(WeekDay from Dia) + 1;
+  select SERIE,TURMA from ALUNOS where CODIGO = :Aluno
+    into :Aserie,:Aturma;
+  for select AULA from MAPA_AULA
+    where TUR_SERIE=:Aserie and TUR_TURMA=:Aturma
+    and DIA_SEMANA=:Dia_Sem and DIS_CODIGO =:Disciplina
+    order by AULA desc into :Aaula
+    do begin
+      if (QTDADE > 0) then begin
+        insert into FALTAS (ALU_CODIGO, DIS_CODIGO, DATA, AULA, QTDADE)
+          values (:Aluno,:Disciplina,:Dia,:Aaula,1);
+        QTDADE = QTDADE - 1;
+       end
+  end
+  if (QTDADE > 0) then begin
+    insert into FALTAS (ALU_CODIGO, DIS_CODIGO, DATA, AULA, QTDADE)
+      values (:Aluno,:Disciplina,:Dia,8,:Qtdade);
+  end
+end
+
+^
+
+CREATE PROCEDURE INCLUI_DIAS_LETIVOS (
+    DATA DATE)
+AS
+declare variable Dia_Sem SMALLINT;
+declare variable Aserie SMALLINT;
+declare variable Aturma CHAR;
+declare variable Aula INTEGER;
+declare variable Disciplina INTEGER;
+begin
+  Dia_Sem = Extract(WeekDay from Data) + 1;
+  insert into DIAS_LETIVOS (DATA) values (:Data);
+  for select TUR_SERIE,TUR_TURMA,AULA,DIS_CODIGO
+    from MAPA_AULA where DIA_SEMANA=:dia_sem
+    into :Aserie,:Aturma,:Aula,:Disciplina do
+     insert into AULAS_DADAS (SERIE,TURMA,DATA,AULA,DISCIPLINA)
+       values (:Aserie,:Aturma,:Data,:Aula,:Disciplina);
+end
+
+^
+
+CREATE PROCEDURE INCLUI_FALTAS (
+    DATA DATE)
+AS
+declare variable Dia_Sem SMALLINT;
+declare variable Acodigo INTEGER;
+declare variable Aserie SMALLINT;
+declare variable Aturma CHAR;
+declare variable Disciplina INTEGER;
+declare variable Aula INTEGER;
+begin
+  Dia_Sem = Extract(WeekDay from Data) + 1;
+  insert into DIAS_LETIVOS (DATA) values (:Data);
+  for select TUR_SERIE,TUR_TURMA,AULA,DIS_CODIGO
+    from MAPA_AULA where DIA_SEMANA=:dia_sem
+    into :Aserie,:Aturma,:Aula,:Disciplina do
+     insert into AULAS_DADAS (SERIE,TURMA,DATA,AULA,DISCIPLINA)
+       values (:Aserie,:Aturma,:Data,:Aula,:Disciplina);
+  for select CODIGO,SERIE,TURMA from ALUNOS where STATUS = 'A'
+    order by codigo into :Acodigo,:Aserie,:Aturma do begin
+     for select AULA,DIS_CODIGO from MAPA_AULA
+       where TUR_SERIE=:Aserie and TUR_TURMA=:Aturma
+       and DIA_SEMANA=:dia_sem
+       into :Aula,:Disciplina
+       do begin
+        insert into FALTAS (ALU_CODIGO, DIS_CODIGO, DATA, AULA, QTDADE)
+           values (:Acodigo,:Disciplina,:Data,:Aula,1);
+     end
+  end
+end
+
+^
+
+CREATE PROCEDURE MAPA_FIN (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE)
+RETURNS (
+    ALU_COD INTEGER,
+    ALU_CHAMADA SMALLINT,
+    ALU_NOME VARCHAR(60) CHARACTER SET NONE,
+    ALU_BOLSA NUMERIC(9,2),
+    ALU_STATUS CHAR(1) CHARACTER SET NONE,
+    ALU_MATERIAL CHAR(1) CHARACTER SET NONE,
+    VAL_01 NUMERIC(9,2),
+    DATA_01 DATE,
+    TP_01 SMALLINT,
+    VAL_02 NUMERIC(9,2),
+    DATA_02 DATE,
+    TP_02 SMALLINT,
+    VAL_03 NUMERIC(9,2),
+    DATA_03 DATE,
+    TP_03 SMALLINT,
+    VAL_04 NUMERIC(9,2),
+    DATA_04 DATE,
+    TP_04 SMALLINT,
+    VAL_05 NUMERIC(9,2),
+    DATA_05 DATE,
+    TP_05 SMALLINT,
+    VAL_06 NUMERIC(9,2),
+    DATA_06 DATE,
+    TP_06 SMALLINT,
+    VAL_07 NUMERIC(9,2),
+    DATA_07 DATE,
+    TP_07 SMALLINT,
+    VAL_08 NUMERIC(9,2),
+    DATA_08 DATE,
+    TP_08 SMALLINT,
+    VAL_09 NUMERIC(9,2),
+    DATA_09 DATE,
+    TP_09 SMALLINT,
+    VAL_10 NUMERIC(9,2),
+    DATA_10 DATE,
+    TP_10 SMALLINT,
+    VAL_11 NUMERIC(9,2),
+    DATA_11 DATE,
+    TP_11 SMALLINT,
+    VAL_12 NUMERIC(9,2),
+    DATA_12 DATE,
+    TP_12 SMALLINT)
+AS
+declare variable temp_val NUMERIC(9,2);
+declare variable temp_data DATE;
+declare variable temp_tp SMALLINT;
+declare variable temp_parc SMALLINT;
+declare variable temp_material SMALLINT;
+begin
+  for select CODIGO,CHAMADA,NOME,BOLSA,STATUS,MATERIAL
+    from ALUNOS
+    where SERIE = :Serie and TURMA = :Turma order by NOME
+    into :ALU_COD, :ALU_CHAMADA, :ALU_NOME, :ALU_BOLSA,
+         :ALU_STATUS, :TEMP_MATERIAL
+    do begin
+     if (Temp_Material = 0) then ALU_MATERIAL = 'N';
+      else ALU_MATERIAL = 'S';
+     VAL_01 = null;  VAL_02 = null;  VAL_03 = null;
+     VAL_04 = null;  VAL_05 = null;  VAL_06 = null;
+     VAL_07 = null;  VAL_08 = null;  VAL_09 = null;
+     VAL_10 = null;  VAL_11 = null;  VAL_12 = null;
+     DATA_01 = null;  DATA_02 = null;  DATA_03 = null;
+     DATA_04 = null;  DATA_05 = null;  DATA_06 = null;
+     DATA_07 = null;  DATA_08 = null;  DATA_09 = null;
+     DATA_10 = null;  DATA_11 = null;  DATA_12 = null;
+     TP_01 = null;  TP_02 = null;  TP_03 = null;
+     TP_04 = null;  TP_05 = null;  TP_06 = null;
+     TP_07 = null;  TP_08 = null;  TP_09 = null;
+     TP_10 = null;  TP_11 = null;  TP_12 = null;
+     for select VALOR_PAGO,PAGAMENTO,TIPO_PG,PARCELA
+       from BLOQUETOS where ALUNO = :Alu_Cod
+       into :temp_val, :temp_data, :temp_tp, :temp_parc
+       do begin
+       if (Temp_Parc = 01) then begin
+         VAL_01 = temp_val;  DATA_01 = temp_data;  TP_01 = temp_tp;
+       end
+       if (Temp_Parc = 02) then begin
+         VAL_02 = temp_val;  DATA_02 = temp_data;  TP_02 = temp_tp;
+       end
+       if (Temp_Parc = 03) then begin
+         VAL_03 = temp_val;  DATA_03 = temp_data;  TP_03 = temp_tp;
+       end
+       if (Temp_Parc = 04) then begin
+         VAL_04 = temp_val;  DATA_04 = temp_data;  TP_04 = temp_tp;
+       end
+       if (Temp_Parc = 05) then begin
+         VAL_05 = temp_val;  DATA_05 = temp_data;  TP_05 = temp_tp;
+       end
+       if (Temp_Parc = 06) then begin
+         VAL_06 = temp_val;  DATA_06 = temp_data;  TP_06 = temp_tp;
+       end
+       if (Temp_Parc = 07) then begin
+         VAL_07 = temp_val;  DATA_07 = temp_data;  TP_07 = temp_tp;
+       end
+       if (Temp_Parc = 08) then begin
+         VAL_08 = temp_val;  DATA_08 = temp_data;  TP_08 = temp_tp;
+       end
+       if (Temp_Parc = 09) then begin
+         VAL_09 = temp_val;  DATA_09 = temp_data;  TP_09 = temp_tp;
+       end
+       if (Temp_Parc = 10) then begin
+         VAL_10 = temp_val;  DATA_10 = temp_data;  TP_10 = temp_tp;
+       end
+       if (Temp_Parc = 11) then begin
+         VAL_11 = temp_val;  DATA_11 = temp_data;  TP_11 = temp_tp;
+       end
+       if (Temp_Parc = 12) then begin
+         VAL_12 = temp_val;  DATA_12 = temp_data;  TP_12 = temp_tp;
+       end
+     end
+     suspend;
+  end
+end
+
+^
+
+CREATE PROCEDURE MONTA_MAPA (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE)
+RETURNS (
+    AULA SMALLINT,
+    DISC1 CHAR(4) CHARACTER SET NONE,
+    DISC2 CHAR(4) CHARACTER SET NONE,
+    DISC3 CHAR(4) CHARACTER SET NONE,
+    DISC4 CHAR(4) CHARACTER SET NONE,
+    DISC5 CHAR(4) CHARACTER SET NONE,
+    DISC6 CHAR(4) CHARACTER SET NONE,
+    DISC7 CHAR(4) CHARACTER SET NONE)
+AS
+declare variable NOME_TEMP CHAR(4);
+declare variable DIA_TEMP SMALLINT;
+begin
+  AULA = 1;
+  while (AULA <=7) do begin
+      DISC1 = null;  DISC2 = null;  DISC3 = null;
+      DISC4 = null;  DISC5 = null;  DISC6 = null;
+      DISC7 = null;
+      for select M.DIA_SEMANA, D.NOME_RES from MAPA_AULA M
+        inner join DISCIPLINAS D on D.CODIGO = M.DIS_CODIGO
+        where M.TUR_SERIE = :serie and M.TUR_TURMA = :turma
+        and M.AULA = :aula
+        into :dia_temp, :nome_temp
+        do begin
+          if (DIA_TEMP = 1) then DISC1 = nome_temp;
+          if (DIA_TEMP = 2) then DISC2 = nome_temp;
+          if (DIA_TEMP = 3) then DISC3 = nome_temp;
+          if (DIA_TEMP = 4) then DISC4 = nome_temp;
+          if (DIA_TEMP = 5) then DISC5 = nome_temp;
+          if (DIA_TEMP = 6) then DISC6 = nome_temp;
+          if (DIA_TEMP = 7) then DISC7 = nome_temp;
+      end
+      suspend;
+      AULA = AULA + 1;
+  end
+end
+
+^
+
+CREATE PROCEDURE MONTA_MAPA_DIA (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    DIA SMALLINT)
+RETURNS (
+    AULA SMALLINT,
+    DIS_CODIGO INTEGER,
+    DIS_NOME_RES CHAR(4) CHARACTER SET NONE,
+    DIS_NOME VARCHAR(40) CHARACTER SET NONE,
+    SIT CHAR(1) CHARACTER SET NONE)
+AS
+begin
+  AULA = 1;
+  while (AULA <=7) do begin
+      DIS_CODIGO = null;
+      DIS_NOME_RES = null;
+      DIS_NOME = null;
+      for select M.DIS_CODIGO, D.NOME_RES, D.NOME from MAPA_AULA M
+        inner join DISCIPLINAS D on D.CODIGO = M.DIS_CODIGO
+        where M.TUR_SERIE = :serie and M.TUR_TURMA = :turma
+        and M.AULA = :aula and M.DIA_SEMANA = :dia
+        into :dis_codigo, :dis_nome_res, :dis_nome do begin
+        SIT = '.';
+        suspend;
+      end
+      AULA = AULA + 1;
+  end
+end
+
+^
+
+CREATE PROCEDURE NOTAS_TURMA (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    BIMESTRE SMALLINT,
+    TP SMALLINT)
+RETURNS (
+    ALU_COD INTEGER,
+    ALU_CHAMADA SMALLINT,
+    ALU_NOME VARCHAR(60) CHARACTER SET NONE,
+    N_01 NUMERIC(5,1),
+    N_02 NUMERIC(5,1),
+    N_03 NUMERIC(5,1),
+    N_04 NUMERIC(5,1),
+    N_05 NUMERIC(5,1),
+    N_06 NUMERIC(5,1),
+    N_07 NUMERIC(5,1),
+    N_08 NUMERIC(5,1),
+    N_09 NUMERIC(5,1),
+    N_10 NUMERIC(5,1),
+    N_11 NUMERIC(5,1),
+    N_12 NUMERIC(5,1),
+    N_13 NUMERIC(5,1),
+    N_14 NUMERIC(5,1),
+    N_15 NUMERIC(5,1))
+AS
+declare variable Seq_Cod INTEGER;
+declare variable Dis_Cod INTEGER;
+declare variable Nnota NUMERIC(5,1);
+declare variable Nrecupbim NUMERIC(5,1);
+begin
+  for select CODIGO,CHAMADA,NOME from ALUNOS
+    where SERIE = :Serie AND TURMA = :Turma
+    order by CHAMADA into :Alu_Cod,:Alu_Chamada,:Alu_Nome
+    do begin
+    N_01 = null; N_02 = null; N_03 = null; N_04 = null;
+    N_05 = null; N_06 = null; N_07 = null; N_08 = null;
+    N_09 = null; N_10 = null; N_11 = null; N_12 = null;
+    N_13 = null; N_14 = null; N_15 = null; Seq_Cod = 0;
+    while (Seq_Cod < 15) do begin
+      Seq_Cod = Seq_Cod + 1;
+      for select DISCIPLINA from GRADE
+        where SERIE = :Serie and TIPO <> 'OF'
+        and SEQUENCIA = :Seq_Cod
+        into :Dis_Cod   do begin
+        Nnota = null; Nrecupbim = 0;
+        select NOTA,RECUPBIM from NOTAS
+          where ALUNO = :Alu_Cod and DISCIPLINA = :Dis_Cod
+          and BIMESTRE = :Bimestre
+          into :Nnota, :Nrecupbim;
+        if (Nnota is not null) then
+          Nnota = Nnota * Bimestre;
+        /* Tp = 0 - Nota Bimestral */
+        /* Tp = 1 - Nota de Recuperação Bimestral */
+        /* Tp = 2 - Média Bimestral */
+        if (TP = 1) then Nnota = Nrecupbim;
+        if ((TP = 2) and (Nrecupbim is not null)) then
+          if (Nnota < Nrecupbim) then Nnota = Nrecupbim;
+        if (Seq_Cod = 01) then begin  N_01 = Nnota;  end
+        if (Seq_Cod = 02) then begin  N_02 = Nnota;  end
+        if (Seq_Cod = 03) then begin  N_03 = Nnota;  end
+        if (Seq_Cod = 04) then begin  N_04 = Nnota;  end
+        if (Seq_Cod = 05) then begin  N_05 = Nnota;  end
+        if (Seq_Cod = 06) then begin  N_06 = Nnota;  end
+        if (Seq_Cod = 07) then begin  N_07 = Nnota;  end
+        if (Seq_Cod = 08) then begin  N_08 = Nnota;  end
+        if (Seq_Cod = 09) then begin  N_09 = Nnota;  end
+        if (Seq_Cod = 10) then begin  N_10 = Nnota;  end
+        if (Seq_Cod = 11) then begin  N_11 = Nnota;  end
+        if (Seq_Cod = 12) then begin  N_12 = Nnota;  end
+        if (Seq_Cod = 13) then begin  N_13 = Nnota;  end
+        if (Seq_Cod = 14) then begin  N_14 = Nnota;  end
+        if (Seq_Cod = 15) then begin  N_15 = Nnota;  end
+      end
+    end
+    suspend;
+  end
+end
+
+^
+
+CREATE PROCEDURE VERIFICA_NOTAS (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    BIMESTRE SMALLINT,
+    DISCIPLINA INTEGER)
+AS
+declare variable Acodigo INTEGER;
+declare variable N_Aluno INTEGER;
+begin
+  for select CODIGO from ALUNOS where SERIE = :serie and
+    TURMA = :turma and STATUS = 'A'
+    order by codigo into :Acodigo do begin
+     N_Aluno = null;
+     select ALUNO from NOTAS
+        where ALUNO = :Acodigo and DISCIPLINA = :disciplina
+         and BIMESTRE = :bimestre into :N_Aluno;
+     if (N_Aluno is null) then
+        insert into NOTAS (ALUNO, DISCIPLINA, BIMESTRE)
+           values (:Acodigo, :disciplina, :bimestre);
+  end
+end
+
+^
+
+CREATE PROCEDURE VERIFICA_NOTAS_ALUNO (
+    A_CODIGO INTEGER,
+    BIMESTRE SMALLINT)
+AS
+declare variable A_Serie SMALLINT;
+declare variable A_Status CHAR;
+declare variable A_Disciplina INTEGER;
+declare variable N_Aluno INTEGER;
+begin
+  select SERIE,STATUS from ALUNOS where CODIGO = :A_Codigo
+    into A_Serie,A_Status;
+  if (A_Status = 'A') then begin
+    for select DISCIPLINA from GRADE
+      where SERIE = :A_Serie and TIPO <> 'OF'
+      into A_Disciplina do begin
+        N_Aluno = null;
+        select ALUNO from NOTAS where (ALUNO = :A_Codigo)
+          and (DISCIPLINA = :A_Disciplina)
+          and (BIMESTRE = :Bimestre) into N_Aluno;
+        if (N_Aluno is null) then
+          insert into NOTAS (ALUNO, DISCIPLINA, BIMESTRE)
+             values (:A_Codigo, :A_Disciplina, :Bimestre);
+    end
+  end
+end
+
+^
+
+
+SET TERM ; ^

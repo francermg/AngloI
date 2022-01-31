@@ -1,0 +1,79 @@
+CREATE PROCEDURE ATUALIZANOTA (
+    ecodigoprotocolo integer)
+as
+declare variable vprotocolo integer;
+declare variable vdisciplina integer;
+declare variable vserie integer;
+declare variable vturma char(1);
+declare variable vbimestre integer;
+declare variable valuno integer;
+declare variable vsetor char(1);
+declare variable vtiponota integer;
+declare variable vstatus char(1);
+declare variable vnovanota numeric(2,1);
+begin
+   select codigoprotocolo
+   from protocolo
+   where codigoprotocolo = :ecodigoprotocolo
+   into :vprotocolo;
+
+   update protocolo
+   set protocolo.dataatualiza = current_date
+   where protocolo.codigoprotocolo = :vprotocolo;
+
+   update pedidoalter
+   set pedidoalter.status = 'A'
+   where pedidoalter.protocolo = :vprotocolo;
+
+   for select disciplina,  serie, turma,  bimestre, aluno, setor, tiponota, status, novanota
+       from pedidoalter
+       where pedidoalter.protocolo = :vprotocolo
+       into :vdisciplina, :vserie, :vturma, :vbimestre, :valuno, :vsetor,  :vtiponota, :vstatus, :vnovanota
+   do
+
+   if (vtiponota=1) then
+   Begin
+       if (vsetor = 'A') then
+       Begin
+         Update notas
+         set nota1 = :vnovanota
+         where disciplina = :vdisciplina and bimestre = :vbimestre and aluno = :valuno;
+       end
+       if (vsetor = 'B') then
+       Begin
+         Update notas
+         set nota2 = :vnovanota
+         where disciplina = :vdisciplina and bimestre = :vbimestre and aluno = :valuno;
+       end
+       if (vsetor = 'C') then
+       Begin
+         Update notas
+         set nota3 = :vnovanota
+         where disciplina = :vdisciplina and bimestre = :vbimestre and aluno = :valuno;
+       end
+  end
+
+   if (vtiponota=2) then
+   Begin
+       if (vsetor = 'A') then
+       Begin
+         Update notas
+         set recupbim1 = :vnovanota
+         where disciplina = :vdisciplina and bimestre = :vbimestre and aluno = :valuno;
+       end
+       if (vsetor = 'B') then
+       Begin
+         Update notas
+         set recupbim2 = :vnovanota
+         where disciplina = :vdisciplina and bimestre = :vbimestre and aluno = :valuno;
+       end
+       if (vsetor = 'C') then
+       Begin
+         Update notas
+         set recupbim3 = :vnovanota
+         where disciplina = :vdisciplina and bimestre = :vbimestre and aluno = :valuno;
+       end
+  end
+  /* Procedure Text */
+  suspend;
+end

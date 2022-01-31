@@ -1,0 +1,4 @@
+select email, count(email) 
+from usuario 
+group by email 
+having count(email)>1

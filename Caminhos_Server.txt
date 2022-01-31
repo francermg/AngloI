@@ -1,0 +1,3 @@
+[database=servidor://home/francebd/Anglo/]
+
+dm2 = c:/Anglo/Usuarios.gdb

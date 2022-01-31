@@ -1,0 +1,4 @@
+alter table disciplinas
+add nome_ata_1 varchar(10),
+add nome_ata_2 varchar(10),
+add nome_ata_3 varchar(10)

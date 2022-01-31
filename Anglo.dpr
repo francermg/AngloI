@@ -1,0 +1,197 @@
+program Anglo;
+
+{%ToDo 'Anglo.todo'}
+
+uses
+  Forms,
+  VCLUtils,
+  UMenu in 'UMenu.pas' {Principal},
+  UcadParametros in 'UcadParametros.pas' {CadParametros},
+  UDM in 'UDM.pas' {DM: TDataModule},
+  Uflogin in 'Uflogin.pas' {flogin},
+  UCad_Alunos in 'UCad_Alunos.pas' {Cad_Alunos},
+  UFin_Proc_Bloq in 'UFin_Proc_Bloq.pas' {Fin_Proc_Bloq},
+  UFin_Imp_Bloq in 'UFin_Imp_Bloq.pas' {Fin_Imp_Bloq},
+  UCad_Disciplinas in 'UCad_Disciplinas.pas' {Cad_Disciplinas},
+  UFin_Baixa_Bloq in 'UFin_Baixa_Bloq.pas' {Fin_Baixa_Bloq},
+  URel_Mens_Recebidas in 'URel_Mens_Recebidas.pas' {Rel_Mens_Recebidas},
+  URel_QRMens_Recebidas in 'URel_QRMens_Recebidas.pas' {Rel_QRMens_Recebidas: TQuickRep},
+  URel_Mens_AReceber in 'URel_Mens_AReceber.pas' {Rel_Mens_AReceber},
+  URel_QRMens_AReceber in 'URel_QRMens_AReceber.pas' {Rel_QRMens_AReceber: TQuickRep},
+  UCad_Turmas in 'UCad_Turmas.pas' {Cad_Turmas},
+  UCad_Grade in 'UCad_Grade.pas' {Cad_Grade},
+  UMov_Notas in 'UMov_Notas.pas' {Mov_Notas},
+  UCad_MapaAula in 'UCad_MapaAula.pas' {Cad_MapaAula},
+  UDoc_Boletim in 'UDoc_Boletim.pas' {Doc_Boletim},
+  UDoc_Boletim_QR in 'UDoc_Boletim_QR.pas' {Doc_Boletim_QR: TQuickRep},
+  UDoc_BoletimR_QR in 'UDoc_BoletimR_QR.pas' {Doc_BoletimR_QR: TQuickRep},
+  UCad_MapaAulaAlt in 'UCad_MapaAulaAlt.pas' {Cad_MapaAulaAlt},
+  UMov_Frequencia in 'UMov_Frequencia.pas' {Mov_Frequencia},
+  UDoc_FichaInd in 'UDoc_FichaInd.pas' {Doc_FichaInd},
+  UDoc_FichaInd_QR in 'UDoc_FichaInd_QR.pas' {Doc_FichaInd_QR: TQuickRep},
+  UDoc_FichaIndR_QR in 'UDoc_FichaIndR_QR.pas' {Doc_FichaIndR_QR: TQuickRep},
+  UDoc_NotasBimestrais in 'UDoc_NotasBimestrais.pas' {Doc_NotasBimestrais},
+  UDoc_Notas_BimestraisQR in 'UDoc_Notas_BimestraisQR.pas' {Doc_Notas_BimestraisQR: TQuickRep},
+  UCad_Calendario in 'UCad_Calendario.pas' {Cad_Calendario},
+  UDoc_AluRecupQR in 'UDoc_AluRecupQR.pas' {Doc_AluRecupQR: TQuickRep},
+  UDoc_AluRecup in 'UDoc_AluRecup.pas' {Doc_AluRecup},
+  UFin_Mapa in 'UFin_Mapa.pas' {Fin_Mapa},
+  URel_QRMapa_Fin in 'URel_QRMapa_Fin.pas' {Rel_QRMapa_Fin: TQuickRep},
+  UMov_Frequencia_FaltasDia_QR in 'UMov_Frequencia_FaltasDia_QR.pas' {Mov_Frequencia_FaltasDia_QR: TQuickRep},
+  UMov_Frequencia_FaltasAluno_QR in 'UMov_Frequencia_FaltasAluno_QR.pas' {Mov_Frequencia_FaltasAluno_QR: TQuickRep},
+  UDoc_ContratoQR in 'UDoc_ContratoQR.pas' {Doc_ContratoQR: TQuickRep},
+  UDoc_RequerimentoQR in 'UDoc_RequerimentoQR.pas' {Doc_RequerimentoQR: TQuickRep},
+  UExtenso in 'UExtenso.pas',
+  USelecAno in 'USelecAno.pas' {SelecAno},
+  UDoc_ReciboQR in 'UDoc_ReciboQR.pas' {Doc_ReciboQR: TQuickRep},
+  UCad_Alunos_Ant in 'UCad_Alunos_Ant.pas' {Cad_Alunos_Ant},
+  UProc_ArqBanco in 'UProc_ArqBanco.pas' {Proc_ArqBanco},
+  ULst_Alunos in 'ULst_Alunos.pas' {Lst_Alunos},
+  ULst_AlunosQR in 'ULst_AlunosQR.pas' {Lst_AlunosQR: TQuickRep},
+  UDoc_Medias_Anuais in 'UDoc_Medias_Anuais.pas' {Doc_Medias_Anuais},
+  UDoc_Medias_AnuaisQR in 'UDoc_Medias_AnuaisQR.pas' {Doc_Medias_AnuaisQR: TQuickRep},
+  UDoc_HistoricoQR in 'UDoc_HistoricoQR.pas' {Doc_HistoricoQR: TQuickRep},
+  UDoc_CertificadoQR in 'UDoc_CertificadoQR.pas' {Doc_CertificadoQR: TQuickRep},
+  ULst_EstatisticaQR in 'ULst_EstatisticaQR.pas' {Lst_EstatisticaQR: TQuickRep},
+  ULst_Alunos2QR in 'ULst_Alunos2QR.pas' {Lst_Alunos2QR: TQuickRep},
+  UDoc_IRDeclQR in 'UDoc_IRDeclQR.pas' {Doc_IRDeclQR: TQuickRep},
+  ULst_Alunos3QR in 'ULst_Alunos3QR.pas' {Lst_Alunos3QR: TQuickRep},
+  UDoc_Ata in 'UDoc_Ata.pas' {Doc_Ata},
+  UDoc_AtaQR in 'UDoc_AtaQR.pas' {Doc_AtaQR: TQuickRep},
+  ULst_AlunosEtiqQR in 'ULst_AlunosEtiqQR.pas' {Lst_AlunosEtiqQR: TQuickRep},
+  UDoc_DiarioQR in 'UDoc_DiarioQR.pas' {Doc_DiarioQR: TQuickRep},
+  ULst_AlunosEtiq in 'ULst_AlunosEtiq.pas' {Lst_AlunosEtiq},
+  UDoc_Diario in 'UDoc_Diario.pas' {Doc_Diario},
+  ULst_EstatisticaTurQR in 'ULst_EstatisticaTurQR.pas' {Lst_EstatisticaTurQR: TQuickRep},
+  UBloquetoBrc in 'UBloquetoBrc.pas' {BloquetoBrc: TQuickRep},
+  UMov_Plantoes in 'UMov_Plantoes.pas' {Mov_Plantoes},
+  URel_QRMens_RecebidasRes in 'URel_QRMens_RecebidasRes.pas' {Rel_QRMens_RecebidasRes: TQuickRep},
+  ULst_Alunos4QR in 'ULst_Alunos4QR.pas' {Lst_Alunos4QR: TQuickRep},
+  UCad_AlunosFoto in 'UCad_AlunosFoto.pas' {Cad_AlunosFoto},
+  ULst_Alunos1QR in 'ULst_Alunos1QR.pas' {Lst_Alunos1QR: TQuickRep},
+  UMov_DiasLetivos in 'UMov_DiasLetivos.pas' {Mov_DiasLetivos},
+  UMov_Ocorrencias in 'UMov_Ocorrencias.pas' {Mov_Ocorrencias},
+  UMov_OcorrenciasQR in 'UMov_OcorrenciasQR.pas' {Mov_OcorrenciasQR: TQuickRep},
+  UDoc_MatLecionada in 'UDoc_MatLecionada.pas' {Doc_MatLecionada},
+  UDoc_MatLecionadaQR in 'UDoc_MatLecionadaQR.pas' {Doc_MatLecionadaQR: TQuickRep},
+  UDoc_ColecCanhotoQR in 'UDoc_ColecCanhotoQR.pas' {Doc_ColecCanhotoQR: TQuickRep},
+  UCad_Semi_Extensivo in 'UCad_Semi_Extensivo.pas' {Cad_Semi_Extensivo},
+  ULst_Alunos5QR in 'ULst_Alunos5QR.pas' {Lst_Alunos5QR: TQuickRep},
+  UDoc_ReqSemiQR in 'UDoc_ReqSemiQR.pas' {Doc_ReqSemiQR: TQuickRep},
+  UDoc_ContratoSemiQR in 'UDoc_ContratoSemiQR.pas' {Doc_ContratoSemiQR: TQuickRep},
+  UPuxaSemi in 'UPuxaSemi.pas' {PuxaSemi},
+  UDoc_ReciboSemiQR in 'UDoc_ReciboSemiQR.pas' {Doc_ReciboSemiQR: TQuickRep},
+  UBloquetoSemiGR in 'UBloquetoSemiGR.pas' {BloquetoSemiGR: TQuickRep},
+  UPagantesSemi in 'UPagantesSemi.pas' {QPagantesSemi: TQuickRep},
+  URel_QRMapa_Fin_Semi in 'URel_QRMapa_Fin_Semi.pas' {Rel_QRMapa_Fin_Semi: TQuickRep},
+  UDM2 in 'UDM2.pas' {DM2: TDataModule},
+  ULst_bolsas in 'ULst_bolsas.pas' {Lst_bolsas: TQuickRep},
+  UBolsas in 'UBolsas.pas' {Bolsas},
+  ULst_Alunos6QR in 'ULst_Alunos6QR.pas' {Lst_Alunos6QR: TQuickRep},
+  ULst_PaisEtiqQR in 'ULst_PaisEtiqQR.pas' {Lst_PaisEtiqQR: TQuickRep},
+  ULst_alunos_Notas in 'ULst_alunos_Notas.pas' {Lst_Alunos_Notas},
+  ULst_NotasQR in 'ULst_NotasQR.pas' {Lst_NotasQR: TQuickRep},
+  UFrmSplash in 'UFrmSplash.pas' {FrmSplash},
+  USenhaNotas in 'USenhaNotas.pas' {FSenhaNotas},
+  UDoc_RCarne in 'UDoc_RCarne.pas' {Doc_RCarne},
+  UDoc_RCarneQR in 'UDoc_RCarneQR.pas' {Doc_RCarneQR: TQuickRep},
+  ULst_Alunos7QR in 'ULst_Alunos7QR.pas' {Lst_Alunos7QR: TQuickRep},
+  UDoc_Alunos in 'UDoc_Alunos.pas' {Doc_Alunos},
+  UDoc_HistAlunosQR in 'UDoc_HistAlunosQR.pas' {Doc_HistAlunosQR: TQuickRep},
+  UDoc_CertAlunosQR in 'UDoc_CertAlunosQR.pas' {Doc_CertAlunosQR: TQuickRep},
+  UMov_ToleranciaQR in 'UMov_ToleranciaQR.pas' {Mov_ToleranciaQR: TQuickRep},
+  ULst_BolsaMQR in 'ULst_BolsaMQR.pas' {Lst_BolsaMQR: TQuickRep},
+  URel_QRMens_AReceberRes in 'URel_QRMens_AReceberRes.pas' {Rel_QRMens_AReceberRes: TQuickRep},
+  UDoc_AtaRec in 'UDoc_AtaRec.pas' {Doc_AtaRec},
+  UDoc_AtaRecQR in 'UDoc_AtaRecQR.pas' {Doc_AtaRecQR: TQuickRep},
+  UcomunicadoQ in 'UcomunicadoQ.pas' {comunicadoQ: TQuickRep},
+  UFin_Baixa_Recibo in 'UFin_Baixa_Recibo.pas' {Fin_Baixa_Recibo},
+  UDoc_Matricula in 'UDoc_Matricula.pas' {Doc_Matricula: TQuickRep},
+  Ucores in 'Ucores.pas' {fcores},
+  Uprofessores in 'Uprofessores.pas' {fprofessores},
+  Uformpropaganda in 'Uformpropaganda.pas' {fpropaganda},
+  UEti_Propaganda in 'UEti_Propaganda.pas' {Eti_Propaganda: TQuickRep},
+  Uend_cob in 'Uend_cob.pas' {fend_cob},
+  UmensaPNPQ in 'UmensaPNPQ.pas' {MensaPNPQ: TQuickRep},
+  UfrmmenRecNRec in 'UfrmmenRecNRec.pas' {frmREcNREc},
+  UDoc_Alu_3_Rec in 'UDoc_Alu_3_Rec.pas' {Doc_Alu_3_Rec: TQuickRep},
+  ULoginSenha in 'ULoginSenha.pas' {fsenhalogin},
+  Urelacaoprofsenha in 'Urelacaoprofsenha.pas' {frelacaoprofsenha},
+  Urelacaosenhapais in 'Urelacaosenhapais.pas' {frelacaosenhapais},
+  UManutencaoFrentes in 'UManutencaoFrentes.pas' {fmanutencaoFrentes},
+  u_print_bloqueto in 'u_print_bloqueto.pas' {fPrintBloqueto},
+  Usenhaprofessores in 'Usenhaprofessores.pas' {fsenhaprofessores},
+  Ucalendariodenotas in 'Ucalendariodenotas.pas' {fcalendariodenotas},
+  Ufichaprofessores in 'Ufichaprofessores.pas' {ffichadosprofessores},
+  ULst_senhaalunos in 'ULst_senhaalunos.pas' {Lst_senhaalunos},
+  ULst_LoginSenhaAluno in 'ULst_LoginSenhaAluno.pas' {Lst_LoginSenhaAluno},
+  USelecionaSerie in 'USelecionaSerie.pas' {fselecionaserie},
+  Uusuarios in 'Uusuarios.pas' {fusuarios},
+  Ufvisualizanotas in 'Ufvisualizanotas.pas' {fvisualizanota},
+  Ufoptaramporespanhol in 'Ufoptaramporespanhol.pas' {foptaramespanhol},
+  ULst_EnderecosAlunos in 'ULst_EnderecosAlunos.pas' {Lst_endereco},
+  UDoc_AtaQR_Ind in 'UDoc_AtaQR_Ind.pas' {Doc_AtaQR_Ind: TQuickRep},
+  UDoc_TermoCompromisso in 'UDoc_TermoCompromisso.pas' {Doc_TermoCompromisso},
+  URelFreqPlantoes in 'URelFreqPlantoes.pas' {Rel_Freq_Plantoes},
+  UCad_Ips in 'UCad_Ips.pas' {fCad_ips},
+  Umensagem in 'Umensagem.pas' {fmensagem},
+  Ufremessa in 'Ufremessa.pas' {fremesa},
+  UAtualizaDataHora in 'UAtualizaDataHora.pas' {fAtualizaDataHora},
+  Uhorarioplantao in 'Uhorarioplantao.pas' {fhorarioplantao},
+  Ucupom in 'Ucupom.pas' {fcupom},
+  UCad_orgaos in 'UCad_orgaos.pas' {fcad_orgaos},
+  UCadastroescola in 'UCadastroescola.pas' {fcadastroescola},
+  Uprematricula in 'Uprematricula.pas' {fprematricula},
+  Ufextratomensal in 'Ufextratomensal.pas' {fextratomensal},
+  UDoc_ContratoQR1 in 'UDoc_ContratoQR1.pas' {Doc_ContratoQR1: TQuickRep},
+  UDoc_ContratoQR2 in 'UDoc_ContratoQR2.pas' {Doc_ContratoQR2: TQuickRep},
+  UDoc_ContratoQR3 in 'UDoc_ContratoQR3.pas' {Doc_ContratoQR3: TQuickRep},
+  Ufparametrosbloqueto in 'Ufparametrosbloqueto.pas' {fparametrosbloqueto},
+  Ufautorizacao in 'Ufautorizacao.pas' {fautorizacao},
+  URel_Autoriza in 'URel_Autoriza.pas' {Rel_autoriza},
+  UHistorico_new in 'UHistorico_new.pas' {Doc_historico_new},
+  UArea_conhecimento in 'UArea_conhecimento.pas' {farea_conhecimento},
+  UMensalidadesR in 'UMensalidadesR.pas' {fRel_MensalidadesR},
+  UAproveitamento in 'UAproveitamento.pas' {faproveitamento},
+  USelectAproveitamento in 'USelectAproveitamento.pas' {fSelecAproveitamento},
+  Ufcadastrodocumentos in 'Ufcadastrodocumentos.pas' {fdocumentos},
+  USelecDoc in 'USelecDoc.pas' {fSelcDoc},
+  Ufdocumentos_rel in 'Ufdocumentos_rel.pas' {fDocumetos_rel},
+  UTermo_Resp in 'UTermo_Resp.pas' {Rel_TermoResp};
+
+{$R *.RES}
+
+
+begin
+  Application.Initialize;
+  FrmSplash := TFrmSplash.Create(Application);
+  FrmSplash.Show;
+  FrmSplash.Update;
+  FrmSplash.GSplash.MaxValue := 7;
+  Application.Title := 'Escola Anglo UNIGRAN';
+  Application.CreateForm(TDM, DM);
+  Application.CreateForm(TDM2, DM2);
+  Application.CreateForm(TPrincipal, Principal);
+  Application.CreateForm(Tflogin, flogin);
+  Application.CreateForm(TcomunicadoQ, comunicadoQ);
+  Application.CreateForm(TLst_endereco, Lst_endereco);
+  Application.CreateForm(TCadParametros, CadParametros);
+  Application.CreateForm(Tfusuarios, fusuarios);
+  Application.CreateForm(Tfhorarioplantao, fhorarioplantao);
+  Application.CreateForm(Tfprematricula, fprematricula);
+  Application.CreateForm(Tfextratomensal, fextratomensal);
+  Application.CreateForm(TRel_autoriza, Rel_autoriza);
+  Application.CreateForm(Tfautorizacao, fautorizacao);
+  FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
+  FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
+//  Application.CreateForm(TPrincipal, Principal);
+  FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
+
+  FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
+  Application.CreateForm(TLst_NotasQR, Lst_NotasQR);
+  FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
+  Application.CreateForm(TCadParametros, CadParametros);
+  Application.Run;
+end.
+
+

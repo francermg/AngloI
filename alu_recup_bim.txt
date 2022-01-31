@@ -1,0 +1,123 @@
+CREATE PROCEDURE ALU_RECUP_BIM (
+    serie smallint,
+    turma char(1),
+    bimestre smallint,
+    media numeric(4,1))
+returns (
+    alu_cod integer,
+    alu_chamada smallint,
+    alu_nome varchar(60),
+    n_01 varchar(6),
+    n_02 varchar(6),
+    n_03 varchar(6),
+    n_04 varchar(6),
+    n_05 varchar(6),
+    n_06 varchar(6),
+    n_07 varchar(6),
+    n_08 varchar(6),
+    n_09 varchar(6),
+    n_10 varchar(6),
+    n_11 varchar(6),
+    n_12 varchar(6),
+    n_13 varchar(6),
+    n_14 varchar(6),
+    n_15 varchar(6),
+    n_16 varchar(6),
+    n_17 varchar(6),
+    n_18 varchar(6),
+    n_19 varchar(6),
+    n_20 varchar(6))
+as
+declare variable seq_cod integer;
+declare variable dis_cod integer;
+declare variable dis_frentes integer;
+declare variable nnota numeric(4,1);
+declare variable nnota1 numeric(4,1);
+declare variable nnota2 numeric(4,1);
+declare variable nnota3 numeric(4,1);
+declare variable nnota4 numeric(4,1);
+declare variable nnota5 numeric(4,1);
+declare variable nnota6 numeric(4,1);
+declare variable nstat1 varchar(2);
+declare variable nstat2 varchar(2);
+declare variable nstat3 varchar(2);
+begin
+  for select CODIGO,CHAMADA,NOME from ALUNOS
+    where SERIE = :Serie AND TURMA = :Turma  AND Status = 'A'
+    order by CHAMADA into :Alu_Cod,:Alu_Chamada,:Alu_Nome
+    do begin
+    Seq_Cod = 0;
+    while (Seq_Cod < 20) do begin
+      Seq_Cod = Seq_Cod + 1;
+      for select G.DISCIPLINA,D.FRENTES from GRADE G
+        inner join DISCIPLINAS D on D.CODIGO = G.DISCIPLINA
+        where SERIE = :Serie and TIPO <> 'OF'
+        and SEQUENCIA = :Seq_Cod
+        into :Dis_Cod,:Dis_Frentes   do begin
+        select NOTA,NOTA1,NOTA2,NOTA3,NOTA4, NOTA5, NOTA6 from NOTAS
+          where ALUNO = :Alu_Cod and DISCIPLINA = :Dis_Cod
+          and BIMESTRE = :Bimestre
+          into :Nnota,:Nnota1,:Nnota2, NNota3, NNota4, NNota5, NNota6;
+        NStat1 = '';
+        NStat2 = '';
+        NStat3 = '';
+        if ((Dis_Frentes = 1) and (NNota3 is null) and (NNota2 is null)) then
+          if (Nnota < Media) then NStat1 = 'X';
+        if ((Dis_Frentes = 2) and (NNota3 = 0)) then
+        begin
+           if (NNota < Media) then
+           begin
+             if (NNota4 is null) then NNota4 = 0;
+             if (NNota5 is null) then NNota5 = 0;
+             if (NNota6 is null) then NNota6 = 0;
+           end
+        end
+
+          if (NNota2 is not null) then
+          begin
+             if (NNota < Media) then
+             begin
+               if (NNota4 is null) then  NNota4 = 0;
+               if (NNota5 is null) then  NNota5 = 0;
+               if (NNota6 is null) then  NNota6 = 0;
+             end
+          end
+
+            if (NNota3 is not null) then
+          begin
+             if (NNota < Media) then
+             begin
+               if (NNota4 is null) then  NNota4 = 0;
+               if (NNota5 is null) then  NNota5 = 0;
+               if (NNota6 is null) then  NNota6 = 0;
+             end
+          end
+
+        if ((NNota1 + NNota4 + NNota5 + NNota6) < Media) then NStat1 = 'F1';
+        if ((NNota2 + NNota4 + NNota5 + NNota6) < Media) then NStat2 = 'F2';
+        if ((NNota3 + NNota4 + NNota5 + NNota6) < Media) then NStat3 = 'F3';
+        if (Seq_Cod = 01) then N_01 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 02) then N_02 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 03) then N_03 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 04) then N_04 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 05) then N_05 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 06) then N_06 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 07) then N_07 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 08) then N_08 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 09) then N_09 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 10) then N_10 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 11) then N_11 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 12) then N_12 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 13) then N_13 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 14) then N_14 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 15) then N_15 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 16) then N_16 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 17) then N_17 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 18) then N_18 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 19) then N_19 = NStat1||NStat2||NStat3;
+        if (Seq_Cod = 20) then N_20 = NStat1||NStat2||NStat3;
+        end
+      end
+    suspend;
+  end
+end

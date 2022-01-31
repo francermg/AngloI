@@ -1,0 +1,3 @@
+select * 
+from Boletim
+(:serie,:turma,:n_ini,:n_fin,:tp_bol,:bimestre,:tp_nota,:media)

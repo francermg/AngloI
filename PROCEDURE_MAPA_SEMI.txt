@@ -1,0 +1,71 @@
+CREATE PROCEDURE MAPA_FIN_SEMI 
+RETURNS (
+    ALU_COD INTEGER,
+    ALU_NOME VARCHAR(60) CHARACTER SET NONE,
+    ALU_STATUS CHAR(1) CHARACTER SET NONE,
+    VAL_01 NUMERIC(9,2),
+    DATA_01 DATE,
+    VAL_02 NUMERIC(9,2),
+    DATA_02 DATE,
+    VAL_03 NUMERIC(9,2),
+    DATA_03 DATE,
+    VAL_04 NUMERIC(9,2),
+    DATA_04 DATE,
+    VAL_05 NUMERIC(9,2),
+    DATA_05 DATE,
+    REF_01 CHAR(20) CHARACTER SET NONE,
+    REF_02 CHAR(20) CHARACTER SET NONE,
+    REF_03 CHAR(20) CHARACTER SET NONE,
+    REF_04 CHAR(20) CHARACTER SET NONE,
+    REF_05 CHAR(20) CHARACTER SET NONE,
+    SIT_01 CHAR(5) CHARACTER SET NONE,
+    SIT_02 CHAR(5) CHARACTER SET NONE,
+    SIT_03 CHAR(5) CHARACTER SET NONE,
+    SIT_04 CHAR(5) CHARACTER SET NONE,
+    SIT_05 CHAR(5) CHARACTER SET NONE)
+AS
+DECLARE VARIABLE TEMP_PARC CHAR(20);
+DECLARE VARIABLE TEMP_VALOR NUMERIC(9,2);
+DECLARE VARIABLE TEMP_DATA DATE;
+DECLARE VARIABLE TEMP_SIT CHAR(5);
+begin
+  for select CODIGO,NOME,STATUS
+    from alunos_semi
+    order by NOME
+    into :ALU_COD,ALU_NOME,ALU_STATUS
+    do begin
+       VAL_01 = null; VAL_02 = null; VAL_03 = null;
+       VAL_05 = null; VAL_05 = null; DATA_01 = null;
+       DATA_02 = null; DATA_03 = null; DATA_04 = null;
+       DATA_05 = null; REF_01 = null; REF_02 = null;
+       REF_03 = null; REF_04 = null; REF_05 = null;
+       SIT_01 = null; SIT_02 = null; SIT_03 = null;
+       SIT_04 = null; SIT_05 = null;
+    for select VALOR,DATA,SITUACAO,PARCELA
+       from RECIBO where COD_ALUNOS_SEMI=:ALU_COD
+       into :temp_valor, :temp_data,:temp_sit, :temp_parc
+       do begin
+       if (temp_parc=1) then begin
+          VAL_01 = temp_valor; DATA_01=temp_data; REF_01=temp_parc;
+          SIT_01 = temp_sit;
+       end
+       if (temp_parc=2) then begin
+          VAL_02 = temp_valor; DATA_02=temp_data; REF_02=temp_parc;
+          SIT_02 = temp_sit;
+       end
+       if (temp_parc=3) then begin
+          VAL_03 = temp_valor; DATA_03=temp_data; REF_03=temp_parc;
+          SIT_03 = temp_sit;
+       end
+       if (temp_parc=4) then begin
+           VAL_04 = temp_valor; DATA_04=temp_data; REF_04=temp_parc;
+           SIT_04 = temp_sit;
+       end
+       if (temp_parc=5) then begin
+           VAL_05 = temp_valor; DATA_05=temp_data; REF_05=temp_parc;
+           SIT_05 = temp_sit;
+      end
+     end
+  suspend;
+ end
+end

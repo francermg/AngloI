@@ -1,0 +1,129 @@
+645 Acampamento
+001 Acesso
+002 Adro
+501 Aeroporto
+004 Alameda
+005 Alto 
+472 Area
+654 Area especial
+465 Arteria
+007 Atalho
+008 Avenida
+651 Avenida Contorno
+015 Baixa
+470 Balao
+009 Balneario
+011 Beco
+010 Belvedere
+012 Bloco
+013 Bosque
+014 Boulevard
+496 Buraco 
+016 Cais
+571 Calcada
+017 Caminho
+023 Campo
+495 Canal
+481 Chacara 
+019 Chapadao
+479 Circular
+021 Colonia
+503 Complexo ViArio
+485 Condominio
+020 Conjunto
+022 Corredor
+024 Corrego
+478 Descida
+027 Desvio
+028 Distrito
+468 Elevada
+573 Entrada particular
+652 Entre quadra
+030 Escada
+474 Esplanada
+032 Estacao
+564 Estacionamento
+033 Estadio
+498 Estancia
+031 Estrada
+650 Estrada municipal
+036 Favela
+037 Fazenda
+040 Feira 
+038 Ferrovia
+039 Fonte
+043 Forte
+045 Galeria
+046 Granja
+486 Habitacional
+050 Ilha
+052 Jardim
+473 Jardinete
+053 Ladeira
+499 Lago
+055 Lagoa
+054 Largo
+056 Loteamento
+477 Marina
+497 Modulo
+060 Monte
+059 Morro
+500 Nucleo
+067 Parada
+471 Paradouro
+062 Paralela
+072 Parque
+074 Passagem
+502 Passagem Subterranea
+073 Passarela
+063 Passeio
+064 Patio 
+483 Ponta
+076 Ponte
+469 Porto
+065 Praca
+504 Praca de esportes
+070 Praia
+071 Prolongamento
+077 Quadra
+079 Quinta
+475 Quintas
+082 Ramal
+482 Rampa
+087 Recanto
+487 Residencial
+089 Reta
+088 Retiro 
+091 Retorno 
+569 Rodo anel
+090 Rodovia
+506 Rotatoria
+476 Rotula
+081 Rua
+653 Rua de ligacao
+566 Rua de Pedestre 
+094 Servidao
+095 Setor
+092 Sitio
+096 Subida
+098 Terminal
+100 Travessa
+570 Travessa particular
+452 Trecho
+099 Trevo
+097 Trincheira
+567 Tunel
+480 Unidade
+565 Vala 
+106 Vale
+568 Variante
+453 Vereda
+101 Via
+572 Via de acesso
+484 Via de pedestre 
+505 Via Elevado
+646 Via expressa
+103 Viaduto
+105 Viela
+104 Vila
+108 Zigue-Zague

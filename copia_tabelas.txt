@@ -1,0 +1,9 @@
+INSERT INTO [Novo_Banco].CLIENTES
+  SELECT * FROM CLI_FOR WHERE TIPO = 'C';
+
+
+
+Para copiar alguns campos.
+
+INSERT INTO [novo_banco].CLIENTES (CODIGO, NOME)
+  SELECT CODIGO, NOME FROM CLI_FOR WHERE TIPO 'C';

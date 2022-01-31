@@ -1,0 +1,9 @@
+CREATE VIEW FALTAPRESENCA(
+    ALU_PRESENCA,
+    DATA,
+    HORA,
+    ALU_CODIGO)
+AS
+select distinct p.alu_presenca, p.data, p.hora, f.alu_codigo
+from PRESENCA P, FALTAS F
+WHERE p.alu_presenca=f.alu_codigo and p.data = f.data;

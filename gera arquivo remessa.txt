@@ -1,0 +1,318 @@
+procedure Tfremesa.btn3Click(Sender: TObject);
+var i, u_dia :Integer;
+    arq :TextFile;
+    nomeArq, aux, _aux, _aux2, _aux3, _aux4, NossoNumX     :string;
+    sql1, sql2, NossoNumXCompleto, cpf, w_emissao, w_valor :string;
+    y_valor, w_tipo, w_st, w_cep, w_desconto, w_desconto_ant, w_inst   :string;
+    ano, mes, dia, r_ano, r_mes, r_dia, edia, emes, eano :Word;
+
+begin
+w_inst:= ' ';
+sql1 := 'where (Blq.ALUNO = Alu.CODIGO) ';
+sql1 := sql1 + '   and (Blq.PARCELA >= :Parc1) and (Blq.PARCELA <= :Parc2) ';
+sql1 := sql1 + '   and (Blq.NOSSO_NUMERO >= :Bloq1) ';
+sql1 := sql1 + '   and (Blq.NOSSO_NUMERO <= :Bloq2)';
+sql1 := sql1 + '   and (Blq.ALUNO = :Aluno)';
+sql1 := sql1 + '   and (Alu.SERIE = :Serie)';
+sql1 := sql1 + '   and (Alu.TURMA = :Turma)   ';
+
+dm.Bloquetosq.SQL.Clear;
+
+sql2 := 'select Blq.*, Alu.CODIGO, Alu.NOME, Alu.FONE,';
+sql2 := sql2 + 'Alu.SERIE, Alu.TURMA, Alu.BOLSA, Alu.BOLSA_AD, Alu.sacado_cpf,';
+sql2 := sql2 + 'Alu.cep, Alu.sacado, Alu.endereco';
+sql2 := sql2 + ' from BLOQUETOS Blq join ALUNOS Alu on Blq.Aluno=Alu.codigo';
+sql2 := sql2 +  ' where Blq.ST = ''S''';
+sql2 := sql2 + 'order by Alu.CODIGO, Blq.PARCELA';
+
+dm.BloquetosQ.Close;
+dm.BloquetosQ.SQL.Add(sql2);
+dm.BloquetosQ.Open;
+
+
+if (rgSL.ItemIndex = 0) then
+begin
+  w_tipo := '01';
+  w_st := 'E';
+end;
+if (rgSL.ItemIndex = 1) then
+begin
+   w_tipo := '02';
+   w_st := 'B';
+end;
+
+if (rgSL.ItemIndex = 2) then w_tipo := '06';
+if (rgSL.ItemIndex = 3) then  w_tipo := '05';
+
+if (rgSL.ItemIndex = 4) then
+begin
+ w_tipo := '31';
+ w_inst := InputBox('Instrução','Digite a instrução que deseja alterar.','Instrução.');
+end;
+
+DecodeDate(Now, ano, mes, dia);
+DM2.iqParametros_B.Open;
+DecodeDate(dm2.iqParametros_BDATA_REMESSA.Value, r_ano, r_mes, r_dia);
+
+if (((ano<>r_ano) or (mes<>r_mes) or (dia<>r_dia)) or (dm2.iqParametros_BDATA_REMESSA.IsNull)) then
+    Begin
+  //    dm2.iqParametros_B.Open;
+      dm2.iqParametros_B.Edit;
+      dm2.iqParametros_BDATA_REMESSA.Value := Now;
+      dm2.iqParametros_BCONT_ARQ.Value := 1;
+      DM2.iqParametros_BCONT_REMESSA.Value := DM2.iqParametros_BCONT_REMESSA.Value + 1;
+      dm2.iqParametros_B.Post;
+    end
+  else  if (((ano=r_ano) or (mes=r_mes) or (dia=r_dia)) and (not dm2.iqParametros_BDATA_REMESSA.IsNull)) then
+    begin
+//      dm2.iqParametros_B.Open;
+      dm2.iqParametros_B.Edit;
+      dm2.iqParametros_BCONT_ARQ.Value := dm2.iqParametros_BCONT_ARQ.Value + 1;
+      DM2.iqParametros_BCONT_REMESSA.Value := DM2.iqParametros_BCONT_REMESSA.Value + 1;
+      dm2.iqParametros_B.Post;
+    end;
+
+
+  i := 2;
+  if not DirectoryExists('C:\Anglo\Remessa\'+IntToStr(ano)) then
+    Begin
+     ForceDirectories('C:\Anglo\Remessa\'+IntToStr(ano));
+     ShowMessage('Pasta C:\Anglo\Remessa\'+IntToStr(ano)+ ' criada com sucesso.');
+    end;
+
+
+    if (dm2.iqParametros_BCONT_ARQ.Value = 1) then  nomeArq := '26431'+ cod_mes(Now)+'.CRM'
+    Else nomeArq := '26431'+ cod_mes(Now)+'.RM'+ dm2.iqParametros_BCONT_ARQ.AsString;
+
+    dlgSave1.FileName := nomeArq;
+    dlgSave1.InitialDir := 'C:\Anglo\Remessa'+IntToStr(ano);
+    dlgSave1.Execute;
+
+
+    AssignFile(arq, nomeArq);
+    Rewrite(arq);
+//Header Label
+    aux := '0'+'1'+'REMESSA01COBRANCA       2643103361110000177                               748SICREDI        ';
+    _aux := FormatDateTime('YYYYMMDD',Now);
+    aux := aux + _aux + '        '+FormatFloat('0000000',dm2.iqParametros_BCONT_REMESSA.Value);
+    aux := aux+'                                                                                           '; //91
+    aux := aux+'                                                                                           '; //91
+    aux := aux+'                                                                                           '; //91
+    aux := aux + '2.00000001';
+    Writeln(arq,aux);
+//fim Header Label
+
+//Inicio Detalhe ******************************************************************************************************
+
+    begin
+      dm.BloquetosQ.Open;
+      dm.BloquetosQ.First;
+      while (not dm.BloquetosQ.Eof)  do
+      if (dm.BloquetosQST.Value = 'S') then
+      begin
+          _aux2 := FormatDateTime('YYYYMMDD',Now);
+
+          NossoNumX := DM.BloquetosQANO_DV.Value+'2'+FormatFloat('00000',DM.BloquetosQNOSSO_NUMERO.Value);
+          NossoNumXCompleto := '0903'+'02'+'26431'+NossoNumX;
+          NossoNumX := NossoNumX+DvMod11(NossoNumXCompleto);
+
+
+
+          DecodeDate(dm.BloquetosQVENCIMENTO.Value,ano,mes,dia);
+          u_dia := DaysPerMonth(ano,mes);
+//          _aux3:= IntToStr(u_dia)+FormatFloat('00',mes)+ Copy(IntToStr(ano),3,2);
+           if (mes = 2) then //se o mês for fevereiro a concessão de desconto vai para o dia 20
+               _aux3:= '20'+FormatFloat('00',mes)+ Copy(IntToStr(ano),3,2)
+               else
+                   _aux3:= '10'+FormatFloat('00',mes)+ Copy(IntToStr(ano),3,2);
+
+
+          _aux4 := IntToStr(dia)+FormatFloat('00',mes)+ Copy(IntToStr(ano),3,2);
+
+          DecodeDate(dm.BloquetosQEMISSAO.Value,eano,emes,edia);
+          w_emissao := FormatFloat('00',edia)+FormatFloat('00',(mes))+Copy(IntTostr(eano),3,2);
+          _aux := Copy(IntToStr(ano),3,2);
+
+
+          aux := '1AAA            AAB                            ';
+          //01 a 047
+
+          aux := aux+NossoNumX;
+          //048 a 056 Nosso número
+
+
+
+
+          w_cep := dm.BloquetosQCEP.AsString;
+          if dm.BloquetosQCEP.Value = '' then      w_cep := '79824900';
+          w_cep := StringReplace(w_cep,'.','',[rfReplaceAll]);
+          w_cep := StringReplace(w_cep,'-','',[rfReplaceAll]);
+          w_cep := StringReplace(w_cep,' ','',[rfReplaceAll]);
+          w_cep := Copy (w_cep,1,8);
+          w_cep := FormatFloat('00000000',StrToFloat(w_cep));
+
+
+
+          cpf:= dm.BloquetosQSACADO_CPF.AsString;
+          cpf := StringReplace(cpf,'.','',[rfReplaceAll]);
+          cpf := StringReplace(cpf,'-','',[rfReplaceAll]);
+          cpf := StringReplace(cpf,' ','',[rfReplaceAll]);
+          cpf := FormatFloat('00000000000000',StrToFloat(cpf));
+
+
+          w_valor := FloatToStrf(dm.BloquetosQVALOR.Value,ffCurrency,9,2);
+          w_valor := StringReplace(w_valor, ',','',[rfReplaceAll]);
+          w_valor := StringReplace(w_valor, 'R$','',[rfReplaceAll]);
+          w_valor := FormatFloat('0000000000000',StrToInt(w_valor));
+
+       {  w_desconto := FloatToStrf(dm.BloquetosQDESCONTO.Value,ffCurrency,9,2); //Pega o valor da bolsa mas se a bolsa for de 100% w_desconto fica 0(zero)
+          w_desconto := StringReplace(w_desconto,'.','',[rfReplaceAll]);
+          w_desconto := StringReplace(w_desconto, ',','',[rfReplaceAll]);
+          w_desconto := StringReplace(w_desconto, 'R$','',[rfReplaceAll]);
+          w_desconto := FormatFloat('0000000000000',StrToInt(w_desconto));
+
+          if ((dm.AlunosBOLSA.Value = 100) or (w_desconto > w_valor)) then //Se a bolsa for integral, o valor do desconto para o banco é 0(zero)}
+//              w_desconto := '0000000000000'; {Não manda com desconto, pq se não ele ainda rezur sobre o valor na rede sicredi}
+
+
+{          y_valor := dm.BloquetosQVALOR_ANT.AsString;
+          y_valor := StringReplace(y_valor, ',','',[rfReplaceAll]);
+          y_valor := FormatFloat('0000000000',StrToInt(y_valor));}
+          y_valor := '0000000000';
+
+          w_desconto_ant := FormatFloat('#,,0.00',dm.BloquetosQDESCONTO_ANT.Value);
+          w_desconto_ant := StringReplace(w_desconto_ant, ',','',[rfReplaceAll]);
+          w_desconto_ant := FormatFloat('0000000000000',StrToInt(w_desconto_ant));
+
+
+          aux := aux + '      ';
+          //Filler 057 a 062
+
+          aux:= aux + _aux2;
+          //Data da instrução 063 a 070
+
+          aux:= aux + w_inst;
+          //campo alterado quando instrução 31
+
+          aux := aux + 'N B';
+          //072 a 074
+
+          aux := aux + FormatFloat('00',dm.BloquetosPARCELA.Value);
+          //075 a 076 número da parcela do carnê
+
+          aux := aux + FormatFloat('00',dm.BloquetosTP.Value);
+          //077 a 078 Número total de parcelas do carnê
+
+          aux := aux +'    ';
+          //079 a 082 Filler
+
+          aux := aux + y_valor;
+          //083 a 092 Valor de desconto por dia de antecipação
+
+          aux := aux + '0002            ';
+          //093 a 096 % multa por pagamento em atraso
+          //097 a 108 Filler
+
+          aux := aux + w_tipo;
+          //109 a 110 Instrução
+
+          aux := aux +FormatFloat('0000000000',dm.BloquetosQNOSSO_NUMERO.Value);
+          //111 a 120 Seu número
+
+          aux := aux + _aux4;
+          //121 a 126 Data de vencimento
+
+          aux := aux + w_valor;
+          //127 a 139 Valor do titulo
+
+          aux := aux+'         KS';
+          //140 a 148 Filler; 149 a 149 espécie do documento; 150 a 150 Aceite do título
+
+          aux := aux+w_emissao;
+          //151 a 156 Data da emissão
+
+          aux := aux + '00000000000000001';
+          //157 a 158 Instrução de protesto automáticao; 159 a 160 Número de dias protesto automático
+          //161 a 173 Valor de juros por dias de atraso
+
+          aux := aux +_aux3;
+          //174 a 179 Data limite para concessão de desconto
+
+          aux := aux + w_desconto_ant +'0000000000000';
+          //180 a 192 Valor do desconto  coloque o campo desconto_ant que é o desconto para pagar até o dia 10
+          //193 a 205 Filler
+
+          aux := aux + '0000000000000' + '1';
+          //206 a 218 Valor do abatimento
+          //219 a 219 Tipo de pessoa do pagador 1-PJ ou 2-PF
+
+          aux := aux +'0';
+          //220 a 220 Filler
+
+          aux := aux + cpf;
+          //221 a 234 cpf ou cnpj do pagador
+
+          aux := aux+RemoveAcento(inEspaco(DM.BloquetosQSACADO.AsString,40));
+          //235 a 274 Nome do pagador
+
+
+          aux := aux+RemoveAcento(inEspaco(dm.BloquetosQENDERECO.Value,40));
+          //275 a 314 Endereço do pagador
+
+          aux := aux+'00000000000 '+w_cep;
+          //315 a 319 Código fo pagador na cooperativa beneficiário
+          //320 a 325 Filler
+          //326 a 326 Filler
+          //327 a 334 CEP do pagador
+
+          aux := aux + '00000';
+          //335 a 339 código do pagador junto ao cliente
+
+          aux := aux+inEspaco('',55);
+          //340 a 353 CPF ou CNPJ do avalista
+          //354 a 394 Nome do sacador avalista
+
+          aux:=aux+formatfloat('000000',i);
+          //395 a 340 Número sequencial do registro
+
+          dm.Bloquetos.Close;
+          dm.Bloquetos.SelectSQL[2] := 'where nosso_numero = :bnossonumero';
+          dm.Bloquetos.Params[0].Value := dm.BloquetosQNosso_Numero.value;
+          dm.Bloquetos.Open;
+          if not (dm.BloquetosNOSSO_NUMERO.IsNull) then
+          begin
+            dm.Bloquetos.Edit;
+            dm.BloquetosST.Value := 'E';
+            dm.Bloquetos.Post;
+          end;
+          writeln(arq,aux);
+          inc(i);
+          dm.BloquetosQ.Next;
+        end
+        else //Fim se igua a S
+        dm.BloquetosQ.Next;
+      end;
+        aux := '9174826431';
+        aux := aux + '                                                   ';
+        aux := aux + '                                                   ';
+        aux := aux + '                                                   ';
+        aux := aux + '                                                   ';
+        aux := aux + '                                                   ';
+        aux := aux + '                                                   ';
+        aux := aux + '                                                                              ';
+        aux := aux + FormatFloat('000000',i);
+        Writeln(arq,aux);
+        CloseFile(arq);
+end; //Fim item index
+
+//Fim Detalhe ***********************************************************
+
+{  01 Cadastro de titulos
+   02 Pedido de baixa
+   04 Concessão de Abatimento
+   05 Cancelamento de Abatimento Concedido
+   06 Alteração de Venciento
+   09 Pedido de Protesto
+   18 Sustar protesto e baixar titulo
+   19 Sustar em protesto e manter em carteira
+   31 Alteração de outros dados}

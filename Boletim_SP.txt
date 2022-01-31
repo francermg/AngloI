@@ -1,0 +1,243 @@
+CREATE PROCEDURE BOLETIM (
+    SERIE SMALLINT,
+    TURMA CHAR(1) CHARACTER SET NONE,
+    NOME_INI VARCHAR(60) CHARACTER SET NONE,
+    NOME_FIN VARCHAR(60) CHARACTER SET NONE,
+    TP_BOL CHAR(1) CHARACTER SET NONE,
+    BIMESTRE SMALLINT,
+    TP_NOTA SMALLINT,
+    MEDIA NUMERIC(4,1))
+RETURNS (
+    COD_ALU INTEGER,
+    NOME VARCHAR(60) CHARACTER SET NONE,
+    CHAMADA SMALLINT,
+    SEXO CHAR(1) CHARACTER SET NONE,
+    DIS_NOME VARCHAR(40) CHARACTER SET NONE,
+    N1 NUMERIC(5,1),
+    N2 NUMERIC(5,1),
+    N3 NUMERIC(5,1),
+    N4 NUMERIC(5,1),
+    F1 SMALLINT,
+    F2 SMALLINT,
+    F3 SMALLINT,
+    F4 SMALLINT,
+    TOT_F SMALLINT,
+    MEDIA_ANUAL NUMERIC(4,1),
+    EXAME NUMERIC(4,1),
+    MEDIA_FINAL NUMERIC(4,1),
+    ACIMA_MEDIA CHAR(1) CHARACTER SET NONE,
+    MB NUMERIC(5,2),
+    MT SMALLINT,
+    PD INTEGER,
+    AR NUMERIC(4,1))
+AS
+DECLARE VARIABLE PROCESSAALUNO CHAR(1);
+DECLARE VARIABLE ACODIGO INTEGER;
+DECLARE VARIABLE DIS_COD SMALLINT;
+DECLARE VARIABLE NBIM SMALLINT;
+DECLARE VARIABLE NNOTA NUMERIC(5,2);
+DECLARE VARIABLE NRECUP NUMERIC(5,2);
+DECLARE VARIABLE DTINI DATE;
+DECLARE VARIABLE DTFIM DATE;
+DECLARE VARIABLE FQTDADE INTEGER;
+DECLARE VARIABLE FTOT INTEGER;
+DECLARE VARIABLE CONT INTEGER;
+DECLARE VARIABLE MEDIABRUTA NUMERIC(5,2);
+DECLARE VARIABLE MEDIATRUNC SMALLINT;
+DECLARE VARIABLE PARTEDEC INTEGER;
+DECLARE VARIABLE ARREDONDA NUMERIC(4,1);
+DECLARE VARIABLE NAUX1 NUMERIC(5,1);
+DECLARE VARIABLE NAUX2 NUMERIC(5,1);
+DECLARE VARIABLE NAUX3 NUMERIC(5,1);
+DECLARE VARIABLE NAUX4 NUMERIC(5,1);
+DECLARE VARIABLE NAUX5 NUMERIC(5,2);
+DECLARE VARIABLE NAUX6 NUMERIC(5,2);
+DECLARE VARIABLE NAUX7 NUMERIC(5,2);
+DECLARE VARIABLE SNOTA1 NUMERIC(5,2);
+DECLARE VARIABLE SNOTA2 NUMERIC(5,2);
+DECLARE VARIABLE SNOTA3 NUMERIC(5,2);
+DECLARE VARIABLE SNOTA4 NUMERIC(5,2);
+DECLARE VARIABLE NREC NUMERIC(5,2);
+begin
+  for select CODIGO, NOME, CHAMADA, SEXO from ALUNOS
+    where SERIE = :serie and TURMA =:turma and NOME >=:nome_ini and STATUS = 'A'
+    and NOME <= :nome_fin
+    order by NOME into :Acodigo, :Nome, :Chamada, :Sexo
+    do begin
+    Cod_Alu = Acodigo;
+    Cont = 0;
+    ProcessaAluno = 'S';
+    select max(NOTA) from NOTAS
+      where ALUNO = :Acodigo and BIMESTRE = :Bimestre
+      and NOTA < :Media into :Nnota;
+    /* Tp_Nota = 0 - TODAS */
+    /* Tp_Nota = 1 - Acima da Média */
+    /* Tp_Nota = 2 - Abaixo da Média */
+    /* Tp_Nota = 3 - Exame Final */
+    if ((Tp_Nota = 1) and (Nnota is not null)) then
+      ProcessaAluno = 'N';
+    if ((Tp_Nota = 2) and (Nnota is null)) then
+      ProcessaAluno = 'N';
+    if (Tp_Nota = 3) then begin
+       select max(NOTA) from NOTAS
+         where ALUNO = :Acodigo and BIMESTRE = 5
+         into :Nnota;
+       if (Nnota is null) then ProcessaAluno = 'N';
+    end
+    if (ProcessaAluno = 'S') then begin
+       for select G.DISCIPLINA, D.NOME from GRADE G
+         join DISCIPLINAS D on D.CODIGO = G.DISCIPLINA
+         where SERIE = :serie and
+            ((:Tp_Bol = 'B' and G.TIPO <> 'OF') or
+             (:Tp_Bol = 'F' and G.TIPO <> 'NO'))
+         order by SEQUENCIA into :Dis_Cod, :Dis_Nome
+         do begin
+         N1 = null; N2 = null; N3 = null; N4 = null;
+         EXAME = null; MEDIA_FINAL = null;
+         for select BIMESTRE, NOTA, RECUPBIM, Nota4, Nota5, Nota6 from NOTAS
+           where ALUNO = :Acodigo and DISCIPLINA = :Dis_Cod
+           into :Nbim, :Nnota, :Nrecup, :Naux7, :Naux5, :Naux6
+           do begin
+           if (serie = 3) then /* para alunos do 3º ano */
+           begin
+             if (Naux7 is null) then Naux7 = 0;
+             if (Naux6 is null) then Naux6 = 0;
+             if (Naux5 is null) then Naux5 = 0;
+             if ((Nbim = 1) or (Nbim = 3)) then
+             begin
+              if (Nbim = 1) then begin
+                  N1 = :Nnota;
+                  Naux1 =  :Nnota;
+                  SNota1 = (:Naux7 + :Naux5 + :Naux6);
+               end
+              if (Nbim = 3) then begin
+                  N3 = :Nnota;
+                  Naux3 =  :Nnota;
+                  SNota3 = (:Naux7 + :Naux5 + :Naux6);
+               end
+            end
+             if ((Nbim = 2) or (Nbim = 4)) then
+             begin
+              if (Nbim = 2) then begin
+               N2 = :Nnota;
+               Naux2 = :Nnota;
+               SNota2 = (:Naux7 + :Naux5 + :Naux6);
+               Nrec = (:Nrecup - :Naux7 - :Naux5 - :Naux6);
+              end
+              if (Nbim = 4) then begin
+               N4 = :Nnota;
+               Naux4 = :Nnota;
+               SNota4 = (:Naux7 + :Naux5 + :Naux6);
+               Nrec = (:Nrecup - :Naux7 - :Naux5 - :Naux6);
+              end
+             end
+             if ((N1 < Naux2) and (Nrec > N1)) then N1 =  (Nrec + SNota1);
+             if ((N2 < Naux1) and (Nrec > N2)) then N2 = (Nrec + SNota2);
+             if ((N3 < Naux4) and (Nrec > N3)) then N3 = (Nrec + SNota3);
+             if ((N4 < Naux3) and (Nrec > N4)) then N4 = (Nrec + SNota4);
+             if (Nbim = 5) then EXAME = Nnota;
+             Naux7 = 0; Naux6 = 0; Naux5 = 0;
+            end    /* do for - NOTAS Fim alunos 3º ano*/
+           else
+           begin
+            if (serie <> 3) then /* para alunos do 3º ano */
+            if (Nrecup is not null) then
+            if (Nrecup > Nnota) then Nnota = Nrecup;
+            if (Nbim = 1) then N1 = Nnota;
+            if (Nbim = 2) then N2 = Nnota;
+            if (Nbim = 3) then N3 = Nnota;
+            if (Nbim = 4) then N4 = Nnota;
+            if (Nbim = 5) then EXAME = Nnota;
+           end
+         end    /* do for - NOTAS */
+         Ftot = 0;
+         Tot_F = null;
+         F1 = null; F2 = null; F3 = null; F4 = null;
+         for select CODIGO,INICIO,FIM from BIMESTRES
+           into :Nbim, :DtIni, :DtFim do begin
+           select sum(QTDADE) from FALTAS
+             where DATA >= :DtIni and DATA <= :DtFim
+             and DIS_CODIGO = :Dis_Cod and ALU_CODIGO = :Acodigo
+             PLAN (FALTAS INDEX (FALTAS_IDX2))
+             into :Fqtdade;
+           if (Nbim = 1) then F1 = Fqtdade;
+           if (Nbim = 2) then F2 = Fqtdade;
+           if (Nbim = 3) then F3 = Fqtdade;
+           if (Nbim = 4) then F4 = Fqtdade;
+           if (Fqtdade is not null) then Ftot = Ftot + Fqtdade;
+         end    /* do for - FALTAS */
+         if (Ftot <> 0) then Tot_F = Ftot;
+         Nnota = 0;
+         Nbim = 0;
+         if (N1 is not null) then begin
+           Nnota = Nnota + (N1*1);
+           Nbim = Nbim + 1;
+         end
+         if (N2 is not null) then begin
+           Nnota = Nnota + (N2*2);
+           Nbim = Nbim + 2;
+/*           N2 = N2 * 2; */
+         end
+         if (N3 is not null) then begin
+           Nnota = Nnota + (N3*3);
+           Nbim = Nbim + 3;
+/*           N3 = N3 * 3; */
+         end
+         if (N4 is not null) then begin
+           Nnota = Nnota + (N4*4);
+           Nbim = Nbim + 4;
+/*           N4 = N4 * 4; */
+         end
+         Media_Anual = null;
+         MediaBruta = null;
+         if (Nbim <> 0) then MediaBruta = Nnota / Nbim;
+         MediaTrunc = MediaBruta;
+         ParteDec = (MediaBruta - MediaTrunc) * 100;
+         if (ParteDec > -25 and ParteDec <= 25) then Arredonda = 0;
+         if (ParteDec = 50) then Arredonda = 0;
+         if (ParteDec > 25 and ParteDec < 50) then Arredonda = 0.5;
+         if (ParteDec >  -50 and ParteDec <= -25) then Arredonda = 0;
+         if (ParteDec >= -50 and ParteDec < -25) then Arredonda = -0.5;
+         Media_Anual = MediaTrunc + Arredonda;
+         MB = MediaBruta;
+         MT = MediaTrunc;
+         PD = ParteDec;
+         Ar = Arredonda;
+         Acima_Media = '';
+         if (Media_Anual is not null) then
+           if (Media_Anual < Media) then Acima_Media = 'N';
+            else Acima_Media = 'S';
+         if (Nbim = 10) then Media_Final = Media_Anual;
+         /* Quando o Aluno tem nota de Exame */
+         if (EXAME is not null) then begin
+           MediaBruta = Media_Anual + EXAME;
+           if ((MediaBruta >= 9.5) and (Acima_Media = 'N')) then Acima_Media = 'S';
+           if ((MediaBruta < 9.5) and (Acima_Media = 'S')) then  Acima_Media = 'N';
+           MediaBruta = MediaBruta / 2;
+           MediaTrunc = MediaBruta;
+           ParteDec = (MediaBruta - MediaTrunc) * 100;
+           if (ParteDec > -25 and ParteDec <= 25) then Arredonda = 0;
+           if (ParteDec = 50) then Arredonda = 0;
+           if (ParteDec > 25 and ParteDec < 50) then Arredonda = 0.5;
+           if (ParteDec >  -50 and ParteDec <= -25) then Arredonda = 0;
+           if (ParteDec >= -50 and ParteDec < -25) then Arredonda = -0.5;
+           Media_Final = MediaTrunc + Arredonda;
+         end
+         suspend;
+         Cont = Cont + 1;
+       end    /* do for - DISCIPLINAS */
+    end    /* do if (Processa_Aluno = 'S') */
+    if (TP_BOL = 'F') then begin
+      DIS_NOME = null;
+      N1 = null; N2 = null; N3 = null; N4 = null;
+      F1 = null; F2 = null; F3 = null; F4 = null;
+      TOT_F = null; MEDIA_ANUAL = null;
+      EXAME = null; MEDIA_FINAL = null;
+      Acima_Media = '';
+      while (Cont < 25) do begin
+        suspend;
+        Cont = Cont + 1;
+      end    /* do While Cont */
+    end    /* do if - TP_BOL */
+  end    /* do for - ALUNOS */
+end
