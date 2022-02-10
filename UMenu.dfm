@@ -1,6 +1,6 @@
 object Principal: TPrincipal
-  Left = 255
-  Top = 204
+  Left = 77
+  Top = 99
   Width = 1225
   Height = 533
   VertScrollBar.Position = 67

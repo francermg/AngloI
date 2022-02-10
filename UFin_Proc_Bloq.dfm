@@ -97,6 +97,7 @@ object Fin_Proc_Bloq: TFin_Proc_Bloq
     Top = 48
     Width = 89
     Height = 25
+    Cursor = crHandPoint
     Caption = 'Processa'
     Enabled = False
     TabOrder = 1
