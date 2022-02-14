@@ -6,10 +6,13 @@ object DM: TDM
   Height = 703
   Width = 1508
   object DB_ANGLO: TIBDatabase
-    DatabaseName = ':'
+    Connected = True
+    DatabaseName = 'anglo:/bds/Anglo/Anglo_2020.gdb'
     Params.Strings = (
       'lc_ctype=WIN1252'
-      '')
+      ''
+      'user_name=SYSDBA'
+      'password=plkh%321')
     LoginPrompt = False
     DefaultTransaction = IBTr_ANGLO
     IdleTimer = 0
@@ -20,7 +23,7 @@ object DM: TDM
     Top = 1
   end
   object IBTr_ANGLO: TIBTransaction
-    Active = False
+    Active = True
     DefaultDatabase = DB_ANGLO
     DefaultAction = TACommitRetaining
     Params.Strings = (
@@ -1641,26 +1644,27 @@ object DM: TDM
       '  NOSSO_NUMERO = :OLD_NOSSO_NUMERO')
     InsertSQL.Strings = (
       'insert into BLOQUETOS'
-      '  (NOSSO_NUMERO, ALUNO, PARCELA, EMISSAO, VENCIMENTO, VALOR, '
-      'PAGAMENTO, '
+      
+        '  (NOSSO_NUMERO, ALUNO, PARCELA, EMISSAO, VENCIMENTO, VALOR, PAG' +
+        'AMENTO, '
       
         '   VALOR_PAGO, MENSALIDADE, MATERIAL, DESCONTO, TIPO_PG, ANO_DV,' +
-        ' '
-      'DESCONTO_ANT, '
-      '   MENSALIDADE_ANT, VALOR_ANT, BAULA_AD, ST, TP, MOTIVO, '
-      'DATA_LIMITE, NEGOCIACAO)'
+        ' DESCONTO_ANT, '
+      
+        '   MENSALIDADE_ANT, VALOR_ANT, BAULA_AD, ST, TP, MOTIVO, DATA_LI' +
+        'MITE, NEGOCIACAO, '
+      '   TDIAS)'
       'values'
       
         '  (:NOSSO_NUMERO, :ALUNO, :PARCELA, :EMISSAO, :VENCIMENTO, :VALO' +
-        'R, '
-      ':PAGAMENTO, '
-      '   :VALOR_PAGO, :MENSALIDADE, :MATERIAL, :DESCONTO, :TIPO_PG, '
-      ':ANO_DV, '
+        'R, :PAGAMENTO, '
+      
+        '   :VALOR_PAGO, :MENSALIDADE, :MATERIAL, :DESCONTO, :TIPO_PG, :A' +
+        'NO_DV, '
       
         '   :DESCONTO_ANT, :MENSALIDADE_ANT, :VALOR_ANT, :BAULA_AD, :ST, ' +
-        ':TP, '
-      ':MOTIVO, '
-      '   :DATA_LIMITE, :NEGOCIACAO)')
+        ':TP, :MOTIVO, '
+      '   :DATA_LIMITE, :NEGOCIACAO, :TDIAS)')
     RefreshSQL.Strings = (
       'Select '
       '  NOSSO_NUMERO,'
@@ -1684,7 +1688,8 @@ object DM: TDM
       '  TP,'
       '  MOTIVO,'
       '  DATA_LIMITE,'
-      '  NEGOCIACAO'
+      '  NEGOCIACAO,'
+      '  TDIAS'
       'from BLOQUETOS '
       'where'
       '  NOSSO_NUMERO = :NOSSO_NUMERO')
@@ -1717,7 +1722,8 @@ object DM: TDM
       '  TP = :TP,'
       '  MOTIVO = :MOTIVO,'
       '  DATA_LIMITE = :DATA_LIMITE,'
-      '  NEGOCIACAO = :NEGOCIACAO'
+      '  NEGOCIACAO = :NEGOCIACAO,'
+      '  TDIAS = :TDIAS'
       'where'
       '  NOSSO_NUMERO = :OLD_NOSSO_NUMERO')
     GeneratorField.ApplyEvent = gamOnPost
@@ -1844,6 +1850,10 @@ object DM: TDM
     object BloquetosNEGOCIACAO: TIntegerField
       FieldName = 'NEGOCIACAO'
       Origin = '"BLOQUETOS"."NEGOCIACAO"'
+    end
+    object BloquetosTDIAS: TIntegerField
+      FieldName = 'TDIAS'
+      Origin = '"BLOQUETOS"."TDIAS"'
     end
   end
   object dsBloquetosQ: TDataSource

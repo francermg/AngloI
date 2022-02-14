@@ -3163,4 +3163,133 @@ object DM2: TDM2
       Size = 50
     end
   end
+  object DsBoletosReprocesso: TDataSource
+    DataSet = QBoletosReprocesso
+    Left = 552
+    Top = 568
+  end
+  object QBoletosReprocesso: TIBQuery
+    Database = DM.DB_ANGLO
+    Transaction = DM.IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'Select *'
+      'From bloquetos'
+      'Where ST = '#39'R'#39)
+    Left = 656
+    Top = 568
+    object QBoletosReprocessoNOSSO_NUMERO: TIntegerField
+      FieldName = 'NOSSO_NUMERO'
+      Origin = '"BLOQUETOS"."NOSSO_NUMERO"'
+      Required = True
+    end
+    object QBoletosReprocessoALUNO: TIntegerField
+      FieldName = 'ALUNO'
+      Origin = '"BLOQUETOS"."ALUNO"'
+    end
+    object QBoletosReprocessoPARCELA: TSmallintField
+      FieldName = 'PARCELA'
+      Origin = '"BLOQUETOS"."PARCELA"'
+    end
+    object QBoletosReprocessoEMISSAO: TDateField
+      FieldName = 'EMISSAO'
+      Origin = '"BLOQUETOS"."EMISSAO"'
+    end
+    object QBoletosReprocessoVENCIMENTO: TDateField
+      FieldName = 'VENCIMENTO'
+      Origin = '"BLOQUETOS"."VENCIMENTO"'
+    end
+    object QBoletosReprocessoVALOR: TIBBCDField
+      FieldName = 'VALOR'
+      Origin = '"BLOQUETOS"."VALOR"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoPAGAMENTO: TDateField
+      FieldName = 'PAGAMENTO'
+      Origin = '"BLOQUETOS"."PAGAMENTO"'
+    end
+    object QBoletosReprocessoVALOR_PAGO: TIBBCDField
+      FieldName = 'VALOR_PAGO'
+      Origin = '"BLOQUETOS"."VALOR_PAGO"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoMENSALIDADE: TIBBCDField
+      FieldName = 'MENSALIDADE'
+      Origin = '"BLOQUETOS"."MENSALIDADE"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoMATERIAL: TIBBCDField
+      FieldName = 'MATERIAL'
+      Origin = '"BLOQUETOS"."MATERIAL"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoDESCONTO: TIBBCDField
+      FieldName = 'DESCONTO'
+      Origin = '"BLOQUETOS"."DESCONTO"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoTIPO_PG: TSmallintField
+      FieldName = 'TIPO_PG'
+      Origin = '"BLOQUETOS"."TIPO_PG"'
+    end
+    object QBoletosReprocessoANO_DV: TIBStringField
+      FieldName = 'ANO_DV'
+      Origin = '"BLOQUETOS"."ANO_DV"'
+      FixedChar = True
+      Size = 2
+    end
+    object QBoletosReprocessoDESCONTO_ANT: TIBBCDField
+      FieldName = 'DESCONTO_ANT'
+      Origin = '"BLOQUETOS"."DESCONTO_ANT"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoMENSALIDADE_ANT: TIBBCDField
+      FieldName = 'MENSALIDADE_ANT'
+      Origin = '"BLOQUETOS"."MENSALIDADE_ANT"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoVALOR_ANT: TIBBCDField
+      FieldName = 'VALOR_ANT'
+      Origin = '"BLOQUETOS"."VALOR_ANT"'
+      Precision = 9
+      Size = 2
+    end
+    object QBoletosReprocessoBAULA_AD: TIBStringField
+      FieldName = 'BAULA_AD'
+      Origin = '"BLOQUETOS"."BAULA_AD"'
+      FixedChar = True
+      Size = 1
+    end
+    object QBoletosReprocessoST: TIBStringField
+      FieldName = 'ST'
+      Origin = '"BLOQUETOS"."ST"'
+      FixedChar = True
+      Size = 1
+    end
+    object QBoletosReprocessoTP: TIntegerField
+      FieldName = 'TP'
+      Origin = '"BLOQUETOS"."TP"'
+    end
+    object QBoletosReprocessoMOTIVO: TIBStringField
+      FieldName = 'MOTIVO'
+      Origin = '"BLOQUETOS"."MOTIVO"'
+      Size = 150
+    end
+    object QBoletosReprocessoDATA_LIMITE: TDateField
+      FieldName = 'DATA_LIMITE'
+      Origin = '"BLOQUETOS"."DATA_LIMITE"'
+    end
+    object QBoletosReprocessoNEGOCIACAO: TIntegerField
+      FieldName = 'NEGOCIACAO'
+      Origin = '"BLOQUETOS"."NEGOCIACAO"'
+    end
+  end
 end

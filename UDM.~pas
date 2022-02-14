@@ -1238,6 +1238,7 @@ type
     AlunosCPF: TIBStringField;
     AlunosINTINERARIO: TIntegerField;
     AlunosCEP: TIBStringField;
+    BloquetosTDIAS: TIntegerField;
     procedure BloquetosQCalcFields(DataSet: TDataSet);
     procedure TurmasNewRecord(DataSet: TDataSet);
     procedure GradeNewRecord(DataSet: TDataSet);

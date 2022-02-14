@@ -391,7 +391,6 @@ type
     UltimaParcela: TIBQuery;
     Ds_UltimaParcela: TDataSource;
     UltimaParcelaTOTAL: TSmallintField;
-    BitBtn6: TBitBtn;
     DBEdit53: TDBEdit;
     Label110: TLabel;
     BitBtn7: TBitBtn;
@@ -528,6 +527,7 @@ type
     AlunosAntEMAIL_ALUNO: TIBStringField;
     AlunosAntEMAIL_MAE: TIBStringField;
     BitBtn9: TBitBtn;
+    Breprocessa: TBitBtn;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
@@ -618,11 +618,12 @@ type
     procedure Button5Click(Sender: TObject);
     procedure btngerarClick(Sender: TObject);
     procedure Button7Click(Sender: TObject);
-    procedure BitBtn6Click(Sender: TObject);
     procedure BitBtn7Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
     procedure BitBtn8Click(Sender: TObject);
     procedure BitBtn9Click(Sender: TObject);
+    procedure RxDBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
   private
    { Private declarations }
     procedure AtualizaSitFin;
@@ -664,7 +665,8 @@ uses UDM, URel_QRFicha_Ocorrencia, UDoc_ContratoQR, UDoc_RequerimentoQR,
   UEtiq_SPQR, Urelacaosenhapais, UDoc_ContratoSemiQR, UDoc_TermoCompromisso,
   Umensagem, UCad_orgaos, UCadastroescola, Uprematricula, UDoc_ContratoQR1,
   UDoc_ContratoQR2, UDoc_ContratoQR3, Ufparametrosbloqueto, Ufautorizacao,
-  UTermo_Resp, USelectAproveitamento, USelecDoc, UHistorico_new;
+  USelectAproveitamento, USelecDoc, UHistorico_new, Uprocedimentos, UTermo_resp;
+
 
 {$R *.DFM}
 
@@ -2055,7 +2057,7 @@ end;
 
 procedure TCad_Alunos.RxDBGrid1DblClick(Sender: TObject);
 begin
-if Application.MessageBox('Deseja mudar o status do boleto para negociado','Título',MB_YESNO + MB_ICONQUESTION) = IdYes then
+if Application.MessageBox('Deseja mudar o status do boleto para reprocesso','Título',MB_YESNO + MB_ICONQUESTION) = IdYes then
  begin
    dm.Bloquetos.Close;
    dm.Bloquetos.SelectSQL.Clear;
@@ -2065,17 +2067,17 @@ if Application.MessageBox('Deseja mudar o status do boleto para negociado','Títu
    dm.Bloquetos.Params[0].Value := DM.BloquetosQNOSSO_NUMERO.Value;
    dm.Bloquetos.Open;
    dm.Bloquetos.Edit;
-   dm.BloquetosST.Value := 'N';
+   dm.BloquetosST.Value := 'R';
    dm.Bloquetos.Post;
    dm.BloquetosQ.close;
    dm.BloquetosQ.Open;
-   dm.Bloquetos.Close;
+{   dm.Bloquetos.Close;
    dm.Bloquetos.SelectSQL.Clear;
    dm.Bloquetos.SelectSQL.Add  ('select *');
    dm.Bloquetos.SelectSQL.Add  ('from BLOQUETOS');
    dm.Bloquetos.SelectSQL.Add  ('where NOSSO_NUMERO > 0');
    dm.Bloquetos.SelectSQL.Add  ('order by NOSSO_NUMERO');
-   dm.Bloquetos.Open;
+   dm.Bloquetos.Open;}
  end else
    Begin
    dm.Bloquetos.Close;
@@ -2086,17 +2088,17 @@ if Application.MessageBox('Deseja mudar o status do boleto para negociado','Títu
    dm.Bloquetos.Params[0].Value := DM.BloquetosQNOSSO_NUMERO.Value;
    dm.Bloquetos.Open;
    dm.Bloquetos.Edit;
-   dm.BloquetosST.Value := 'E';
+   dm.BloquetosST.Value := dm.BloquetosBAULA_AD.Value;
    dm.Bloquetos.Post;
    dm.BloquetosQ.close;
    dm.BloquetosQ.Open;
-   dm.Bloquetos.Close;
+  { dm.Bloquetos.Close;
    dm.Bloquetos.SelectSQL.Clear;
    dm.Bloquetos.SelectSQL.Add  ('select *');
    dm.Bloquetos.SelectSQL.Add  ('from BLOQUETOS');
    dm.Bloquetos.SelectSQL.Add  ('where NOSSO_NUMERO > 0');
    dm.Bloquetos.SelectSQL.Add  ('order by NOSSO_NUMERO');
-   dm.Bloquetos.Open;
+   dm.Bloquetos.Open;}
   end;
 end;
 
@@ -2190,17 +2192,11 @@ begin
 end;
 
 procedure TCad_Alunos.btngerarClick(Sender: TObject);
-var w_sql1, w_sql2, w_sql3, w_aluno :string;
 begin
-{w_aluno := dm.AlunosCODIGO.AsString;
-w_sql1 := 'update bloquetos ';
-w_sql2 := 'set st = ''S'' ';
-w_sql3 :=  'where aluno = '+ w_aluno + ' and pagamento is null';}
-
   if MessageDlg('Deseja Gerar Bloquetos do Aluno ?' + #13 + dm.AlunosNome.asstring, mtConfirmation, mbOKCancel, 0) = mrOK then begin
     begin
       DM.Alunos.Edit;
-      DM.AlunosBLOQUETO_1SEM.Value := 1;
+      DM.AlunosBLOQUETO_1SEM.Value := 0;
       DM.Alunos.Post;
     end;
   end;
@@ -2230,20 +2226,6 @@ begin
    Button6.Enabled := False;
    Button7.Enabled := False;
 
-end;
-
-procedure TCad_Alunos.BitBtn6Click(Sender: TObject);
-begin
-  if MessageDlg('Deseja reprocessar Bloquetos do Aluno ?' + #13 + dm.AlunosNome.asstring, mtConfirmation, mbOKCancel, 0) = mrOK then begin
-    if (DM.AlunosBLOQUETO_1SEM.Value = 10) then
-    begin
-    DM.Alunos.Edit;
-    DM.AlunosBLOQUETO_1SEM.Value := 2;
-    DM.Alunos.Post;
-    end;
-    if dm.AlunosBLOQUETO_1SEM.Value = 0 then
-    ShowMessage('Esse boleto ainda não existe ele não pode ser reprocessado!!!');
-    end;
 end;
 
 procedure TCad_Alunos.BitBtn7Click(Sender: TObject);
@@ -2306,6 +2288,21 @@ case RadioGroup1.ItemIndex of
        End;
 End;
 
+end;
+
+procedure TCad_Alunos.RxDBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+  Try
+   if dm.BloquetosQST.Value = 'R' then
+      RxDBGrid1.Canvas.Font.Color := clRed
+      else
+      RxDBGrid1.Canvas.Font.Color := clBlack;
+   Except;
+  end;
+  RxDBGrid1.Canvas.FillRect(Rect);
+  RxDBGrid1.DefaultDataCellDraw(Rect,Column.Field,State);
 end;
 
 end.

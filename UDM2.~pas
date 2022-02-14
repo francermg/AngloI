@@ -564,6 +564,8 @@ type
     iqDoc_relDOCUMENTO: TIBStringField;
     iqAluDocCOD_DOC: TIntegerField;
     iqRequerimentoCEP: TIBStringField;
+    DataSource1: TDataSource;
+    IBQuery1: TIBQuery;
     procedure DBUsuarioAfterConnect(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
   private

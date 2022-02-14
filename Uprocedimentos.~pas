@@ -1,0 +1,51 @@
+unit Uprocedimentos;
+
+interface
+
+uses
+  SysUtils, DB, UDM, UDM2, UCad_Alunos, DateUtil;
+
+
+Procedure BCopia;
+//Procedure RBoletos;
+
+implementation
+
+Procedure BCopia;
+Begin
+     DM2.QBoletosReprocesso.Close;
+     DM2.QBoletosReprocesso.Open;
+     DM2.QBoletosReprocesso.First;
+     while not DM2.QBoletosReprocesso.Eof do
+     Begin
+       dm.Bloquetos_Delete.Open;
+       dm.Bloquetos_Delete.Insert;
+       dm.Bloquetos_DeleteNOSSO_NUMERO.Value := dm2.QBoletosReprocessoNOSSO_NUMERO.Value;
+       dm.Bloquetos_DeleteALUNO.Value   := dm2.QBoletosReprocessoALUNO.Value;
+       dm.Bloquetos_DeletePARCELA.Value := dm2.QBoletosReprocessoPARCELA.Value;
+       dm.Bloquetos_DeleteEMISSAO.Value := dm2.QBoletosReprocessoEMISSAO.Value;
+       dm.Bloquetos_DeleteVENCIMENTO.Value := dm2.QBoletosReprocessoVENCIMENTO.Value;
+       dm.Bloquetos_DeleteVALOR.Value  := dm2.QBoletosReprocessoVALOR.Value;
+       dm.Bloquetos_DeletePAGAMENTO.Value := dm2.QBoletosReprocessoPAGAMENTO.Value;
+       dm.Bloquetos_DeleteVALOR_PAGO.Value := dm2.QBoletosReprocessoVALOR_PAGO.Value;
+       dm.Bloquetos_DeleteMENSALIDADE.Value  := dm2.QBoletosReprocessoMENSALIDADE.Value;
+       dm.Bloquetos_DeleteMATERIAL.Value := dm2.QBoletosReprocessoMATERIAL.Value;
+       dm.Bloquetos_DeleteDESCONTO.Value := dm2.QBoletosReprocessoDESCONTO.Value;
+       dm.Bloquetos_DeleteTIPO_PG.Value  := dm2.QBoletosReprocessoTIPO_PG.Value;
+       dm.Bloquetos_DeleteANO_DV.Value  := dm2.QBoletosReprocessoANO_DV.Value;
+       dm.Bloquetos_DeleteDESCONTO_ANT.Value := dm2.QBoletosReprocessoDESCONTO_ANT.Value;
+       dm.Bloquetos_DeleteMENSALIDADE_ANT.Value := dm2.QBoletosReprocessoMENSALIDADE_ANT.Value;
+       dm.Bloquetos_DeleteVALOR_ANT.Value := dm2.QBoletosReprocessoVALOR_ANT.Value;
+       dm.Bloquetos_DeleteBAULA_AD.Value := dm2.QBoletosReprocessoBAULA_AD.Value;
+       dm.Bloquetos_DeleteST.Value := 'D';
+       dm.Bloquetos_DeleteTP.Value := dm2.QBoletosReprocessoTP.Value;
+       dm.Bloquetos_DeleteMOTIVO.Value  := dm2.QBoletosReprocessoMOTIVO.Value;
+       dm.Bloquetos_DeleteDATA_LIMITE.Value := dm2.QBoletosReprocessoDATA_LIMITE.Value;
+       DM2.QBoletosReprocesso.Next;
+   end;
+   if dm.Bloquetos_Delete.State in [dsEdit, dsInsert] then
+   dm.Bloquetos_Delete.Post;
+End;
+
+
+end.

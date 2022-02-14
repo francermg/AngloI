@@ -249,7 +249,6 @@ Begin
          desconto :=  ((mensalidade * dm.ParametrosREAJUSTE_3.Value)/100)
      else
          desconto := ((mensalidade * dm.AlunosBOLSA.Value)/100);
-         inc(cont_adic); //para contar quantos boletos foram adicionados
 
 {       if ((dm.AlunosBLOQUETO_1SEM.Value = 1) and (dm.AlunosBOLSA.Value <> 100)) then
        Begin
@@ -265,8 +264,11 @@ Begin
               parc_ini :=  UltimaParcelaTOTAL.Value + 1;    //Coloca a última parcela
            end;}
 
-  if ((dm.AlunosBOLSA.Value <> 100) and (dm.AlunosSTATUS.Value = 'A')) then
+  if dm.AlunosBLOQUETO_1SEM.Value = 0 then
+      Showmessage('Aluno: '+ dm.AlunosNOME.Value);         
+  if ((dm.AlunosBOLSA.Value <> 100) and (dm.AlunosBLOQUETO_1SEM.Value = 0)) then
   Begin
+                inc(cont_adic); //para contar quantos boletos foram adicionados
                 for i := 1 to  11 do
                 begin
                     dm2.sql_gen.Active := True;
@@ -297,14 +299,22 @@ Begin
                     DM.BloquetosDESCONTO_ANT.Value := desc_bolsa;
                     DM.BloquetosVALOR.Value := mensalidade;      //Valor normal mais o material menos o desconto
                     DM.BloquetosVALOR_ANT.Value := valor0;  //Valor com a pontualidade mais o material
-                    dm.BloquetosTP.Value := 12;
+                    dm.BloquetosTP.Value := 11;
                     DM.BloquetosST.Value := 'G'; //Coloca a situação ST sento S, para os bloquetos criados
 
-                    if (mesc = 2) then
-                      DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, mesc,20) //Data limite para pagamento de pontualidade do mês de fevereiro
-                      else
-                       DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, mesc,10); //Data limite para pagamento de pontualidade demais meses.
 
+                    if (mesc = 2) then
+                    Begin
+                      DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, mesc,20); //Data limite para pagamento de pontualidade do mês de fevereiro
+                      if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 1 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 1);
+                      if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 7 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 2)
+                    end
+                      else
+                      Begin
+                       DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, mesc,10); //Data limite para pagamento de pontualidade demais meses.
+                       if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 1 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 1);
+                       if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 7 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 2)
+                      end;
 
                       if dm.Bloquetos.State in [dsInsert, dsEdit] then
                       dm.Bloquetos.Post;
@@ -313,7 +323,7 @@ Begin
                     inc(parc_ini);
                     //if mesc > 12 then mesc := 1;
                  end; //fim for
-   end;              
+   end;
                    if dm.Bloquetos.State in [dsInsert, dsEdit] then   dm.Bloquetos.Post
                    else    DM.Alunos.Edit;
 

@@ -564,6 +564,30 @@ type
     iqDoc_relDOCUMENTO: TIBStringField;
     iqAluDocCOD_DOC: TIntegerField;
     iqRequerimentoCEP: TIBStringField;
+    DsBoletosReprocesso: TDataSource;
+    QBoletosReprocesso: TIBQuery;
+    QBoletosReprocessoNOSSO_NUMERO: TIntegerField;
+    QBoletosReprocessoALUNO: TIntegerField;
+    QBoletosReprocessoPARCELA: TSmallintField;
+    QBoletosReprocessoEMISSAO: TDateField;
+    QBoletosReprocessoVENCIMENTO: TDateField;
+    QBoletosReprocessoVALOR: TIBBCDField;
+    QBoletosReprocessoPAGAMENTO: TDateField;
+    QBoletosReprocessoVALOR_PAGO: TIBBCDField;
+    QBoletosReprocessoMENSALIDADE: TIBBCDField;
+    QBoletosReprocessoMATERIAL: TIBBCDField;
+    QBoletosReprocessoDESCONTO: TIBBCDField;
+    QBoletosReprocessoTIPO_PG: TSmallintField;
+    QBoletosReprocessoANO_DV: TIBStringField;
+    QBoletosReprocessoDESCONTO_ANT: TIBBCDField;
+    QBoletosReprocessoMENSALIDADE_ANT: TIBBCDField;
+    QBoletosReprocessoVALOR_ANT: TIBBCDField;
+    QBoletosReprocessoBAULA_AD: TIBStringField;
+    QBoletosReprocessoST: TIBStringField;
+    QBoletosReprocessoTP: TIntegerField;
+    QBoletosReprocessoMOTIVO: TIBStringField;
+    QBoletosReprocessoDATA_LIMITE: TDateField;
+    QBoletosReprocessoNEGOCIACAO: TIntegerField;
     procedure DBUsuarioAfterConnect(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
   private
@@ -597,7 +621,7 @@ end;
 procedure TDM2.DataModuleCreate(Sender: TObject);
 begin
 //***********************Para conexão com o servidor****************************
-  {
+
   DBUsuario.Close;
   DBUsuario.Params.Clear;
   DBUsuario.Params.Add('user_name=SYSDBA');
@@ -607,9 +631,9 @@ begin
   DBUsuario.Open;
   DBUsuario.Connected := True;
   TSUsuario.Active := True;
-  }
-//***************************Para conexão com o banco de dados LOCAL************
 
+//***************************Para conexão com o banco de dados LOCAL************
+  {
   DBUsuario.Close;
   DBUsuario.Params.Clear;
   DBUsuario.Params.Add('user_name=SYSDBA');
@@ -619,7 +643,7 @@ begin
   DBUsuario.Open;
   DBUsuario.Connected := True;
   TSUsuario.Active := True;
-  
+  }
 end;
 
 end.

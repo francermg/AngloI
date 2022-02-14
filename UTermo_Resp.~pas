@@ -1,0 +1,60 @@
+unit UTermo_Resp;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
+  RLReport, jpeg;
+
+type
+  TRel_TermoResp = class(TForm)
+    Rl_Termo: TRLReport;
+    Cabeca: TRLBand;
+    RLLabel2: TRLLabel;
+    RLLabel1: TRLLabel;
+    Logo: TRLImage;
+    Texto: TRLMemo;
+    RLMemo1: TRLMemo;
+    RLSystemInfo1: TRLSystemInfo;
+    RLLabel6: TRLLabel;
+    RLDraw3: TRLDraw;
+    RLDraw2: TRLDraw;
+    RLLabel5: TRLLabel;
+    RLDraw1: TRLDraw;
+    procedure CabecaBeforePrint(Sender: TObject; var PrintIt: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Rel_TermoResp: TRel_TermoResp;
+
+implementation
+
+uses UDM;
+
+{$R *.DFM}
+
+procedure TRel_TermoResp.CabecaBeforePrint(Sender: TObject;
+  var PrintIt: Boolean);
+  var Txt0  :String;
+begin
+Txt0 := 'Eu, {SACADO} portador do CPF Nº. {CPF}, RG Nº {RG}, responsável pelo (a) estudante {ESTUDANTE},';
+Txt0 := Txt0 + 'regularmente matriculado (a) na {SERIE}ª série "{TURMA}" do COLÉGIO UNIGRAN - UNIDADE II, no ano letivo de 2022,';
+Txt0 := Txt0 + ' DECLARO, para os devidos fins, que estou ciente de que todas as obrigações do cumprimento ';
+Txt0 := Txt0 + 'das atividades escolares serão ofertadas na modalidade PRESENCIAL (aulas, simulados, tarefas, provas ';
+Txt0 := Txt0 + 'bimestrais, recuperações e exames), tendo em vista a natureza do conteúdo programático e da técnica pedagógica ';
+Txt0 := Txt0 + 'que se fizerem necessários. A modalidade presencial admite um percentual de até 20% ofertados a distância, ';
+Txt0 := Txt0 + 'na realização dos componentes curriculares, desde que previstas no Projeto Político Pedagógico e na forma da Lei 13.415/2017.';
+Txt0 := StringReplace(Txt0, '{SACADO}', DM.AlunosSACADO.Value, [rfReplaceAll]);
+Txt0 := StringReplace(Txt0, '{CPF}', DM.AlunosSACADO_CPF.Value, [rfReplaceAll]);
+Txt0 := StringReplace(Txt0, '{RG}', DM.AlunosSACADO_RG.Value, [rfReplaceAll]);
+Txt0 := StringReplace(Txt0, '{ESTUDANTE}', DM.AlunosNOME.Value, [rfReplaceAll]);
+Txt0 := StringReplace(Txt0, '{SERIE}', DM.AlunosSERIE.AsString, [rfReplaceAll]);
+Txt0 := StringReplace(Txt0, '{TURMA}', DM.AlunosTURMA.Value, [rfReplaceAll]);
+Texto.Lines.Text := Txt0;
+end;
+
+end.

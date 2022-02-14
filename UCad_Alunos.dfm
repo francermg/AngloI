@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab1
+    ActivePage = Tab4
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -2331,12 +2331,13 @@ object Cad_Alunos: TCad_Alunos
       end
       object BitBtn3: TBitBtn
         Left = 656
-        Top = 446
+        Top = 454
         Width = 217
         Height = 23
         Cursor = crHandPoint
         Caption = 'Reprocessar Bloqueto(Parcela)'
         TabOrder = 2
+        Visible = False
         OnClick = BitBtn3Click
       end
       object BitBtn4: TBitBtn
@@ -2448,16 +2449,6 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 6
         Visible = False
         OnClick = btnExportClick
-      end
-      object BitBtn6: TBitBtn
-        Left = 656
-        Top = 470
-        Width = 217
-        Height = 22
-        Cursor = crHandPoint
-        Caption = 'Reprocessar Bloquetos'
-        TabOrder = 7
-        OnClick = BitBtn6Click
       end
     end
     object Tab4: TTabSheet
@@ -2602,6 +2593,7 @@ object Cad_Alunos: TCad_Alunos
         TitleFont.Height = -11
         TitleFont.Name = 'Verdana'
         TitleFont.Style = []
+        OnDrawColumnCell = RxDBGrid1DrawColumnCell
         OnDblClick = RxDBGrid1DblClick
         Columns = <
           item
@@ -2704,6 +2696,15 @@ object Cad_Alunos: TCad_Alunos
         LookupSource = DM.dsAlunos
         TabOrder = 1
         OnChange = PesqAluno2Change
+      end
+      object Breprocessa: TBitBtn
+        Left = 800
+        Top = 504
+        Width = 177
+        Height = 25
+        Caption = 'Reprocessar'
+        TabOrder = 2
+        OnClick = BreprocessaClick
       end
     end
     object Tab5: TTabSheet
@@ -3896,8 +3897,8 @@ object Cad_Alunos: TCad_Alunos
     OnClick = OrdemClick
   end
   object BitBtn5: TBitBtn
-    Left = 775
-    Top = 512
+    Left = 799
+    Top = 499
     Width = 128
     Height = 24
     Caption = 'Gerar senha pais'

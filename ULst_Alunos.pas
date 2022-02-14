@@ -50,7 +50,7 @@ const Sexs : Array[0..2] Of String = ('*', 'M', 'F');
 implementation
 
 uses UDM, ULst_AlunosQR, ULst_Alunos2QR, ULst_Alunos3QR, ULst_Alunos4QR,
-  ULst_Alunos1QR, ULst_Alunos5QR, ULst_Alunos6QR, ULst_Alunos7QR,
+  ULst_Alunos1QR, ULst_Alunos5QR, ULst_Alunos6QR,
   ULst_EnderecosAlunos;
 
 {$R *.DFM}
@@ -626,7 +626,7 @@ begin
 
 //------------------------------------------ Reunião telefone dos  pais
 
-  if Tipo.ItemIndex = 7 then
+{  if Tipo.ItemIndex = 7 then
   Try
     with Lst_Alunos7QR do
      begin
@@ -641,7 +641,7 @@ begin
      end;
      Finally
        Lst_Alunos7QR.Free;
-  end;
+  end;}
 
   if Tipo.ItemIndex = 8 then begin
     Try

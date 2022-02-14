@@ -157,6 +157,7 @@ uses
   Ufcadastrodocumentos in 'Ufcadastrodocumentos.pas' {fdocumentos},
   USelecDoc in 'USelecDoc.pas' {fSelcDoc},
   Ufdocumentos_rel in 'Ufdocumentos_rel.pas' {fDocumetos_rel},
+  Uprocedimentos in 'Uprocedimentos.pas',
   UTermo_Resp in 'UTermo_Resp.pas' {Rel_TermoResp};
 
 {$R *.RES}
@@ -182,6 +183,7 @@ begin
   Application.CreateForm(Tfextratomensal, fextratomensal);
   Application.CreateForm(TRel_autoriza, Rel_autoriza);
   Application.CreateForm(Tfautorizacao, fautorizacao);
+  Application.CreateForm(TRel_TermoResp, Rel_TermoResp);
   FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
   FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
 //  Application.CreateForm(TPrincipal, Principal);

@@ -95,7 +95,6 @@ uses
   USenhaNotas in 'USenhaNotas.pas' {FSenhaNotas},
   UDoc_RCarne in 'UDoc_RCarne.pas' {Doc_RCarne},
   UDoc_RCarneQR in 'UDoc_RCarneQR.pas' {Doc_RCarneQR: TQuickRep},
-  ULst_Alunos7QR in 'ULst_Alunos7QR.pas' {Lst_Alunos7QR: TQuickRep},
   UDoc_Alunos in 'UDoc_Alunos.pas' {Doc_Alunos},
   UDoc_HistAlunosQR in 'UDoc_HistAlunosQR.pas' {Doc_HistAlunosQR: TQuickRep},
   UDoc_CertAlunosQR in 'UDoc_CertAlunosQR.pas' {Doc_CertAlunosQR: TQuickRep},
@@ -157,6 +156,7 @@ uses
   Ufcadastrodocumentos in 'Ufcadastrodocumentos.pas' {fdocumentos},
   USelecDoc in 'USelecDoc.pas' {fSelcDoc},
   Ufdocumentos_rel in 'Ufdocumentos_rel.pas' {fDocumetos_rel},
+  Uprocedimentos in 'Uprocedimentos.pas',
   UTermo_Resp in 'UTermo_Resp.pas' {Rel_TermoResp};
 
 {$R *.RES}
@@ -182,6 +182,7 @@ begin
   Application.CreateForm(Tfextratomensal, fextratomensal);
   Application.CreateForm(TRel_autoriza, Rel_autoriza);
   Application.CreateForm(Tfautorizacao, fautorizacao);
+  Application.CreateForm(TRel_TermoResp, Rel_TermoResp);
   FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
   FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
 //  Application.CreateForm(TPrincipal, Principal);

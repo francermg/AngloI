@@ -3163,4 +3163,14 @@ object DM2: TDM2
       Size = 50
     end
   end
+  object DataSource1: TDataSource
+    Left = 552
+    Top = 568
+  end
+  object IBQuery1: TIBQuery
+    BufferChunks = 1000
+    CachedUpdates = False
+    Left = 656
+    Top = 568
+  end
 end

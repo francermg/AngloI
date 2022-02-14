@@ -99,6 +99,7 @@ object Fin_Proc_Bloq: TFin_Proc_Bloq
     Height = 25
     Cursor = crHandPoint
     Caption = 'Processa'
+    DragCursor = crHandPoint
     Enabled = False
     TabOrder = 1
     OnClick = BitBtn2Click

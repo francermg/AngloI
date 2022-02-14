@@ -1,9 +1,9 @@
 object Rel_TermoResp: TRel_TermoResp
-  Left = 262
-  Top = 174
-  Width = 1088
+  Left = 228
+  Top = 155
+  Width = 979
   Height = 563
-  Caption = 'Termo de Responsabilidade'
+  Caption = 'Termo de responsabilidade'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,7 +15,7 @@ object Rel_TermoResp: TRel_TermoResp
   TextHeight = 13
   object Rl_Termo: TRLReport
     Left = 0
-    Top = 2
+    Top = 0
     Width = 794
     Height = 1123
     Font.Charset = DEFAULT_CHARSET
@@ -27,9 +27,23 @@ object Rel_TermoResp: TRel_TermoResp
       Left = 38
       Top = 38
       Width = 718
-      Height = 981
-      BandType = btTitle
+      Height = 1036
+      BandType = btHeader
       BeforePrint = CabecaBeforePrint
+      object RLLabel2: TRLLabel
+        Left = 322
+        Top = 16
+        Width = 149
+        Height = 16
+        Caption = '(PAIS-RESPONSÁVEIS)'
+      end
+      object RLLabel1: TRLLabel
+        Left = 168
+        Top = 40
+        Width = 454
+        Height = 16
+        Caption = 'TERMO DE CIÊNCIA E RESPONSABILIDADE - ATIVIDADES PRESENCIAIS'
+      end
       object Logo: TRLImage
         Left = 6
         Top = 5
@@ -488,23 +502,9 @@ object Rel_TermoResp: TRel_TermoResp
           5B91E9BF31C55BBD7657615E2CFCCE23649DB7F87FF8FE1F756ADD9E1E362FCE
           CEC78B0234B7DC47AAD470B60E6D18D1D1E6EA783FFFD9}
       end
-      object RLLabel1: TRLLabel
-        Left = 184
-        Top = 16
-        Width = 454
-        Height = 16
-        Caption = 'TERMO DE CIÊNCIA E RESPONSABILIDADE - ATIVIDADES PRESENCIAIS'
-      end
-      object RLLabel2: TRLLabel
-        Left = 330
-        Top = 32
-        Width = 149
-        Height = 16
-        Caption = '(PAIS-RESPONSÁVEIS)'
-      end
       object Texto: TRLMemo
-        Left = 16
-        Top = 106
+        Left = 33
+        Top = 116
         Width = 664
         Height = 128
         Alignment = taJustify
@@ -513,73 +513,56 @@ object Rel_TermoResp: TRel_TermoResp
             'Eu, {SACADO} portador do CPF Nº. {CPF}, RG Nº {RG}, responsável ' +
             'pelo (a) estudante {ESTUDANTE}, regularmente matriculado (a) na ' +
             '{SERIE}ª série {TURMA} do COLÉGIO UNIGRAN, no ano letivo de 2022' +
-            ', DECLARO, para os devidos fins, que estou ciente de que todas a' +
-            's obrigações do cumprimento das atividades escolares serão ofert' +
-            'adas na modalidade PRESENCIAL (aulas, simulados, tarefas, provas' +
-            ' bimestrais, recuperações e exames), tendo em vista a natureza d' +
-            'o conteúdo programático e da técnica pedagógica que se fizerem n' +
-            'ecessários. A modalidade presencial admite um percentual de até ' +
-            '20% ofertados a distância, na realização dos componentes curricu' +
-            'lares, desde que previstas no Projeto Político Pedagógico e na f' +
-            'orma da Lei 13.415/2017.')
-      end
-      object RLLabel3: TRLLabel
-        Left = 16
-        Top = 252
-        Width = 652
-        Height = 16
-        Caption = 
-          'Estou ciente dos riscos de contágio por Covid-19 mesmo com as me' +
-          'didas de segurança adotadas pela Unidade'
-      end
-      object RLLabel4: TRLLabel
-        Left = 15
-        Top = 270
-        Width = 586
-        Height = 16
-        Caption = 
-          'Escolar, com as quais estou de acordo e me comprometo a cumpri-l' +
-          'as, ressaltando os itens abaixo:'
-      end
-      object RLDraw1: TRLDraw
-        Left = 0
-        Top = 86
-        Width = 715
-        Height = 3
-        DrawKind = dkLine
+            ', DECLARO, para os devidos fins, que o (a) estou ciente de que t' +
+            'odas as obrigações do cumprimento das atividades escolares serão' +
+            ' ofertadas na modalidade  presencial (aulas, plantões de dúvidas' +
+            ' e simulados, já no caso dos alunos da 3ª Série inclui-se também' +
+            ' tarefas, provas bimestrais, recuperações e exames), tendo em vi' +
+            'sta a natureza do conteúdo programático e da técnica pedagógica ' +
+            'que se fizerem necessários. A modalidade presencial admite um pe' +
+            'rcentual de até 20% ofertados a distância, na realização dos com' +
+            'ponentes curriculares, desde que previstas no Projeto Político P' +
+            'edagógico e na forma da Lei 13.415/2017.')
       end
       object RLMemo1: TRLMemo
-        Left = 16
-        Top = 292
+        Left = 32
+        Top = 264
         Width = 665
-        Height = 288
+        Height = 352
         Alignment = taJustify
         Lines.Strings = (
           
-            'Protocolos de segurança necessários durante a Pandemia da Covid-' +
+            'Estou ciente dos riscos de contágio por Covid-19 mesmo com as me' +
+            'didas de segurança adotadas pela Unidade Escolar, com as quais e' +
+            'stou de acordo e me comprometo a cumpri-las, ressaltando os iten' +
+            's abaixo:'
+          
+            'Protocolos de segurança necessários durante a pandemia da Covid-' +
             '19:'
           
-            '- Não enviarei o estudante para o Colégio caso apresente critéri' +
+            '-'#9'Não enviarei o estudante para o Colégio caso apresente critéri' +
             'os compatíveis com a definição de caso suspeito/confirmado ou re' +
             'sida com pessoas que sejam casos suspeitos/confirmados.'
           
-            '- Informarei imediatamente a Direção/Coordenação do Colégio (pre' +
-            'ferencialmente por canais remotos) caso o estudante apresente cr' +
-            'itérios compatíveis com a definição de caso suspeito.'
+            '-'#9'Informarei imediatamente a Direção/Coordenação do Colégio (pre' +
+            'ferencialmente por canais remotos sendo eles: e-mail: colegioang' +
+            'lo@unigran.br; telefone (67) 3411-4294; celular/WhatsApp: (67) 9' +
+            '9288-7333 caso o estudante apresente critérios compatíveis com a' +
+            ' definição de caso suspeito.'
           
-            '- Respeitarei, rigorosamente, o horário de início e encerramento' +
+            '-'#9'Respeitarei, rigorosamente, o horário de início e encerramento' +
             ' das aulas, buscando o estudante no horário estipulado, sem atra' +
             'sos.'
           
-            '- Orientarei o estudante sobre o uso obrigatório de máscara, ass' +
+            '-'#9'Orientarei o estudante sobre o uso obrigatório de máscara, ass' +
             'im como realizar a correta higienização das mãos por meio de lav' +
             'agens com água e sabão e por uso do álcool em gel e portar garra' +
             'fa individual de água, bem como respeitar todos os protocolos co' +
             'nstantes no Plano de Biossegurança.'
           
-            '- Estarei também ciente de que a Unidade Escolar poderá adotar, ' +
+            '-'#9'Estarei também ciente de que a Unidade Escolar poderá adotar, ' +
             'quando necessário, o sistema não presencial (aulas remotas- onli' +
-            'ne) em virtude da Pandemia da Covid-19. '
+            'ne). '
           ''
           
             'Mediante este instrumento, DECLARO que tenho conhecimento sobre ' +
@@ -588,15 +571,36 @@ object Rel_TermoResp: TRel_TermoResp
             'constam todas as orientações relacionadas ao combate e à prevenç' +
             'ão da Covid-19. Confirmo que tenho ciência dos possíveis riscos ' +
             'referentes à Covid-19 (Coronavírus) nas relações educacionais co' +
-            'm os estudantes em atividades presenciais.')
+            'm os estudantes em atividades presenciais.'
+          ' ')
       end
       object RLSystemInfo1: TRLSystemInfo
-        Left = 360
-        Top = 648
+        Left = 416
+        Top = 688
         Width = 151
         Height = 16
         Info = itFullDate
         Text = 'Dourados-MS - '
+      end
+      object RLLabel6: TRLLabel
+        Left = 443
+        Top = 757
+        Width = 167
+        Height = 14
+        Caption = 'ASSINATURA DO RESPONSÁVEL'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+      end
+      object RLDraw3: TRLDraw
+        Left = 419
+        Top = 754
+        Width = 205
+        Height = 3
+        DrawKind = dkLine
       end
       object RLDraw2: TRLDraw
         Left = 40
@@ -618,32 +622,13 @@ object Rel_TermoResp: TRel_TermoResp
         Font.Style = []
         ParentFont = False
       end
-      object RLDraw3: TRLDraw
-        Left = 419
-        Top = 754
-        Width = 205
-        Height = 3
+      object RLDraw1: TRLDraw
+        Left = 1
+        Top = 93
+        Width = 716
+        Height = 2
         DrawKind = dkLine
       end
-      object RLLabel6: TRLLabel
-        Left = 443
-        Top = 757
-        Width = 167
-        Height = 14
-        Caption = 'ASSINATURA DO RESPONSÁVEL'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -11
-        Font.Name = 'Arial'
-        Font.Style = []
-        ParentFont = False
-      end
-    end
-    object RLBand1: TRLBand
-      Left = 38
-      Top = 1019
-      Width = 718
-      Height = 1027
     end
   end
 end

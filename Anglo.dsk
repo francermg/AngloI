@@ -1,41 +1,34 @@
 [Closed Files]
-File_0=SourceModule,'c:\program files (x86)\borland\delphi5\RX\UNITS\DateUtil.pas',0,1,81,1,96,0,0
-File_1=SourceModule,'c:\program files (x86)\borland\delphi5\RX\UNITS\Placemnt.pas',0,1,469,1,484,0,0
-File_2=SourceModule,'C:\Anglo\UcomunicadoQ.pas',0,1,1,1,1,1,0
-File_3=SourceModule,'C:\Anglo\Ufautorizacao.pas',0,1,138,16,144,1,0
-File_4=SourceModule,'C:\Anglo\URel_Autoriza.pas',0,1,1,1,1,1,0
-File_5=SourceModule,'C:\Anglo\UDoc_RequerimentoQR.pas',0,1,134,92,137,1,0
-File_6=SourceModule,'C:\Anglo\UDoc_CertificadoQR.pas',0,1,1,91,13,1,0
-File_7=SourceModule,'C:\Anglo\UHistorico_new.pas',0,1,321,1,321,1,0
-File_8=SourceModule,'C:\Anglo\UDoc_HistAlunosQR.pas',0,1,1,1,1,1,0
-File_9=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,1,1,1,1,0
+File_0=SourceModule,'C:\Anglo\UTermoResp.pas',0,1,1,1,1,0,0
+File_1=SourceModule,'C:\Anglo\Ufremessa.pas',0,1,327,44,380,1,0
+File_2=SourceModule,'C:\Anglo\URel_Autoriza.pas',0,1,1,1,1,1,0
+File_3=SourceModule,'C:\Anglo\ULst_PaisEtiqQR.pas',0,1,1,1,1,1,0
+File_4=SourceModule,'C:\Anglo\u_print_bloqueto.pas',0,1,179,42,195,1,0
+File_5=SourceModule,'C:\Anglo\UFin_Imp_Bloq.pas',0,1,92,1,94,1,0
+File_6=SourceModule,'c:\program files (x86)\borland\delphi5\RX\UNITS\DateUtil.pas',0,1,81,1,96,0,0
+File_7=SourceModule,'c:\program files (x86)\borland\delphi5\RX\UNITS\Placemnt.pas',0,1,469,1,484,0,0
+File_8=SourceModule,'C:\Anglo\UcomunicadoQ.pas',0,1,1,1,1,1,0
+File_9=SourceModule,'C:\Anglo\UDoc_RequerimentoQR.pas',0,1,134,92,137,1,0
 
 [Modules]
-Module0=C:\Anglo\u_print_bloqueto.pas
-Module1=C:\Anglo\UFin_Imp_Bloq.pas
-Module2=C:\Anglo\UMenu.pas
-Module3=C:\Anglo\UCad_Alunos.pas
-Module4=C:\Anglo\UFin_Proc_Bloq.pas
-Module5=C:\Anglo\Anglo.dpr
-Module6=C:\Anglo\ULst_PaisEtiqQR.pas
-Module7=C:\Anglo\UDM2.pas
-Module8=C:\Anglo\UDM.pas
-Count=9
+Module0=C:\Anglo\Uprocedimentos.pas
+Module1=C:\Anglo\UCad_Alunos.pas
+Module2=C:\Anglo\UFin_Proc_Bloq.pas
+Module3=C:\Anglo\UMenu.pas
+Module4=C:\Anglo\UDM.pas
+Module5=C:\Anglo\Ufautorizacao.pas
+Module6=C:\Anglo\UDM2.pas
+Module7=C:\Anglo\ULst_Alunos1QR.pas
+Module8=C:\Anglo\ULst_Alunos6QR.pas
+Module9=C:\Anglo\ULst_Alunos.pas
+Module10=C:\Anglo\UTermo_Resp.pas
+Module11=C:\Anglo\Anglo.dpr
+Count=12
 EditWindowCount=1
 
-[C:\Anglo\u_print_bloqueto.pas]
+[C:\Anglo\Uprocedimentos.pas]
 ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UFin_Imp_Bloq.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UMenu.pas]
-ModuleType=SourceModule
-FormState=1
+FormState=0
 FormOnTop=0
 
 [C:\Anglo\UCad_Alunos.pas]
@@ -48,12 +41,17 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\Anglo.dpr]
+[C:\Anglo\UMenu.pas]
 ModuleType=SourceModule
-FormState=0
+FormState=1
 FormOnTop=0
 
-[C:\Anglo\ULst_PaisEtiqQR.pas]
+[C:\Anglo\UDM.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\Ufautorizacao.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -63,9 +61,29 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UDM.pas]
+[C:\Anglo\ULst_Alunos1QR.pas]
 ModuleType=SourceModule
 FormState=1
+FormOnTop=0
+
+[C:\Anglo\ULst_Alunos6QR.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\ULst_Alunos.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UTermo_Resp.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\Anglo.dpr]
+ModuleType=SourceModule
+FormState=0
 FormOnTop=0
 
 [C:\Program Files (x86)\Borland\Delphi5\Projects\ProjectGroup1.bpg]
@@ -77,8 +95,8 @@ FormState=0
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=9
-CurrentView=6
+ViewCount=12
+CurrentView=8
 View0=0
 View1=1
 View2=2
@@ -88,6 +106,9 @@ View5=5
 View6=6
 View7=7
 View8=8
+View9=9
+View10=10
+View11=11
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
@@ -112,64 +133,85 @@ BottomPanelData=00000400010000000B0000004D65737361676556696577000000000000000000
 [View0]
 Module=C:\Anglo\Anglo.dpr
 CursorX=1
-CursorY=194
-TopLine=178
+CursorY=195
+TopLine=21
 LeftCol=1
 
 [View1]
 Module=C:\Anglo\UCad_Alunos.pas
 CursorX=1
-CursorY=943
-TopLine=941
+CursorY=2313
+TopLine=2261
 LeftCol=1
 
 [View2]
-Module=C:\Anglo\UFin_Proc_Bloq.pas
-CursorX=7
-CursorY=268
-TopLine=261
+Module=C:\Anglo\UTermo_Resp.pas
+CursorX=92
+CursorY=45
+TopLine=28
 LeftCol=1
 
 [View3]
-Module=C:\Anglo\UDM.pas
-CursorX=3
-CursorY=2002
-TopLine=1976
+Module=C:\Anglo\ULst_Alunos.pas
+CursorX=8
+CursorY=644
+TopLine=616
 LeftCol=1
 
 [View4]
-Module=C:\Anglo\UMenu.pas
-CursorX=1
-CursorY=783
-TopLine=781
-LeftCol=1
-
-[View5]
-Module=C:\Anglo\UFin_Imp_Bloq.pas
-CursorX=1
-CursorY=94
-TopLine=92
-LeftCol=1
-
-[View6]
-Module=C:\Anglo\u_print_bloqueto.pas
-CursorX=42
-CursorY=195
-TopLine=179
-LeftCol=1
-
-[View7]
-Module=C:\Anglo\ULst_PaisEtiqQR.pas
+Module=C:\Anglo\ULst_Alunos6QR.pas
 CursorX=1
 CursorY=1
 TopLine=1
 LeftCol=1
 
+[View5]
+Module=C:\Anglo\ULst_Alunos1QR.pas
+CursorX=1
+CursorY=1
+TopLine=1
+LeftCol=1
+
+[View6]
+Module=C:\Anglo\Ufautorizacao.pas
+CursorX=1
+CursorY=140
+TopLine=138
+LeftCol=1
+
+[View7]
+Module=C:\Anglo\UDM.pas
+CursorX=41
+CursorY=1986
+TopLine=1977
+LeftCol=1
+
 [View8]
+Module=C:\Anglo\Uprocedimentos.pas
+CursorX=39
+CursorY=127
+TopLine=76
+LeftCol=1
+
+[View9]
+Module=C:\Anglo\UMenu.pas
+CursorX=1
+CursorY=659
+TopLine=644
+LeftCol=1
+
+[View10]
+Module=C:\Anglo\UFin_Proc_Bloq.pas
+CursorX=1
+CursorY=272
+TopLine=249
+LeftCol=1
+
+[View11]
 Module=C:\Anglo\UDM2.pas
-CursorX=3
-CursorY=622
-TopLine=596
+CursorX=16
+CursorY=620
+TopLine=620
 LeftCol=1
 
 [Watches]
@@ -261,7 +303,7 @@ LRDockWidth=208
 Dockable=1
 SplitPos=108
 ArrangeBy=Name
-SelectedItem=BeforePrint
+SelectedItem=Caption
 ExpandedItems=Brush,DocumentInfo,Font.Style,Foot,Info.Groups,Options,PageSetup,Title.Font.Style,Value,ViewerOptions
 HiddenCategories=Legacy
 ShowStatusBar=1
