@@ -78,7 +78,10 @@ end;
 Procedure RBoletos;
 var sql1, sql2, sql3, sql :string;
     bolsa :String;
+    ano, mes, dia, eano, emes, edia :word;
 Begin
+   DecodeDate(now, ano, mes, dia);
+   DecodeDate(DM.BloquetosDATA_LIMITE.value, eano, emes, edia);
    sql := DM.Bloquetos.SelectSQL.Text;
    DM.Bloquetos.SelectSQL.Clear;
    sql1 := 'Select * ';
@@ -105,7 +108,7 @@ Begin
               DM.BloquetosDESCONTO_ANT.AsString := CurrToStr(valorReal(dm.BloquetosMENSALIDADE.AsCurrency, StrToCurr(bolsa)));
               DM.BloquetosDESCONTO.AsCurrency := desc(dm.BloquetosMENSALIDADE.AsCurrency, StrToCurr(bolsa));
               DM.BloquetosVALOR_ANT.AsCurrency :=  valorReal(dm.BloquetosMENSALIDADE.AsCurrency, DM.BloquetosDESCONTO.AsCurrency);
-              if not dm.BloquetosTDIAS.IsNull Then
+              if ((not dm.BloquetosTDIAS.IsNull) or (ano <> eano)) Then
               Begin
                 DM.BloquetosDATA_LIMITE.Value := now + dm.BloquetosTDIAS.Value;
                 if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 1 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 1);
@@ -114,6 +117,10 @@ Begin
                 if DayOfWeek(dm.BloquetosVENCIMENTO.Value)= 1 then  DM.BloquetosVENCIMENTO.Value := (DM.BloquetosVENCIMENTO.Value + 1);
                 if DayOfWeek(dm.BloquetosVENCIMENTO.Value)= 7 then  DM.BloquetosVENCIMENTO.Value := (DM.BloquetosVENCIMENTO.Value + 2);
               End;
+              if (ano <> eano) then
+              begin
+
+              end;
               dm.BloquetosEMISSAO.Value := now;
               dm.Bloquetos.Post;
           End;

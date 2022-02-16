@@ -6,7 +6,6 @@ object DM: TDM
   Height = 703
   Width = 1508
   object DB_ANGLO: TIBDatabase
-    Connected = True
     DatabaseName = 'anglo:/bds/Anglo/Anglo_2020.gdb'
     Params.Strings = (
       'lc_ctype=WIN1252'
@@ -23,7 +22,7 @@ object DM: TDM
     Top = 1
   end
   object IBTr_ANGLO: TIBTransaction
-    Active = True
+    Active = False
     DefaultDatabase = DB_ANGLO
     DefaultAction = TACommitRetaining
     Params.Strings = (

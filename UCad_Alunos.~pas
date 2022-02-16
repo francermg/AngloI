@@ -528,6 +528,7 @@ type
     AlunosAntEMAIL_MAE: TIBStringField;
     BitBtn9: TBitBtn;
     Breprocessa: TBitBtn;
+    DBRadioGroup6: TDBRadioGroup;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
@@ -624,6 +625,7 @@ type
     procedure BitBtn9Click(Sender: TObject);
     procedure RxDBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure BreprocessaClick(Sender: TObject);
   private
    { Private declarations }
     procedure AtualizaSitFin;
@@ -888,13 +890,17 @@ begin
   DM.AlunosT.Close;
   DM.Cores.Close;
   dm2.iqescola.Close;
-  DM.IBTr_Anglo.CommitRetaining;
-  DM.Alunos.SelectSQL.Strings[0] := 'select *';
-  DM.Alunos.SelectSQL.Strings[1] := 'from ALUNOS';
-  DM.Alunos.SelectSQL.Strings[2] := 'where Codigo > 0';
-  DM.Alunos.SelectSQL.Strings[3] := 'order by Codigo';
+with DM.Alunos.SelectSQL do
+  begin
+       Clear;
+       add('select * ');
+       add('from ALUNOS');
+       add('where Codigo > 0');
+       add('order by Codigo');
+end;                          
   ClienteCad.Active := False;
   ClienteCad.Free;
+  DM.IBTr_Anglo.CommitRetaining;
 end;
 
 procedure TCad_Alunos.AtualizaFoto;
@@ -2303,6 +2309,13 @@ begin
   end;
   RxDBGrid1.Canvas.FillRect(Rect);
   RxDBGrid1.DefaultDataCellDraw(Rect,Column.Field,State);
+end;
+
+procedure TCad_Alunos.BreprocessaClick(Sender: TObject);
+begin
+RBoletos;
+BCopia;
+AtualizaSitFin2;
 end;
 
 end.

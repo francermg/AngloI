@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab4
+    ActivePage = Tab7
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -2639,6 +2639,7 @@ object Cad_Alunos: TCad_Alunos
             FieldName = 'DESCONTO'
             Title.Alignment = taCenter
             Title.Caption = 'Desconto'
+            Width = 64
             Visible = True
           end
           item
@@ -2646,6 +2647,7 @@ object Cad_Alunos: TCad_Alunos
             FieldName = 'VALOR_ANT'
             Title.Alignment = taCenter
             Title.Caption = 'Valor+Desc.'
+            Width = 64
             Visible = True
           end
           item
@@ -2698,13 +2700,33 @@ object Cad_Alunos: TCad_Alunos
         OnChange = PesqAluno2Change
       end
       object Breprocessa: TBitBtn
-        Left = 800
-        Top = 504
+        Left = 824
+        Top = 472
         Width = 177
         Height = 25
+        Cursor = crHandPoint
         Caption = 'Reprocessar'
         TabOrder = 2
         OnClick = BreprocessaClick
+      end
+      object DBRadioGroup6: TDBRadioGroup
+        Left = 232
+        Top = 496
+        Width = 308
+        Height = 37
+        Caption = 'Quantidade de dias.'
+        Columns = 4
+        Items.Strings = (
+          '5'
+          '10'
+          '15'
+          '30')
+        TabOrder = 3
+        Values.Strings = (
+          '5'
+          '10'
+          '15'
+          '30')
       end
     end
     object Tab5: TTabSheet
@@ -3897,8 +3919,8 @@ object Cad_Alunos: TCad_Alunos
     OnClick = OrdemClick
   end
   object BitBtn5: TBitBtn
-    Left = 799
-    Top = 499
+    Left = 791
+    Top = 587
     Width = 128
     Height = 24
     Caption = 'Gerar senha pais'
@@ -4707,8 +4729,8 @@ object Cad_Alunos: TCad_Alunos
   end
   object dsBIp: TDataSource
     DataSet = ibqryBIP
-    Left = 444
-    Top = 576
+    Left = 940
+    Top = 344
   end
   object ibqryBIP: TIBQuery
     Database = DM.DB_ANGLO
@@ -4719,8 +4741,8 @@ object Cad_Alunos: TCad_Alunos
       'select * '
       'from SERIE_IPS'
       'where ip = :bip')
-    Left = 492
-    Top = 576
+    Left = 988
+    Top = 344
     ParamData = <
       item
         DataType = ftUnknown
@@ -4773,8 +4795,8 @@ object Cad_Alunos: TCad_Alunos
       'select *'
       'from bloquetos'
       'where aluno = :baluno and PAGAMENTO is null')
-    Left = 447
-    Top = 520
+    Left = 943
+    Top = 288
     ParamData = <
       item
         DataType = ftUnknown
@@ -4896,8 +4918,8 @@ object Cad_Alunos: TCad_Alunos
   end
   object DsBuscaBoleto: TDataSource
     DataSet = QBuscaBoleto
-    Left = 519
-    Top = 520
+    Left = 1015
+    Top = 288
   end
   object Delete_Boleto: TIBQuery
     Database = DM.DB_ANGLO
@@ -4980,7 +5002,7 @@ object Cad_Alunos: TCad_Alunos
   end
   object Ds_UltimaParcela: TDataSource
     DataSet = UltimaParcela
-    Left = 895
-    Top = 472
+    Left = 879
+    Top = 424
   end
 end
