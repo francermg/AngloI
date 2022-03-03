@@ -442,187 +442,6 @@ object Mov_Notas: TMov_Notas
           03FF33337FFF77777333333300000333333F3333777773333333}
         NumGlyphs = 2
       end
-      object RzDBGrid1: TRzDBGrid
-        Left = 3
-        Top = 449
-        Width = 833
-        BorderStyle = bsNone
-        DataSource = DM.dsNotasAnt
-        Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
-        TabOrder = 5
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Verdana'
-        TitleFont.Style = []
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'ALUNO'
-            Title.Caption = 'CódAlu'
-            Width = 49
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CHAMADA'
-            Title.Caption = 'Cham'
-            Width = 38
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOME'
-            Title.Caption = 'Nome'
-            Width = 256
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOTA1'
-            Title.Caption = 'SET-1'
-            Title.Color = 8421440
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 43
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOTA2'
-            Title.Caption = 'SET-2'
-            Title.Color = 8421440
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 40
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOTA3'
-            Title.Caption = 'SET-3'
-            Title.Color = 8421440
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 43
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOTA4'
-            Title.Caption = 'AT-1'
-            Title.Color = 9449520
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 32
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOTA5'
-            Title.Caption = 'AT-2'
-            Title.Color = 9449520
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 38
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOTA6'
-            Title.Caption = 'AT-3'
-            Title.Color = 9449520
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 35
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NOTA'
-            Title.Alignment = taCenter
-            Title.Caption = 'NF'
-            Title.Color = clRed
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 40
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'RECUPBIM'
-            Title.Alignment = taCenter
-            Title.Caption = 'NFR'
-            Title.Color = clRed
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 41
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'RECUPBIM1'
-            Title.Caption = 'REC-1'
-            Title.Color = 8421440
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 46
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'RECUPBIM2'
-            Title.Caption = 'REC-2'
-            Title.Color = 8421440
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 41
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'RECUPBIM3'
-            Title.Caption = 'REC-3'
-            Title.Color = 8421440
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindow
-            Title.Font.Height = -11
-            Title.Font.Name = 'Verdana'
-            Title.Font.Style = []
-            Width = 43
-            Visible = True
-          end>
-      end
     end
     object TabSheet2: TTabSheet
       Caption = 'p/&Aluno'
@@ -1036,34 +855,6 @@ object Mov_Notas: TMov_Notas
         ParamType = ptInput
       end>
   end
-  object Grade: TIBQuery
-    Database = DM.DB_ANGLO
-    Transaction = DM.IBTr_ANGLO
-    BufferChunks = 1000
-    CachedUpdates = False
-    SQL.Strings = (
-      'select COUNT(*) As Total'
-      'from GRADE'
-      'where SERIE = :serie and'
-      '           DISCIPLINA = :disciplina')
-    Left = 636
-    Top = 200
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'serie'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'disciplina'
-        ParamType = ptUnknown
-      end>
-    object GradeTOTAL: TIntegerField
-      FieldName = 'TOTAL'
-      Required = True
-    end
-  end
   object FS1: TFormStorage
     UseRegistry = True
     StoredValues = <>
@@ -1115,5 +906,35 @@ object Mov_Notas: TMov_Notas
         Name = 'CODPROTOCOLO'
         ParamType = ptInput
       end>
+  end
+  object Grade: TIBQuery
+    Database = DM.DB_ANGLO
+    Transaction = DM.IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select COUNT(*) As Total'
+      'from GRADE'
+      'where SERIE = :serie and'
+      '           DISCIPLINA = :disciplina')
+    UniDirectional = True
+    Left = 580
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'serie'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'disciplina'
+        ParamType = ptUnknown
+      end>
+    object GradeTOTAL: TIntegerField
+      AutoGenerateValue = arDefault
+      FieldName = 'TOTAL'
+      Required = True
+    end
   end
 end

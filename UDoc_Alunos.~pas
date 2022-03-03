@@ -6,8 +6,8 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Buttons, Grids, DBGrids, DBCtrls, ExtCtrls, Mask, ComCtrls, Db,
   DBTables, Gauges, RxLookup, RXSwitch, ToolEdit, CurrEdit, RXDBCtrl,
-  IBCustomDataSet, IBQuery, RxDBComb, OleServer, Word97, IBFilterDialog,
-  TeeProcs, TeEngine, Chart, Placemnt, Spin, IBSQL, RXCtrls;
+  IBCustomDataSet, IBQuery, RxDBComb, OleServer, Word97, Placemnt,
+  TeEngine, Chart, Spin, IBSQL, RXCtrls;
 
 type
   TDoc_Alunos = class(TForm)

@@ -1115,7 +1115,6 @@ type
     AlunosDATA_EXP_IDENT: TDateField;
     AlunosUF_IDENTIDADE: TIntegerField;
     AlunosORGAO_EMIS_IDE: TIntegerField;
-    AlunosNASC_DATA: TDateField;
     AlunosNACIONALIDADE: TIntegerField;
     AlunosDATA_ENTR_PAIS: TDateField;
     AlunosMUNICIPIO_NAS: TSmallintField;
@@ -1139,7 +1138,6 @@ type
     AlunosCHAMADA: TSmallintField;
     AlunosSTATUS: TIBStringField;
     AlunosDATA_SAIDA: TDateField;
-    AlunosBOLSA: TIBBCDField;
     AlunosOBS_HIST: TMemoField;
     AlunosSACADO: TIBStringField;
     AlunosFINAL: TIBStringField;
@@ -1239,6 +1237,8 @@ type
     AlunosINTINERARIO: TIntegerField;
     AlunosCEP: TIBStringField;
     BloquetosTDIAS: TIntegerField;
+    AlunosNASC_DATA: TDateField;
+    AlunosBOLSA: TIBBCDField;
     procedure BloquetosQCalcFields(DataSet: TDataSet);
     procedure TurmasNewRecord(DataSet: TDataSet);
     procedure GradeNewRecord(DataSet: TDataSet);
@@ -1978,7 +1978,7 @@ procedure TDM.DataModuleCreate(Sender: TObject);
 begin
 //servidor
 //***********************Para conexão com o servidor****************************
-
+  {
   DB_ANGLO.Close;
   DB_ANGLO.Params.Clear;
   DB_ANGLO.Params.Add('user_name=SYSDBA');
@@ -1988,19 +1988,19 @@ begin
   DB_ANGLO.Open;
   DB_ANGLO.Connected := True;
   IBTr_ANGLO.Active := True;
-
+  }
   //***************************Para conexão com o banco de dados LOCAL************
-  {
+
   DB_ANGLO.Close;
   DB_ANGLO.Params.Clear;
   DB_ANGLO.Params.Add('user_name=SYSDBA');
   DB_ANGLO.Params.Add('lc_ctype=WIN1252');
   DB_ANGLO.Params.Add('password=masterkey');
-  DB_ANGLO.DatabaseName := ('C:\Anglo\Anglo_2020.gdb');
+  DB_ANGLO.DatabaseName := ('C:\Anglo\Anglo_2022.gdb');
   DB_ANGLO.Open;
   DB_ANGLO.Connected := True;
   IBTr_ANGLO.Active := True;
-  }
+  
 end;
 
 procedure TDM.ibSerieIpsBeforePost(DataSet: TDataSet);

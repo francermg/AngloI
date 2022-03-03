@@ -22,8 +22,6 @@ type
     Label2: TLabel;
     Turma: TRxDBLookupCombo;
     Verifica_Notas: TIBStoredProc;
-    Grade: TIBQuery;
-    GradeTOTAL: TIntegerField;
     BimestreA: TRadioGroup;
     RxDBGrid2: TRxDBGrid;
     Label3: TLabel;
@@ -54,8 +52,9 @@ type
     Label9: TLabel;
     Bevel4: TBevel;
     Label10: TLabel;
-    RzDBGrid1: TRzDBGrid;
     Label11: TLabel;
+    Grade: TIBQuery;
+    GradeTOTAL: TIntegerField;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure TurmaChange(Sender: TObject);
@@ -108,7 +107,6 @@ begin
   PageControl1.ActivePageIndex := 0;
   DM.Alunos.SelectSQL.Strings[2] := 'where SERIE = :Serie and TURMA = :Turma';
   DM.Alunos.SelectSQL.Strings[3] := 'order by Chamada';
-//  DM.Alunos.SelectSQL.Strings[3] := 'order by nome collate PXW_INTL850';
   DM.Disciplinas.Open;
   DM.Grade.Open;
   DM.Turmas.Open;
@@ -151,9 +149,11 @@ dm2.IBNotas_Alu.Open;
     (Turma.KeyValue <> null) and
     (Disciplina.KeyValue > 0) then
     begin
+    Grade.Close;
     Grade.ParamByName('serie').Value := DM.TurmasSERIE.Value;
     Grade.ParamByName('disciplina').Value := DM.DisciplinasCODIGO.Value;
-    Grade.Open;  Tot := GradeTOTAL.Value;  Grade.Close;
+    Grade.Open;
+    Tot := GradeTOTAL.AsVariant;
     if Tot = 0 then begin
       MessageDlg('Disciplina inexistente na Grade!',mtError,[mbOK],0);
       abort;

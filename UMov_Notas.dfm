@@ -855,34 +855,6 @@ object Mov_Notas: TMov_Notas
         ParamType = ptInput
       end>
   end
-  object Grade: TIBQuery
-    Database = DM.DB_ANGLO
-    Transaction = DM.IBTr_ANGLO
-    BufferChunks = 1000
-    CachedUpdates = False
-    SQL.Strings = (
-      'select COUNT(*) As Total'
-      'from GRADE'
-      'where SERIE = :serie and'
-      '           DISCIPLINA = :disciplina')
-    Left = 636
-    Top = 200
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'serie'
-        ParamType = ptUnknown
-      end
-      item
-        DataType = ftUnknown
-        Name = 'disciplina'
-        ParamType = ptUnknown
-      end>
-    object GradeTOTAL: TIntegerField
-      FieldName = 'TOTAL'
-      Required = True
-    end
-  end
   object FS1: TFormStorage
     UseRegistry = True
     StoredValues = <>
@@ -934,5 +906,34 @@ object Mov_Notas: TMov_Notas
         Name = 'CODPROTOCOLO'
         ParamType = ptInput
       end>
+  end
+  object Grade: TIBQuery
+    Database = DM.DB_ANGLO
+    Transaction = DM.IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select cast(COUNT(*) as int) As Total'
+      'from GRADE'
+      'where SERIE = :serie and'
+      '           DISCIPLINA = :disciplina')
+    UniDirectional = True
+    Left = 580
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'serie'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'disciplina'
+        ParamType = ptUnknown
+      end>
+    object GradeTOTAL: TIntegerField
+      FieldName = 'TOTAL'
+      Required = True
+    end
   end
 end

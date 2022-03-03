@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab7
+    ActivePage = Tab4
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -2579,6 +2579,13 @@ object Cad_Alunos: TCad_Alunos
         Caption = 'G - Gerado.'
         Transparent = True
       end
+      object Label109: TLabel
+        Left = 232
+        Top = 536
+        Width = 266
+        Height = 13
+        Caption = 'Somente para reprocessar boletos individuais.'
+      end
       object RxDBGrid1: TRxDBGrid
         Left = 11
         Top = 88
@@ -2639,7 +2646,6 @@ object Cad_Alunos: TCad_Alunos
             FieldName = 'DESCONTO'
             Title.Alignment = taCenter
             Title.Caption = 'Desconto'
-            Width = 64
             Visible = True
           end
           item
@@ -2647,7 +2653,6 @@ object Cad_Alunos: TCad_Alunos
             FieldName = 'VALOR_ANT'
             Title.Alignment = taCenter
             Title.Caption = 'Valor+Desc.'
-            Width = 64
             Visible = True
           end
           item
@@ -2716,6 +2721,8 @@ object Cad_Alunos: TCad_Alunos
         Height = 37
         Caption = 'Quantidade de dias.'
         Columns = 4
+        DataField = 'TDIAS'
+        DataSource = DM.dsBloquetos
         Items.Strings = (
           '5'
           '10'

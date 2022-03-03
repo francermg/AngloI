@@ -89,6 +89,12 @@ type
     QRExpr1: TQRExpr;
     QRShape25: TQRShape;
     NascExt: TQRECC_DataExtenso;
+    QRLabel1: TQRLabel;
+    QRImage1: TQRImage;
+    QRLabel3: TQRLabel;
+    QRLabel4: TQRLabel;
+    QRLabel26: TQRLabel;
+    QRShape2: TQRShape;
     procedure QRBand1BeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure QRBand2BeforePrint(Sender: TQRCustomBand;

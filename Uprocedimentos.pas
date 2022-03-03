@@ -104,13 +104,14 @@ Begin
               DM.BloquetosNOSSO_NUMERO.AsInteger := DM2.sql_genCONTADOR.Value;
               dm2.sql_gen.Close;
               dm.BloquetosST.Value := 'G';
+              dm.BloquetosANO_DV.Value := Copy(IntToStr(ano), 3,2);
               bolsa := buscaaluno(DM.AlunosCODIGO.AsString);
               DM.BloquetosDESCONTO_ANT.AsString := CurrToStr(valorReal(dm.BloquetosMENSALIDADE.AsCurrency, StrToCurr(bolsa)));
               DM.BloquetosDESCONTO.AsCurrency := desc(dm.BloquetosMENSALIDADE.AsCurrency, StrToCurr(bolsa));
               DM.BloquetosVALOR_ANT.AsCurrency :=  valorReal(dm.BloquetosMENSALIDADE.AsCurrency, DM.BloquetosDESCONTO.AsCurrency);
               if ((not dm.BloquetosTDIAS.IsNull) or (ano <> eano)) Then
               Begin
-                DM.BloquetosDATA_LIMITE.Value := now + dm.BloquetosTDIAS.Value;
+                DM.BloquetosDATA_LIMITE.Value := (now + dm.BloquetosTDIAS.Value);
                 if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 1 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 1);
                 if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 7 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 2);
                 DM.BloquetosVENCIMENTO.Value := dm.BloquetosDATA_LIMITE.Value + 7;

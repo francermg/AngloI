@@ -1,17 +1,18 @@
 object DM: TDM
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 51
-  Top = 116
+  Left = 4
+  Top = 120
   Height = 703
-  Width = 1508
+  Width = 1328
   object DB_ANGLO: TIBDatabase
-    DatabaseName = 'anglo:/bds/Anglo/Anglo_2020.gdb'
+    Connected = True
+    DatabaseName = 'C:\Anglo\Anglo_2022.gdb'
     Params.Strings = (
       'lc_ctype=WIN1252'
       ''
       'user_name=SYSDBA'
-      'password=plkh%321')
+      'password=masterkey')
     LoginPrompt = False
     DefaultTransaction = IBTr_ANGLO
     IdleTimer = 0
@@ -1110,10 +1111,6 @@ object DM: TDM
       FieldName = 'ORGAO_EMIS_IDE'
       Origin = '"ALUNOS"."ORGAO_EMIS_IDE"'
     end
-    object AlunosNASC_DATA: TDateField
-      FieldName = 'NASC_DATA'
-      Origin = '"ALUNOS"."NASC_DATA"'
-    end
     object AlunosNACIONALIDADE: TIntegerField
       FieldName = 'NACIONALIDADE'
       Origin = '"ALUNOS"."NACIONALIDADE"'
@@ -1216,12 +1213,6 @@ object DM: TDM
     object AlunosDATA_SAIDA: TDateField
       FieldName = 'DATA_SAIDA'
       Origin = '"ALUNOS"."DATA_SAIDA"'
-    end
-    object AlunosBOLSA: TIBBCDField
-      FieldName = 'BOLSA'
-      Origin = '"ALUNOS"."BOLSA"'
-      Precision = 9
-      Size = 2
     end
     object AlunosOBS_HIST: TMemoField
       FieldName = 'OBS_HIST'
@@ -1607,6 +1598,16 @@ object DM: TDM
       FieldName = 'CEP'
       Origin = '"ALUNOS"."CEP"'
       Size = 15
+    end
+    object AlunosNASC_DATA: TDateField
+      FieldName = 'NASC_DATA'
+      Origin = '"ALUNOS"."NASC_DATA"'
+    end
+    object AlunosBOLSA: TIBBCDField
+      FieldName = 'BOLSA'
+      Origin = '"ALUNOS"."BOLSA"'
+      Precision = 9
+      Size = 2
     end
   end
   object ContaAlunosQ: TIBQuery
@@ -9882,8 +9883,8 @@ object DM: TDM
       '  ID_AREA = :OLD_ID_AREA')
     GeneratorField.Field = 'ID_AREA'
     GeneratorField.Generator = 'GEN_ARE_CONHECIMENTO'
-    Left = 968
-    Top = 352
+    Left = 848
+    Top = 344
     object AreasID_AREA: TIntegerField
       Alignment = taCenter
       FieldName = 'ID_AREA'
@@ -9891,14 +9892,15 @@ object DM: TDM
       Required = True
     end
     object AreasNOME_AREA: TIBStringField
+      DisplayWidth = 75
       FieldName = 'NOME_AREA'
       Origin = '"ARE_CONHECIMENTO"."NOME_AREA"'
-      Size = 45
+      Size = 75
     end
   end
   object DsArea: TDataSource
     DataSet = Areas
-    Left = 1016
-    Top = 352
+    Left = 896
+    Top = 344
   end
 end

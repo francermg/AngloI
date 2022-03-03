@@ -24,7 +24,7 @@ object Doc_Alunos: TDoc_Alunos
     Top = 0
     Width = 954
     Height = 468
-    ActivePage = Tab1
+    ActivePage = Tab6
     Align = alTop
     TabOrder = 1
     object Tab1: TTabSheet
@@ -1759,7 +1759,7 @@ object Doc_Alunos: TDoc_Alunos
   end
   object DBNavigator1: TDBNavigator
     Left = 11
-    Top = 521
+    Top = 505
     Width = 256
     Height = 25
     DataSource = DM.DSDocAlunos
@@ -1792,7 +1792,7 @@ object Doc_Alunos: TDoc_Alunos
   end
   object Filtro: TRxSwitch
     Left = 445
-    Top = 490
+    Top = 482
     Width = 39
     Height = 56
     Caption = 'Filtro'
@@ -1998,7 +1998,7 @@ object Doc_Alunos: TDoc_Alunos
   end
   object Ordem: TRadioGroup
     Left = 345
-    Top = 496
+    Top = 488
     Width = 89
     Height = 53
     Caption = 'Ordem'

@@ -264,8 +264,7 @@ Begin
               parc_ini :=  UltimaParcelaTOTAL.Value + 1;    //Coloca a última parcela
            end;}
 
-  if dm.AlunosBLOQUETO_1SEM.Value = 0 then
-      Showmessage('Aluno: '+ dm.AlunosNOME.Value);         
+         
   if ((dm.AlunosBOLSA.Value <> 100) and (dm.AlunosBLOQUETO_1SEM.Value = 0)) then
   Begin
                 inc(cont_adic); //para contar quantos boletos foram adicionados

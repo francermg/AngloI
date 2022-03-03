@@ -1770,9 +1770,10 @@ object Doc_historico_new: TDoc_historico_new
         ParamType = ptUnknown
       end>
     object QTempNOME_AREA: TIBStringField
+      DisplayWidth = 75
       FieldName = 'NOME_AREA'
       Origin = '"ARE_CONHECIMENTO"."NOME_AREA"'
-      Size = 45
+      Size = 75
     end
     object QTempNOME: TIBStringField
       FieldName = 'NOME'
