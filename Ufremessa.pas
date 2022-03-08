@@ -32,6 +32,7 @@ type
     procedure btn3Click(Sender: TObject);
     procedure btn1Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -634,5 +635,10 @@ end;
 
             dm.ibRetornoMotivo.Post;
             inc(Qtdade);}
+
+procedure Tfremesa.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+dm2.TSUsuario.Commit;
+end;
 
 end.

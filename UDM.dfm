@@ -6,13 +6,9 @@ object DM: TDM
   Height = 703
   Width = 1328
   object DB_ANGLO: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\Anglo\Anglo_2022.gdb'
     Params.Strings = (
       'lc_ctype=WIN1252'
-      ''
-      'user_name=SYSDBA'
-      'password=masterkey')
+      '')
     LoginPrompt = False
     DefaultTransaction = IBTr_ANGLO
     IdleTimer = 0
@@ -2026,56 +2022,56 @@ object DM: TDM
     Left = 23
     Top = 310
     object DisciplinasCODIGO: TIntegerField
-      DisplayWidth = 5
       FieldName = 'CODIGO'
+      Origin = '"DISCIPLINAS"."CODIGO"'
       Required = True
     end
     object DisciplinasNOME: TIBStringField
       FieldName = 'NOME'
+      Origin = '"DISCIPLINAS"."NOME"'
       Size = 40
     end
     object DisciplinasNOME_RES: TIBStringField
       FieldName = 'NOME_RES'
+      Origin = '"DISCIPLINAS"."NOME_RES"'
+      FixedChar = True
+      Size = 4
+    end
+    object DisciplinasNOME_NO: TIBStringField
+      FieldName = 'NOME_NO'
+      Origin = '"DISCIPLINAS"."NOME_NO"'
+      Size = 40
+    end
+    object DisciplinasNOME_RES_NO: TIBStringField
+      FieldName = 'NOME_RES_NO'
+      Origin = '"DISCIPLINAS"."NOME_RES_NO"'
+      FixedChar = True
       Size = 4
     end
     object DisciplinasMAX_FALTAS: TIBBCDField
       FieldName = 'MAX_FALTAS'
-      DisplayFormat = '#0.0'
+      Origin = '"DISCIPLINAS"."MAX_FALTAS"'
       Precision = 9
       Size = 2
     end
     object DisciplinasFRENTES: TSmallintField
       FieldName = 'FRENTES'
-      Origin = 'DISCIPLINAS.FRENTES'
-    end
-    object DisciplinasNOME_NO: TIBStringField
-      FieldName = 'NOME_NO'
-      Origin = 'DISCIPLINAS.NOME_NO'
-      Size = 40
-    end
-    object DisciplinasNOME_RES_NO: TIBStringField
-      FieldName = 'NOME_RES_NO'
-      Origin = 'DISCIPLINAS.NOME_RES_NO'
-      FixedChar = True
-      Size = 4
+      Origin = '"DISCIPLINAS"."FRENTES"'
     end
     object DisciplinasNOME_ATA_1: TIBStringField
-      DisplayWidth = 7
       FieldName = 'NOME_ATA_1'
-      Origin = 'DISCIPLINAS.NOME_ATA_1'
-      Size = 7
+      Origin = '"DISCIPLINAS"."NOME_ATA_1"'
+      Size = 10
     end
     object DisciplinasNOME_ATA_2: TIBStringField
-      DisplayWidth = 7
       FieldName = 'NOME_ATA_2'
-      Origin = 'DISCIPLINAS.NOME_ATA_2'
-      Size = 7
+      Origin = '"DISCIPLINAS"."NOME_ATA_2"'
+      Size = 10
     end
     object DisciplinasNOME_ATA_3: TIBStringField
-      DisplayWidth = 7
       FieldName = 'NOME_ATA_3'
-      Origin = 'DISCIPLINAS.NOME_ATA_3'
-      Size = 7
+      Origin = '"DISCIPLINAS"."NOME_ATA_3"'
+      Size = 10
     end
     object DisciplinasOPTATIVA: TIBStringField
       FieldName = 'OPTATIVA'
@@ -9883,8 +9879,8 @@ object DM: TDM
       '  ID_AREA = :OLD_ID_AREA')
     GeneratorField.Field = 'ID_AREA'
     GeneratorField.Generator = 'GEN_ARE_CONHECIMENTO'
-    Left = 848
-    Top = 344
+    Left = 936
+    Top = 328
     object AreasID_AREA: TIntegerField
       Alignment = taCenter
       FieldName = 'ID_AREA'
@@ -9900,7 +9896,7 @@ object DM: TDM
   end
   object DsArea: TDataSource
     DataSet = Areas
-    Left = 896
-    Top = 344
+    Left = 1000
+    Top = 328
   end
 end

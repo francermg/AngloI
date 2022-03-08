@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab4
+    ActivePage = Tab1
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -1428,6 +1428,13 @@ object Cad_Alunos: TCad_Alunos
         Height = 13
         Caption = 'Troca senha pai:'
       end
+      object Label115: TLabel
+        Left = 212
+        Top = 277
+        Width = 139
+        Height = 13
+        Caption = 'Mês inicial das parcelas:'
+      end
       object DBEdit21: TDBEdit
         Left = 162
         Top = 11
@@ -2209,7 +2216,7 @@ object Cad_Alunos: TCad_Alunos
         Height = 21
         DataField = 'BOLSA_OBS'
         DataSource = DM.dsAlunos
-        TabOrder = 32
+        TabOrder = 33
       end
       object Button8: TButton
         Left = 160
@@ -2218,7 +2225,7 @@ object Cad_Alunos: TCad_Alunos
         Height = 25
         Cursor = crHandPoint
         Caption = 'Dados Cartão'
-        TabOrder = 33
+        TabOrder = 34
         OnClick = Button8Click
       end
       object DBRadioGroup1: TDBRadioGroup
@@ -2232,10 +2239,19 @@ object Cad_Alunos: TCad_Alunos
         Items.Strings = (
           'Núcleo 1'
           'Núcleo 2')
-        TabOrder = 34
+        TabOrder = 35
         Values.Strings = (
           '1'
           '2')
+      end
+      object DBEdit58: TDBEdit
+        Left = 360
+        Top = 271
+        Width = 38
+        Height = 21
+        DataField = 'MES_MATERIAL'
+        DataSource = DM.dsAlunos
+        TabOrder = 32
       end
     end
     object Tab3: TTabSheet

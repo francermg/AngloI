@@ -530,6 +530,8 @@ type
     Breprocessa: TBitBtn;
     DBRadioGroup6: TDBRadioGroup;
     Label109: TLabel;
+    Label115: TLabel;
+    DBEdit58: TDBEdit;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);

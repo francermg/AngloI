@@ -3,8 +3,8 @@ object DM2: TDM2
   OnCreate = DataModuleCreate
   Left = 66
   Top = 142
-  Height = 691
-  Width = 1149
+  Height = 708
+  Width = 1080
   object DsBolsas: TDataSource
     DataSet = Bolsas
     Left = 100
@@ -2084,8 +2084,11 @@ object DM2: TDM2
     end
   end
   object DBUsuario: TIBDatabase
+    DatabaseName = 'C:\Anglo\Usuarios.gdb'
     Params.Strings = (
-      'lc_ctype=WIN1252')
+      'lc_ctype=WIN1252'
+      'user_name=SYSDBA'
+      'password=masterkey')
     LoginPrompt = False
     DefaultTransaction = TSUsuario
     IdleTimer = 0

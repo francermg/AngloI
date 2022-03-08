@@ -3,8 +3,8 @@ object DM2: TDM2
   OnCreate = DataModuleCreate
   Left = 66
   Top = 142
-  Height = 691
-  Width = 1149
+  Height = 708
+  Width = 1080
   object DsBolsas: TDataSource
     DataSet = Bolsas
     Left = 100

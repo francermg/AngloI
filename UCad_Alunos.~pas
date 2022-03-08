@@ -530,6 +530,8 @@ type
     Breprocessa: TBitBtn;
     DBRadioGroup6: TDBRadioGroup;
     Label109: TLabel;
+    Label115: TLabel;
+    DBEdit58: TDBEdit;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
@@ -2320,9 +2322,9 @@ end;
 
 procedure TCad_Alunos.BreprocessaClick(Sender: TObject);
 begin
-dm.Bloquetos.Post;
-RBoletos;
+if (dm.Bloquetos.State in [dsEdit, dsInsert]) Then  dm.Bloquetos.Post;
 BCopia;
+RBoletos;
 AtualizaSitFin2;
 end;
 

@@ -44,10 +44,6 @@ type
     dsTurmas: TDataSource;
     Disciplinas: TIBDataSet;
     dsDisciplinas: TDataSource;
-    DisciplinasCODIGO: TIntegerField;
-    DisciplinasNOME: TIBStringField;
-    DisciplinasNOME_RES: TIBStringField;
-    DisciplinasMAX_FALTAS: TIBBCDField;
     TurmasSERIE: TSmallintField;
     TurmasTURMA: TIBStringField;
     TurmasPERIODO: TSmallintField;
@@ -388,7 +384,6 @@ type
     Atu_HistRESULTADO: TIBStringField;
     Atu_HistDISC: TIntegerField;
     Atu_HistM_ANUAL: TIBBCDField;
-    DisciplinasFRENTES: TSmallintField;
     NotasRECUPBIM1: TIBBCDField;
     NotasRECUPBIM2: TIBBCDField;
     NotasARECUPBIM1: TIBBCDField;
@@ -397,11 +392,6 @@ type
     NotasAFRENTES: TSmallintField;
     NotasNOTA4: TIBBCDField;
     NotasANOTA4: TIBBCDField;
-    DisciplinasNOME_NO: TIBStringField;
-    DisciplinasNOME_RES_NO: TIBStringField;
-    DisciplinasNOME_ATA_1: TIBStringField;
-    DisciplinasNOME_ATA_2: TIBStringField;
-    DisciplinasNOME_ATA_3: TIBStringField;
     RCarne: TIBQuery;
     DSRCarne: TDataSource;
     RCarneNOME: TIBStringField;
@@ -1229,8 +1219,6 @@ type
     DsArea: TDataSource;
     AreasID_AREA: TIntegerField;
     AreasNOME_AREA: TIBStringField;
-    DisciplinasOPTATIVA: TIBStringField;
-    DisciplinasAREA_CONHECIMENTO: TIntegerField;
     AlunosEMAIL_MAE: TIBStringField;
     AlunosEMAIL_ALUNO: TIBStringField;
     AlunosCPF: TIBStringField;
@@ -1239,6 +1227,18 @@ type
     BloquetosTDIAS: TIntegerField;
     AlunosNASC_DATA: TDateField;
     AlunosBOLSA: TIBBCDField;
+    DisciplinasCODIGO: TIntegerField;
+    DisciplinasNOME: TIBStringField;
+    DisciplinasNOME_RES: TIBStringField;
+    DisciplinasNOME_NO: TIBStringField;
+    DisciplinasNOME_RES_NO: TIBStringField;
+    DisciplinasMAX_FALTAS: TIBBCDField;
+    DisciplinasFRENTES: TSmallintField;
+    DisciplinasNOME_ATA_1: TIBStringField;
+    DisciplinasNOME_ATA_2: TIBStringField;
+    DisciplinasNOME_ATA_3: TIBStringField;
+    DisciplinasOPTATIVA: TIBStringField;
+    DisciplinasAREA_CONHECIMENTO: TIntegerField;
     procedure BloquetosQCalcFields(DataSet: TDataSet);
     procedure TurmasNewRecord(DataSet: TDataSet);
     procedure GradeNewRecord(DataSet: TDataSet);
@@ -1978,7 +1978,7 @@ procedure TDM.DataModuleCreate(Sender: TObject);
 begin
 //servidor
 //***********************Para conexão com o servidor****************************
-  {
+
   DB_ANGLO.Close;
   DB_ANGLO.Params.Clear;
   DB_ANGLO.Params.Add('user_name=SYSDBA');
@@ -1988,9 +1988,9 @@ begin
   DB_ANGLO.Open;
   DB_ANGLO.Connected := True;
   IBTr_ANGLO.Active := True;
-  }
-  //***************************Para conexão com o banco de dados LOCAL************
 
+  //***************************Para conexão com o banco de dados LOCAL************
+  {
   DB_ANGLO.Close;
   DB_ANGLO.Params.Clear;
   DB_ANGLO.Params.Add('user_name=SYSDBA');
@@ -2000,7 +2000,7 @@ begin
   DB_ANGLO.Open;
   DB_ANGLO.Connected := True;
   IBTr_ANGLO.Active := True;
-  
+  }
 end;
 
 procedure TDM.ibSerieIpsBeforePost(DataSet: TDataSet);

@@ -201,7 +201,7 @@ end;
 
 
 procedure TFin_Proc_Bloq.BitBtn2Click(Sender: TObject);
-var cont_adic,cont_alt,i, parc_ini, parc_fin, mesc  : integer;
+var cont_adic,cont_alt,i, parc_ini, parc_fin  : integer;
     mensalidade, desconto, valor0, desc_bolsa : real;
     ano, mes, dia, agoraano, agorames, agoradia, d_dia  : Word;
     d_emissao : TDateTime;
@@ -227,16 +227,20 @@ begin
   dm.Alunos.First;
   DecodeDate(dm.AlunosDATA_MATRICULA.Value, ano, mes, dia); //Decodifica a data da matricula do aluno.
   DecodeDate(Now, agoraano, agorames, agoradia); //Decodifica a data atual
-  mesc := agorames;
+
+
+ if (dm.AlunosMES_MATERIAL.IsNull) then
+   parc_ini := agorames
+   else
+    begin
+     parc_ini := dm.AlunosMES_MATERIAL.Value;
+     agorames := dm.AlunosMES_MATERIAL.Value;
+    end;
 
 
 While not (DM.Alunos.Eof)  do
 Begin
-//         UltimaParcela.Close;
-//         UltimaParcela.Params[0].Value := dm.AlunosCODIGO.Value;
-//         UltimaParcela.Open;
-//         parc_ini :=  UltimaParcelaTOTAL.Value + 1;    //Coloca a última parcela
-           parc_ini := 2;
+
 
           case DM.AlunosSERIE.Value of
             1 : mensalidade := DM.ParametrosMENSALIDADE_1.Value;
@@ -250,21 +254,7 @@ Begin
      else
          desconto := ((mensalidade * dm.AlunosBOLSA.Value)/100);
 
-{       if ((dm.AlunosBLOQUETO_1SEM.Value = 1) and (dm.AlunosBOLSA.Value <> 100)) then
-       Begin
-          if (dm.AlunosBLOQUETO_1SEM.Value = 2) then
-          begin
-              copiaBoleto;
-              Delete_Boleto.Close;
-              Delete_Boleto.Params[0].Value := dm.AlunosCODIGO.Value;
-              Delete_Boleto.Open;
-              UltimaParcela.Close;
-              UltimaParcela.Params[0].Value := dm.AlunosCODIGO.Value;
-              UltimaParcela.Open;
-              parc_ini :=  UltimaParcelaTOTAL.Value + 1;    //Coloca a última parcela
-           end;}
 
-         
   if ((dm.AlunosBOLSA.Value <> 100) and (dm.AlunosBLOQUETO_1SEM.Value = 0)) then
   Begin
                 inc(cont_adic); //para contar quantos boletos foram adicionados
@@ -279,14 +269,10 @@ Begin
                     DM.BloquetosPARCELA.AsInteger := parc_ini;
 
 
-{                    if (mesc = 13) then
-                    Begin
-                      mesc := 12;
-                      //inc(agoraano);
-                    end;}
 
-                    d_dia := (DaysPerMonth(agoraano, mesc));
-                    DM.BloquetosVENCIMENTO.Value := StrToDate(IntToStr(d_dia)+'/'+IntToStr(mesc)+'/'+IntToStr(agoraano));
+
+                    d_dia := (DaysPerMonth(agoraano, parc_ini));
+                    DM.BloquetosVENCIMENTO.Value := StrToDate(IntToStr(d_dia)+'/'+IntToStr(parc_ini)+'/'+IntToStr(agoraano));
 
 
                     valor0 := (mensalidade - desconto);
@@ -302,15 +288,15 @@ Begin
                     DM.BloquetosST.Value := 'G'; //Coloca a situação ST sento S, para os bloquetos criados
 
 
-                    if (mesc = 2) then
+                    if (parc_ini = 2) then
                     Begin
-                      DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, mesc,20); //Data limite para pagamento de pontualidade do mês de fevereiro
+                      DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, parc_ini,20); //Data limite para pagamento de pontualidade do mês de fevereiro
                       if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 1 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 1);
                       if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 7 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 2)
                     end
                       else
                       Begin
-                       DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, mesc,10); //Data limite para pagamento de pontualidade demais meses.
+                       DM.BloquetosDATA_LIMITE.Value := EncodeDate(agoraano, parc_ini,10); //Data limite para pagamento de pontualidade demais meses.
                        if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 1 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 1);
                        if DayOfWeek(dm.BloquetosDATA_LIMITE.Value)= 7 then  DM.BloquetosDATA_LIMITE.Value := (DM.BloquetosDATA_LIMITE.Value + 2)
                       end;
@@ -318,9 +304,7 @@ Begin
                       if dm.Bloquetos.State in [dsInsert, dsEdit] then
                       dm.Bloquetos.Post;
 
-                    inc(mesc);
                     inc(parc_ini);
-                    //if mesc > 12 then mesc := 1;
                  end; //fim for
    end;
                    if dm.Bloquetos.State in [dsInsert, dsEdit] then   dm.Bloquetos.Post
@@ -329,7 +313,6 @@ Begin
                    DM.AlunosBLOQUETO_1SEM.Value := 10;
                    DM.Alunos.Post;
                    dm.Alunos.Next;
-                   mesc := 2;
                    Gauge1.Progress := Gauge1.Progress + 1;
 
         end;

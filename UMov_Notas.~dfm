@@ -913,7 +913,7 @@ object Mov_Notas: TMov_Notas
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select COUNT(*) As Total'
+      'select cast(COUNT(*) as int) As Total'
       'from GRADE'
       'where SERIE = :serie and'
       '           DISCIPLINA = :disciplina')
@@ -932,7 +932,6 @@ object Mov_Notas: TMov_Notas
         ParamType = ptUnknown
       end>
     object GradeTOTAL: TIntegerField
-      AutoGenerateValue = arDefault
       FieldName = 'TOTAL'
       Required = True
     end
