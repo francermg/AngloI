@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
-  RLReport, Db, IBCustomDataSet, IBQuery, jpeg, RLFilters, RLXLSFilter;
+  RLReport, Db, IBCustomDataSet, IBQuery, jpeg, RLFilters, RLXLSFilter,
+  QuickRpt, Qrctrls, ECC_Extenso, UCad_Alunos;
 
 type
   TDoc_historico_new = class(TForm)
@@ -93,7 +94,6 @@ type
     RLDBText13: TRLDBText;
     RLDBText14: TRLDBText;
     Obs1: TRLDBMemo;
-    data: TRLSystemInfo;
     RLLabel13: TRLLabel;
     RLDraw6: TRLDraw;
     RLDraw9: TRLDraw;
@@ -136,6 +136,7 @@ type
     T2: TRLLabel;
     T3: TRLLabel;
     RLDraw46: TRLDraw;
+    DataD: TRLLabel;
     procedure RLBand3BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLBand1BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLHistorico_NewBeforePrint(Sender: TObject;
@@ -152,7 +153,7 @@ var
 
 implementation
 
-uses UDM, UCad_Alunos;
+uses UDM, UDoc_Alunos;
 
 {$R *.DFM}
 
@@ -195,8 +196,9 @@ End;
 procedure TDoc_historico_new.RLBand1BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
   var TXT, Resultado, Serie :String;
+  var mydate  :TDateTime;
 begin
-
+ mydate:= StrToDate(Cad_Alunos.DataHist.Text);
   if DM.AlunosSEXO.Value = 'M' then
     case Cad_Alunos.RadioGroup2.ItemIndex of
       0 : Resultado := 'foi APROVADO';
@@ -238,6 +240,7 @@ begin
             Txt := StringReplace(Txt, '{NASCIDA}', 'nascido', [rfReplaceAll]);
    End;
    RLMemo1.Lines.Text := Txt;
+   DataD.Caption := FormatDateTime('"Dourados, " dd "de" mmmm "de" yyyy',mydate);
 end;
 
 procedure TDoc_historico_new.RLHistorico_NewBeforePrint(Sender: TObject;

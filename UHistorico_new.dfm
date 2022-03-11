@@ -1,8 +1,9 @@
 object Doc_historico_new: TDoc_historico_new
   Left = 148
-  Top = 117
+  Top = 154
   Width = 1117
   Height = 732
+  VertScrollBar.Position = 164
   Caption = 'Histórico New'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,7 +16,7 @@ object Doc_historico_new: TDoc_historico_new
   TextHeight = 13
   object RLHistorico_New: TRLReport
     Left = 0
-    Top = 0
+    Top = -164
     Width = 794
     Height = 1123
     DataSource = DsTemp
@@ -1663,20 +1664,6 @@ object Doc_historico_new: TDoc_historico_new
         Font.Style = []
         ParentFont = False
       end
-      object data: TRLSystemInfo
-        Left = 375
-        Top = 170
-        Width = 119
-        Height = 16
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Arial'
-        Font.Style = []
-        Info = itFullDate
-        ParentFont = False
-        Text = 'Dourados,'
-      end
       object RLLabel13: TRLLabel
         Left = 7
         Top = 76
@@ -1738,6 +1725,12 @@ object Doc_historico_new: TDoc_historico_new
         Width = 3
         Height = 74
         Brush.Color = clBlack
+      end
+      object DataD: TRLLabel
+        Left = 440
+        Top = 176
+        Width = 40
+        Height = 16
       end
     end
   end

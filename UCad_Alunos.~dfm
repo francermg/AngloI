@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab1
+    ActivePage = Tab6
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -3159,6 +3159,13 @@ object Cad_Alunos: TCad_Alunos
         Height = 13
         Caption = 'Resultado Final..........:'
       end
+      object Label116: TLabel
+        Left = 725
+        Top = 11
+        Width = 36
+        Height = 13
+        Caption = 'Data :'
+      end
       object RadioGroup1: TRadioGroup
         Left = 117
         Top = 31
@@ -3384,6 +3391,7 @@ object Cad_Alunos: TCad_Alunos
         Width = 97
         Height = 21
         DefaultToday = True
+        DialogTitle = 'Selecionar data'
         NumGlyphs = 2
         TabOrder = 15
       end
@@ -3514,6 +3522,13 @@ object Cad_Alunos: TCad_Alunos
           33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
           33333337FFFF7733333333300000033333333337777773333333}
         NumGlyphs = 2
+      end
+      object DataB: TEdit
+        Left = 766
+        Top = 2
+        Width = 94
+        Height = 21
+        TabOrder = 26
       end
     end
     object Tab7: TTabSheet
@@ -4988,7 +5003,7 @@ object Cad_Alunos: TCad_Alunos
       
         'where aluno = :baluno and PAGAMENTO is null and ST = '#39'N'#39' and NEG' +
         'OCIACAO is null')
-    Left = 671
+    Left = 679
     Top = 136
     ParamData = <
       item

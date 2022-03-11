@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab1
+    ActivePage = Tab6
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -3384,6 +3384,7 @@ object Cad_Alunos: TCad_Alunos
         Width = 97
         Height = 21
         DefaultToday = True
+        DialogTitle = 'Selecionar data'
         NumGlyphs = 2
         TabOrder = 15
       end
@@ -4988,7 +4989,7 @@ object Cad_Alunos: TCad_Alunos
       
         'where aluno = :baluno and PAGAMENTO is null and ST = '#39'N'#39' and NEG' +
         'OCIACAO is null')
-    Left = 671
+    Left = 679
     Top = 136
     ParamData = <
       item

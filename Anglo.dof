@@ -76,5 +76,5 @@ OriginalFilename=
 ProductName=
 ProductVersion=1.0.0.0
 [Excluded Packages]
-$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment
 $(DELPHI)\Projects\Bpl\dclusr50.bpl=Borland User Components
+$(DELPHI)\Bin\dclite50.bpl=Borland Integrated Translation Environment

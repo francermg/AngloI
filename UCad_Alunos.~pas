@@ -532,6 +532,8 @@ type
     Label109: TLabel;
     Label115: TLabel;
     DBEdit58: TDBEdit;
+    DataB: TEdit;
+    Label116: TLabel;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
