@@ -5035,10 +5035,6 @@ object DM: TDM
       FixedChar = True
       Size = 3
     end
-    object DiarioDATA: TDateField
-      FieldName = 'DATA'
-      Origin = '"DIARIO"."DATA"'
-    end
   end
   object DiarioD: TIBQuery
     Database = DB_ANGLO

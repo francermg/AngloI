@@ -1,6 +1,6 @@
 object Doc_Diario: TDoc_Diario
-  Left = 84
-  Top = 245
+  Left = -37
+  Top = 252
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Diário de Classe / Colecionador de Canhotos'

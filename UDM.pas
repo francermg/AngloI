@@ -1211,7 +1211,6 @@ type
     AutorizacaoMEMOBS: TIBStringField;
     AutorizacaoTOTAL: TCurrencyField;
     AutorizacaoPARCELAS: TIntegerField;
-    DiarioDATA: TDateField;
     DocAlunosRG: TIBStringField;
     AlunosRG: TIBStringField;
     AlunosTIPOCERTIDAO: TIBStringField;

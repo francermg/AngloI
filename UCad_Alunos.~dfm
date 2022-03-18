@@ -3159,13 +3159,6 @@ object Cad_Alunos: TCad_Alunos
         Height = 13
         Caption = 'Resultado Final..........:'
       end
-      object Label116: TLabel
-        Left = 725
-        Top = 11
-        Width = 36
-        Height = 13
-        Caption = 'Data :'
-      end
       object RadioGroup1: TRadioGroup
         Left = 117
         Top = 31
@@ -3522,13 +3515,6 @@ object Cad_Alunos: TCad_Alunos
           33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
           33333337FFFF7733333333300000033333333337777773333333}
         NumGlyphs = 2
-      end
-      object DataB: TEdit
-        Left = 766
-        Top = 2
-        Width = 94
-        Height = 21
-        TabOrder = 26
       end
     end
     object Tab7: TTabSheet

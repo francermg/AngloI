@@ -6,12 +6,9 @@ object DM: TDM
   Height = 703
   Width = 1328
   object DB_ANGLO: TIBDatabase
-    DatabaseName = 'C:\Anglo\Anglo_2022.gdb'
     Params.Strings = (
       'lc_ctype=WIN1252'
-      ''
-      'user_name=SYSDBA'
-      'password=masterkey')
+      '')
     LoginPrompt = False
     DefaultTransaction = IBTr_ANGLO
     IdleTimer = 0

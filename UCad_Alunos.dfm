@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab6
+    ActivePage = Tab4
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1

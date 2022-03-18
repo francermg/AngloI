@@ -3,27 +3,38 @@ File_0=SourceModule,'C:\Anglo\UMov_Notas.pas',0,1,139,70,157,1,0
 File_1=SourceModule,'C:\Anglo\UFin_Proc_Bloq.pas',0,1,237,34,253,1,0
 File_2=SourceModule,'C:\Anglo\UDoc_Alunos.pas',0,1,483,1,485,1,0
 File_3=SourceModule,'C:\Anglo\USenhaNotas.pas',0,1,39,29,41,1,0
-File_4=SourceModule,'C:\Anglo\Uprocedimentos.pas',0,1,7,39,114,0,0
-File_5=SourceModule,'C:\Anglo\UProc_ArqBanco.pas',0,1,1,1,1,1,0
-File_6=SourceModule,'c:\program files (x86)\borland\delphi5\RX\UNITS\Placemnt.pas',0,1,467,1,484,0,0
-File_7=SourceModule,'C:\Anglo\UDoc_CertAlunosQR.pas',0,1,1,1,1,1,0
-File_8=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,1,1,1,1,0
+File_4=SourceModule,'C:\Anglo\UProc_ArqBanco.pas',0,1,1,1,1,1,0
+File_5=SourceModule,'c:\program files (x86)\borland\delphi5\RX\UNITS\Placemnt.pas',0,1,467,1,484,0,0
+File_6=SourceModule,'C:\Anglo\UDoc_CertAlunosQR.pas',0,1,1,1,1,1,0
+File_7=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,1,1,1,1,0
 
 [Modules]
-Module0=C:\Anglo\UDM2.pas
-Module1=C:\Anglo\UDM.pas
-Module2=C:\Anglo\UHistorico_new.pas
-Module3=C:\Anglo\UCad_Alunos.pas
-Module4=C:\Anglo\UDoc_HistAlunosQR.pas
-Module5=C:\Anglo\u_print_bloqueto.pas
-Module6=C:\Anglo\UFin_Imp_Bloq.pas
-Module7=C:\Anglo\UMenu.pas
-Module8=C:\Anglo\Ufremessa.pas
-Module9=C:\Anglo\Anglo.dpr
-Count=10
+Module0=C:\Anglo\Uprocedimentos.pas
+Module1=C:\Anglo\UCad_Alunos.pas
+Module2=C:\Anglo\UDoc_Diario.pas
+Module3=C:\Anglo\UDM.pas
+Module4=C:\Anglo\UDM2.pas
+Module5=C:\Anglo\Ufremessa.pas
+Module6=C:\Anglo\UMenu.pas
+Module7=C:\Anglo\UFin_Imp_Bloq.pas
+Module8=C:\Anglo\u_print_bloqueto.pas
+Module9=C:\Anglo\UDoc_HistAlunosQR.pas
+Module10=C:\Anglo\UHistorico_new.pas
+Module11=C:\Anglo\Anglo.dpr
+Count=12
 EditWindowCount=1
 
-[C:\Anglo\UDM2.pas]
+[C:\Anglo\Uprocedimentos.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Anglo\UCad_Alunos.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UDoc_Diario.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -33,27 +44,12 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UHistorico_new.pas]
+[C:\Anglo\UDM2.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UCad_Alunos.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UDoc_HistAlunosQR.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\u_print_bloqueto.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UFin_Imp_Bloq.pas]
+[C:\Anglo\Ufremessa.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -63,7 +59,22 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\Ufremessa.pas]
+[C:\Anglo\UFin_Imp_Bloq.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\u_print_bloqueto.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UDoc_HistAlunosQR.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UHistorico_new.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -82,8 +93,8 @@ FormState=0
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=10
-CurrentView=9
+ViewCount=12
+CurrentView=2
 View0=0
 View1=1
 View2=2
@@ -94,6 +105,8 @@ View6=6
 View7=7
 View8=8
 View9=9
+View10=10
+View11=11
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
@@ -111,9 +124,9 @@ LeftPanelSize=140
 LeftPanelClients=CodeExplorer@EditWindow0
 LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
 RightPanelSize=0
-BottomPanelSize=52
+BottomPanelSize=0
 BottomPanelClients=MessageView@EditWindow0
-BottomPanelData=000004000000000000000000000000000000000000000000000100000000000000000B0000004D65737361676556696577FFFFFFFF
+BottomPanelData=00000400010000000B0000004D657373616765566965770000000000000000000000000000000000FFFFFFFF
 
 [View0]
 Module=C:\Anglo\Anglo.dpr
@@ -125,60 +138,74 @@ LeftCol=1
 [View1]
 Module=C:\Anglo\UCad_Alunos.pas
 CursorX=1
-CursorY=2278
-TopLine=2276
+CursorY=2328
+TopLine=2323
 LeftCol=1
 
 [View2]
+Module=C:\Anglo\Uprocedimentos.pas
+CursorX=19
+CursorY=108
+TopLine=90
+LeftCol=1
+
+[View3]
 Module=C:\Anglo\UDoc_HistAlunosQR.pas
 CursorX=1
 CursorY=215
 TopLine=196
 LeftCol=1
 
-[View3]
+[View4]
 Module=C:\Anglo\UHistorico_new.pas
 CursorX=1
 CursorY=244
 TopLine=213
 LeftCol=1
 
-[View4]
+[View5]
 Module=C:\Anglo\UDM.pas
 CursorX=4
-CursorY=2003
-TopLine=1977
+CursorY=2002
+TopLine=1976
 LeftCol=1
 
-[View5]
+[View6]
+Module=C:\Anglo\UDoc_Diario.pas
+CursorX=23
+CursorY=116
+TopLine=109
+LeftCol=1
+
+[View7]
 Module=C:\Anglo\UMenu.pas
 CursorX=1
 CursorY=783
 TopLine=781
 LeftCol=1
 
-[View6]
+[View8]
 Module=C:\Anglo\UFin_Imp_Bloq.pas
 CursorX=11
 CursorY=96
 TopLine=92
 LeftCol=1
 
-[View7]
+[View9]
 Module=C:\Anglo\u_print_bloqueto.pas
 CursorX=1
 CursorY=200
 TopLine=187
 LeftCol=1
 
-[View8]
+[View10]
 Module=C:\Anglo\Ufremessa.pas
 CursorX=22
 CursorY=641
 TopLine=639
 LeftCol=1
 
-[View9]
+[View11]
 Module=C:\Anglo\UDM2.pas
 CursorX=4
 CursorY=646
@@ -274,7 +301,7 @@ LRDockWidth=208
 Dockable=1
 SplitPos=108
 ArrangeBy=Name
-SelectedItem=Name
+SelectedItem=Caption
 ExpandedItems=Brush,DocumentInfo,Font.Style,Foot,Info.Groups,Options,PageSetup,ProviderFlags,Title.Font.Style,Value,ViewerOptions
 HiddenCategories=Legacy
 ShowStatusBar=1
@@ -437,18 +464,18 @@ State=0
 Left=0
 Top=12
 Width=140
-Height=531
+Height=586
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=140
-ClientHeight=531
+ClientHeight=586
 TBDockHeight=305
 LRDockWidth=140
 Dockable=1
 
 [MessageView@EditWindow0]
 Create=1
-Visible=1
+Visible=0
 State=0
 Left=12
 Top=0
