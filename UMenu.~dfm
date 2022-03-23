@@ -1,6 +1,6 @@
 object Principal: TPrincipal
   Left = 77
-  Top = 99
+  Top = 146
   Width = 1225
   Height = 533
   VertScrollBar.Position = 67
@@ -4962,6 +4962,10 @@ object Principal: TPrincipal
         Caption = 'Usuários'
         Enabled = False
         OnClick = Usurios1Click
+      end
+      object ConfHistrico1: TMenuItem
+        Caption = 'Config. Histórico'
+        OnClick = ConfHistrico1Click
       end
     end
     object Movimentos1: TMenuItem

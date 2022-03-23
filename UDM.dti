@@ -2,8 +2,8 @@
 Version=1
 Left=4
 Top=120
-Width=1328
-Height=703
+Width=1345
+Height=729
 Splitter=212
 SelectedTab=Components
 
@@ -20,7 +20,7 @@ PrintToFile=0
 PrintBorders=1
 PrintSelected=0
 PrintVisible=0
-ExpandedItems=DM\DB_ANGLO\IBTr_ANGLO\Professores
+ExpandedItems=DM\DB_ANGLO\IBTr_ANGLO\Qapagaconfg\Qapagaconfg.Params,DM\DB_ANGLO\IBTr_ANGLO\QConsultaConfHistorico,DM\DB_ANGLO\IBTr_ANGLO\Professores,DM\DB_ANGLO\IBTr_ANGLO\estado,DM\DB_ANGLO\IBTr_ANGLO\ibDigital,DM\DB_ANGLO\IBTr_ANGLO\Intinerarios,DM\DB_ANGLO\IBTr_ANGLO\Formacao,DM\DB_ANGLO\IBTr_ANGLO\For_Int
 
 [DataDiagrams]
 Version=1

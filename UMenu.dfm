@@ -4963,6 +4963,10 @@ object Principal: TPrincipal
         Enabled = False
         OnClick = Usurios1Click
       end
+      object ConfHistrico1: TMenuItem
+        Caption = 'Config. Histórico'
+        OnClick = ConfHistrico1Click
+      end
     end
     object Movimentos1: TMenuItem
       Caption = 'Movimentos'

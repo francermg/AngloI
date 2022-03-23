@@ -532,6 +532,7 @@ type
     Label109: TLabel;
     Label115: TLabel;
     DBEdit58: TDBEdit;
+    BitBtn6: TBitBtn;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
@@ -629,6 +630,7 @@ type
     procedure RxDBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure BreprocessaClick(Sender: TObject);
+    procedure BitBtn6Click(Sender: TObject);
   private
    { Private declarations }
     procedure AtualizaSitFin;
@@ -670,7 +672,8 @@ uses UDM, URel_QRFicha_Ocorrencia, UDoc_ContratoQR, UDoc_RequerimentoQR,
   UEtiq_SPQR, Urelacaosenhapais, UDoc_ContratoSemiQR, UDoc_TermoCompromisso,
   Umensagem, UCad_orgaos, UCadastroescola, Uprematricula, UDoc_ContratoQR1,
   UDoc_ContratoQR2, UDoc_ContratoQR3, Ufparametrosbloqueto, Ufautorizacao,
-  USelectAproveitamento, USelecDoc, UHistorico_new, Uprocedimentos, UTermo_resp;
+  USelectAproveitamento, USelecDoc, UHistorico_new, Uprocedimentos, UTermo_resp,
+  UHistorico_2022;
 
 
 {$R *.DFM}
@@ -2326,6 +2329,19 @@ if (dm.Bloquetos.State in [dsEdit, dsInsert]) Then  dm.Bloquetos.Post;
 BCopia;
 RBoletos;
 AtualizaSitFin2;
+end;
+
+procedure TCad_Alunos.BitBtn6Click(Sender: TObject);
+begin
+   Try
+      Application.CreateForm(TDoc_historico_2022, Doc_historico_2022);
+      Doc_historico_2022.QTemp.Close;
+      Doc_historico_2022.QTemp.Params[0].Value:= dm.AlunosCODIGO.Value;
+      Doc_historico_2022.QTemp.Open;
+      Doc_historico_2022.RLLabel1.Caption := 'Histórico Escolar';
+      Doc_historico_2022.RLHistorico_2022.Preview;
+    Finally
+   end;
 end;
 
 end.

@@ -93,6 +93,7 @@ type
     HorriodePlanto1: TMenuItem;
     Cupom1: TMenuItem;
     Documento1: TMenuItem;
+    ConfHistrico1: TMenuItem;
     procedure ProcessaMsg(Var Msg:TMsg;Var handled:Boolean);
     procedure FIM1Click(Sender: TObject);
     procedure Parmetros1Click(Sender: TObject);
@@ -170,6 +171,7 @@ type
     procedure HorriodePlanto1Click(Sender: TObject);
     procedure Cupom1Click(Sender: TObject);
     procedure Documento1Click(Sender: TObject);
+    procedure ConfHistrico1Click(Sender: TObject);
 //    Procedure ManipulaExcecoes(Sender: TObject; E: Exception);
 
   private
@@ -220,7 +222,7 @@ uses UcadParametros, UCad_Alunos, UFin_Proc_Bloq, UFin_Imp_Bloq,
   Ucalendariodenotas, Ufichaprofessores, ULst_LoginSenhaAluno,
   USelecionaSerie, Uflogin, Uusuarios, Ufoptaramporespanhol, UCad_Ips,
   Umensagem, Ufremessa, Uhorarioplantao, Ucupom, UMensalidadesR,
-  Ufcadastrodocumentos;
+  Ufcadastrodocumentos, UConfigHistorico;
 
 {$R *.DFM}
 
@@ -1365,6 +1367,17 @@ begin
    fDocumentos.ShowModal;
   Finally
    fDocumentos.Free;
+  End;
+
+end;
+
+procedure TPrincipal.ConfHistrico1Click(Sender: TObject);
+begin
+  Application.CreateForm(TfConfigHistorico, fConfigHistorico);
+  Try
+   fConfigHistorico.ShowModal;
+  Finally
+   fConfigHistorico.Free;
   End;
 
 end;

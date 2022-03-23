@@ -3,12 +3,16 @@ object DM: TDM
   OnCreate = DataModuleCreate
   Left = 4
   Top = 120
-  Height = 703
-  Width = 1328
+  Height = 729
+  Width = 1345
   object DB_ANGLO: TIBDatabase
+    Connected = True
+    DatabaseName = 'anglo:/bds/Anglo/Anglo_2020.gdb'
     Params.Strings = (
       'lc_ctype=WIN1252'
-      '')
+      ''
+      'user_name=SYSDBA'
+      'password=plkh%321')
     LoginPrompt = False
     DefaultTransaction = IBTr_ANGLO
     IdleTimer = 0
@@ -19,7 +23,7 @@ object DM: TDM
     Top = 1
   end
   object IBTr_ANGLO: TIBTransaction
-    Active = False
+    Active = True
     DefaultDatabase = DB_ANGLO
     DefaultAction = TACommitRetaining
     Params.Strings = (
@@ -2019,6 +2023,7 @@ object DM: TDM
       '  AREA_CONHECIMENTO = :AREA_CONHECIMENTO'
       'where'
       '  CODIGO = :OLD_CODIGO')
+    Active = True
     Left = 23
     Top = 310
     object DisciplinasCODIGO: TIntegerField
@@ -5034,10 +5039,6 @@ object DM: TDM
       Origin = '"DIARIO"."MODALIDADE"'
       FixedChar = True
       Size = 3
-    end
-    object DiarioDATA: TDateField
-      FieldName = 'DATA'
-      Origin = '"DIARIO"."DATA"'
     end
   end
   object DiarioD: TIBQuery
@@ -8186,8 +8187,8 @@ object DM: TDM
   end
   object saEstado: TDataSource
     DataSet = estado
-    Left = 872
-    Top = 240
+    Left = 896
+    Top = 88
   end
   object estado: TIBDataSet
     Database = DB_ANGLO
@@ -8222,8 +8223,8 @@ object DM: TDM
       '  UF = :UF'
       'where'
       '  COD_UF = :OLD_COD_UF')
-    Left = 936
-    Top = 240
+    Left = 960
+    Top = 88
     object estadoCOD_UF: TIntegerField
       FieldName = 'COD_UF'
       Origin = '"ESTADO"."COD_UF"'
@@ -8775,8 +8776,8 @@ object DM: TDM
   end
   object dsDigital: TDataSource
     DataSet = ibDigital
-    Left = 840
-    Top = 560
+    Left = 768
+    Top = 512
   end
   object ibDigital: TIBDataSet
     Database = DB_ANGLO
@@ -8814,8 +8815,8 @@ object DM: TDM
       '  ID_DIGITAL = :OLD_ID_DIGITAL')
     GeneratorField.Field = 'ID_DIGITAL'
     GeneratorField.Generator = 'GEN_DIGITAL_ID'
-    Left = 888
-    Top = 560
+    Left = 816
+    Top = 512
     object ibDigitalID_DIGITAL: TIntegerField
       FieldName = 'ID_DIGITAL'
       Origin = '"DIGITAL"."ID_DIGITAL"'
@@ -9879,6 +9880,7 @@ object DM: TDM
       '  ID_AREA = :OLD_ID_AREA')
     GeneratorField.Field = 'ID_AREA'
     GeneratorField.Generator = 'GEN_ARE_CONHECIMENTO'
+    Active = True
     Left = 936
     Top = 328
     object AreasID_AREA: TIntegerField
@@ -9888,15 +9890,322 @@ object DM: TDM
       Required = True
     end
     object AreasNOME_AREA: TIBStringField
-      DisplayWidth = 75
+      DisplayWidth = 80
       FieldName = 'NOME_AREA'
       Origin = '"ARE_CONHECIMENTO"."NOME_AREA"'
-      Size = 75
+      Size = 80
     end
   end
   object DsArea: TDataSource
     DataSet = Areas
     Left = 1000
     Top = 328
+  end
+  object DsIntinerarios: TDataSource
+    DataSet = Intinerarios
+    Left = 1008
+    Top = 384
+  end
+  object Intinerarios: TIBDataSet
+    Database = DB_ANGLO
+    Transaction = IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from INTINERARIOS'
+      'where'
+      '  CODIGO = :OLD_CODIGO')
+    InsertSQL.Strings = (
+      'insert into INTINERARIOS'
+      '  (CODIGO, NOME_INTINERARIO)'
+      'values'
+      '  (:CODIGO, :NOME_INTINERARIO)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  CODIGO,'
+      '  NOME_INTINERARIO'
+      'from INTINERARIOS '
+      'where'
+      '  CODIGO = :CODIGO')
+    SelectSQL.Strings = (
+      'select * from INTINERARIOS')
+    ModifySQL.Strings = (
+      'update INTINERARIOS'
+      'set'
+      '  CODIGO = :CODIGO,'
+      '  NOME_INTINERARIO = :NOME_INTINERARIO'
+      'where'
+      '  CODIGO = :OLD_CODIGO')
+    Active = True
+    Left = 928
+    Top = 392
+    object IntinerariosCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"INTINERARIOS"."CODIGO"'
+      Required = True
+    end
+    object IntinerariosNOME_INTINERARIO: TIBStringField
+      FieldName = 'NOME_INTINERARIO'
+      Origin = '"INTINERARIOS"."NOME_INTINERARIO"'
+      Size = 30
+    end
+  end
+  object Formacao: TIBDataSet
+    Database = DB_ANGLO
+    Transaction = IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from FORMACAO'
+      'where'
+      '  CODIGO = :OLD_CODIGO')
+    InsertSQL.Strings = (
+      'insert into FORMACAO'
+      '  (CODIGO, NOME)'
+      'values'
+      '  (:CODIGO, :NOME)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  CODIGO,'
+      '  NOME'
+      'from FORMACAO '
+      'where'
+      '  CODIGO = :CODIGO')
+    SelectSQL.Strings = (
+      'select * from FORMACAO')
+    ModifySQL.Strings = (
+      'update FORMACAO'
+      'set'
+      '  CODIGO = :CODIGO,'
+      '  NOME = :NOME'
+      'where'
+      '  CODIGO = :OLD_CODIGO')
+    Active = True
+    Left = 936
+    Top = 456
+    object FormacaoCODIGO: TIntegerField
+      FieldName = 'CODIGO'
+      Origin = '"FORMACAO"."CODIGO"'
+      Required = True
+    end
+    object FormacaoNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"FORMACAO"."NOME"'
+      Size = 30
+    end
+  end
+  object dsformacao: TDataSource
+    DataSet = Formacao
+    Left = 1000
+    Top = 448
+  end
+  object DsFor_Int: TDataSource
+    DataSet = For_Int
+    Left = 1008
+    Top = 512
+  end
+  object For_Int: TIBDataSet
+    Database = DB_ANGLO
+    Transaction = IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from FOR_INT'
+      'where'
+      '  FORMACAO_CODIGO = :OLD_FORMACAO_CODIGO and'
+      '  INTINERARIOS_CODIGO = :OLD_INTINERARIOS_CODIGO and'
+      '  ARE_CONHECIMENTO_ID_AREA = :OLD_ARE_CONHECIMENTO_ID_AREA and'
+      '  COD_DICIPLINA = :OLD_COD_DICIPLINA')
+    InsertSQL.Strings = (
+      'insert into FOR_INT'
+      
+        '  (FORMACAO_CODIGO, INTINERARIOS_CODIGO, ARE_CONHECIMENTO_ID_ARE' +
+        'A, COD_DICIPLINA)'
+      'values'
+      
+        '  (:FORMACAO_CODIGO, :INTINERARIOS_CODIGO, :ARE_CONHECIMENTO_ID_' +
+        'AREA, :COD_DICIPLINA)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  FORMACAO_CODIGO,'
+      '  INTINERARIOS_CODIGO,'
+      '  ARE_CONHECIMENTO_ID_AREA,'
+      '  COD_DICIPLINA'
+      'from FOR_INT '
+      'where'
+      '  FORMACAO_CODIGO = :FORMACAO_CODIGO and'
+      '  INTINERARIOS_CODIGO = :INTINERARIOS_CODIGO and'
+      '  ARE_CONHECIMENTO_ID_AREA = :ARE_CONHECIMENTO_ID_AREA and'
+      '  COD_DICIPLINA = :COD_DICIPLINA')
+    SelectSQL.Strings = (
+      'select * from FOR_INT')
+    ModifySQL.Strings = (
+      'update FOR_INT'
+      'set'
+      '  FORMACAO_CODIGO = :FORMACAO_CODIGO,'
+      '  INTINERARIOS_CODIGO = :INTINERARIOS_CODIGO,'
+      '  ARE_CONHECIMENTO_ID_AREA = :ARE_CONHECIMENTO_ID_AREA,'
+      '  COD_DICIPLINA = :COD_DICIPLINA'
+      'where'
+      '  FORMACAO_CODIGO = :OLD_FORMACAO_CODIGO and'
+      '  INTINERARIOS_CODIGO = :OLD_INTINERARIOS_CODIGO and'
+      '  ARE_CONHECIMENTO_ID_AREA = :OLD_ARE_CONHECIMENTO_ID_AREA and'
+      '  COD_DICIPLINA = :OLD_COD_DICIPLINA')
+    Active = True
+    Left = 936
+    Top = 512
+    object For_IntFORMACAO_CODIGO: TIntegerField
+      FieldName = 'FORMACAO_CODIGO'
+      Origin = '"FOR_INT"."FORMACAO_CODIGO"'
+      Required = True
+    end
+    object For_IntINTINERARIOS_CODIGO: TIntegerField
+      FieldName = 'INTINERARIOS_CODIGO'
+      Origin = '"FOR_INT"."INTINERARIOS_CODIGO"'
+      Required = True
+    end
+    object For_IntARE_CONHECIMENTO_ID_AREA: TIntegerField
+      FieldName = 'ARE_CONHECIMENTO_ID_AREA'
+      Origin = '"FOR_INT"."ARE_CONHECIMENTO_ID_AREA"'
+      Required = True
+    end
+    object For_IntCOD_DICIPLINA: TIntegerField
+      FieldName = 'COD_DICIPLINA'
+      Origin = '"FOR_INT"."COD_DICIPLINA"'
+      Required = True
+    end
+  end
+  object DsConsultaConfHistorico: TDataSource
+    DataSet = QConsultaConfHistorico
+    Left = 1008
+    Top = 568
+  end
+  object QConsultaConfHistorico: TIBQuery
+    Database = DB_ANGLO
+    Transaction = IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select distinct fo.nome as formacao, fo.codigo as cod_formacao,'
+      
+        'i.nome_intinerario as intinerario, i.codigo as cod_intinerario, ' +
+        'a.nome_area as area,'
+      
+        'a.id_area as cod_area, d.nome as disciplina, d.codigo as cod_dis' +
+        'ciplina'
+      
+        'from for_int f join formacao fo on (f.formacao_codigo=fo.codigo)' +
+        ' join'
+      
+        'intinerarios i on (f.intinerarios_codigo = i.codigo) join are_co' +
+        'nhecimento a on'
+      
+        'f.are_conhecimento_id_area=a.id_area join disciplinas d on (f.co' +
+        'd_diciplina=d.codigo)')
+    Left = 936
+    Top = 568
+    object QConsultaConfHistoricoFORMACAO: TIBStringField
+      FieldName = 'FORMACAO'
+      Origin = '"FORMACAO"."NOME"'
+      Size = 30
+    end
+    object QConsultaConfHistoricoINTINERARIO: TIBStringField
+      FieldName = 'INTINERARIO'
+      Origin = '"INTINERARIOS"."NOME_INTINERARIO"'
+      Size = 30
+    end
+    object QConsultaConfHistoricoAREA: TIBStringField
+      FieldName = 'AREA'
+      Origin = '"ARE_CONHECIMENTO"."NOME_AREA"'
+      Size = 80
+    end
+    object QConsultaConfHistoricoDISCIPLINA: TIBStringField
+      FieldName = 'DISCIPLINA'
+      Origin = '"DISCIPLINAS"."NOME"'
+      Size = 40
+    end
+    object QConsultaConfHistoricoCOD_FORMACAO: TIntegerField
+      FieldName = 'COD_FORMACAO'
+      Origin = '"FORMACAO"."CODIGO"'
+      Required = True
+    end
+    object QConsultaConfHistoricoCOD_INTINERARIO: TIntegerField
+      FieldName = 'COD_INTINERARIO'
+      Origin = '"INTINERARIOS"."CODIGO"'
+      Required = True
+    end
+    object QConsultaConfHistoricoCOD_AREA: TIntegerField
+      FieldName = 'COD_AREA'
+      Origin = '"ARE_CONHECIMENTO"."ID_AREA"'
+      Required = True
+    end
+    object QConsultaConfHistoricoCOD_DISCIPLINA: TIntegerField
+      FieldName = 'COD_DISCIPLINA'
+      Origin = '"DISCIPLINAS"."CODIGO"'
+      Required = True
+    end
+  end
+  object DsapagaConf: TDataSource
+    DataSet = Qapagaconfg
+    Left = 1008
+    Top = 256
+  end
+  object Qapagaconfg: TIBQuery
+    Database = DB_ANGLO
+    Transaction = IBTr_ANGLO
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select *'
+      'from for_int'
+      
+        'where formacao_codigo = :bfor and INTINERARIOS_CODIGO = :binitne' +
+        'rario and'
+      
+        'ARE_CONHECIMENTO_ID_AREA = :barea and COD_DICIPLINA = :bdiscipli' +
+        'na')
+    Left = 936
+    Top = 256
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'bfor'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'binitnerario'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'barea'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'bdisciplina'
+        ParamType = ptUnknown
+      end>
+    object QapagaconfgFORMACAO_CODIGO: TIntegerField
+      FieldName = 'FORMACAO_CODIGO'
+      Origin = '"FOR_INT"."FORMACAO_CODIGO"'
+      Required = True
+    end
+    object QapagaconfgINTINERARIOS_CODIGO: TIntegerField
+      FieldName = 'INTINERARIOS_CODIGO'
+      Origin = '"FOR_INT"."INTINERARIOS_CODIGO"'
+      Required = True
+    end
+    object QapagaconfgARE_CONHECIMENTO_ID_AREA: TIntegerField
+      FieldName = 'ARE_CONHECIMENTO_ID_AREA'
+      Origin = '"FOR_INT"."ARE_CONHECIMENTO_ID_AREA"'
+      Required = True
+    end
+    object QapagaconfgCOD_DICIPLINA: TIntegerField
+      FieldName = 'COD_DICIPLINA'
+      Origin = '"FOR_INT"."COD_DICIPLINA"'
+      Required = True
+    end
   end
 end
