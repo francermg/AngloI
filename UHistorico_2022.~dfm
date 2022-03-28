@@ -3,7 +3,6 @@ object Doc_historico_2022: TDoc_historico_2022
   Top = 117
   Width = 893
   Height = 732
-  VertScrollBar.Position = 94
   Caption = 'Histórico 2022'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +15,7 @@ object Doc_historico_2022: TDoc_historico_2022
   TextHeight = 13
   object RLHistorico_2022: TRLReport
     Left = -1
-    Top = -94
+    Top = 0
     Width = 794
     Height = 1123
     DataSource = DsTemp
@@ -30,14 +29,15 @@ object Doc_historico_2022: TDoc_historico_2022
       Left = 38
       Top = 38
       Width = 718
-      Height = 329
+      Height = 273
       AutoExpand = False
       BandType = btTitle
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
       Borders.DrawTop = False
       Borders.DrawRight = False
-      Borders.DrawBottom = False
+      Borders.DrawBottom = True
+      Borders.FixedBottom = True
       BeforePrint = RLBand1BeforePrint
       object RLDraw2: TRLDraw
         Left = 0
@@ -51,7 +51,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel1: TRLLabel
         Left = 271
-        Top = 143
+        Top = 122
         Width = 168
         Height = 24
         Caption = 'Histórico Escolar'
@@ -64,7 +64,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLMemo1: TRLMemo
         Left = 24
-        Top = 197
+        Top = 160
         Width = 685
         Height = 48
         Alignment = taJustify
@@ -84,7 +84,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel2: TRLLabel
         Left = 42
-        Top = 296
+        Top = 242
         Width = 420
         Height = 24
         Caption = 'HISTÓRICO ESCOLAR DO ENSINO MÉDIO'
@@ -97,7 +97,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLDraw14: TRLDraw
         Left = 0
-        Top = 282
+        Top = 228
         Width = 716
         Height = 3
         Brush.Color = clBlack
@@ -107,7 +107,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel20: TRLLabel
         Left = 499
-        Top = 288
+        Top = 234
         Width = 62
         Height = 17
         Caption = '1° SÉRIE'
@@ -120,7 +120,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel21: TRLLabel
         Left = 573
-        Top = 288
+        Top = 234
         Width = 62
         Height = 17
         Caption = '2° SÉRIE'
@@ -133,7 +133,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel22: TRLLabel
         Left = 649
-        Top = 288
+        Top = 234
         Width = 62
         Height = 17
         Caption = '3° SÉRIE'
@@ -146,21 +146,21 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLDraw21: TRLDraw
         Left = 493
-        Top = 306
+        Top = 252
         Width = 225
         Height = 2
         Brush.Color = clBlack
       end
       object RLDraw23: TRLDraw
         Left = 679
-        Top = 308
+        Top = 254
         Width = 2
         Height = 20
         Brush.Color = clBlack
       end
       object RLLabel23: TRLLabel
         Left = 496
-        Top = 311
+        Top = 257
         Width = 27
         Height = 11
         Caption = 'NOTA'
@@ -173,7 +173,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel24: TRLLabel
         Left = 573
-        Top = 311
+        Top = 257
         Width = 27
         Height = 11
         Caption = 'NOTA'
@@ -186,7 +186,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel25: TRLLabel
         Left = 649
-        Top = 311
+        Top = 257
         Width = 27
         Height = 11
         Caption = 'NOTA'
@@ -199,7 +199,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel26: TRLLabel
         Left = 539
-        Top = 311
+        Top = 257
         Width = 23
         Height = 11
         Caption = 'C.H.'
@@ -212,7 +212,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel27: TRLLabel
         Left = 611
-        Top = 311
+        Top = 257
         Width = 23
         Height = 11
         Caption = 'C.H.'
@@ -225,7 +225,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLLabel28: TRLLabel
         Left = 686
-        Top = 311
+        Top = 257
         Width = 23
         Height = 11
         Caption = 'C.H.'
@@ -238,9 +238,9 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLDraw40: TRLDraw
         Left = 716
-        Top = 282
+        Top = 228
         Width = 2
-        Height = 45
+        Height = 46
         Brush.Color = clBlack
       end
       object RLImage1: TRLImage
@@ -761,44 +761,44 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object RLDraw16: TRLDraw
         Left = 491
-        Top = 283
+        Top = 229
         Width = 2
         Height = 45
         Brush.Color = clBlack
       end
       object RLDraw18: TRLDraw
         Left = 566
-        Top = 284
+        Top = 230
         Width = 2
         Height = 44
         Brush.Color = clBlack
       end
       object RLDraw19: TRLDraw
         Left = 642
-        Top = 284
+        Top = 230
         Width = 2
         Height = 44
         Brush.Color = clBlack
       end
       object RLDraw22: TRLDraw
         Left = 604
-        Top = 308
+        Top = 254
         Width = 2
         Height = 20
         Brush.Color = clBlack
       end
       object RLDraw20: TRLDraw
         Left = 528
-        Top = 307
+        Top = 253
         Width = 2
         Height = 21
         Brush.Color = clBlack
       end
       object RLDraw59: TRLDraw
         Left = 0
-        Top = 285
+        Top = 230
         Width = 3
-        Height = 43
+        Height = 42
         Angle = 90
         DrawKind = dkLine
         Pen.Width = 3
@@ -806,9 +806,9 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object Group_Formacao: TRLGroup
       Left = 38
-      Top = 367
+      Top = 311
       Width = 718
-      Height = 92
+      Height = 94
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
       Borders.DrawTop = False
@@ -830,7 +830,7 @@ object Doc_historico_2022: TDoc_historico_2022
           BandType = btHeader
           Borders.Sides = sdCustom
           Borders.DrawLeft = True
-          Borders.DrawTop = False
+          Borders.DrawTop = True
           Borders.DrawRight = True
           Borders.DrawBottom = True
           Borders.FixedLeft = True
@@ -919,6 +919,7 @@ object Doc_historico_2022: TDoc_historico_2022
           Width = 718
           Height = 44
           DataFields = 'AREA'
+          BeforePrint = Grupo_areaBeforePrint
           object RLBand6: TRLBand
             Left = 0
             Top = 0
@@ -1014,7 +1015,7 @@ object Doc_historico_2022: TDoc_historico_2022
             Left = 0
             Top = 19
             Width = 718
-            Height = 18
+            Height = 17
             Borders.Sides = sdCustom
             Borders.DrawLeft = False
             Borders.DrawTop = False
@@ -1176,10 +1177,11 @@ object Doc_historico_2022: TDoc_historico_2022
         Borders.DrawLeft = True
         Borders.DrawTop = True
         Borders.DrawRight = True
-        Borders.DrawBottom = False
+        Borders.DrawBottom = True
         Borders.FixedLeft = True
         Borders.FixedTop = True
         Borders.FixedRight = True
+        Borders.FixedBottom = True
         object RLDBText1: TRLDBText
           Left = 8
           Top = 3
@@ -1252,7 +1254,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand4: TRLBand
       Left = 38
-      Top = 459
+      Top = 405
       Width = 718
       Height = 16
       BandType = btSummary
@@ -1388,7 +1390,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand5: TRLBand
       Left = 38
-      Top = 475
+      Top = 421
       Width = 718
       Height = 16
       BandType = btSummary
@@ -1502,7 +1504,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand8: TRLBand
       Left = 38
-      Top = 491
+      Top = 437
       Width = 718
       Height = 224
       BandType = btSummary
@@ -1934,7 +1936,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand9: TRLBand
       Left = 38
-      Top = 715
+      Top = 661
       Width = 718
       Height = 20
       BandType = btFooter

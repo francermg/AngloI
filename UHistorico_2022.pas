@@ -168,6 +168,7 @@ type
     procedure RLBand8BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure Group_FormacaoBeforePrint(Sender: TObject;
       var PrintIt: Boolean);
+    procedure Grupo_areaBeforePrint(Sender: TObject; var PrintIt: Boolean);
   private
     { Private declarations }
   public
@@ -379,6 +380,24 @@ begin
     if QTempCH3.IsNull then   CH3.Caption := '---'
        else CH3.Caption := QTempCH3.DisplayText;
 
+     if ((dm.AlunosINTINERARIO.Value = 1) and (QTempAREA.Value = '2 - NÚCLEO DE ESTUDOS EM LINGUAGENS E CIÊNCIAS HUMANAS E SUAS TECNOLOGIAS*')) then
+     Begin
+      if ((QTempDISCIPLINA.Value = 'U.C.IV- Debates Comtamporâneos') or
+          (QTempDISCIPLINA.Value = 'U.C.V- Núcleos de Anál. Historiográficas') or
+          (QTempDISCIPLINA.Value = 'U.C.VI- Observatório Geográfico'))   Then
+      RLBand7.Height := 0;
+     End;
+
+     if ((dm.AlunosINTINERARIO.Value = 2) and (QTempAREA.Value = '1 - NÚCLEO DE ESTUDOS EM MATEMÁTICA E CIÊNCIAS DA NATUREZA E SUAS TECNOLOGIAS*')) then
+     Begin
+      if ((QTempDISCIPLINA.Value = 'U.C.I- Observatório de Fenom. Biológicos') or
+          (QTempDISCIPLINA.Value = 'U.C.II- Análise e Investigações Químicas') or
+          (QTempDISCIPLINA.Value = 'U.C.III- Oficina de Física Investigativa'))   Then
+      RLBand7.Height := 0;
+     End;
+
+
+
 
 end;
 
@@ -426,5 +445,15 @@ begin
          RLBand3.Height := 17;
 
 end;
+
+procedure TDoc_historico_2022.Grupo_areaBeforePrint(Sender: TObject;
+  var PrintIt: Boolean);
+begin
+     RLBand6.Height := 0;
+ if ((dm.AlunosINTINERARIO.Value = 1) and (QTempAREA.Value = '1 - NÚCLEO DE ESTUDOS EM MATEMÁTICA E CIÊNCIAS DA NATUREZA E SUAS TECNOLOGIAS*')) then
+       RLBand6.Height := 19;
+  if ((dm.AlunosINTINERARIO.Value = 2) and (QTempAREA.Value = '2 - NÚCLEO DE ESTUDOS EM LINGUAGENS E CIÊNCIAS HUMANAS E SUAS TECNOLOGIAS*')) then
+      RLBand6.Height := 19;
+ end;
 
 end.

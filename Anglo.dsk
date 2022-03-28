@@ -10,41 +10,26 @@ File_7=SourceModule,'C:\Anglo\UMov_Notas.pas',0,1,139,70,157,1,0
 File_8=SourceModule,'C:\Anglo\UDoc_Alunos.pas',0,1,483,1,485,1,0
 
 [Modules]
-Module0=C:\Anglo\UDM.pas
-Module1=C:\Anglo\UHistorico_2022.pas
-Module2=C:\Anglo\UCad_Alunos.pas
-Module3=C:\Anglo\UMenu.pas
-Module4=C:\Anglo\UDM2.pas
-Module5=C:\Anglo\UFin_Proc_Bloq.pas
-Module6=C:\Anglo\UConfigHistorico.pas
-Module7=C:\Anglo\UConsultaConfHistorico.pas
+Module0=C:\Anglo\UHistorico_2022.pas
+Module1=C:\Anglo\UMenu.pas
+Module2=C:\Anglo\UFin_Proc_Bloq.pas
+Module3=C:\Anglo\UConfigHistorico.pas
+Module4=C:\Anglo\UConsultaConfHistorico.pas
+Module5=C:\Anglo\UDM2.pas
+Module6=C:\Anglo\UDM.pas
+Module7=C:\Anglo\UCad_Alunos.pas
 Module8=C:\Anglo\Anglo.dpr
 Module9=C:\Anglo\UcadParametros.pas
 Module10=C:\Anglo\Ufparametrosbloqueto.pas
 Count=11
 EditWindowCount=1
 
-[C:\Anglo\UDM.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
 [C:\Anglo\UHistorico_2022.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=1
 
-[C:\Anglo\UCad_Alunos.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
 [C:\Anglo\UMenu.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UDM2.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -60,6 +45,21 @@ FormState=1
 FormOnTop=0
 
 [C:\Anglo\UConsultaConfHistorico.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UDM2.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UDM.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UCad_Alunos.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -89,7 +89,7 @@ FormOnTop=0
 
 [EditWindow0]
 ViewCount=11
-CurrentView=5
+CurrentView=4
 View0=0
 View1=1
 View2=2
@@ -105,18 +105,20 @@ CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
 Visible=1
-State=0
+State=2
 Left=70
 Top=125
 Width=1300
 Height=655
 MaxLeft=-8
-MaxTop=114
-ClientWidth=1284
-ClientHeight=616
-LeftPanelSize=140
+MaxTop=115
+MaxWidth=1456
+MaxHeight=753
+ClientWidth=1440
+ClientHeight=714
+LeftPanelSize=0
 LeftPanelClients=CodeExplorer@EditWindow0
-LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
+LeftPanelData=00000400010000000C000000436F64654578706C6F7265720000000000000000000000000000000000FFFFFFFF
 RightPanelSize=0
 BottomPanelSize=0
 BottomPanelClients=MessageView@EditWindow0
@@ -152,9 +154,9 @@ LeftCol=1
 
 [View4]
 Module=C:\Anglo\UHistorico_2022.pas
-CursorX=1
-CursorY=427
-TopLine=426
+CursorX=56
+CursorY=400
+TopLine=379
 LeftCol=1
 
 [View5]
@@ -213,15 +215,13 @@ Count=0
 [Main Window]
 Create=1
 Visible=1
-State=2
+State=0
 Left=0
 Top=0
-Width=1600
+Width=1456
 Height=123
 MaxLeft=-1
 MaxTop=-1
-MaxWidth=1456
-MaxHeight=123
 ClientWidth=1440
 ClientHeight=84
 
@@ -288,8 +288,8 @@ LRDockWidth=208
 Dockable=1
 SplitPos=108
 ArrangeBy=Name
-SelectedItem=ShowHint
-ExpandedItems=Brush,DocumentInfo,Font.Style,Foot,Info.Groups,PageSetup,Pen,ProviderFlags,Title.Font.Style,Value,ViewerOptions
+SelectedItem=Borders.FixedBottom
+ExpandedItems=Borders,Brush,DocumentInfo,Font.Style,Foot,Info.Groups,PageSetup,Pen,ProviderFlags,Title.Font.Style,Value,ViewerOptions
 HiddenCategories=Legacy
 ShowStatusBar=1
 
@@ -446,16 +446,16 @@ ShowChecked=1
 
 [CodeExplorer@EditWindow0]
 Create=1
-Visible=1
+Visible=0
 State=0
 Left=0
 Top=12
 Width=140
-Height=586
+Height=692
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=140
-ClientHeight=586
+ClientHeight=692
 TBDockHeight=305
 LRDockWidth=140
 Dockable=1
