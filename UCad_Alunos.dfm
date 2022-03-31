@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 641
-    ActivePage = Tab1
+    ActivePage = Tab2
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -2662,7 +2662,6 @@ object Cad_Alunos: TCad_Alunos
             FieldName = 'DESCONTO'
             Title.Alignment = taCenter
             Title.Caption = 'Desconto'
-            Width = 64
             Visible = True
           end
           item
@@ -2670,7 +2669,6 @@ object Cad_Alunos: TCad_Alunos
             FieldName = 'VALOR_ANT'
             Title.Alignment = taCenter
             Title.Caption = 'Valor+Desc.'
-            Width = 64
             Visible = True
           end
           item

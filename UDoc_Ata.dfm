@@ -1,6 +1,6 @@
 object Doc_Ata: TDoc_Ata
-  Left = 203
-  Top = 299
+  Left = 121
+  Top = 276
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Ata de Resultados Finais'

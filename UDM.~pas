@@ -1655,19 +1655,19 @@ begin
   case DM.AlunosSERIE.Value of
     1 : if (DM.AlunosH_ANO1.IsNull) then begin
           DM.AlunosH_ANO1.Value := StrToInt(Principal.Ano.Caption);
-          DM.AlunosH_ESCOLA1.Value := 'COLÉGIO ANGLO UNIGRAN';
+          DM.AlunosH_ESCOLA1.Value := 'COLÉGIO UNIGRAN';
           DM.AlunosH_CIDADE1.Value := 'DOURADOS';
           DM.AlunosH_UF1.Value := 'MS';
         end;
     2 : if (DM.AlunosH_ANO2.IsNull) then begin
           DM.AlunosH_ANO2.Value := StrToInt(Principal.Ano.Caption);
-          DM.AlunosH_ESCOLA2.Value := 'COLÉGIO ANGLO UNIGRAN';
+          DM.AlunosH_ESCOLA2.Value := 'COLÉGIO UNIGRAN';
           DM.AlunosH_CIDADE2.Value := 'DOURADOS';
           DM.AlunosH_UF2.Value := 'MS';
         end;
     3 : if (DM.AlunosH_ANO3.IsNull) then begin
           DM.AlunosH_ANO3.Value := StrToInt(Principal.Ano.Caption);
-          DM.AlunosH_ESCOLA3.Value := 'COLÉGIO ANGLO UNIGRAN';
+          DM.AlunosH_ESCOLA3.Value := 'COLÉGIO UNIGRAN';
           DM.AlunosH_CIDADE3.Value := 'DOURADOS';
           DM.AlunosH_UF3.Value := 'MS';
         end;

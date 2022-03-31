@@ -3013,13 +3013,14 @@ object DM: TDM
       '  ALUNO = :OLD_ALUNO and'
       '  DISCIPLINA = :OLD_DISCIPLINA and'
       '  BIMESTRE = :OLD_BIMESTRE')
-    Left = 280
+    Left = 272
     Top = 160
     object NotasAALUNO: TIntegerField
       FieldName = 'ALUNO'
       Required = True
     end
     object NotasADISCIPLINA: TIntegerField
+      DisplayWidth = 40
       FieldName = 'DISCIPLINA'
       Required = True
     end

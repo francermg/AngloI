@@ -143,7 +143,6 @@ type
     F2: TQRLabel;
     F3: TQRLabel;
     F4: TQRLabel;
-    ImgAluno1: TQRImage;
     procedure DetNotaBeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure CabecBeforePrint(Sender: TQRCustomBand;
@@ -183,9 +182,9 @@ begin
   M_Media := False;
   N_Exames := 0;
   if FileExists('G:\Fotos\'+ IntToStr(DM.BoletimRCOD_ALU.Value)+'.jpg') then
-  imgAluno1.Picture.LoadFromFile('G:\Fotos\'+ IntToStr(DM.BoletimRCOD_ALU.Value)+'.jpg')
+//  imgAluno1.Picture.LoadFromFile('G:\Fotos\'+ IntToStr(DM.BoletimRCOD_ALU.Value)+'.jpg')
   else  if FileExists('G:\Fotos\'+'SemFoto.jpg') then
-           imgAluno1.Picture.LoadFromFile('G:\Fotos\SemFoto.jpg');
+//           imgAluno1.Picture.LoadFromFile('G:\Fotos\SemFoto.jpg');
 
 
 end;

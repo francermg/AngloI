@@ -239,11 +239,11 @@ procedure TDoc_AtaQR.QRBand2BeforePrint(Sender: TQRCustomBand;
   var PrintBand: Boolean);
 begin
    if (DM.TurmasSERIE.Value = 1) then
-      QrLabel2.Caption := 'Total em horas aula = 1280';
+      QrLabel2.Caption := 'Total em horas aula = 1320';
    if (DM.TurmasSERIE.Value = 2) then
-      QrLabel2.Caption := 'Total em horas aula = 1200';
+      QrLabel2.Caption := 'Total em horas aula = 1240';
    if (DM.TurmasSERIE.Value = 3) then
-      QrLabel2.Caption := 'Total em horas aula = 1400';
+      QrLabel2.Caption := 'Total em horas aula = 1440';
 end;
 
 end.

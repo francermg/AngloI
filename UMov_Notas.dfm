@@ -35,7 +35,7 @@ object Mov_Notas: TMov_Notas
     Top = 0
     Width = 889
     Height = 609
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     TabOrder = 0
     OnChange = PageControl1Change
     object TabSheet1: TTabSheet
@@ -489,7 +489,7 @@ object Mov_Notas: TMov_Notas
         Left = 3
         Top = 99
         Width = 846
-        Height = 317
+        Height = 342
         Color = clWhite
         DataSource = DM.dsNotasA
         Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgConfirmDelete, dgCancelOnExit]
@@ -898,7 +898,7 @@ object Mov_Notas: TMov_Notas
     Database = DM.DB_ANGLO
     Transaction = DM.IBTr_ANGLO
     StoredProcName = 'ATUALIZANOTAS'
-    Left = 428
+    Left = 628
     Top = 192
     ParamData = <
       item
