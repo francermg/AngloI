@@ -1,61 +1,32 @@
 [Closed Files]
-File_0=SourceModule,'C:\Anglo\UDoc_Boletim_QR.pas',0,1,1,1,1,1,0
-File_1=SourceModule,'C:\Anglo\UHistorico_2022.pas',0,1,342,29,356,1,0
-File_2=SourceModule,'C:\Anglo\UDoc_Alunos.pas',0,1,445,29,459,0,0
-File_3=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,303,25,347,1,0
-File_4=SourceModule,'C:\Anglo\UMov_Ocorrencias.pas',0,1,335,6,349,0,0
-File_5=SourceModule,'C:\Anglo\UMov_Plantoes.pas',0,1,45,15,74,0,0
-File_6=SourceModule,'C:\Anglo\UMov_Frequencia.pas',0,1,1146,3,1187,0,0
-File_7=SourceModule,'C:\Anglo\UConsultaConfHistorico.pas',0,1,35,1,48,1,0
-File_8=SourceModule,'C:\Anglo\UConfigHistorico.pas',0,1,76,44,90,1,0
-File_9=SourceModule,'C:\Anglo\UFin_Proc_Bloq.pas',0,1,44,7,57,1,0
+File_0=SourceModule,'C:\Anglo\UMov_Notas.pas',0,1,351,24,374,1,0
+File_1=SourceModule,'C:\Anglo\UcadParametros.pas',0,1,314,51,320,1,0
+File_2=SourceModule,'C:\Anglo\UDoc_Boletim.pas',0,1,1,1,1,1,0
+File_3=SourceModule,'C:\Anglo\UDoc_AtaQR.pas',0,1,217,96,199,1,0
+File_4=SourceModule,'C:\Anglo\UDoc_Ata.pas',0,1,130,1,111,1,0
+File_5=SourceModule,'C:\Anglo\UDoc_Boletim_QR.pas',0,1,1,1,1,1,0
+File_6=SourceModule,'C:\Anglo\UHistorico_2022.pas',0,1,342,29,356,1,0
+File_7=SourceModule,'C:\Anglo\UDoc_Alunos.pas',0,1,445,29,459,0,0
+File_8=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,303,25,347,1,0
+File_9=SourceModule,'C:\Anglo\UMov_Ocorrencias.pas',0,1,335,6,349,0,0
 
 [Modules]
-Module0=C:\Anglo\UDoc_Ata.pas
-Module1=C:\Anglo\UDoc_AtaQR.pas
-Module2=C:\Anglo\UcadParametros.pas
-Module3=C:\Anglo\UDM.pas
-Module4=C:\Anglo\UDoc_Boletim.pas
-Module5=C:\Anglo\UDoc_BoletimR_QR.pas
-Module6=C:\Anglo\UDM2.pas
-Module7=C:\Anglo\UCad_Alunos.pas
-Module8=C:\Anglo\UMov_Notas.pas
-Module9=C:\Anglo\UMenu.pas
-Module10=C:\Anglo\Anglo.dpr
-Count=11
+Module0=C:\Anglo\UDoc_BoletimR_QR.pas
+Module1=C:\Anglo\UDoc_IRDeclQR.pas
+Module2=C:\Anglo\UCad_Alunos.pas
+Module3=C:\Anglo\UMenu.pas
+Module4=C:\Anglo\UDM.pas
+Module5=C:\Anglo\UDM2.pas
+Module6=C:\Anglo\Anglo.dpr
+Count=7
 EditWindowCount=1
-
-[C:\Anglo\UDoc_Ata.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UDoc_AtaQR.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UcadParametros.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UDM.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UDoc_Boletim.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
 
 [C:\Anglo\UDoc_BoletimR_QR.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=1
 
-[C:\Anglo\UDM2.pas]
+[C:\Anglo\UDoc_IRDeclQR.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -65,12 +36,17 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UMov_Notas.pas]
+[C:\Anglo\UMenu.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UMenu.pas]
+[C:\Anglo\UDM.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UDM2.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -89,7 +65,7 @@ FormState=0
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=11
+ViewCount=7
 CurrentView=6
 View0=0
 View1=1
@@ -98,10 +74,6 @@ View3=3
 View4=4
 View5=5
 View6=6
-View7=7
-View8=8
-View9=9
-View10=10
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
@@ -134,16 +106,16 @@ LeftCol=1
 
 [View1]
 Module=C:\Anglo\UCad_Alunos.pas
-CursorX=23
-CursorY=1469
-TopLine=1464
+CursorX=1
+CursorY=995
+TopLine=993
 LeftCol=1
 
 [View2]
-Module=C:\Anglo\UMov_Notas.pas
-CursorX=24
-CursorY=374
-TopLine=351
+Module=C:\Anglo\UDoc_IRDeclQR.pas
+CursorX=1
+CursorY=1
+TopLine=1
 LeftCol=1
 
 [View3]
@@ -154,48 +126,20 @@ TopLine=501
 LeftCol=1
 
 [View4]
-Module=C:\Anglo\UcadParametros.pas
-CursorX=51
-CursorY=320
-TopLine=314
-LeftCol=1
-
-[View5]
 Module=C:\Anglo\UMenu.pas
 CursorX=1
 CursorY=952
 TopLine=950
 LeftCol=1
 
-[View6]
-Module=C:\Anglo\UDoc_Ata.pas
-CursorX=1
-CursorY=111
-TopLine=130
-LeftCol=1
-
-[View7]
-Module=C:\Anglo\UDoc_AtaQR.pas
-CursorX=96
-CursorY=199
-TopLine=217
-LeftCol=1
-
-[View8]
+[View5]
 Module=C:\Anglo\UDM2.pas
 CursorX=4
 CursorY=646
 TopLine=620
 LeftCol=1
 
-[View9]
-Module=C:\Anglo\UDoc_Boletim.pas
-CursorX=1
-CursorY=1
-TopLine=1
-LeftCol=1
-
-[View10]
+[View6]
 Module=C:\Anglo\UDoc_BoletimR_QR.pas
 CursorX=3
 CursorY=187
