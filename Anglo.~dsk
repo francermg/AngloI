@@ -11,32 +11,27 @@ File_8=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,303,25,347,1,0
 File_9=SourceModule,'C:\Anglo\UMov_Ocorrencias.pas',0,1,335,6,349,0,0
 
 [Modules]
-Module0=C:\Anglo\UMenu.pas
-Module1=C:\Anglo\UDoc_BoletimR_QR.pas
-Module2=C:\Anglo\UDoc_IRDeclQR.pas
-Module3=C:\Anglo\UCad_Alunos.pas
-Module4=C:\Anglo\UDM2.pas
-Module5=C:\Anglo\UDM.pas
+Module0=C:\Anglo\UCad_Alunos.pas
+Module1=C:\Anglo\UDoc_IRDeclQR.pas
+Module2=C:\Anglo\UDM.pas
+Module3=C:\Anglo\UDM2.pas
+Module4=C:\Anglo\UDoc_BoletimR_QR.pas
+Module5=C:\Anglo\UMenu.pas
 Module6=C:\Anglo\Anglo.dpr
 Count=7
 EditWindowCount=1
 
-[C:\Anglo\UMenu.pas]
+[C:\Anglo\UCad_Alunos.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
-
-[C:\Anglo\UDoc_BoletimR_QR.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=1
 
 [C:\Anglo\UDoc_IRDeclQR.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UCad_Alunos.pas]
+[C:\Anglo\UDM.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -46,7 +41,12 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UDM.pas]
+[C:\Anglo\UDoc_BoletimR_QR.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=1
+
+[C:\Anglo\UMenu.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -66,7 +66,7 @@ FormOnTop=0
 
 [EditWindow0]
 ViewCount=7
-CurrentView=4
+CurrentView=1
 View0=0
 View1=1
 View2=2
@@ -93,9 +93,9 @@ LeftPanelSize=0
 LeftPanelClients=CodeExplorer@EditWindow0
 LeftPanelData=00000400010000000C000000436F64654578706C6F7265720000000000000000000000000000000000FFFFFFFF
 RightPanelSize=0
-BottomPanelSize=0
+BottomPanelSize=170
 BottomPanelClients=MessageView@EditWindow0
-BottomPanelData=00000400010000000B0000004D657373616765566965770000000000000000000000000000000000FFFFFFFF
+BottomPanelData=000004000000000000000000000000000000000000000000000100000000000000000B0000004D65737361676556696577FFFFFFFF
 
 [View0]
 Module=C:\Anglo\Anglo.dpr
@@ -233,7 +233,7 @@ LRDockWidth=208
 Dockable=1
 SplitPos=108
 ArrangeBy=Name
-SelectedItem=AutoSize
+SelectedItem=Name
 ExpandedItems=Borders,Brush,DocumentInfo,Font,Foot,Info.Groups,PageSetup,Pen,ProviderFlags,Title,Title.Font,Value,ViewerOptions
 HiddenCategories=Legacy
 ShowStatusBar=1
@@ -407,7 +407,7 @@ Dockable=1
 
 [MessageView@EditWindow0]
 Create=1
-Visible=0
+Visible=1
 State=0
 Left=12
 Top=0
