@@ -11,32 +11,27 @@ File_8=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,303,25,347,1,0
 File_9=SourceModule,'C:\Anglo\UMov_Ocorrencias.pas',0,1,335,6,349,0,0
 
 [Modules]
-Module0=C:\Anglo\UDoc_IRDeclQR.pas
-Module1=C:\Anglo\UDM.pas
-Module2=C:\Anglo\UDM2.pas
-Module3=C:\Anglo\UMenu.pas
-Module4=C:\Anglo\UCad_Alunos.pas
-Module5=C:\Anglo\UDoc_BoletimR_QR.pas
+Module0=C:\Anglo\UMenu.pas
+Module1=C:\Anglo\UDoc_BoletimR_QR.pas
+Module2=C:\Anglo\UDoc_IRDeclQR.pas
+Module3=C:\Anglo\UCad_Alunos.pas
+Module4=C:\Anglo\UDM2.pas
+Module5=C:\Anglo\UDM.pas
 Module6=C:\Anglo\Anglo.dpr
 Count=7
 EditWindowCount=1
 
-[C:\Anglo\UDoc_IRDeclQR.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UDM.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Anglo\UDM2.pas]
-ModuleType=SourceModule
-FormState=1
-FormOnTop=0
-
 [C:\Anglo\UMenu.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UDoc_BoletimR_QR.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=1
+
+[C:\Anglo\UDoc_IRDeclQR.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -46,10 +41,15 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UDoc_BoletimR_QR.pas]
+[C:\Anglo\UDM2.pas]
 ModuleType=SourceModule
 FormState=1
-FormOnTop=1
+FormOnTop=0
+
+[C:\Anglo\UDM.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
 
 [C:\Anglo\Anglo.dpr]
 ModuleType=SourceModule
@@ -66,7 +66,7 @@ FormOnTop=0
 
 [EditWindow0]
 ViewCount=7
-CurrentView=2
+CurrentView=4
 View0=0
 View1=1
 View2=2
@@ -128,8 +128,8 @@ LeftCol=1
 [View4]
 Module=C:\Anglo\UMenu.pas
 CursorX=1
-CursorY=952
-TopLine=950
+CursorY=864
+TopLine=844
 LeftCol=1
 
 [View5]
@@ -233,7 +233,7 @@ LRDockWidth=208
 Dockable=1
 SplitPos=108
 ArrangeBy=Name
-SelectedItem=Name
+SelectedItem=AutoSize
 ExpandedItems=Borders,Brush,DocumentInfo,Font,Foot,Info.Groups,PageSetup,Pen,ProviderFlags,Title,Title.Font,Value,ViewerOptions
 HiddenCategories=Legacy
 ShowStatusBar=1
