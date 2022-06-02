@@ -1268,6 +1268,59 @@ type
     QConsultaConfHistoricoCOD_INTINERARIO: TIntegerField;
     QConsultaConfHistoricoCOD_AREA: TIntegerField;
     QConsultaConfHistoricoCOD_DISCIPLINA: TIntegerField;
+    BloquetosQSITIACAO_EXT: TStringField;
+    AlunosA_NEGOCIACOES: TIBStringField;
+    AluRecupN_21: TIBStringField;
+    AluRecupN_22: TIBStringField;
+    AluRecupCONTE: TIntegerField;
+    IqContN_21_F1: TIntegerField;
+    IqContN_21_F2: TIntegerField;
+    IqContN_21_F3: TIntegerField;
+    IqContN_22_F1: TIntegerField;
+    IqContN_22_F2: TIntegerField;
+    IqContN_22_F3: TIntegerField;
+    IqContN_23_F1: TIntegerField;
+    IqContN_23_F2: TIntegerField;
+    IqContN_23_F3: TIntegerField;
+    IqContN_24_F1: TIntegerField;
+    IqContN_24_F2: TIntegerField;
+    IqContN_24_F3: TIntegerField;
+    IqContN_25_F1: TIntegerField;
+    IqContN_25_F2: TIntegerField;
+    IqContN_25_F3: TIntegerField;
+    IqContN_26_F1: TIntegerField;
+    IqContN_26_F2: TIntegerField;
+    IqContN_26_F3: TIntegerField;
+    IqContN_27_F1: TIntegerField;
+    IqContN_27_F2: TIntegerField;
+    IqContN_27_F3: TIntegerField;
+    IqContN_28_F1: TIntegerField;
+    IqContN_28_F2: TIntegerField;
+    IqContN_28_F3: TIntegerField;
+    IqContN_29_F1: TIntegerField;
+    IqContN_29_F2: TIntegerField;
+    IqContN_29_F3: TIntegerField;
+    AluRecupN_23: TIBStringField;
+    AluRecupN_24: TIBStringField;
+    AluRecupN_25: TIBStringField;
+    AluRecupN_26: TIBStringField;
+    AluRecupN_27: TIBStringField;
+    AluRecupN_28: TIBStringField;
+    AluRecupN_29: TIBStringField;
+    NotasBimN_16: TIBBCDField;
+    NotasBimN_17: TIBBCDField;
+    NotasBimN_18: TIBBCDField;
+    NotasBimN_19: TIBBCDField;
+    NotasBimN_20: TIBBCDField;
+    NotasBimN_21: TIBBCDField;
+    NotasBimN_22: TIBBCDField;
+    NotasBimN_23: TIBBCDField;
+    NotasBimN_24: TIBBCDField;
+    NotasBimN_25: TIBBCDField;
+    NotasBimN_26: TIBBCDField;
+    NotasBimN_27: TIBBCDField;
+    NotasBimN_28: TIBBCDField;
+    NotasBimN_29: TIBBCDField;
     procedure BloquetosQCalcFields(DataSet: TDataSet);
     procedure TurmasNewRecord(DataSet: TDataSet);
     procedure GradeNewRecord(DataSet: TDataSet);
@@ -1565,6 +1618,24 @@ begin
 
   DecodeDate(BloquetosQVENCIMENTO.Value,ano,mes,dia);
   BloquetosQMesX.Value := MesExt[mes];
+    Try
+   if (dm.BloquetosQST.Value = 'R') then
+       dm.BloquetosQSITIACAO_EXT.Value := 'REPROCESSO'
+   else if (dm.BloquetosQST.Value = 'N') then
+       dm.BloquetosQSITIACAO_EXT.Value := 'NEGOCIADO'
+   else if (dm.BloquetosQST.Value = 'E') then
+       dm.BloquetosQSITIACAO_EXT.Value := 'REGISTRADO'
+   else if (dm.BloquetosQST.Value = 'P') then
+       dm.BloquetosQSITIACAO_EXT.Value := 'PAGO'
+   else if (dm.BloquetosQST.Value = 'C') then
+       dm.BloquetosQSITIACAO_EXT.Value := 'CANCELADO';
+   else if (dm.BloquetosQST.Value = 'G') then
+       dm.BloquetosQSITIACAO_EXT.Value := 'GERADO';
+
+
+   Except;
+  end;
+
 end;
 
 procedure TDM.TurmasNewRecord(DataSet: TDataSet);

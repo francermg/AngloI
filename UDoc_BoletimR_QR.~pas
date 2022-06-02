@@ -47,7 +47,6 @@ type
     NomeTurma: TQRLabel;
     QRShape25: TQRShape;
     QRShape27: TQRShape;
-    QRShape28: TQRShape;
     QRDBText8: TQRDBText;
     QRShape1: TQRShape;
     QRShape8: TQRShape;
@@ -143,6 +142,7 @@ type
     F2: TQRLabel;
     F3: TQRLabel;
     F4: TQRLabel;
+    QRShape28: TQRShape;
     procedure DetNotaBeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure CabecBeforePrint(Sender: TQRCustomBand;
@@ -158,7 +158,7 @@ type
 var
   Doc_BoletimR_QR: TDoc_BoletimR_QR;
   DiscAcima, DiscAbaixo  : integer;
-  Cursando, Exame, M_Media, w_paridade  : boolean;
+  Cursando, Exame, M_Media : boolean;
   N_Exames : integer;
   nomedisc : string;
 
@@ -177,8 +177,6 @@ begin
   Ano.Caption := 'Ano: '+Principal.Ano.Caption;
   Cursando := False;
   Exame := False;
-  w_paridade := False;
-
   M_Media := False;
   N_Exames := 0;
   if FileExists('G:\Fotos\'+ IntToStr(DM.BoletimRCOD_ALU.Value)+'.jpg') then
@@ -206,30 +204,27 @@ begin
     inc(DiscAcima);
   end;
 
-if (not DM.BoletimREXAME.IsNull) then inc(N_Exames);
+       if (not DM.BoletimREXAME.IsNull) then inc(N_Exames);
 
        //coloca o resultado dos exames
 
-       if  ((dm.BoletimRMEDIA_FINAL.Value >= 6) and (DiscAbaixo = 0)and (w_paridade = False)) then
-       begin
-            if (DM.BoletimRSEXO.Value = 'M')  then Resultado.Caption := 'Aprovado'
-            else if (DM.BoletimRSEXO.Value = 'F')  then Resultado.Caption := 'Aprovada';
-       end;
-       if  ((dm.BoletimRMEDIA_FINAL.Value < 6) and (DiscAbaixo = 0) and (dm.BoletimREXAME.IsNull) and (w_paridade = False)) then
+       if  ((not dm.BoletimRM1.IsNull) and
+            (dm.BoletimRM2.IsNull) and (dm.BoletimRM3.IsNull) and (dm.BoletimRM4.IsNull)) then
             Resultado.Caption := 'Cursando';
 
-       if  ((dm.BoletimRMEDIA_FINAL.Value < 5) and (DiscAbaixo > 0) and (w_paridade = False)) then
-       begin
-            if (DM.BoletimRSEXO.Value = 'M')  then Resultado.Caption := 'Reprovado'
-            else if (DM.BoletimRSEXO.Value = 'F')  then Resultado.Caption := 'Reprovada';
-            w_paridade := True;
-       end;
 
-       if dm.BoletimRN4.Value <= 1.5 then
-          Begin
-            Resultado.Caption := 'Reprovado';
-            w_paridade := True;
-          End;
+        if  ((not dm.BoletimRM1.IsNull) and (not dm.BoletimRM2.IsNull) and
+             (not dm.BoletimRM3.IsNull) and (not dm.BoletimRM4.IsNull) and
+             (dm.BoletimRMEDIA_FINAL.Value > 5)) then
+         begin
+            if (DM.BoletimRSEXO.Value = 'M')  then Resultado.Caption := 'Aprovado'
+            else if (DM.BoletimRSEXO.Value = 'F')  then Resultado.Caption := 'Aprovada'
+        else
+        Begin
+             if (DM.BoletimRSEXO.Value = 'M')  then Resultado.Caption := 'Reprovado'
+            else if (DM.BoletimRSEXO.Value = 'F')  then Resultado.Caption := 'Reprovada';
+        end;
+        END;
 
 
 

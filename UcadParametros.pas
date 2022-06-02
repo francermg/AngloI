@@ -147,6 +147,7 @@ type
     procedure Reorg2Click(Sender: TObject);
     procedure Reorg3Click(Sender: TObject);
     procedure edtarquivoExit(Sender: TObject);
+    procedure notasnetClick(Sender: TObject);
   private
     procedure Distribui_Alunos(Serie : Integer);
     procedure Reorganiza_Numeros(Serie : Integer);
@@ -177,10 +178,11 @@ begin
   Shape4.Brush.Color := DM.ParametrosCOR_ZEBRADO.Value;
   PageControl1.ActivePageIndex := 0;
   if (dm.ParametrosSTATUSNOTANET.Value = 'T') Then
-     notasnet.Caption := 'Liberar notas da internet.'
+     notasnet.Caption := 'Notas liberada.'
      Else
-       notasnet.Caption := 'Bloquear notas da internet.';
+       notasnet.Caption := 'Notas bloqueadas.';
 end;
+
 
 procedure TCadParametros.FormClose(Sender: TObject;
   var Action: TCloseAction);
@@ -588,6 +590,14 @@ begin
   dm.Parametros.Edit;
   dm.ParametrosCAMINHO.Value := edtarquivo.Text;
   dm.Parametros.Post;
+end;
+
+procedure TCadParametros.notasnetClick(Sender: TObject);
+begin
+  if notasnet.Checked = True Then
+  notasnet.Caption := 'Notas liberadas.'
+  else notasnet.Caption := 'Notas bloqueadas.';
+
 end;
 
 end.

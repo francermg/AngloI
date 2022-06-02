@@ -159,7 +159,8 @@ uses
   Uprocedimentos in 'Uprocedimentos.pas',
   UTermo_Resp in 'UTermo_Resp.pas' {Rel_TermoResp},
   UHistorico_2022 in 'UHistorico_2022.pas' {Doc_historico_2022},
-  UConfigHistorico in 'UConfigHistorico.pas' {fConfigHistorico};
+  UConfigHistorico in 'UConfigHistorico.pas' {fConfigHistorico},
+  UConsultaConfHistorico in 'UConsultaConfHistorico.pas' {fConsultaConfHistorico};
 
 {$R *.RES}
 
@@ -185,6 +186,7 @@ begin
   Application.CreateForm(TRel_autoriza, Rel_autoriza);
   Application.CreateForm(Tfautorizacao, fautorizacao);
   Application.CreateForm(TRel_TermoResp, Rel_TermoResp);
+  Application.CreateForm(TfConsultaConfHistorico, fConsultaConfHistorico);
   FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
   FrmSplash.GSplash.Progress := FrmSplash.GSplash.Progress + 1;
 //  Application.CreateForm(TPrincipal, Principal);

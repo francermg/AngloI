@@ -1078,6 +1078,7 @@ object CadParametros: TCadParametros
         TabOrder = 8
         ValueChecked = 'T'
         ValueUnchecked = 'F'
+        OnClick = notasnetClick
       end
       object edtarquivo: TFilenameEdit
         Left = 16

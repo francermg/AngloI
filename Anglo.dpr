@@ -145,7 +145,6 @@ uses
   UDoc_ContratoQR1 in 'UDoc_ContratoQR1.pas' {Doc_ContratoQR1: TQuickRep},
   UDoc_ContratoQR2 in 'UDoc_ContratoQR2.pas' {Doc_ContratoQR2: TQuickRep},
   UDoc_ContratoQR3 in 'UDoc_ContratoQR3.pas' {Doc_ContratoQR3: TQuickRep},
-  Ufparametrosbloqueto in 'Ufparametrosbloqueto.pas' {fparametrosbloqueto},
   Ufautorizacao in 'Ufautorizacao.pas' {fautorizacao},
   URel_Autoriza in 'URel_Autoriza.pas' {Rel_autoriza},
   UHistorico_new in 'UHistorico_new.pas' {Doc_historico_new},

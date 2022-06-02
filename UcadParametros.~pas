@@ -147,6 +147,7 @@ type
     procedure Reorg2Click(Sender: TObject);
     procedure Reorg3Click(Sender: TObject);
     procedure edtarquivoExit(Sender: TObject);
+    procedure notasnetClick(Sender: TObject);
   private
     procedure Distribui_Alunos(Serie : Integer);
     procedure Reorganiza_Numeros(Serie : Integer);
@@ -588,6 +589,14 @@ begin
   dm.Parametros.Edit;
   dm.ParametrosCAMINHO.Value := edtarquivo.Text;
   dm.Parametros.Post;
+end;
+
+procedure TCadParametros.notasnetClick(Sender: TObject);
+begin
+  if notasnet.Checked = True Then
+  notasnet.Caption := 'Notas liberadas.'
+  else notasnet.Caption := 'Notas bloqueadas.';
+
 end;
 
 end.

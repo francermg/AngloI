@@ -449,7 +449,7 @@ end;
 procedure TDoc_historico_2022.Grupo_areaBeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-     RLBand6.Height := 0;
+//     RLBand6.Height := 0;
  if ((dm.AlunosINTINERARIO.Value = 1) and (QTempAREA.Value = '1 - NÚCLEO DE ESTUDOS EM MATEMÁTICA E CIÊNCIAS DA NATUREZA E SUAS TECNOLOGIAS*')) then
        RLBand6.Height := 19;
   if ((dm.AlunosINTINERARIO.Value = 2) and (QTempAREA.Value = '2 - NÚCLEO DE ESTUDOS EM LINGUAGENS E CIÊNCIAS HUMANAS E SUAS TECNOLOGIAS*')) then

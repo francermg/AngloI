@@ -22,7 +22,7 @@ object CadParametros: TCadParametros
     Top = 0
     Width = 590
     Height = 577
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alTop
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -1078,6 +1078,7 @@ object CadParametros: TCadParametros
         TabOrder = 8
         ValueChecked = 'T'
         ValueUnchecked = 'F'
+        OnClick = notasnetClick
       end
       object edtarquivo: TFilenameEdit
         Left = 16

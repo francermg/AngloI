@@ -201,7 +201,7 @@ end;
 
 
 procedure TFin_Proc_Bloq.BitBtn2Click(Sender: TObject);
-var cont_adic,cont_alt,i, parc_ini, parc_fin  : integer;
+var cont_adic,cont_alt,i, parc_ini, parc_fin, t_parcela  : integer;
     mensalidade, desconto, valor0, desc_bolsa : real;
     ano, mes, dia, agoraano, agorames, agoradia, d_dia  : Word;
     d_emissao : TDateTime;
@@ -229,7 +229,7 @@ begin
   DecodeDate(Now, agoraano, agorames, agoradia); //Decodifica a data atual
 
 
- if (dm.AlunosMES_MATERIAL.IsNull) then
+ if (dm.AlunosMES_MATERIAL.IsNull) then     //Aqui é garada a parcela inicial
    parc_ini := agorames
    else
     begin
@@ -238,8 +238,14 @@ begin
     end;
 
 
+
 While not (DM.Alunos.Eof)  do
 Begin
+
+if (dm.AlunosmeBLOQUETO_2SEM.IsNull) then
+   t_parcela:= 12 Else
+   t_parcela := dm.AlunosBLOQUETO_2SEM.Value;
+
 
 
           case DM.AlunosSERIE.Value of
@@ -258,7 +264,7 @@ Begin
   if ((dm.AlunosBOLSA.Value <> 100) and (dm.AlunosBLOQUETO_1SEM.Value = 0)) then
   Begin
                 inc(cont_adic); //para contar quantos boletos foram adicionados
-                for i := 1 to  11 do
+                for i := 1 to  t_parcela do
                 begin
                     dm2.sql_gen.Active := True;
                     dm2.sql_gen.Open;

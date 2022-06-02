@@ -1,32 +1,39 @@
 [Closed Files]
-File_0=SourceModule,'C:\Anglo\UMov_Notas.pas',0,1,351,24,374,1,0
-File_1=SourceModule,'C:\Anglo\UcadParametros.pas',0,1,314,51,320,1,0
-File_2=SourceModule,'C:\Anglo\UDoc_Boletim.pas',0,1,1,1,1,1,0
-File_3=SourceModule,'C:\Anglo\UDoc_AtaQR.pas',0,1,217,96,199,1,0
-File_4=SourceModule,'C:\Anglo\UDoc_Ata.pas',0,1,130,1,111,1,0
-File_5=SourceModule,'C:\Anglo\UDoc_Boletim_QR.pas',0,1,1,1,1,1,0
-File_6=SourceModule,'C:\Anglo\UHistorico_2022.pas',0,1,342,29,356,1,0
-File_7=SourceModule,'C:\Anglo\UDoc_Alunos.pas',0,1,445,29,459,0,0
-File_8=SourceModule,'C:\Anglo\UDoc_HistoricoQR.pas',0,1,303,25,347,1,0
-File_9=SourceModule,'C:\Anglo\UMov_Ocorrencias.pas',0,1,335,6,349,0,0
+File_0=SourceModule,'C:\Anglo\UDoc_BoletimR_QR.pas',0,1,1,86,4,1,0
+File_1=SourceModule,'C:\Anglo\UDoc_NotasBimestrais.pas',0,1,100,1,126,1,0
+File_2=SourceModule,'C:\Anglo\UDoc_Notas_BimestraisQR.pas',0,1,122,1,177,1,0
+File_3=SourceModule,'C:\Anglo\UDoc_Boletim_QR.pas',0,1,1,92,10,1,0
+File_4=SourceModule,'C:\Anglo\UDoc_AluRecupQR.pas',0,1,1,1,1,1,0
+File_5=SourceModule,'C:\Anglo\UFin_Proc_Bloq.pas',0,1,242,19,264,1,0
+File_6=SourceModule,'C:\Anglo\Uflogin.pas',0,1,75,13,90,1,0
+File_7=SourceModule,'c:\program files (x86)\borland\delphi5\RX\UNITS\Placemnt.pas',0,1,467,1,484,0,0
+File_8=SourceModule,'C:\Anglo\UFin_Baixa_Bloq.pas',0,1,1,71,6,1,0
+File_9=SourceModule,'C:\Anglo\URel_Mens_Recebidas.pas',0,1,1,71,6,0,0
 
 [Modules]
-Module0=C:\Anglo\UDM2.pas
-Module1=C:\Anglo\UMenu.pas
-Module2=C:\Anglo\UDM.pas
-Module3=C:\Anglo\UDoc_IRDeclQR.pas
-Module4=C:\Anglo\UDoc_BoletimR_QR.pas
-Module5=C:\Anglo\UCad_Alunos.pas
-Module6=C:\Anglo\Anglo.dpr
-Count=7
+Module0=C:\Anglo\UDoc_RequerimentoQR.pas
+Module1=C:\Anglo\UcadParametros.pas
+Module2=C:\Anglo\UDM2.pas
+Module3=C:\Anglo\UDM.pas
+Module4=C:\Anglo\UHistorico_2022.pas
+Module5=C:\Anglo\UMenu.pas
+Module6=C:\Anglo\UCad_Alunos.pas
+Module7=C:\Anglo\Anglo.dpr
+Module8=C:\Anglo\Uprocedimentos.pas
+Count=9
 EditWindowCount=1
 
-[C:\Anglo\UDM2.pas]
+[C:\Anglo\UDoc_RequerimentoQR.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UMenu.pas]
+[C:\Anglo\UcadParametros.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Anglo\UDM2.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -36,12 +43,12 @@ ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UDoc_IRDeclQR.pas]
+[C:\Anglo\UHistorico_2022.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Anglo\UDoc_BoletimR_QR.pas]
+[C:\Anglo\UMenu.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
@@ -56,6 +63,11 @@ ModuleType=SourceModule
 FormState=0
 FormOnTop=0
 
+[C:\Anglo\Uprocedimentos.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
 [C:\Program Files (x86)\Borland\Delphi5\Projects\ProjectGroup1.bpg]
 FormState=0
 FormOnTop=0
@@ -65,8 +77,8 @@ FormState=0
 FormOnTop=0
 
 [EditWindow0]
-ViewCount=7
-CurrentView=5
+ViewCount=9
+CurrentView=4
 View0=0
 View1=1
 View2=2
@@ -74,21 +86,21 @@ View3=3
 View4=4
 View5=5
 View6=6
+View7=7
+View8=8
 CodeExplorer=CodeExplorer@EditWindow0
 MessageView=MessageView@EditWindow0
 Create=1
 Visible=1
-State=2
-Left=70
-Top=125
+State=0
+Left=130
+Top=166
 Width=1300
 Height=655
 MaxLeft=-8
-MaxTop=115
-MaxWidth=1456
-MaxHeight=753
-ClientWidth=1440
-ClientHeight=714
+MaxTop=114
+ClientWidth=1284
+ClientHeight=616
 LeftPanelSize=0
 LeftPanelClients=CodeExplorer@EditWindow0
 LeftPanelData=00000400010000000C000000436F64654578706C6F7265720000000000000000000000000000000000FFFFFFFF
@@ -99,51 +111,65 @@ BottomPanelData=00000400010000000B0000004D65737361676556696577000000000000000000
 
 [View0]
 Module=C:\Anglo\Anglo.dpr
-CursorX=50
-CursorY=138
-TopLine=120
-LeftCol=1
-
-[View1]
-Module=C:\Anglo\UCad_Alunos.pas
-CursorX=1
-CursorY=995
-TopLine=993
-LeftCol=1
-
-[View2]
-Module=C:\Anglo\UDoc_IRDeclQR.pas
-CursorX=1
-CursorY=1
+CursorX=17
+CursorY=11
 TopLine=1
 LeftCol=1
 
+[View1]
+Module=C:\Anglo\UMenu.pas
+CursorX=1
+CursorY=726
+TopLine=709
+LeftCol=1
+
+[View2]
+Module=C:\Anglo\UHistorico_2022.pas
+CursorX=116
+CursorY=446
+TopLine=371
+LeftCol=1
+
 [View3]
-Module=C:\Anglo\UDM.pas
-CursorX=11
-CursorY=500
-TopLine=501
+Module=C:\Anglo\UcadParametros.pas
+CursorX=1
+CursorY=186
+TopLine=166
 LeftCol=1
 
 [View4]
-Module=C:\Anglo\UMenu.pas
-CursorX=1
-CursorY=864
-TopLine=844
+Module=C:\Anglo\UDoc_RequerimentoQR.pas
+CursorX=42
+CursorY=101
+TopLine=90
 LeftCol=1
 
 [View5]
+Module=C:\Anglo\UCad_Alunos.pas
+CursorX=46
+CursorY=2105
+TopLine=2099
+LeftCol=1
+
+[View6]
+Module=C:\Anglo\Uprocedimentos.pas
+CursorX=1
+CursorY=1
+TopLine=97
+LeftCol=1
+
+[View7]
 Module=C:\Anglo\UDM2.pas
 CursorX=3
 CursorY=635
 TopLine=620
 LeftCol=1
 
-[View6]
-Module=C:\Anglo\UDoc_BoletimR_QR.pas
-CursorX=3
-CursorY=187
-TopLine=171
+[View8]
+Module=C:\Anglo\UDM.pas
+CursorX=54
+CursorY=1631
+TopLine=1616
 LeftCol=1
 
 [Watches]
@@ -160,13 +186,15 @@ Count=0
 [Main Window]
 Create=1
 Visible=1
-State=0
+State=2
 Left=0
 Top=0
-Width=1456
+Width=1440
 Height=123
 MaxLeft=-1
 MaxTop=-1
+MaxWidth=1456
+MaxHeight=123
 ClientWidth=1440
 ClientHeight=84
 
@@ -220,21 +248,21 @@ ClientHeight=60
 Create=1
 Visible=1
 State=0
-Left=1129
-Top=157
-Width=253
+Left=1054
+Top=79
+Width=325
 Height=718
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=235
+ClientWidth=307
 ClientHeight=677
 TBDockHeight=39
 LRDockWidth=208
 Dockable=1
-SplitPos=108
+SplitPos=191
 ArrangeBy=Name
-SelectedItem=Name
-ExpandedItems=Borders,Brush,DocumentInfo,Font,Foot,Info.Groups,PageSetup,Pen,ProviderFlags,Title,Title.Font,Value,ViewerOptions
+SelectedItem=BeforePrint
+ExpandedItems=Brush,DocumentInfo,Foot,Info.Groups,PageSetup,Pen,ProviderFlags,Title.Font,Value,ViewerOptions
 HiddenCategories=Legacy
 ShowStatusBar=1
 
@@ -411,13 +439,13 @@ Visible=0
 State=0
 Left=12
 Top=0
-Width=1428
-Height=170
+Width=1272
+Height=69
 MaxLeft=-1
 MaxTop=-1
-ClientWidth=1428
-ClientHeight=170
-TBDockHeight=170
+ClientWidth=1272
+ClientHeight=69
+TBDockHeight=69
 LRDockWidth=443
 Dockable=1
 

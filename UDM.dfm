@@ -7,7 +7,7 @@ object DM: TDM
   Width = 1345
   object DB_ANGLO: TIBDatabase
     Connected = True
-    DatabaseName = 'anglo:/bds/Anglo/Anglo_2020.gdb'
+    DatabaseName = 'anglo:/bds/Anglo/Anglo_2022.gdb'
     Params.Strings = (
       'lc_ctype=WIN1252'
       ''
@@ -36,7 +36,7 @@ object DM: TDM
   end
   object dsParametros: TDataSource
     DataSet = Parametros
-    Left = 216
+    Left = 248
     Top = 1
   end
   object Parametros: TIBTable
@@ -340,7 +340,7 @@ object DM: TDM
       end>
     StoreDefs = True
     TableName = 'PARAMETROS'
-    Left = 152
+    Left = 160
     Top = 1
     object ParametrosCODIGO: TIntegerField
       FieldName = 'CODIGO'
@@ -686,7 +686,7 @@ object DM: TDM
       'E_MAIL, '
       '   FORMATURA, BOLSA_AD, AULA_AD, ID, ORIUNDO_ESCOLA, OBS_TEL, '
       'DATA_EFETUACAO, '
-      '   EMAIL_MAE, EMAIL_ALUNO, INTINERARIO)'
+      '   EMAIL_MAE, EMAIL_ALUNO, INTINERARIO, A_NEGOCIACOES)'
       'values'
       '  (:CODIGO, :CODIGO_ESCOLA, :NOME, :TIPO_LOGADOURO, :NUMERO, '
       ':COMPLEMENTO, '
@@ -747,7 +747,8 @@ object DM: TDM
         '   :E_MAIL, :FORMATURA, :BOLSA_AD, :AULA_AD, :ID, :ORIUNDO_ESCOL' +
         'A, '
       ':OBS_TEL, '
-      '   :DATA_EFETUACAO, :EMAIL_MAE, :EMAIL_ALUNO, :INTINERARIO)')
+      '   :DATA_EFETUACAO, :EMAIL_MAE, :EMAIL_ALUNO, :INTINERARIO, '
+      ':A_NEGOCIACOES)')
     RefreshSQL.Strings = (
       'Select '
       '  CODIGO,'
@@ -869,7 +870,8 @@ object DM: TDM
       '  DATA_EFETUACAO,'
       '  EMAIL_MAE,'
       '  EMAIL_ALUNO,'
-      '  INTINERARIO'
+      '  INTINERARIO,'
+      '  A_NEGOCIACOES'
       'from ALUNOS '
       'where'
       '  CODIGO = :CODIGO')
@@ -1005,7 +1007,8 @@ object DM: TDM
       '  DATA_EFETUACAO = :DATA_EFETUACAO,'
       '  EMAIL_MAE = :EMAIL_MAE,'
       '  EMAIL_ALUNO = :EMAIL_ALUNO,'
-      '  INTINERARIO = :INTINERARIO'
+      '  INTINERARIO = :INTINERARIO,'
+      '  A_NEGOCIACOES = :A_NEGOCIACOES'
       'where'
       '  CODIGO = :OLD_CODIGO')
     GeneratorField.Field = 'CODIGO'
@@ -1114,6 +1117,7 @@ object DM: TDM
     object AlunosNACIONALIDADE: TIntegerField
       FieldName = 'NACIONALIDADE'
       Origin = '"ALUNOS"."NACIONALIDADE"'
+      OnChange = AlunosDATA_SAIDAValidate
     end
     object AlunosDATA_ENTR_PAIS: TDateField
       FieldName = 'DATA_ENTR_PAIS'
@@ -1148,9 +1152,10 @@ object DM: TDM
       Size = 1
     end
     object AlunosPAI_NOME: TIBStringField
+      DisplayWidth = 70
       FieldName = 'PAI_NOME'
       Origin = '"ALUNOS"."PAI_NOME"'
-      Size = 50
+      Size = 70
     end
     object AlunosPAI_PROFISSAO: TIBStringField
       FieldName = 'PAI_PROFISSAO'
@@ -1161,9 +1166,10 @@ object DM: TDM
       Origin = '"ALUNOS"."PAI_NASCIMENTO"'
     end
     object AlunosMAE_NOME: TIBStringField
+      DisplayWidth = 70
       FieldName = 'MAE_NOME'
       Origin = '"ALUNOS"."MAE_NOME"'
-      Size = 50
+      Size = 70
     end
     object AlunosMAE_PROFISSAO: TIBStringField
       FieldName = 'MAE_PROFISSAO'
@@ -1609,6 +1615,11 @@ object DM: TDM
       Precision = 9
       Size = 2
     end
+    object AlunosA_NEGOCIACOES: TIBStringField
+      FieldName = 'A_NEGOCIACOES'
+      Origin = '"ALUNOS"."A_NEGOCIACOES"'
+      Size = 400
+    end
   end
   object ContaAlunosQ: TIBQuery
     Database = DB_ANGLO
@@ -2023,7 +2034,6 @@ object DM: TDM
       '  AREA_CONHECIMENTO = :AREA_CONHECIMENTO'
       'where'
       '  CODIGO = :OLD_CODIGO')
-    Active = True
     Left = 23
     Top = 310
     object DisciplinasCODIGO: TIntegerField
@@ -3315,6 +3325,104 @@ object DM: TDM
       Precision = 4
       Size = 1
     end
+    object NotasBimN_16: TIBBCDField
+      FieldName = 'N_16'
+      Origin = '"NOTAS_TURMA"."N_16"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_17: TIBBCDField
+      FieldName = 'N_17'
+      Origin = '"NOTAS_TURMA"."N_17"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_18: TIBBCDField
+      FieldName = 'N_18'
+      Origin = '"NOTAS_TURMA"."N_18"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_19: TIBBCDField
+      FieldName = 'N_19'
+      Origin = '"NOTAS_TURMA"."N_19"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_20: TIBBCDField
+      FieldName = 'N_20'
+      Origin = '"NOTAS_TURMA"."N_20"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_21: TIBBCDField
+      FieldName = 'N_21'
+      Origin = '"NOTAS_TURMA"."N_21"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_22: TIBBCDField
+      FieldName = 'N_22'
+      Origin = '"NOTAS_TURMA"."N_22"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_23: TIBBCDField
+      FieldName = 'N_23'
+      Origin = '"NOTAS_TURMA"."N_23"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_24: TIBBCDField
+      FieldName = 'N_24'
+      Origin = '"NOTAS_TURMA"."N_24"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_25: TIBBCDField
+      FieldName = 'N_25'
+      Origin = '"NOTAS_TURMA"."N_25"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_26: TIBBCDField
+      FieldName = 'N_26'
+      Origin = '"NOTAS_TURMA"."N_26"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_27: TIBBCDField
+      FieldName = 'N_27'
+      Origin = '"NOTAS_TURMA"."N_27"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_28: TIBBCDField
+      FieldName = 'N_28'
+      Origin = '"NOTAS_TURMA"."N_28"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
+    object NotasBimN_29: TIBBCDField
+      FieldName = 'N_29'
+      Origin = '"NOTAS_TURMA"."N_29"'
+      DisplayFormat = '#0.0'
+      Precision = 9
+      Size = 1
+    end
   end
   object dsNotasBim: TDataSource
     DataSet = NotasBim
@@ -3545,6 +3653,55 @@ object DM: TDM
       DisplayWidth = 6
       FieldName = 'N_20'
       Origin = 'ALU_RECUP_BIM.N_20'
+      Size = 6
+    end
+    object AluRecupN_21: TIBStringField
+      FieldName = 'N_21'
+      Origin = '"ALU_RECUP_BIM"."N_21"'
+      Size = 6
+    end
+    object AluRecupN_22: TIBStringField
+      FieldName = 'N_22'
+      Origin = '"ALU_RECUP_BIM"."N_22"'
+      Size = 6
+    end
+    object AluRecupCONTE: TIntegerField
+      FieldName = 'CONTE'
+      Origin = '"ALU_RECUP_BIM"."CONTE"'
+    end
+    object AluRecupN_23: TIBStringField
+      FieldName = 'N_23'
+      Origin = '"ALU_RECUP_BIM"."N_23"'
+      Size = 6
+    end
+    object AluRecupN_24: TIBStringField
+      FieldName = 'N_24'
+      Origin = '"ALU_RECUP_BIM"."N_24"'
+      Size = 6
+    end
+    object AluRecupN_25: TIBStringField
+      FieldName = 'N_25'
+      Origin = '"ALU_RECUP_BIM"."N_25"'
+      Size = 6
+    end
+    object AluRecupN_26: TIBStringField
+      FieldName = 'N_26'
+      Origin = '"ALU_RECUP_BIM"."N_26"'
+      Size = 6
+    end
+    object AluRecupN_27: TIBStringField
+      FieldName = 'N_27'
+      Origin = '"ALU_RECUP_BIM"."N_27"'
+      Size = 6
+    end
+    object AluRecupN_28: TIBStringField
+      FieldName = 'N_28'
+      Origin = '"ALU_RECUP_BIM"."N_28"'
+      Size = 6
+    end
+    object AluRecupN_29: TIBStringField
+      FieldName = 'N_29'
+      Origin = '"ALU_RECUP_BIM"."N_29"'
       Size = 6
     end
   end
@@ -8509,6 +8666,114 @@ object DM: TDM
       FieldName = 'N_20_F3'
       Origin = '"CONT_RECUP"."N_20_F3"'
     end
+    object IqContN_21_F1: TIntegerField
+      FieldName = 'N_21_F1'
+      Origin = '"CONT_RECUP"."N_21_F1"'
+    end
+    object IqContN_21_F2: TIntegerField
+      FieldName = 'N_21_F2'
+      Origin = '"CONT_RECUP"."N_21_F2"'
+    end
+    object IqContN_21_F3: TIntegerField
+      FieldName = 'N_21_F3'
+      Origin = '"CONT_RECUP"."N_21_F3"'
+    end
+    object IqContN_22_F1: TIntegerField
+      FieldName = 'N_22_F1'
+      Origin = '"CONT_RECUP"."N_22_F1"'
+    end
+    object IqContN_22_F2: TIntegerField
+      FieldName = 'N_22_F2'
+      Origin = '"CONT_RECUP"."N_22_F2"'
+    end
+    object IqContN_22_F3: TIntegerField
+      FieldName = 'N_22_F3'
+      Origin = '"CONT_RECUP"."N_22_F3"'
+    end
+    object IqContN_23_F1: TIntegerField
+      FieldName = 'N_23_F1'
+      Origin = '"CONT_RECUP"."N_23_F1"'
+    end
+    object IqContN_23_F2: TIntegerField
+      FieldName = 'N_23_F2'
+      Origin = '"CONT_RECUP"."N_23_F2"'
+    end
+    object IqContN_23_F3: TIntegerField
+      FieldName = 'N_23_F3'
+      Origin = '"CONT_RECUP"."N_23_F3"'
+    end
+    object IqContN_24_F1: TIntegerField
+      FieldName = 'N_24_F1'
+      Origin = '"CONT_RECUP"."N_24_F1"'
+    end
+    object IqContN_24_F2: TIntegerField
+      FieldName = 'N_24_F2'
+      Origin = '"CONT_RECUP"."N_24_F2"'
+    end
+    object IqContN_24_F3: TIntegerField
+      FieldName = 'N_24_F3'
+      Origin = '"CONT_RECUP"."N_24_F3"'
+    end
+    object IqContN_25_F1: TIntegerField
+      FieldName = 'N_25_F1'
+      Origin = '"CONT_RECUP"."N_25_F1"'
+    end
+    object IqContN_25_F2: TIntegerField
+      FieldName = 'N_25_F2'
+      Origin = '"CONT_RECUP"."N_25_F2"'
+    end
+    object IqContN_25_F3: TIntegerField
+      FieldName = 'N_25_F3'
+      Origin = '"CONT_RECUP"."N_25_F3"'
+    end
+    object IqContN_26_F1: TIntegerField
+      FieldName = 'N_26_F1'
+      Origin = '"CONT_RECUP"."N_26_F1"'
+    end
+    object IqContN_26_F2: TIntegerField
+      FieldName = 'N_26_F2'
+      Origin = '"CONT_RECUP"."N_26_F2"'
+    end
+    object IqContN_26_F3: TIntegerField
+      FieldName = 'N_26_F3'
+      Origin = '"CONT_RECUP"."N_26_F3"'
+    end
+    object IqContN_27_F1: TIntegerField
+      FieldName = 'N_27_F1'
+      Origin = '"CONT_RECUP"."N_27_F1"'
+    end
+    object IqContN_27_F2: TIntegerField
+      FieldName = 'N_27_F2'
+      Origin = '"CONT_RECUP"."N_27_F2"'
+    end
+    object IqContN_27_F3: TIntegerField
+      FieldName = 'N_27_F3'
+      Origin = '"CONT_RECUP"."N_27_F3"'
+    end
+    object IqContN_28_F1: TIntegerField
+      FieldName = 'N_28_F1'
+      Origin = '"CONT_RECUP"."N_28_F1"'
+    end
+    object IqContN_28_F2: TIntegerField
+      FieldName = 'N_28_F2'
+      Origin = '"CONT_RECUP"."N_28_F2"'
+    end
+    object IqContN_28_F3: TIntegerField
+      FieldName = 'N_28_F3'
+      Origin = '"CONT_RECUP"."N_28_F3"'
+    end
+    object IqContN_29_F1: TIntegerField
+      FieldName = 'N_29_F1'
+      Origin = '"CONT_RECUP"."N_29_F1"'
+    end
+    object IqContN_29_F2: TIntegerField
+      FieldName = 'N_29_F2'
+      Origin = '"CONT_RECUP"."N_29_F2"'
+    end
+    object IqContN_29_F3: TIntegerField
+      FieldName = 'N_29_F3'
+      Origin = '"CONT_RECUP"."N_29_F3"'
+    end
   end
   object dsCont: TDataSource
     DataSet = IqCont
@@ -9847,6 +10112,11 @@ object DM: TDM
       Origin = '"ALUNOS"."ENDERECO"'
       Size = 40
     end
+    object BloquetosQSITIACAO_EXT: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'SITIACAO_EXT'
+      Calculated = True
+    end
   end
   object Areas: TIBDataSet
     Database = DB_ANGLO
@@ -9881,7 +10151,6 @@ object DM: TDM
       '  ID_AREA = :OLD_ID_AREA')
     GeneratorField.Field = 'ID_AREA'
     GeneratorField.Generator = 'GEN_ARE_CONHECIMENTO'
-    Active = True
     Left = 936
     Top = 328
     object AreasID_AREA: TIntegerField
@@ -9937,7 +10206,6 @@ object DM: TDM
       '  NOME_INTINERARIO = :NOME_INTINERARIO'
       'where'
       '  CODIGO = :OLD_CODIGO')
-    Active = True
     Left = 928
     Top = 392
     object IntinerariosCODIGO: TIntegerField
@@ -9981,7 +10249,6 @@ object DM: TDM
       '  NOME = :NOME'
       'where'
       '  CODIGO = :OLD_CODIGO')
-    Active = True
     Left = 936
     Top = 456
     object FormacaoCODIGO: TIntegerField
@@ -10052,7 +10319,6 @@ object DM: TDM
       '  INTINERARIOS_CODIGO = :OLD_INTINERARIOS_CODIGO and'
       '  ARE_CONHECIMENTO_ID_AREA = :OLD_ARE_CONHECIMENTO_ID_AREA and'
       '  COD_DICIPLINA = :OLD_COD_DICIPLINA')
-    Active = True
     Left = 936
     Top = 512
     object For_IntFORMACAO_CODIGO: TIntegerField

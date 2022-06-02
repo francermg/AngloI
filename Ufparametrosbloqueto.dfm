@@ -66,7 +66,6 @@ object fparametrosbloqueto: Tfparametrosbloqueto
     Cursor = crHandPoint
     Caption = 'OK'
     TabOrder = 2
-    OnClick = BitBtn1Click
   end
   object parcela: TEdit
     Left = 16

@@ -44,7 +44,6 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Shape1: TShape;
-    procedure BitBtn1Click(Sender: TObject);
     procedure limiteExit(Sender: TObject);
     procedure parcelaExit(Sender: TObject);
   private
@@ -265,51 +264,6 @@ end;
 
 
 
-
-procedure Tfparametrosbloqueto.BitBtn1Click(Sender: TObject);
-var w_sql1, w_sql2, w_sql3, w_aluno :string;
-begin
-   parc := (fparametrosbloqueto.parcela.Text);
-   Begin
-    w_aluno := dm.AlunosCODIGO.AsString;
-    w_sql1 := 'update bloquetos ';
-    w_sql2 := 'set st = ''R''';
-    w_sql3 := ' where aluno = ' +w_aluno+ ' and pagamento is null and parcela = '+parc;
-
-  if MessageDlg('Reprocessar Bloqueto do Aluno ?' + #13 + dm.AlunosNome.asstring, mtConfirmation, mbOKCancel, 0) = mrOK then begin
-    if (DM.AlunosBLOQUETO_1SEM.Value <> 1) then
-    begin
-        DM.Alunos.Edit;
-        DM.AlunosBLOQUETO_1SEM.Value := 1;
-        DM.AlunosBLOQUETO_2SEM.Value := 1;
-        DM.Alunos.Post;
-    end;
-          up_st.SQL.Clear;
-          up_st.SQL.Text := w_sql1 + w_sql2 + w_sql3;
-          up_st.ExecQuery;
-          QBuscaBoleto.Close;
-          QBuscaBoleto.SQL.Strings[2] := 'where aluno = :baluno and PAGAMENTO is null and parcela = :bparc';
-          QBuscaBoleto.Params[0].Value := w_aluno;
-          QBuscaBoleto.Params[1].Value := parc;
-          QBuscaBoleto.Open;
-          CopiaBoleto;
-          Delete_Boleto.Close;
-          Delete_Boleto.SQL[2] := 'where Aluno = :baluno and PAGAMENTO IS NULL and PARCELA = :bparc';
-          Delete_Boleto.Params[0].Value := w_aluno;
-          Delete_Boleto.Params[1].Value := parc;
-          Delete_Boleto.Open;
-          Delete_Boleto.Close;
-          dm.Alunos.edit;
-          DM.Alunosbloqueto_1sem.value := 10;  //Marca como reprocessado 10
-          dm.Alunos.Post;
-          GeraBoletoMatriculaParametros;
-   end
-   else
-   ShowMessage('Caro usuário, você deve digitar a parcela/bloleto que deseja reprocessar.');
-  if dm.AlunosBLOQUETO_1SEM.Value = 0 then
-     ShowMessage('Esse boleto ainda não existe ele não pode ser reprocessado!!!');
-  end;
-end;
 
 procedure Tfparametrosbloqueto.limiteExit(Sender: TObject);
 begin

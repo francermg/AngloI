@@ -348,7 +348,7 @@ Begin
                 _aux := Copy(IntToStr(ano),3,2);
 
 
-                aux := '1AAA            AAA                            ';
+                aux := '1AAA            AAB                            ';
                 //01 a 047
 
                 aux := aux+NossoNumX;
@@ -438,7 +438,7 @@ Begin
 
                 aux := aux + '0000';
                 //157 a 158 Instrução de protesto automáticao; 159 a 160 Número de dias protesto automático
-                aux := aux + v_juros;
+                aux := aux + '0000000000100'; //v_juros;
                 //161 a 173 Valor de juros por dias de atraso
 
                 aux := aux + datalimite;

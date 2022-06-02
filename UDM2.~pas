@@ -631,6 +631,8 @@ begin
   DBUsuario.Open;
   DBUsuario.Connected := True;
   TSUsuario.Active := True;
+  //teste pode tirar
+  
 
 //***************************Para conexão com o banco de dados LOCAL************
   {

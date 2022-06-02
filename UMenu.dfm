@@ -5274,7 +5274,7 @@ object Principal: TPrincipal
     Enabled = False
     Interval = 20000
     OnTimer = tmrReturnTimer
-    Left = 968
-    Top = 280
+    Left = 560
+    Top = 88
   end
 end

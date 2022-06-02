@@ -8,7 +8,7 @@ uses
   DBTables, Gauges, RxLookup, RXSwitch, ToolEdit, CurrEdit, RXDBCtrl,
   IBCustomDataSet, IBQuery, RxDBComb, OleServer, Word97, 
   TeeProcs, TeEngine, Chart, Placemnt, Spin, IBSQL, RXCtrls, IB, ScktComp, Math, DateUtil,
-  Psock, NMsmtp;
+  Psock, NMsmtp, Menus;
 
 
 
@@ -113,7 +113,6 @@ type
     AluOrigALU_CURSIN: TStringField;
     Tab3: TTabSheet;
     DBGrid1: TDBGrid;
-    BitBtn3: TBitBtn;
     BitBtn4: TBitBtn;
     PesqAluno: TRxDBLookupCombo;
     Panel1: TPanel;
@@ -121,9 +120,7 @@ type
     Label36: TLabel;
     Nome: TEdit;
     Pesquisa: TBitBtn;
-    Filtro: TRxSwitch;
     Codigo: TCurrencyEdit;
-    Ordem: TRadioGroup;
     Tab4: TTabSheet;
     RxDBGrid1: TRxDBGrid;
     Label37: TLabel;
@@ -533,10 +530,20 @@ type
     Label115: TLabel;
     DBEdit58: TDBEdit;
     BitBtn6: TBitBtn;
+    Label116: TLabel;
+    DBEdit59: TDBEdit;
+    tipo_busca: TRadioGroup;
+    A_Negociacoes: TDBMemo;
+    Label117: TLabel;
+    MBotaoEsc: TPopupMenu;
+    Negociado1: TMenuItem;
+    Cancelado1: TMenuItem;
+    Reprocessado1: TMenuItem;
+    Label118: TLabel;
+    RxDBComboBox1: TRxDBComboBox;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
-    procedure BitBtn3Click(Sender: TObject);
     procedure BitBtn4Click(Sender: TObject);
     procedure FichaOcorrClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
@@ -544,7 +551,6 @@ type
     procedure NomeChange(Sender: TObject);
     procedure FiltroOff(Sender: TObject);
     procedure PesquisaClick(Sender: TObject);
-    procedure OrdemClick(Sender: TObject);
     procedure Tab4Show(Sender: TObject);
     procedure Label46DblClick(Sender: TObject);
     procedure ContratoClick(Sender: TObject);
@@ -617,7 +623,6 @@ type
     procedure Button3Click(Sender: TObject);
     procedure DBLookupComboBox1DropDown(Sender: TObject);
     procedure ReciboClick(Sender: TObject);
-    procedure RxDBGrid1DblClick(Sender: TObject);
     procedure Button4Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
@@ -631,6 +636,10 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure BreprocessaClick(Sender: TObject);
     procedure BitBtn6Click(Sender: TObject);
+    procedure tipo_buscaClick(Sender: TObject);
+    procedure Reprocessado1Click(Sender: TObject);
+    procedure Cancelado1Click(Sender: TObject);
+    procedure Negociado1Click(Sender: TObject);
   private
    { Private declarations }
     procedure AtualizaSitFin;
@@ -943,15 +952,6 @@ begin
   end;
 end;
 
-procedure TCad_Alunos.OrdemClick(Sender: TObject);
-begin
-  if Ordem.ItemIndex = 0 then
-     DM.Alunos.SelectSQL.Strings[3] := 'order by codigo'
-   else DM.Alunos.SelectSQL.Strings[3] := 'order by nome collate pxw_intl850';
-  Filtro.StateOn := false;
-  DM.Alunos.Close;  DM.Alunos.Open;
-end;
-
 procedure TCad_Alunos.FichaOcorrClick(Sender: TObject);
 begin
   Application.CreateForm(TRel_TermoResp,Rel_TermoResp);
@@ -1050,7 +1050,7 @@ begin
     dm.AlunosUSUARIO.Value := Codigouser;
     DBDateEdit1.Date := now;
     DBRadioGroup4.ItemIndex := 0;
-  end;
+    end;
   if Button in [nbNext,nbPrior,nbFirst,nbLast] then begin
     AtualizaSitFin;
     PesqAluno.ResetField;
@@ -1102,7 +1102,6 @@ begin
     DM.Alunos.SelectSQL.Strings[2] := 'where Codigo = :codigo';
     DM.Alunos.ParamByName('codigo').AsInteger := StrToInt(Codigo.Text);
     DM.Alunos.Close;  DM.Alunos.Open;
-    Filtro.StateOn := true;
   end;
 end;
 
@@ -1112,7 +1111,6 @@ begin
     DM.Alunos.SelectSQL.Strings[2] := 'where Codigo = :codigo';
     DM.Alunos.ParamByName('codigo').AsInteger := StrToInt(Codigo2.Text);
     DM.Alunos.Close;  DM.Alunos.Open;
-    Filtro.StateOn := true;
     AtualizaFoto;
   end;
 end;
@@ -1124,7 +1122,6 @@ begin
     DM.Alunos.SelectSQL.Strings[2] := 'where Nome starting with :nome';
     DM.Alunos.ParamByName('nome').AsString := Nome.Text;
     DM.Alunos.Close;  DM.Alunos.Open;
-    Filtro.StateOn := true;
   end;
 end;
 
@@ -1134,14 +1131,10 @@ begin
   DM.Alunos.SelectSQL.Strings[2] := 'where upper(nome) like upper(:nome)';
   DM.Alunos.ParamByName('nome').AsString := '%'+Nome.Text+'%';
   DM.Alunos.Close;  DM.Alunos.Open;
-  Filtro.StateOn := true;
 end;
 
 procedure TCad_Alunos.FiltroOff(Sender: TObject);
 begin
-  Codigo.Clear;  Nome.Clear;  Codigo2.Clear;
-  DM.Alunos.SelectSQL.Strings[2] := 'where Codigo > 0';
-  DM.Alunos.Close;  DM.Alunos.Open;
 end;
 
 
@@ -2067,59 +2060,6 @@ begin
 end;
 
 
-procedure TCad_Alunos.RxDBGrid1DblClick(Sender: TObject);
-begin
-if Application.MessageBox('Deseja mudar o status do boleto para reprocesso','Título',MB_YESNO + MB_ICONQUESTION) = IdYes then
- begin
-   dm.Bloquetos.Close;
-   dm.Bloquetos.SelectSQL.Clear;
-   dm.Bloquetos.SelectSQL.Add  ('select *');
-   dm.Bloquetos.SelectSQL.Add  ('from bloquetos');
-   dm.Bloquetos.SelectSQL.Add  ('where nosso_numero = :bnossonumero');
-   dm.Bloquetos.Params[0].Value := DM.BloquetosQNOSSO_NUMERO.Value;
-   dm.Bloquetos.Open;
-   dm.Bloquetos.Edit;
-   dm.BloquetosST.Value := 'R';
-   dm.Bloquetos.Post;
-   dm.BloquetosQ.close;
-   dm.BloquetosQ.Open;
-   dm.Bloquetos.Edit;
-
-{
-   dm.Bloquetos.Close;
-   dm.Bloquetos.SelectSQL.Clear;
-   dm.Bloquetos.SelectSQL.Add  ('select *');
-   dm.Bloquetos.SelectSQL.Add  ('from BLOQUETOS');
-   dm.Bloquetos.SelectSQL.Add  ('where NOSSO_NUMERO > 0');
-   dm.Bloquetos.SelectSQL.Add  ('order by NOSSO_NUMERO');
-   dm.Bloquetos.Open;}
- end else
-   Begin
-   dm.Bloquetos.Close;
-   dm.Bloquetos.SelectSQL.Clear;
-   dm.Bloquetos.SelectSQL.Add  ('select *');
-   dm.Bloquetos.SelectSQL.Add  ('from bloquetos');
-   dm.Bloquetos.SelectSQL.Add  ('where nosso_numero = :bnossonumero');
-   dm.Bloquetos.Params[0].Value := DM.BloquetosQNOSSO_NUMERO.Value;
-   dm.Bloquetos.Open;
-   dm.Bloquetos.Edit;
-   dm.BloquetosST.Value := dm.BloquetosBAULA_AD.Value;
-   dm.BloquetosQ.close;
-   dm.BloquetosQ.Open;
-   dm.Bloquetos.Post;
-   dm.Bloquetos.Edit;
-{   dm.BloquetosQ.close;
-   dm.BloquetosQ.Open;
-   dm.Bloquetos.Close;
-   dm.Bloquetos.SelectSQL.Clear;
-   dm.Bloquetos.SelectSQL.Add  ('select *');
-   dm.Bloquetos.SelectSQL.Add  ('from BLOQUETOS');
-   dm.Bloquetos.SelectSQL.Add  ('where NOSSO_NUMERO > 0');
-   dm.Bloquetos.SelectSQL.Add  ('order by NOSSO_NUMERO');
-   dm.Bloquetos.Open;}
-  end;
-end;
-
 procedure TCad_Alunos.Button4Click(Sender: TObject);
 begin
    dm.Negociacao.Open;
@@ -2148,18 +2088,20 @@ begin
 end;
 
 procedure TCad_Alunos.Button5Click(Sender: TObject);
-var i :integer;
+var i, d_dia, cont_mes :integer;
     w_ano, w_mes, w_dia :word;
+    l_ano, l_mes, l_dia :word;
 begin
   dm.Bloquetos.Open;
   dm.Bloquetos.Last;
   DecodeDate(now, w_ano, w_mes, w_dia);
+  DecodeDate(dm.NegociacaoDATA.Value, l_ano, l_mes, l_dia);
   dm2.iqParametros_B.Active := True;
   dm2.iqParametros_B.Open;
      UltimaParcela.Close;
      UltimaParcela.Params[0].Value := dm.AlunosCODIGO.Value;
      UltimaParcela.Open;
-
+     cont_mes := l_mes;
   for i:=1 to dm.NegociacaoQUANT.AsInteger do
   begin
        dm2.sql_gen.Active := True;
@@ -2175,29 +2117,25 @@ begin
         DM.BloquetosVALOR.Value       := DM.NegociacaoVALOR.Value;
         DM.BloquetosVALOR_ANT.Value := DM.NegociacaoVALOR.Value;
 
-        if (i=1) then
+        d_dia := (DaysPerMonth(l_ano, i));
+        if (i = 1) then
         Begin
-          DM.BloquetosDATA_LIMITE.Value  := (DM.NegociacaoDATA.Value);
-          DM.BloquetosVENCIMENTO.Value := (DM.NegociacaoDATA.Value + 7);
+        DM.BloquetosDATA_LIMITE.Value  :=   (StrToDate(IntToStr(l_dia)+'/'+IntToStr(l_mes)+'/'+IntToStr(l_ano)));
+        DM.BloquetosVENCIMENTO.Value := StrToDate(IntToStr(30)+'/'+IntToStr(l_mes)+'/'+IntToStr(l_ano));
+        end  else
+        Begin
+           inc(cont_mes);
+           DM.BloquetosDATA_LIMITE.Value  :=   (StrToDate(IntToStr(l_dia)+'/'+IntToStr(cont_mes)+'/'+IntToStr(l_ano)));
+           DM.BloquetosVENCIMENTO.Value := StrToDate(IntToStr(30)+'/'+IntToStr(cont_mes)+'/'+IntToStr(l_ano));
         end;
-
-        if (i=2) then
-        Begin
-           DM.BloquetosDATA_LIMITE.Value  := (DM.NegociacaoDATA.Value) + dm.NegociacaoDIAS.Value;
-           DM.BloquetosVENCIMENTO.Value := ((DM.NegociacaoDATA.Value + dm.NegociacaoDIAS.Value) + 7);
-        end;
-
-        if (i>2) then
-        Begin
-           DM.BloquetosDATA_LIMITE.Value  := (DM.NegociacaoDATA.Value + (dm.NegociacaoDIAS.Value * (i-1)));
-           DM.BloquetosVENCIMENTO.Value := (DM.NegociacaoDATA.Value + (dm.NegociacaoDIAS.Value * (i-1)) + 7);
-        End;
+        inc(w_mes);
         DM.BloquetosST.Value := 'G';
         DM.BloquetosTP.Value := 08; //negociado
 //        DM.BloquetosVENCIMENTO.Value := ((DM.NegociacaoDATA.Value + (dm.NegociacaoDIAS.Value*i)) + 7);  //Vencimento tem que ser no minimo 7 dias a mais que a data limite
         DM.BloquetosNEGOCIACAO.Value := dm.NegociacaoCOD_NEGOCIACAO.Value;
         DM.Bloquetos.Post;
         dm2.TSUsuario.CommitRetaining;
+
    end;
    UP_Negociacao.Close;
    UP_Negociacao.ParamByName('baluno').Value := dm.AlunosCODIGO.Value;
@@ -2219,19 +2157,6 @@ begin
     end;
   end;
 end;
-
-procedure TCad_Alunos.BitBtn3Click(Sender: TObject);
-begin
-    Application.CreateForm(Tfparametrosbloqueto, fparametrosbloqueto);
-    Try
-     fparametrosbloqueto.ShowModal;
-    Finally
-     fparametrosbloqueto.Free;
-    End;
-end;
-
-
-
 
 procedure TCad_Alunos.Button7Click(Sender: TObject);
 begin
@@ -2313,10 +2238,19 @@ procedure TCad_Alunos.RxDBGrid1DrawColumnCell(Sender: TObject;
   State: TGridDrawState);
 begin
   Try
-   if dm.BloquetosQST.Value = 'R' then
-      RxDBGrid1.Canvas.Font.Color := clRed
-      else
-      RxDBGrid1.Canvas.Font.Color := clBlack;
+   if (dm.BloquetosQST.Value = 'R') then
+       RxDBGrid1.Canvas.Font.Color := clRed
+   else if (dm.BloquetosQST.Value = 'N') then
+      RxDBGrid1.Canvas.Font.Color := clBlue
+   else if (dm.BloquetosQST.Value = 'E') then
+      RxDBGrid1.Canvas.Font.Color := clBlack
+   else if (dm.BloquetosQST.Value = 'P') then
+      RxDBGrid1.Canvas.Font.Color := clPurple
+   else if (dm.BloquetosQST.Value = 'C') then
+      RxDBGrid1.Canvas.Font.Color := clFuchsia
+   else if (dm.BloquetosQST.Value = 'G') then
+      RxDBGrid1.Canvas.Font.Color := clMaroon;
+
    Except;
   end;
   RxDBGrid1.Canvas.FillRect(Rect);
@@ -2342,6 +2276,88 @@ begin
       Doc_historico_2022.RLHistorico_2022.Preview;
     Finally
    end;
+end;
+procedure TCad_Alunos.tipo_buscaClick(Sender: TObject);
+begin
+  if tipo_busca.ItemIndex = 0 then
+  Begin
+    dm.Alunos.Close;
+    DM.Alunos.SelectSQL.Strings[3] := 'order by nome collate pxw_intl850';
+    dm.Alunos.open;
+
+    PesqAluno.LookupDisplay := 'NOME';
+    PesqAluno.LookupField   :=   'CODIGO';
+    PesqAluno.LookupSource  :=   DM.DSALUNOS;
+  end;
+  if tipo_busca.ItemIndex = 1 then
+  Begin
+    dm.Alunos.Close;
+    DM.Alunos.SelectSQL.Strings[3] := 'order by pai_nome collate pxw_intl850';
+    dm.Alunos.Open;
+    PesqAluno.LookupDisplay :=   'PAI_NOME';
+    PesqAluno.LookupField   :=   'CODIGO';
+    PesqAluno.LookupSource  :=   DM.DSALUNOS;
+  end;
+  if tipo_busca.ItemIndex = 2 then
+  Begin
+    dm.Alunos.Close;
+    DM.Alunos.SelectSQL.Strings[3] := 'order by mae_nome collate pxw_intl850';
+    dm.Alunos.Open;
+    PesqAluno.LookupDisplay :=   'MAE_NOME';
+    PesqAluno.LookupField   :=   'CODIGO';
+    PesqAluno.LookupSource  :=   DM.DSALUNOS;
+  end;
+end;
+
+procedure TCad_Alunos.Reprocessado1Click(Sender: TObject);
+begin
+   dm.Bloquetos.Close;
+   dm.Bloquetos.SelectSQL.Clear;
+   dm.Bloquetos.SelectSQL.Add  ('select *');
+   dm.Bloquetos.SelectSQL.Add  ('from bloquetos');
+   dm.Bloquetos.SelectSQL.Add  ('where nosso_numero = :bnossonumero');
+   dm.Bloquetos.Params[0].Value := DM.BloquetosQNOSSO_NUMERO.Value;
+   dm.Bloquetos.Open;
+   dm.Bloquetos.Edit;
+   dm.BloquetosST.Value := 'R';
+   dm.Bloquetos.Post;
+   dm.BloquetosQ.close;
+   dm.BloquetosQ.Open;
+   DM.IBTr_ANGLO.CommitRetaining;
+end;
+
+procedure TCad_Alunos.Cancelado1Click(Sender: TObject);
+begin
+   dm.Bloquetos.Close;
+   dm.Bloquetos.SelectSQL.Clear;
+   dm.Bloquetos.SelectSQL.Add  ('select *');
+   dm.Bloquetos.SelectSQL.Add  ('from bloquetos');
+   dm.Bloquetos.SelectSQL.Add  ('where nosso_numero = :bnossonumero');
+   dm.Bloquetos.Params[0].Value := DM.BloquetosQNOSSO_NUMERO.Value;
+   dm.Bloquetos.Open;
+   dm.Bloquetos.Edit;
+   dm.BloquetosST.Value := 'C';
+   dm.Bloquetos.Post;
+   dm.BloquetosQ.close;
+   dm.BloquetosQ.Open;
+   DM.IBTr_ANGLO.CommitRetaining;
+end;
+
+procedure TCad_Alunos.Negociado1Click(Sender: TObject);
+begin
+   dm.Bloquetos.Close;
+   dm.Bloquetos.SelectSQL.Clear;
+   dm.Bloquetos.SelectSQL.Add  ('select *');
+   dm.Bloquetos.SelectSQL.Add  ('from bloquetos');
+   dm.Bloquetos.SelectSQL.Add  ('where nosso_numero = :bnossonumero');
+   dm.Bloquetos.Params[0].Value := DM.BloquetosQNOSSO_NUMERO.Value;
+   dm.Bloquetos.Open;
+   dm.Bloquetos.Edit;
+   dm.BloquetosST.Value := 'N';
+   dm.Bloquetos.Post;
+   dm.BloquetosQ.close;
+   dm.BloquetosQ.Open;
+   DM.IBTr_ANGLO.CommitRetaining;
 end;
 
 end.

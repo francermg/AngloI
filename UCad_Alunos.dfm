@@ -1,11 +1,11 @@
 object Cad_Alunos: TCad_Alunos
-  Left = 240
-  Top = 105
+  Left = 144
+  Top = 126
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'ALUNOS'
-  ClientHeight = 642
-  ClientWidth = 1111
+  ClientHeight = 752
+  ClientWidth = 1109
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -29,8 +29,8 @@ object Cad_Alunos: TCad_Alunos
     Left = 0
     Top = 2
     Width = 1096
-    Height = 641
-    ActivePage = Tab2
+    Height = 743
+    ActivePage = Tab1
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -48,7 +48,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label2: TLabel
         Left = 56
-        Top = 32
+        Top = 41
         Width = 42
         Height = 13
         Alignment = taRightJustify
@@ -57,7 +57,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label3: TLabel
         Left = 250
-        Top = 56
+        Top = 64
         Width = 62
         Height = 13
         Alignment = taRightJustify
@@ -66,7 +66,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label4: TLabel
         Left = 9
-        Top = 80
+        Top = 88
         Width = 89
         Height = 13
         Alignment = taRightJustify
@@ -75,7 +75,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label5: TLabel
         Left = 54
-        Top = 104
+        Top = 109
         Width = 44
         Height = 13
         Alignment = taRightJustify
@@ -84,7 +84,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label6: TLabel
         Left = 22
-        Top = 128
+        Top = 133
         Width = 76
         Height = 13
         Alignment = taRightJustify
@@ -93,7 +93,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label8: TLabel
         Left = 346
-        Top = 128
+        Top = 133
         Width = 32
         Height = 13
         Alignment = taRightJustify
@@ -102,7 +102,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label9: TLabel
         Left = 72
-        Top = 153
+        Top = 158
         Width = 26
         Height = 13
         Alignment = taRightJustify
@@ -110,7 +110,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label10: TLabel
         Left = 27
-        Top = 230
+        Top = 235
         Width = 71
         Height = 13
         Alignment = taRightJustify
@@ -119,7 +119,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label11: TLabel
         Left = 16
-        Top = 255
+        Top = 260
         Width = 84
         Height = 13
         Alignment = taRightJustify
@@ -128,7 +128,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label13: TLabel
         Left = 185
-        Top = 230
+        Top = 235
         Width = 38
         Height = 13
         Alignment = taRightJustify
@@ -136,7 +136,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label19: TLabel
         Left = 258
-        Top = 407
+        Top = 412
         Width = 67
         Height = 13
         Alignment = taRightJustify
@@ -146,7 +146,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label18: TLabel
         Left = 10
-        Top = 409
+        Top = 414
         Width = 88
         Height = 13
         Alignment = taRightJustify
@@ -155,7 +155,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label17: TLabel
         Left = 29
-        Top = 353
+        Top = 358
         Width = 69
         Height = 13
         Alignment = taRightJustify
@@ -164,7 +164,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label16: TLabel
         Left = 317
-        Top = 329
+        Top = 334
         Width = 61
         Height = 13
         Alignment = taRightJustify
@@ -174,7 +174,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label15: TLabel
         Left = 16
-        Top = 329
+        Top = 334
         Width = 82
         Height = 13
         Alignment = taRightJustify
@@ -183,7 +183,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label14: TLabel
         Left = 35
-        Top = 278
+        Top = 283
         Width = 63
         Height = 13
         Alignment = taRightJustify
@@ -292,63 +292,63 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label78: TLabel
         Left = 1
-        Top = 56
+        Top = 64
         Width = 97
         Height = 13
         Caption = 'Tipo Logadouro :'
       end
       object Label79: TLabel
         Left = 604
-        Top = 54
+        Top = 64
         Width = 54
         Height = 13
         Caption = 'Número :'
       end
       object Label80: TLabel
         Left = 419
-        Top = 153
+        Top = 158
         Width = 71
         Height = 13
         Caption = 'Compl. RG :'
       end
       object Label81: TLabel
         Left = 560
-        Top = 153
+        Top = 158
         Width = 87
         Height = 13
         Caption = 'Data emissão :'
       end
       object Label82: TLabel
         Left = 47
-        Top = 177
+        Top = 182
         Width = 39
         Height = 13
         Caption = 'UF RG.'
       end
       object Label83: TLabel
-        Left = 531
-        Top = 32
+        Left = 742
+        Top = 37
         Width = 30
         Height = 13
         Caption = 'Nac.:'
       end
       object Label85: TLabel
         Left = 155
-        Top = 176
+        Top = 181
         Width = 93
         Height = 13
         Caption = 'Orgão emissor :'
       end
       object Label86: TLabel
         Left = 320
-        Top = 254
+        Top = 259
         Width = 23
         Height = 13
         Caption = 'UF :'
       end
       object SpeedButton1: TSpeedButton
-        Left = 712
-        Top = 26
+        Left = 923
+        Top = 37
         Width = 33
         Height = 20
         Glyph.Data = {
@@ -387,15 +387,15 @@ object Cad_Alunos: TCad_Alunos
         Caption = 'Tel. Contato:'
       end
       object lb1: TLabel
-        Left = 536
-        Top = 8
+        Left = 783
+        Top = 12
         Width = 27
         Height = 13
         Caption = 'ID  :'
       end
       object SpeedButton3: TSpeedButton
         Left = 579
-        Top = 170
+        Top = 175
         Width = 23
         Height = 20
         Cursor = crHandPoint
@@ -419,31 +419,38 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label113: TLabel
         Left = 7
-        Top = 204
+        Top = 209
         Width = 79
         Height = 13
         Caption = 'CPF do aluno.'
       end
       object Label114: TLabel
         Left = 25
-        Top = 379
+        Top = 384
         Width = 74
         Height = 13
         Caption = 'E-Mail Mãe  :'
       end
       object Label20: TLabel
         Left = 320
-        Top = 204
+        Top = 209
         Width = 77
         Height = 13
         Caption = 'E-mail Aluno:'
       end
       object Label100: TLabel
         Left = 28
-        Top = 304
+        Top = 309
         Width = 70
         Height = 13
         Caption = 'E-mail  Pai :'
+      end
+      object Label118: TLabel
+        Left = 0
+        Top = 528
+        Width = 106
+        Height = 13
+        Caption = 'Situação do aluno.'
       end
       object DBEdit1: TDBEdit
         Left = 104
@@ -458,8 +465,8 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit2: TDBEdit
         Left = 104
-        Top = 27
-        Width = 424
+        Top = 36
+        Width = 633
         Height = 21
         CharCase = ecUpperCase
         DataField = 'NOME'
@@ -469,7 +476,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit3: TDBEdit
         Left = 318
-        Top = 51
+        Top = 59
         Width = 281
         Height = 21
         CharCase = ecUpperCase
@@ -479,7 +486,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit4: TDBEdit
         Left = 104
-        Top = 75
+        Top = 83
         Width = 273
         Height = 21
         CharCase = ecUpperCase
@@ -489,7 +496,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit5: TDBEdit
         Left = 104
-        Top = 99
+        Top = 104
         Width = 144
         Height = 21
         CharCase = ecUpperCase
@@ -499,7 +506,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit6: TDBEdit
         Left = 104
-        Top = 123
+        Top = 128
         Width = 202
         Height = 21
         CharCase = ecUpperCase
@@ -509,7 +516,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit7: TDBEdit
         Left = 312
-        Top = 123
+        Top = 128
         Width = 25
         Height = 21
         DataField = 'UF'
@@ -518,7 +525,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit8: TDBEdit
         Left = 384
-        Top = 123
+        Top = 128
         Width = 113
         Height = 21
         DataField = 'CEP'
@@ -533,7 +540,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit10: TDBEdit
         Left = 104
-        Top = 225
+        Top = 230
         Width = 74
         Height = 21
         DataField = 'NASC_DATA'
@@ -542,7 +549,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit11: TDBEdit
         Left = 104
-        Top = 250
+        Top = 255
         Width = 202
         Height = 21
         CharCase = ecUpperCase
@@ -552,7 +559,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit12: TDBEdit
         Left = 344
-        Top = 249
+        Top = 254
         Width = 25
         Height = 21
         DataField = 'NASC_UF'
@@ -561,7 +568,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit19: TDBEdit
         Left = 331
-        Top = 403
+        Top = 408
         Width = 74
         Height = 21
         DataField = 'MAE_NASCIMENTO'
@@ -571,7 +578,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit18: TDBEdit
         Left = 104
-        Top = 404
+        Top = 409
         Width = 144
         Height = 21
         CharCase = ecUpperCase
@@ -581,8 +588,8 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit17: TDBEdit
         Left = 104
-        Top = 348
-        Width = 354
+        Top = 353
+        Width = 609
         Height = 21
         CharCase = ecUpperCase
         DataField = 'MAE_NOME'
@@ -591,7 +598,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit16: TDBEdit
         Left = 384
-        Top = 324
+        Top = 329
         Width = 74
         Height = 21
         DataField = 'PAI_NASCIMENTO'
@@ -601,7 +608,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit15: TDBEdit
         Left = 104
-        Top = 324
+        Top = 329
         Width = 161
         Height = 21
         CharCase = ecUpperCase
@@ -611,8 +618,8 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit14: TDBEdit
         Left = 104
-        Top = 273
-        Width = 354
+        Top = 278
+        Width = 609
         Height = 21
         CharCase = ecUpperCase
         DataField = 'PAI_NOME'
@@ -665,7 +672,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object RxDBComboBox2: TRxDBComboBox
         Left = 229
-        Top = 225
+        Top = 230
         Width = 105
         Height = 21
         Style = csDropDownList
@@ -769,7 +776,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object RxDBLookupCombo2: TRxDBLookupCombo
         Left = 104
-        Top = 52
+        Top = 60
         Width = 139
         Height = 21
         DropDownCount = 10
@@ -783,7 +790,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit44: TDBEdit
         Left = 659
-        Top = 50
+        Top = 60
         Width = 94
         Height = 21
         DataField = 'NUMERO'
@@ -792,7 +799,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit45: TDBEdit
         Left = 491
-        Top = 148
+        Top = 153
         Width = 65
         Height = 21
         DataField = 'COMPLEMENTO_RG'
@@ -801,7 +808,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBDateEdit2: TDBDateEdit
         Left = 648
-        Top = 148
+        Top = 153
         Width = 113
         Height = 21
         DataField = 'DATA_EXP_IDENT'
@@ -811,7 +818,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object RxDBLookupCombo3: TRxDBLookupCombo
         Left = 104
-        Top = 172
+        Top = 177
         Width = 49
         Height = 21
         DropDownCount = 8
@@ -823,8 +830,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 17
       end
       object RxDBLookupCombo4: TRxDBLookupCombo
-        Left = 567
-        Top = 27
+        Left = 778
+        Top = 37
         Width = 142
         Height = 21
         DropDownCount = 8
@@ -837,7 +844,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object RxDBLookupCombo6: TRxDBLookupCombo
         Left = 251
-        Top = 171
+        Top = 176
         Width = 326
         Height = 21
         DropDownCount = 8
@@ -893,8 +900,8 @@ object Cad_Alunos: TCad_Alunos
           'N')
       end
       object dbedtID: TDBEdit
-        Left = 566
-        Top = 1
+        Left = 813
+        Top = 5
         Width = 141
         Height = 21
         DataField = 'ID'
@@ -912,7 +919,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit54: TDBEdit
         Left = 104
-        Top = 199
+        Top = 204
         Width = 209
         Height = 21
         DataField = 'CPF'
@@ -921,7 +928,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit55: TDBEdit
         Left = 104
-        Top = 376
+        Top = 381
         Width = 353
         Height = 21
         DataField = 'EMAIL_MAE'
@@ -930,7 +937,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit9: TDBEdit
         Left = 104
-        Top = 147
+        Top = 152
         Width = 310
         Height = 21
         DataField = 'RG'
@@ -939,7 +946,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit56: TDBEdit
         Left = 404
-        Top = 199
+        Top = 204
         Width = 293
         Height = 21
         DataField = 'EMAIL_ALUNO'
@@ -948,12 +955,51 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBEdit57: TDBEdit
         Left = 104
-        Top = 298
+        Top = 303
         Width = 353
         Height = 21
         DataField = 'E_MAIL'
         DataSource = DM.dsAlunos
         TabOrder = 24
+      end
+      object tipo_busca: TRadioGroup
+        Left = 532
+        Top = -1
+        Width = 249
+        Height = 33
+        Caption = 'Selecione o tipo de busca'
+        Columns = 3
+        ItemIndex = 0
+        Items.Strings = (
+          'Aluno'
+          'Pai'
+          'Mãe')
+        TabOrder = 42
+        OnClick = tipo_buscaClick
+      end
+      object RxDBComboBox1: TRxDBComboBox
+        Left = 112
+        Top = 528
+        Width = 497
+        Height = 21
+        Style = csDropDownList
+        DataField = 'CONT_TOL'
+        DataSource = DM.dsAlunos
+        EnableValues = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clRed
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ItemHeight = 13
+        Items.Strings = (
+          'Normal.'
+          'Anviado para protesto.')
+        ParentFont = False
+        TabOrder = 43
+        Values.Strings = (
+          '1'
+          '2')
       end
     end
     object Tab2: TTabSheet
@@ -1434,6 +1480,13 @@ object Cad_Alunos: TCad_Alunos
         Width = 139
         Height = 13
         Caption = 'Mês inicial das parcelas:'
+      end
+      object Label116: TLabel
+        Left = 592
+        Top = 336
+        Width = 90
+        Height = 13
+        Caption = 'Quant. Parcelas'
       end
       object DBEdit21: TDBEdit
         Left = 162
@@ -2253,6 +2306,15 @@ object Cad_Alunos: TCad_Alunos
         DataSource = DM.dsAlunos
         TabOrder = 32
       end
+      object DBEdit59: TDBEdit
+        Left = 686
+        Top = 329
+        Width = 29
+        Height = 21
+        DataField = 'BLOQUETO_2SEM'
+        DataSource = DM.dsAlunos
+        TabOrder = 36
+      end
     end
     object Tab3: TTabSheet
       Caption = 'Consulta'
@@ -2305,7 +2367,7 @@ object Cad_Alunos: TCad_Alunos
         Left = 73
         Top = 48
         Width = 800
-        Height = 393
+        Height = 401
         DataSource = DM.dsAlunos
         Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit]
         ReadOnly = True
@@ -2345,26 +2407,15 @@ object Cad_Alunos: TCad_Alunos
             Visible = False
           end>
       end
-      object BitBtn3: TBitBtn
-        Left = 656
-        Top = 454
-        Width = 217
-        Height = 23
-        Cursor = crHandPoint
-        Caption = 'Reprocessar Bloqueto(Parcela)'
-        TabOrder = 2
-        Visible = False
-        OnClick = BitBtn3Click
-      end
       object BitBtn4: TBitBtn
         Left = 656
-        Top = 516
+        Top = 466
         Width = 217
         Height = 19
         Cursor = crHandPoint
         Caption = 'Gerar Bloquetos(Coletivo)'
         Enabled = False
-        TabOrder = 3
+        TabOrder = 2
         Visible = False
         OnClick = BitBtn4Click
       end
@@ -2427,7 +2478,7 @@ object Cad_Alunos: TCad_Alunos
         Height = 20
         Cursor = crHandPoint
         Caption = 'Gera Arquivo para INEP'
-        TabOrder = 4
+        TabOrder = 3
         Visible = False
         OnClick = BitBtn2Click
         Glyph.Data = {
@@ -2442,7 +2493,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object btngerar: TButton
         Left = 657
-        Top = 496
+        Top = 446
         Width = 217
         Height = 19
         Cursor = crHandPoint
@@ -2453,7 +2504,8 @@ object Cad_Alunos: TCad_Alunos
         Font.Name = 'Verdana'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 4
+        Visible = False
         OnClick = btngerarClick
       end
       object btnExport: TBitBtn
@@ -2462,7 +2514,7 @@ object Cad_Alunos: TCad_Alunos
         Width = 113
         Height = 21
         Caption = 'Exporta para leitor'
-        TabOrder = 6
+        TabOrder = 5
         Visible = False
         OnClick = btnExportClick
       end
@@ -2473,7 +2525,7 @@ object Cad_Alunos: TCad_Alunos
       OnShow = Tab4Show
       object Label37: TLabel
         Left = 128
-        Top = 40
+        Top = 21
         Width = 42
         Height = 13
         Alignment = taRightJustify
@@ -2482,7 +2534,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label38: TLabel
         Left = 121
-        Top = 16
+        Top = 3
         Width = 49
         Height = 13
         Alignment = taRightJustify
@@ -2491,7 +2543,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBText1: TDBText
         Left = 176
-        Top = 16
+        Top = 3
         Width = 54
         Height = 13
         AutoSize = True
@@ -2506,7 +2558,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBText2: TDBText
         Left = 176
-        Top = 40
+        Top = 21
         Width = 54
         Height = 13
         AutoSize = True
@@ -2521,7 +2573,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label43: TLabel
         Left = 82
-        Top = 64
+        Top = 39
         Width = 88
         Height = 13
         Alignment = taRightJustify
@@ -2530,7 +2582,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBText3: TDBText
         Left = 176
-        Top = 64
+        Top = 39
         Width = 54
         Height = 13
         AutoSize = True
@@ -2545,7 +2597,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label55: TLabel
         Left = 169
-        Top = 480
+        Top = 568
         Width = 59
         Height = 13
         Alignment = taRightJustify
@@ -2553,13 +2605,13 @@ object Cad_Alunos: TCad_Alunos
       end
       object Shape2: TShape
         Left = 6
-        Top = 483
+        Top = 571
         Width = 145
         Height = 81
       end
       object Label104: TLabel
         Left = 12
-        Top = 489
+        Top = 577
         Width = 105
         Height = 13
         Caption = 'Legenda Situação.'
@@ -2573,7 +2625,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label105: TLabel
         Left = 12
-        Top = 507
+        Top = 595
         Width = 84
         Height = 13
         Caption = 'N - Negociado.'
@@ -2581,7 +2633,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label106: TLabel
         Left = 12
-        Top = 523
+        Top = 611
         Width = 126
         Height = 13
         Caption = 'E - Enviado ao Banco.'
@@ -2589,7 +2641,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label107: TLabel
         Left = 12
-        Top = 541
+        Top = 629
         Width = 68
         Height = 13
         Caption = 'G - Gerado.'
@@ -2597,19 +2649,27 @@ object Cad_Alunos: TCad_Alunos
       end
       object Label109: TLabel
         Left = 232
-        Top = 536
+        Top = 624
         Width = 266
         Height = 13
         Caption = 'Somente para reprocessar boletos individuais.'
       end
+      object Label117: TLabel
+        Left = 3
+        Top = 448
+        Width = 143
+        Height = 13
+        Caption = 'Notações da negociação:'
+      end
       object RxDBGrid1: TRxDBGrid
-        Left = 11
-        Top = 88
-        Width = 998
-        Height = 369
+        Left = 5
+        Top = 59
+        Width = 1022
+        Height = 387
         Cursor = crHandPoint
         DataSource = DM.dsBloquetosQ
         Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+        PopupMenu = MBotaoEsc
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -2617,7 +2677,6 @@ object Cad_Alunos: TCad_Alunos
         TitleFont.Name = 'Verdana'
         TitleFont.Style = []
         OnDrawColumnCell = RxDBGrid1DrawColumnCell
-        OnDblClick = RxDBGrid1DblClick
         Columns = <
           item
             Expanded = False
@@ -2684,7 +2743,7 @@ object Cad_Alunos: TCad_Alunos
             FieldName = 'VALOR_PAGO'
             Title.Alignment = taCenter
             Title.Caption = 'Valor PG.'
-            Width = 69
+            Width = 81
             Visible = True
           end
           item
@@ -2698,16 +2757,16 @@ object Cad_Alunos: TCad_Alunos
           item
             Alignment = taCenter
             Expanded = False
-            FieldName = 'ST'
+            FieldName = 'SITIACAO_EXT'
             Title.Alignment = taCenter
             Title.Caption = 'Situação'
-            Width = 68
+            Width = 102
             Visible = True
           end>
       end
       object PesqAluno2: TRxDBLookupCombo
         Left = 234
-        Top = 474
+        Top = 562
         Width = 543
         Height = 21
         DropDownCount = 25
@@ -2722,7 +2781,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Breprocessa: TBitBtn
         Left = 824
-        Top = 472
+        Top = 560
         Width = 177
         Height = 25
         Cursor = crHandPoint
@@ -2732,7 +2791,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object DBRadioGroup6: TDBRadioGroup
         Left = 232
-        Top = 496
+        Top = 584
         Width = 308
         Height = 37
         Caption = 'Quantidade de dias.'
@@ -2750,6 +2809,15 @@ object Cad_Alunos: TCad_Alunos
           '10'
           '15'
           '30')
+      end
+      object A_Negociacoes: TDBMemo
+        Left = 3
+        Top = 464
+        Width = 1022
+        Height = 89
+        DataField = 'A_NEGOCIACOES'
+        DataSource = DM.dsAlunos
+        TabOrder = 4
       end
     end
     object Tab5: TTabSheet
@@ -2783,7 +2851,7 @@ object Cad_Alunos: TCad_Alunos
         Left = 46
         Top = 52
         Width = 755
-        Height = 334
+        Height = 581
         DataSource = DM.dsAlunosT
         Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgConfirmDelete, dgCancelOnExit]
         TabOrder = 2
@@ -2901,7 +2969,7 @@ object Cad_Alunos: TCad_Alunos
       object Bevel1: TBevel
         Left = 444
         Top = 48
-        Width = 99
+        Width = 100
         Height = 15
       end
       object Label52: TLabel
@@ -2967,8 +3035,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label28: TLabel
-        Left = 106
-        Top = 334
+        Left = 122
+        Top = 594
         Width = 86
         Height = 13
         Alignment = taRightJustify
@@ -2982,8 +3050,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label59: TLabel
-        Left = 172
-        Top = 261
+        Left = 188
+        Top = 521
         Width = 25
         Height = 13
         Caption = 'Ano'
@@ -2996,8 +3064,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label63: TLabel
-        Left = 107
-        Top = 279
+        Left = 123
+        Top = 539
         Width = 53
         Height = 13
         Caption = '1ª Série'
@@ -3010,8 +3078,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label60: TLabel
-        Left = 211
-        Top = 261
+        Left = 227
+        Top = 521
         Width = 42
         Height = 13
         Caption = 'Escola'
@@ -3024,8 +3092,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label61: TLabel
-        Left = 485
-        Top = 260
+        Left = 501
+        Top = 520
         Width = 44
         Height = 13
         Caption = 'Cidade'
@@ -3038,8 +3106,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label62: TLabel
-        Left = 691
-        Top = 260
+        Left = 707
+        Top = 520
         Width = 17
         Height = 13
         Caption = 'UF'
@@ -3052,8 +3120,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label64: TLabel
-        Left = 107
-        Top = 299
+        Left = 123
+        Top = 559
         Width = 53
         Height = 13
         Caption = '2ª Série'
@@ -3066,8 +3134,8 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label65: TLabel
-        Left = 107
-        Top = 319
+        Left = 123
+        Top = 579
         Width = 53
         Height = 13
         Caption = '3ª Série'
@@ -3104,15 +3172,15 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Bevel2: TBevel
-        Left = 545
+        Left = 547
         Top = 48
-        Width = 101
+        Width = 99
         Height = 15
       end
       object Bevel3: TBevel
         Left = 648
         Top = 48
-        Width = 89
+        Width = 92
         Height = 15
       end
       object Label68: TLabel
@@ -3153,8 +3221,8 @@ object Cad_Alunos: TCad_Alunos
         FocusControl = DBEdit2
       end
       object Label74: TLabel
-        Left = 298
-        Top = 237
+        Left = 314
+        Top = 429
         Width = 131
         Height = 13
         Caption = 'Resultado Final..........:'
@@ -3176,8 +3244,8 @@ object Cad_Alunos: TCad_Alunos
       object RxDBGrid3: TRxDBGrid
         Left = 116
         Top = 64
-        Width = 645
-        Height = 169
+        Width = 653
+        Height = 424
         DataSource = DM.dsHistNotas
         Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgConfirmDelete, dgCancelOnExit]
         TabOrder = 0
@@ -3206,7 +3274,7 @@ object Cad_Alunos: TCad_Alunos
             Expanded = False
             FieldName = 'CH1'
             Title.Alignment = taCenter
-            Width = 48
+            Width = 47
             Visible = True
           end
           item
@@ -3234,22 +3302,22 @@ object Cad_Alunos: TCad_Alunos
             Expanded = False
             FieldName = 'CH3'
             Title.Alignment = taCenter
-            Width = 39
+            Width = 42
             Visible = True
           end>
       end
       object DBMemo1: TDBMemo
-        Left = 105
-        Top = 350
-        Width = 608
+        Left = 121
+        Top = 610
+        Width = 653
         Height = 72
         DataField = 'OBS_HIST'
         DataSource = DM.dsAlunos
         TabOrder = 13
       end
       object DBEdit24: TDBEdit
-        Left = 163
-        Top = 274
+        Left = 179
+        Top = 534
         Width = 40
         Height = 21
         DataField = 'H_ANO1'
@@ -3257,8 +3325,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 1
       end
       object DBEdit25: TDBEdit
-        Left = 208
-        Top = 274
+        Left = 224
+        Top = 534
         Width = 269
         Height = 21
         DataField = 'H_ESCOLA1'
@@ -3266,8 +3334,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 2
       end
       object DBEdit27: TDBEdit
-        Left = 483
-        Top = 274
+        Left = 499
+        Top = 534
         Width = 179
         Height = 21
         DataField = 'H_CIDADE1'
@@ -3275,8 +3343,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 3
       end
       object DBEdit32: TDBEdit
-        Left = 688
-        Top = 274
+        Left = 704
+        Top = 534
         Width = 25
         Height = 21
         DataField = 'H_UF1'
@@ -3284,8 +3352,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 4
       end
       object DBEdit35: TDBEdit
-        Left = 163
-        Top = 293
+        Left = 179
+        Top = 553
         Width = 40
         Height = 21
         DataField = 'H_ANO2'
@@ -3293,8 +3361,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 5
       end
       object DBEdit37: TDBEdit
-        Left = 208
-        Top = 293
+        Left = 224
+        Top = 553
         Width = 269
         Height = 21
         DataField = 'H_ESCOLA2'
@@ -3302,8 +3370,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 6
       end
       object DBEdit38: TDBEdit
-        Left = 483
-        Top = 293
+        Left = 499
+        Top = 553
         Width = 179
         Height = 21
         DataField = 'H_CIDADE2'
@@ -3311,8 +3379,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 7
       end
       object DBEdit39: TDBEdit
-        Left = 688
-        Top = 293
+        Left = 704
+        Top = 553
         Width = 25
         Height = 21
         DataField = 'H_UF2'
@@ -3320,8 +3388,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 8
       end
       object DBEdit40: TDBEdit
-        Left = 163
-        Top = 313
+        Left = 179
+        Top = 573
         Width = 40
         Height = 21
         DataField = 'H_ANO3'
@@ -3329,8 +3397,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 9
       end
       object DBEdit41: TDBEdit
-        Left = 208
-        Top = 313
+        Left = 224
+        Top = 573
         Width = 269
         Height = 21
         DataField = 'H_ESCOLA3'
@@ -3338,8 +3406,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 10
       end
       object DBEdit42: TDBEdit
-        Left = 483
-        Top = 313
+        Left = 499
+        Top = 573
         Width = 179
         Height = 21
         DataField = 'H_CIDADE3'
@@ -3347,8 +3415,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 11
       end
       object DBEdit43: TDBEdit
-        Left = 688
-        Top = 313
+        Left = 704
+        Top = 573
         Width = 25
         Height = 21
         DataField = 'H_UF3'
@@ -3412,7 +3480,7 @@ object Cad_Alunos: TCad_Alunos
       end
       object Button1: TButton
         Left = 115
-        Top = 240
+        Top = 492
         Width = 75
         Height = 17
         Cursor = crHandPoint
@@ -3445,8 +3513,8 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 21
       end
       object Resultado1: TComboBox
-        Left = 464
-        Top = 236
+        Left = 480
+        Top = 496
         Width = 96
         Height = 21
         ItemHeight = 13
@@ -3461,8 +3529,8 @@ object Cad_Alunos: TCad_Alunos
           '-----------------')
       end
       object Resultado2: TComboBox
-        Left = 569
-        Top = 236
+        Left = 585
+        Top = 496
         Width = 92
         Height = 21
         ItemHeight = 13
@@ -3477,8 +3545,8 @@ object Cad_Alunos: TCad_Alunos
           '-----------------')
       end
       object Resultado3: TComboBox
-        Left = 665
-        Top = 236
+        Left = 681
+        Top = 496
         Width = 94
         Height = 21
         ItemHeight = 13
@@ -3545,28 +3613,28 @@ object Cad_Alunos: TCad_Alunos
       Caption = 'Geração de boletos avulsos'
       ImageIndex = 6
       object Label31: TLabel
-        Left = 73
+        Left = 105
         Top = 102
         Width = 91
         Height = 13
         Caption = 'Valor do boleto:'
       end
       object Label40: TLabel
-        Left = 31
+        Left = 63
         Top = 128
         Width = 133
         Height = 13
         Caption = 'Quantidade de boletos:'
       end
       object Label42: TLabel
-        Left = 16
+        Left = 48
         Top = 165
         Width = 148
         Height = 13
         Caption = 'Data da primeira parcela:'
       end
       object Label70: TLabel
-        Left = 62
+        Left = 94
         Top = 200
         Width = 102
         Height = 13
@@ -3607,11 +3675,11 @@ object Cad_Alunos: TCad_Alunos
         ParentFont = False
       end
       object Label108: TLabel
-        Left = 100
+        Left = 4
         Top = 229
-        Width = 64
+        Width = 192
         Height = 13
-        Caption = 'Anotações:'
+        Caption = 'Anotações Referentes so boletos:'
       end
       object DBEdit13: TDBEdit
         Left = 208
@@ -3640,6 +3708,7 @@ object Cad_Alunos: TCad_Alunos
         Height = 21
         DataField = 'DATA'
         DataSource = DM.DsNegociacao
+        DialogTitle = 'Selecione a data.'
         Enabled = False
         NumGlyphs = 2
         TabOrder = 2
@@ -3708,8 +3777,8 @@ object Cad_Alunos: TCad_Alunos
     end
   end
   object DBNavigator1: TDBNavigator
-    Left = 131
-    Top = 608
+    Left = 123
+    Top = 708
     Width = 256
     Height = 25
     DataSource = DM.dsAlunos
@@ -3732,7 +3801,7 @@ object Cad_Alunos: TCad_Alunos
   end
   object BitBtn1: TBitBtn
     Left = 942
-    Top = 607
+    Top = 703
     Width = 129
     Height = 25
     Cursor = crHandPoint
@@ -3741,251 +3810,26 @@ object Cad_Alunos: TCad_Alunos
     Kind = bkClose
     Layout = blGlyphRight
   end
-  object Filtro: TRxSwitch
-    Left = 726
-    Top = 569
-    Width = 39
-    Height = 56
-    Caption = 'Filtro'
-    GlyphOn.Data = {
-      36180000424D3618000000000000360000002800000020000000300000000100
-      2000000000000018000000000000000000000000000000000000FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF0000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000000000000000808080808080
-      8000808080808080800080808080808080008080808080808000808080808080
-      8000808080808080800080808080808080008080808080808000000000000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000008080808000808080808080
-      8000808080808080800080808080808080008080808080808000808080808080
-      8000808080808080800080808080808080008080800000000000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00000000000000000000000000000000000000000000000000000000000000
-      0000000000FFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00000000000000FF000000FF000000FF000000FF000000FF000000FF000000
-      FF00000000FFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00000000000000FF000000FF000000FF000000FF000000FF000000FF000000
-      FF00000000FFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00000000000000FF000000FF000000FF000000FF000000FF000000FF000000
-      FF00000000FFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00000000000000FF000000FF000000FF000000FF000000FF000000FF000000
-      FF00000000FFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00000000000000000000000000000000000000000000000000000000000000
-      0000000000FFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF000000000000000000FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFF00000000008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF000000000000000000FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFF00000000008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF0000000080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF0000000080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FF0000000000FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFF000000000080808080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FF0000000000FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFF000000000080808080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00000000FFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00000000808080800080808080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000808080800080808080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00000000FFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00000000808080800080808080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FF0000000000FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFF000000000080808080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF0000000080808080008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF000000000000000000FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFF00000000008080808080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00000000FFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF000000008080808000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000000000000000FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFF0000000000808080000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00000000FFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFFFF00FFFFFFFFFFFF
-      FF00FFFFFF0000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF0000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000000FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00
-      FF00FF00FFFFFF00FF00FF00FFFFFF00FF00FF00FFFFFF00FF00}
-    TabOrder = 3
-    TextPosition = tpAbove
-    OnOff = FiltroOff
-    Data = {02}
-  end
-  object Ordem: TRadioGroup
-    Left = 624
-    Top = 568
-    Width = 89
-    Height = 53
-    Caption = 'Ordem'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Verdana'
-    Font.Style = []
-    ItemIndex = 1
-    Items.Strings = (
-      'p/ Código'
-      'p/ Nome')
-    ParentFont = False
-    TabOrder = 4
-    OnClick = OrdemClick
-  end
   object BitBtn5: TBitBtn
-    Left = 791
-    Top = 587
+    Left = 799
+    Top = 707
     Width = 128
     Height = 24
     Caption = 'Gerar senha pais'
     Enabled = False
-    TabOrder = 5
+    TabOrder = 3
     Visible = False
     OnClick = BitBtn5Click
   end
   object dsAluOrig: TDataSource
     DataSet = AluOrig
-    Left = 108
-    Top = 529
+    Left = 156
+    Top = 353
   end
   object AluOrig: TTable
     TableName = 'C:\sistemas\anglo\2000\scaaluno.dbf'
-    Left = 220
-    Top = 529
+    Left = 204
+    Top = 409
     object AluOrigALU_COD: TFloatField
       FieldName = 'ALU_COD'
     end
@@ -4132,7 +3976,7 @@ object Cad_Alunos: TCad_Alunos
       'from ALUNOS_ANT'
       'where CODIGO = :codigo')
     Left = 416
-    Top = 457
+    Top = 433
     ParamData = <
       item
         DataType = ftUnknown
@@ -4693,8 +4537,8 @@ object Cad_Alunos: TCad_Alunos
       'RadioGroup1.ItemIndex'
       'edt1.Anchors')
     StoredValues = <>
-    Left = 272
-    Top = 577
+    Left = 280
+    Top = 425
   end
   object AlunosSP: TIBQuery
     Database = DM.DB_ANGLO
@@ -4706,8 +4550,8 @@ object Cad_Alunos: TCad_Alunos
       'from ALUNOS'
       'where CODIGO_SP is not null'
       'order by CODIGO_SP')
-    Left = 76
-    Top = 561
+    Left = 156
+    Top = 305
     object AlunosSPCODIGO_SP: TIBStringField
       FieldName = 'CODIGO_SP'
       Origin = 'ALUNOS.CODIGO_SP'
@@ -4724,8 +4568,8 @@ object Cad_Alunos: TCad_Alunos
       'select CURSINHO,PERIODO'
       'from TURMAS'
       'where SERIE = :serie and TURMA = :turma')
-    Left = 156
-    Top = 529
+    Left = 148
+    Top = 409
     ParamData = <
       item
         DataType = ftUnknown
@@ -4749,8 +4593,8 @@ object Cad_Alunos: TCad_Alunos
   object Save1: TSaveDialog
     Filter = '*.mec|*.mec|*.txt|*.txt'
     Title = 'Salve'
-    Left = 324
-    Top = 577
+    Left = 332
+    Top = 425
   end
   object IBEtiq_SP: TIBQuery
     Database = DM.DB_ANGLO
@@ -4761,8 +4605,8 @@ object Cad_Alunos: TCad_Alunos
       'select CODIGO_SP '
       'from ALUNOS'
       'where CODIGO_SP is not null')
-    Left = 643
-    Top = 576
+    Left = 635
+    Top = 368
     object IBEtiq_SPCODIGO_SP: TIBStringField
       FieldName = 'CODIGO_SP'
       Origin = '"ALUNOS"."CODIGO_SP"'
@@ -4772,13 +4616,13 @@ object Cad_Alunos: TCad_Alunos
   end
   object DsIBEtiq_SP: TDataSource
     DataSet = IBEtiq_SP
-    Left = 579
-    Top = 576
+    Left = 571
+    Top = 368
   end
   object dsBIp: TDataSource
     DataSet = ibqryBIP
-    Left = 940
-    Top = 344
+    Left = 884
+    Top = 336
   end
   object ibqryBIP: TIBQuery
     Database = DM.DB_ANGLO
@@ -4789,7 +4633,7 @@ object Cad_Alunos: TCad_Alunos
       'select * '
       'from SERIE_IPS'
       'where ip = :bip')
-    Left = 988
+    Left = 972
     Top = 344
     ParamData = <
       item
@@ -4824,8 +4668,8 @@ object Cad_Alunos: TCad_Alunos
     Port = 3000
     OnRead = SockCadRead
     OnError = SockCadError
-    Left = 719
-    Top = 448
+    Left = 727
+    Top = 400
   end
   object up_st: TIBSQL
     Database = DM.DB_ANGLO
@@ -4966,8 +4810,8 @@ object Cad_Alunos: TCad_Alunos
   end
   object DsBuscaBoleto: TDataSource
     DataSet = QBuscaBoleto
-    Left = 1015
-    Top = 288
+    Left = 903
+    Top = 248
   end
   object Delete_Boleto: TIBQuery
     Database = DM.DB_ANGLO
@@ -4978,8 +4822,8 @@ object Cad_Alunos: TCad_Alunos
       'delete'
       'from Bloquetos'
       'where Aluno = :baluno and PAGAMENTO IS NULL and ST = :bst')
-    Left = 807
-    Top = 40
+    Left = 799
+    Top = 16
     ParamData = <
       item
         DataType = ftUnknown
@@ -4994,8 +4838,8 @@ object Cad_Alunos: TCad_Alunos
   end
   object Ds_DeleteBoleto: TDataSource
     DataSet = Delete_Boleto
-    Left = 911
-    Top = 40
+    Left = 855
+    Top = 24
   end
   object Ds_UpNegociacao: TDataSource
     DataSet = UP_Negociacao
@@ -5052,5 +4896,21 @@ object Cad_Alunos: TCad_Alunos
     DataSet = UltimaParcela
     Left = 879
     Top = 424
+  end
+  object MBotaoEsc: TPopupMenu
+    Left = 396
+    Top = 194
+    object Cancelado1: TMenuItem
+      Caption = 'Cancelado'
+      OnClick = Cancelado1Click
+    end
+    object Negociado1: TMenuItem
+      Caption = 'Negociado'
+      OnClick = Negociado1Click
+    end
+    object Reprocessado1: TMenuItem
+      Caption = 'Reprocessado'
+      OnClick = Reprocessado1Click
+    end
   end
 end

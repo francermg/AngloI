@@ -1,6 +1,6 @@
 object Doc_historico_2022: TDoc_historico_2022
-  Left = 148
-  Top = 117
+  Left = 321
+  Top = 88
   Width = 893
   Height = 732
   Caption = 'Histórico 2022'
@@ -798,7 +798,7 @@ object Doc_historico_2022: TDoc_historico_2022
         Left = 0
         Top = 230
         Width = 3
-        Height = 42
+        Height = 43
         Angle = 90
         DrawKind = dkLine
         Pen.Width = 3
@@ -808,7 +808,7 @@ object Doc_historico_2022: TDoc_historico_2022
       Left = 38
       Top = 311
       Width = 718
-      Height = 94
+      Height = 90
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
       Borders.DrawTop = False
@@ -820,7 +820,7 @@ object Doc_historico_2022: TDoc_historico_2022
         Left = 0
         Top = 19
         Width = 718
-        Height = 67
+        Height = 66
         DataFields = 'INTINERARIO'
         object RLBand3: TRLBand
           Left = 0
@@ -917,7 +917,7 @@ object Doc_historico_2022: TDoc_historico_2022
           Left = 0
           Top = 17
           Width = 718
-          Height = 44
+          Height = 43
           DataFields = 'AREA'
           BeforePrint = Grupo_areaBeforePrint
           object RLBand6: TRLBand
@@ -1254,7 +1254,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand4: TRLBand
       Left = 38
-      Top = 405
+      Top = 401
       Width = 718
       Height = 16
       BandType = btSummary
@@ -1390,7 +1390,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand5: TRLBand
       Left = 38
-      Top = 421
+      Top = 417
       Width = 718
       Height = 16
       BandType = btSummary
@@ -1504,7 +1504,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand8: TRLBand
       Left = 38
-      Top = 437
+      Top = 433
       Width = 718
       Height = 224
       BandType = btSummary
@@ -1936,7 +1936,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand9: TRLBand
       Left = 38
-      Top = 661
+      Top = 657
       Width = 718
       Height = 20
       BandType = btFooter
@@ -1958,8 +1958,8 @@ object Doc_historico_2022: TDoc_historico_2022
   end
   object DsTemp: TDataSource
     DataSet = QTemp
-    Left = 638
-    Top = 328
+    Left = 646
+    Top = 152
   end
   object QTemp: TIBQuery
     Database = DM.DB_ANGLO
@@ -1983,8 +1983,8 @@ object Doc_historico_2022: TDoc_historico_2022
       'join hist_notas h on d.codigo = h.disciplina'
       'where h.codigo = :cod_aluno'
       'order by i.codigo, a.nome_area, d.nome')
-    Left = 686
-    Top = 328
+    Left = 694
+    Top = 152
     ParamData = <
       item
         DataType = ftUnknown
