@@ -541,6 +541,10 @@ type
     Reprocessado1: TMenuItem;
     Label118: TLabel;
     RxDBComboBox1: TRxDBComboBox;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label119: TLabel;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);

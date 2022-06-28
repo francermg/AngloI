@@ -3,7 +3,7 @@ object Mov_Notas: TMov_Notas
   Top = 101
   BorderIcons = [biSystemMenu, biHelp]
   BorderStyle = bsSingle
-  Caption = 'NOTAS'
+  Caption = 'QTem'
   ClientHeight = 648
   ClientWidth = 910
   Color = clBtnFace
@@ -35,7 +35,7 @@ object Mov_Notas: TMov_Notas
     Top = 0
     Width = 889
     Height = 609
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     TabOrder = 0
     OnChange = PageControl1Change
     object TabSheet1: TTabSheet

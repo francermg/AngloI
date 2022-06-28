@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 743
-    ActivePage = Tab1
+    ActivePage = Tab6
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -3227,6 +3227,19 @@ object Cad_Alunos: TCad_Alunos
         Height = 13
         Caption = 'Resultado Final..........:'
       end
+      object Label119: TLabel
+        Left = 744
+        Top = 520
+        Width = 25
+        Height = 13
+        Caption = 'C/H'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Verdana'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
       object RadioGroup1: TRadioGroup
         Left = 117
         Top = 31
@@ -3607,6 +3620,27 @@ object Cad_Alunos: TCad_Alunos
           33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
           33333337FFFF7733333333300000033333333337777773333333}
         NumGlyphs = 2
+      end
+      object Edit1: TEdit
+        Left = 743
+        Top = 534
+        Width = 85
+        Height = 17
+        TabOrder = 27
+      end
+      object Edit2: TEdit
+        Left = 743
+        Top = 556
+        Width = 85
+        Height = 17
+        TabOrder = 28
+      end
+      object Edit3: TEdit
+        Left = 743
+        Top = 575
+        Width = 85
+        Height = 17
+        TabOrder = 29
       end
     end
     object Tab7: TTabSheet

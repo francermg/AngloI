@@ -1,8 +1,9 @@
 object Doc_historico_2022: TDoc_historico_2022
-  Left = 321
-  Top = 88
+  Left = 373
+  Top = 140
   Width = 893
   Height = 732
+  VertScrollBar.Position = 333
   Caption = 'Histórico 2022'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,7 +16,7 @@ object Doc_historico_2022: TDoc_historico_2022
   TextHeight = 13
   object RLHistorico_2022: TRLReport
     Left = -1
-    Top = 0
+    Top = -333
     Width = 794
     Height = 1123
     DataSource = DsTemp
@@ -36,8 +37,7 @@ object Doc_historico_2022: TDoc_historico_2022
       Borders.DrawLeft = False
       Borders.DrawTop = False
       Borders.DrawRight = False
-      Borders.DrawBottom = True
-      Borders.FixedBottom = True
+      Borders.DrawBottom = False
       BeforePrint = RLBand1BeforePrint
       object RLDraw2: TRLDraw
         Left = 0
@@ -77,13 +77,13 @@ object Doc_historico_2022: TDoc_historico_2022
           
             'Certificamos que {NOME}, {FILIAC} de {PAI_NOME} e de {MAE_NOME},' +
             ' natural de {NASC_CIDADE}, {NASCIDA} em {DATA_NASC}, {RESULTADO}' +
-            '  {SERIE_EXT} do Ensino Médio, nos termos da Lei nº 7.044 de 18/' +
-            '10/1982 e Lei nº 9.394 de 20/12/1996, conforme os resultados con' +
-            'stantes no Histórico Escolar abaixo:')
+            '  {SERIE_EXT} do Ensino Médio, nos termos da Lei nº 9394/96 e da' +
+            ' Lei nº 13.415/2017, conforme os resultados constantes no Histór' +
+            'ico Escolar abaixo:')
         ParentFont = False
       end
       object RLLabel2: TRLLabel
-        Left = 42
+        Left = 146
         Top = 242
         Width = 420
         Height = 24
@@ -104,137 +104,6 @@ object Doc_historico_2022: TDoc_historico_2022
         Color = clBlack
         ParentColor = False
         Transparent = False
-      end
-      object RLLabel20: TRLLabel
-        Left = 499
-        Top = 234
-        Width = 62
-        Height = 17
-        Caption = '1° SÉRIE'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -12
-        Font.Name = 'Arial Black'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLLabel21: TRLLabel
-        Left = 573
-        Top = 234
-        Width = 62
-        Height = 17
-        Caption = '2° SÉRIE'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -12
-        Font.Name = 'Arial Black'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLLabel22: TRLLabel
-        Left = 649
-        Top = 234
-        Width = 62
-        Height = 17
-        Caption = '3° SÉRIE'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clBlack
-        Font.Height = -12
-        Font.Name = 'Arial Black'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLDraw21: TRLDraw
-        Left = 493
-        Top = 252
-        Width = 225
-        Height = 2
-        Brush.Color = clBlack
-      end
-      object RLDraw23: TRLDraw
-        Left = 679
-        Top = 254
-        Width = 2
-        Height = 20
-        Brush.Color = clBlack
-      end
-      object RLLabel23: TRLLabel
-        Left = 496
-        Top = 257
-        Width = 27
-        Height = 11
-        Caption = 'NOTA'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -9
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLLabel24: TRLLabel
-        Left = 573
-        Top = 257
-        Width = 27
-        Height = 11
-        Caption = 'NOTA'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -9
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLLabel25: TRLLabel
-        Left = 649
-        Top = 257
-        Width = 27
-        Height = 11
-        Caption = 'NOTA'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -9
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLLabel26: TRLLabel
-        Left = 539
-        Top = 257
-        Width = 23
-        Height = 11
-        Caption = 'C.H.'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -9
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLLabel27: TRLLabel
-        Left = 611
-        Top = 257
-        Width = 23
-        Height = 11
-        Caption = 'C.H.'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -9
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object RLLabel28: TRLLabel
-        Left = 686
-        Top = 257
-        Width = 23
-        Height = 11
-        Caption = 'C.H.'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clBlack
-        Font.Height = -9
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentFont = False
       end
       object RLDraw40: TRLDraw
         Left = 716
@@ -759,46 +628,11 @@ object Doc_historico_2022: TDoc_historico_2022
         Height = 5
         DrawKind = dkLine
       end
-      object RLDraw16: TRLDraw
-        Left = 491
-        Top = 229
-        Width = 2
-        Height = 45
-        Brush.Color = clBlack
-      end
-      object RLDraw18: TRLDraw
-        Left = 566
-        Top = 230
-        Width = 2
-        Height = 44
-        Brush.Color = clBlack
-      end
-      object RLDraw19: TRLDraw
-        Left = 642
-        Top = 230
-        Width = 2
-        Height = 44
-        Brush.Color = clBlack
-      end
-      object RLDraw22: TRLDraw
-        Left = 604
-        Top = 254
-        Width = 2
-        Height = 20
-        Brush.Color = clBlack
-      end
-      object RLDraw20: TRLDraw
-        Left = 528
-        Top = 253
-        Width = 2
-        Height = 21
-        Brush.Color = clBlack
-      end
       object RLDraw59: TRLDraw
         Left = 0
         Top = 230
         Width = 3
-        Height = 43
+        Height = 44
         Angle = 90
         DrawKind = dkLine
         Pen.Width = 3
@@ -808,37 +642,37 @@ object Doc_historico_2022: TDoc_historico_2022
       Left = 38
       Top = 311
       Width = 718
-      Height = 90
+      Height = 100
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
       Borders.DrawTop = False
       Borders.DrawRight = False
       Borders.DrawBottom = False
       DataFields = 'FORMACAO'
-      BeforePrint = Group_FormacaoBeforePrint
       object Grupo_intinerario: TRLGroup
         Left = 0
-        Top = 19
+        Top = 37
         Width = 718
-        Height = 66
+        Height = 62
         DataFields = 'INTINERARIO'
         object RLBand3: TRLBand
           Left = 0
           Top = 0
           Width = 718
-          Height = 17
-          BandType = btHeader
+          Height = 18
+          BandType = btTitle
           Borders.Sides = sdCustom
           Borders.DrawLeft = True
           Borders.DrawTop = True
           Borders.DrawRight = True
-          Borders.DrawBottom = True
+          Borders.DrawBottom = False
+          Borders.Width = 2
           Borders.FixedLeft = True
           Borders.FixedRight = True
-          Borders.FixedBottom = True
+          BeforePrint = RLBand3BeforePrint
           object RLDBText2: TRLDBText
-            Left = 8
-            Top = 2
+            Left = 3
+            Top = 4
             Width = 69
             Height = 14
             DataField = 'INTINERARIO'
@@ -850,93 +684,48 @@ object Doc_historico_2022: TDoc_historico_2022
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object RLDraw17: TRLDraw
-            Left = 491
-            Top = 0
-            Width = 2
-            Height = 36
-            Angle = 90
-            DrawKind = dkLine
-            Visible = False
-          end
           object RLDraw25: TRLDraw
-            Left = 528
-            Top = 0
-            Width = 3
-            Height = 17
-            Angle = 90
-            DrawKind = dkLine
-            Visible = False
-          end
-          object RLDraw26: TRLDraw
-            Left = 567
-            Top = 0
-            Width = 2
-            Height = 18
-            Angle = 90
-            DrawKind = dkLine
-            Visible = False
-          end
-          object RLDraw27: TRLDraw
-            Left = 605
-            Top = 0
-            Width = 2
-            Height = 17
-            Angle = 90
-            DrawKind = dkLine
-            Visible = False
-          end
-          object RLDraw28: TRLDraw
-            Left = 643
-            Top = 0
-            Width = 2
-            Height = 17
-            Angle = 90
-            DrawKind = dkLine
-            Visible = False
-          end
-          object RLDraw29: TRLDraw
-            Left = 680
-            Top = -2
-            Width = 2
-            Height = 19
-            Angle = 90
-            DrawKind = dkLine
-            Visible = False
-          end
-          object RLDraw41: TRLDraw
-            Left = 717
+            Left = 716
             Top = -1
             Width = 2
             Height = 18
+            Borders.Width = 2
+            Brush.Color = clBlack
+          end
+          object RLDraw9: TRLDraw
+            Left = 1
+            Top = -45
+            Width = 2
+            Height = 63
             Angle = 90
-            DrawKind = dkLine
+            Brush.Color = clBlack
           end
         end
         object Grupo_area: TRLGroup
           Left = 0
-          Top = 17
+          Top = 18
           Width = 718
-          Height = 43
+          Height = 40
           DataFields = 'AREA'
           BeforePrint = Grupo_areaBeforePrint
           object RLBand6: TRLBand
             Left = 0
             Top = 0
             Width = 718
-            Height = 19
+            Height = 20
             BandType = btHeader
             Borders.Sides = sdCustom
             Borders.DrawLeft = True
-            Borders.DrawTop = False
+            Borders.DrawTop = True
             Borders.DrawRight = True
             Borders.DrawBottom = True
+            Borders.Width = 2
             Borders.FixedLeft = True
             Borders.FixedRight = True
             Borders.FixedBottom = True
             object RLDBText3: TRLDBText
-              Left = 8
-              Top = 4
+              Left = 0
+              Top = 3
               Width = 32
               Height = 14
               DataField = 'AREA'
@@ -948,82 +737,35 @@ object Doc_historico_2022: TDoc_historico_2022
               Font.Style = [fsBold]
               ParentFont = False
             end
-            object RLDraw32: TRLDraw
-              Left = 491
-              Top = 0
-              Width = 1
-              Height = 20
-              Angle = 90
-              DrawKind = dkLine
-              Visible = False
-            end
-            object RLDraw33: TRLDraw
-              Left = 529
-              Top = 0
-              Width = 1
-              Height = 19
-              Angle = 90
-              DrawKind = dkLine
-              Visible = False
-            end
-            object RLDraw34: TRLDraw
-              Left = 567
-              Top = 0
-              Width = 1
-              Height = 19
-              Angle = 90
-              DrawKind = dkLine
-              Visible = False
-            end
-            object RLDraw35: TRLDraw
-              Left = 605
-              Top = 0
-              Width = 1
-              Height = 19
-              Angle = 90
-              DrawKind = dkLine
-              Visible = False
-            end
-            object RLDraw36: TRLDraw
-              Left = 643
-              Top = 0
-              Width = 1
-              Height = 19
-              Angle = 90
-              DrawKind = dkLine
-              Visible = False
-            end
-            object RLDraw37: TRLDraw
-              Left = 680
-              Top = 0
-              Width = 1
-              Height = 19
-              Angle = 90
-              DrawKind = dkLine
-              Visible = False
-            end
             object RLDraw39: TRLDraw
-              Left = 717
+              Left = 716
               Top = 0
               Width = 1
               Height = 19
-              Angle = 90
               DrawKind = dkLine
+            end
+            object RLDraw15: TRLDraw
+              Left = 0
+              Top = -45
+              Width = 2
+              Height = 63
+              Angle = 90
+              Brush.Color = clBlack
             end
           end
           object RLBand7: TRLBand
             Left = 0
-            Top = 19
+            Top = 20
             Width = 718
             Height = 17
             Borders.Sides = sdCustom
-            Borders.DrawLeft = False
+            Borders.DrawLeft = True
             Borders.DrawTop = False
             Borders.DrawRight = False
-            Borders.DrawBottom = True
+            Borders.DrawBottom = False
             BeforePrint = RLBand7BeforePrint
             object RLDBText4: TRLDBText
-              Left = 9
+              Left = 307
               Top = 2
               Width = 57
               Height = 14
@@ -1037,7 +779,7 @@ object Doc_historico_2022: TDoc_historico_2022
               ParentFont = False
             end
             object N1: TRLLabel
-              Left = 504
+              Left = 522
               Top = 1
               Width = 16
               Height = 14
@@ -1049,7 +791,7 @@ object Doc_historico_2022: TDoc_historico_2022
               ParentFont = False
             end
             object N2: TRLLabel
-              Left = 581
+              Left = 593
               Top = 1
               Width = 16
               Height = 14
@@ -1061,7 +803,7 @@ object Doc_historico_2022: TDoc_historico_2022
               ParentFont = False
             end
             object N3: TRLLabel
-              Left = 655
+              Left = 661
               Top = 1
               Width = 16
               Height = 14
@@ -1073,7 +815,7 @@ object Doc_historico_2022: TDoc_historico_2022
               ParentFont = False
             end
             object CH1: TRLLabel
-              Left = 540
+              Left = 552
               Top = 1
               Width = 23
               Height = 14
@@ -1085,7 +827,7 @@ object Doc_historico_2022: TDoc_historico_2022
               ParentFont = False
             end
             object CH2: TRLLabel
-              Left = 614
+              Left = 621
               Top = 1
               Width = 23
               Height = 14
@@ -1097,7 +839,7 @@ object Doc_historico_2022: TDoc_historico_2022
               ParentFont = False
             end
             object CH3: TRLLabel
-              Left = 687
+              Left = 690
               Top = 1
               Width = 23
               Height = 14
@@ -1109,60 +851,92 @@ object Doc_historico_2022: TDoc_historico_2022
               ParentFont = False
             end
             object RLDraw42: TRLDraw
-              Left = 491
-              Top = -1
-              Width = 2
-              Height = 21
+              Left = 509
+              Top = -2
+              Width = 3
+              Height = 22
               Angle = 90
               DrawKind = dkLine
             end
             object RLDraw46: TRLDraw
-              Left = 529
-              Top = -4
-              Width = 2
-              Height = 21
+              Left = 547
+              Top = 0
+              Width = 3
+              Height = 19
               Angle = 90
               DrawKind = dkLine
             end
             object RLDraw47: TRLDraw
-              Left = 567
-              Top = -4
-              Width = 2
-              Height = 21
+              Left = 578
+              Top = -1
+              Width = 3
+              Height = 18
               Angle = 90
               DrawKind = dkLine
             end
             object RLDraw48: TRLDraw
-              Left = 605
-              Top = -4
-              Width = 2
-              Height = 21
+              Left = 615
+              Top = -1
+              Width = 3
+              Height = 19
               Angle = 90
               DrawKind = dkLine
             end
             object RLDraw49: TRLDraw
-              Left = 643
-              Top = -4
+              Left = 647
+              Top = -2
               Width = 2
-              Height = 21
+              Height = 18
               Angle = 90
               DrawKind = dkLine
             end
             object RLDraw50: TRLDraw
-              Left = 680
-              Top = -4
+              Left = 683
+              Top = -2
               Width = 2
-              Height = 21
+              Height = 19
               Angle = 90
               DrawKind = dkLine
             end
             object RLDraw51: TRLDraw
-              Left = 717
+              Left = 716
               Top = -4
               Width = 2
               Height = 21
               Angle = 90
+              Borders.Width = 2
+              Brush.Color = clBlack
+            end
+            object RLDraw61: TRLDraw
+              Left = 305
+              Top = -1
+              Width = 3
+              Height = 20
+              Angle = 90
               DrawKind = dkLine
+            end
+            object RLLabel26: TRLLabel
+              Left = 80
+              Top = 0
+              Width = 42
+              Height = 16
+              Caption = 'Eletiva'
+              Visible = False
+            end
+            object RLDraw4: TRLDraw
+              Left = 307
+              Top = 16
+              Width = 410
+              Height = 2
+              Brush.Color = clBlack
+            end
+            object RLDraw17: TRLDraw
+              Left = 0
+              Top = -46
+              Width = 2
+              Height = 63
+              Angle = 90
+              Brush.Color = clBlack
             end
           end
         end
@@ -1171,20 +945,17 @@ object Doc_historico_2022: TDoc_historico_2022
         Left = 0
         Top = 0
         Width = 718
-        Height = 19
+        Height = 37
         BandType = btHeader
         Borders.Sides = sdCustom
-        Borders.DrawLeft = True
+        Borders.DrawLeft = False
         Borders.DrawTop = True
-        Borders.DrawRight = True
-        Borders.DrawBottom = True
-        Borders.FixedLeft = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
         Borders.FixedTop = True
-        Borders.FixedRight = True
-        Borders.FixedBottom = True
         object RLDBText1: TRLDBText
-          Left = 8
-          Top = 3
+          Left = 264
+          Top = 2
           Width = 66
           Height = 14
           DataField = 'FORMACAO'
@@ -1196,65 +967,278 @@ object Doc_historico_2022: TDoc_historico_2022
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object RLDraw4: TRLDraw
-          Left = 529
-          Top = -2
-          Width = 1
-          Height = 21
-          Angle = 90
-          DrawKind = dkLine
-          Visible = False
+        object RLLabel17: TRLLabel
+          Left = 2
+          Top = 20
+          Width = 143
+          Height = 16
+          Caption = 'Áreas de Conhecimento'
         end
-        object RLDraw5: TRLDraw
-          Left = 567
-          Top = -2
-          Width = 1
-          Height = 21
-          Angle = 90
-          DrawKind = dkLine
-          Visible = False
+        object RLDraw60: TRLDraw
+          Left = 0
+          Top = 18
+          Width = 511
+          Height = 2
+          Brush.Color = clBlack
         end
-        object RLDraw6: TRLDraw
-          Left = 605
-          Top = -2
-          Width = 1
-          Height = 21
-          Angle = 90
-          DrawKind = dkLine
-          Visible = False
+        object RLLabel30: TRLLabel
+          Left = 311
+          Top = 20
+          Width = 157
+          Height = 16
+          Caption = 'Componentes Curriculares'
         end
-        object RLDraw9: TRLDraw
-          Left = 643
-          Top = -2
-          Width = 1
-          Height = 21
+        object RLDraw63: TRLDraw
+          Left = 305
+          Top = 19
+          Width = 3
+          Height = 17
           Angle = 90
           DrawKind = dkLine
-          Visible = False
         end
-        object RLDraw15: TRLDraw
-          Left = 680
-          Top = -2
+        object RLDraw65: TRLDraw
+          Left = 548
+          Top = -13
           Width = 1
-          Height = 21
+          Height = 11
           Angle = 90
           DrawKind = dkLine
-          Visible = False
+        end
+        object RLDraw66: TRLDraw
+          Left = 577
+          Top = -13
+          Width = 3
+          Height = 13
+          Angle = 90
+          DrawKind = dkLine
+        end
+        object RLDraw67: TRLDraw
+          Left = 614
+          Top = -5
+          Width = 3
+          Height = 6
+          Angle = 90
+          DrawKind = dkLine
+        end
+        object RLDraw68: TRLDraw
+          Left = 646
+          Top = -15
+          Width = 3
+          Height = 15
+          Angle = 90
+          DrawKind = dkLine
+        end
+        object RLDraw69: TRLDraw
+          Left = 682
+          Top = -14
+          Width = 3
+          Height = 15
+          Angle = 90
+          DrawKind = dkLine
+        end
+        object RLDraw70: TRLDraw
+          Left = 717
+          Top = -24
+          Width = 2
+          Height = 23
+          Angle = 90
+          DrawKind = dkLine
         end
         object RLDraw3: TRLDraw
-          Left = 491
-          Top = 0
-          Width = 2
-          Height = 20
+          Left = 509
+          Top = -11
+          Width = 3
+          Height = 48
           Angle = 90
           DrawKind = dkLine
-          Visible = False
+        end
+        object RLDraw26: TRLDraw
+          Left = 0
+          Top = -29
+          Width = 2
+          Height = 63
+          Angle = 90
+          Brush.Color = clBlack
+        end
+        object RLDraw5: TRLDraw
+          Left = 1
+          Top = 36
+          Width = 510
+          Height = 3
+          Brush.Color = clBackground
+        end
+        object RLDraw6: TRLDraw
+          Left = 716
+          Top = -14
+          Width = 2
+          Height = 52
+          Angle = 90
+          Brush.Color = clBlack
+        end
+        object RLLabel20: TRLLabel
+          Left = 513
+          Top = 2
+          Width = 62
+          Height = 17
+          Caption = '1° SÉRIE'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLDraw21: TRLDraw
+          Left = 511
+          Top = 19
+          Width = 206
+          Height = 2
+          Brush.Color = clBlack
+        end
+        object RLLabel23: TRLLabel
+          Left = 514
+          Top = 23
+          Width = 27
+          Height = 11
+          Caption = 'NOTA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLDraw20: TRLDraw
+          Left = 548
+          Top = 20
+          Width = 2
+          Height = 18
+          Brush.Color = clBlack
+        end
+        object RLLabel31: TRLLabel
+          Left = 552
+          Top = 23
+          Width = 23
+          Height = 11
+          Caption = 'C.H.'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLDraw18: TRLDraw
+          Left = 578
+          Top = 2
+          Width = 2
+          Height = 34
+          Brush.Color = clBlack
+        end
+        object RLLabel21: TRLLabel
+          Left = 581
+          Top = 2
+          Width = 62
+          Height = 17
+          Caption = '2° SÉRIE'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLLabel24: TRLLabel
+          Left = 583
+          Top = 23
+          Width = 27
+          Height = 11
+          Caption = 'NOTA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLDraw22: TRLDraw
+          Left = 615
+          Top = 21
+          Width = 2
+          Height = 16
+          Brush.Color = clBlack
+        end
+        object RLLabel27: TRLLabel
+          Left = 619
+          Top = 23
+          Width = 23
+          Height = 11
+          Caption = 'C.H.'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLDraw19: TRLDraw
+          Left = 646
+          Top = 2
+          Width = 2
+          Height = 33
+          Brush.Color = clBlack
+        end
+        object RLLabel22: TRLLabel
+          Left = 649
+          Top = 2
+          Width = 62
+          Height = 17
+          Caption = '3° SÉRIE'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -12
+          Font.Name = 'Arial Black'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLLabel25: TRLLabel
+          Left = 651
+          Top = 23
+          Width = 27
+          Height = 11
+          Caption = 'NOTA'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object RLDraw23: TRLDraw
+          Left = 683
+          Top = 20
+          Width = 2
+          Height = 18
+          Brush.Color = clBlack
+        end
+        object RLLabel28: TRLLabel
+          Left = 689
+          Top = 23
+          Width = 23
+          Height = 11
+          Caption = 'C.H.'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
         end
       end
     end
     object RLBand4: TRLBand
       Left = 38
-      Top = 401
+      Top = 411
       Width = 718
       Height = 16
       BandType = btSummary
@@ -1281,7 +1265,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object CH1S: TRLDBResult
-        Left = 511
+        Left = 521
         Top = 1
         Width = 55
         Height = 14
@@ -1297,7 +1281,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object CH2S: TRLDBResult
-        Left = 582
+        Left = 592
         Top = 1
         Width = 55
         Height = 14
@@ -1313,7 +1297,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object CH3S: TRLDBResult
-        Left = 665
+        Left = 657
         Top = 1
         Width = 55
         Height = 14
@@ -1329,31 +1313,32 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDraw8: TRLDraw
-        Left = 491
+        Left = 510
         Top = -4
         Width = 2
         Height = 19
         Brush.Color = clBlack
       end
       object RLDraw10: TRLDraw
-        Left = 567
+        Left = 578
         Top = -4
         Width = 2
         Height = 19
         Brush.Color = clBlack
       end
       object RLDraw11: TRLDraw
-        Left = 643
+        Left = 647
         Top = -4
         Width = 2
         Height = 19
         Brush.Color = clBlack
       end
       object RLDraw12: TRLDraw
-        Left = 716
+        Left = 715
         Top = -4
-        Width = 4
+        Width = 2
         Height = 19
+        Borders.Width = 2
         Brush.Color = clBlack
       end
       object RLDraw43: TRLDraw
@@ -1364,33 +1349,51 @@ object Doc_historico_2022: TDoc_historico_2022
         Brush.Color = clBlack
       end
       object T1: TRLLabel
-        Left = 512
-        Top = 0
-        Width = 32
-        Height = 16
+        Left = 526
+        Top = 1
+        Width = 31
+        Height = 14
         Caption = '-------'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
         Visible = False
       end
       object T2: TRLLabel
-        Left = 593
-        Top = -1
-        Width = 32
-        Height = 16
+        Left = 601
+        Top = 1
+        Width = 31
+        Height = 14
         Caption = '-------'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
         Visible = False
       end
       object T3: TRLLabel
-        Left = 668
-        Top = -1
-        Width = 32
-        Height = 16
+        Left = 662
+        Top = 1
+        Width = 31
+        Height = 14
         Caption = '-------'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
         Visible = False
       end
     end
     object RLBand5: TRLBand
       Left = 38
-      Top = 417
+      Top = 427
       Width = 718
       Height = 16
       BandType = btSummary
@@ -1431,7 +1434,7 @@ object Doc_historico_2022: TDoc_historico_2022
         Visible = False
       end
       object Res1: TRLLabel
-        Left = 497
+        Left = 542
         Top = -1
         Width = 28
         Height = 14
@@ -1443,7 +1446,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object Res2: TRLLabel
-        Left = 578
+        Left = 610
         Top = 0
         Width = 28
         Height = 14
@@ -1467,21 +1470,21 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDraw7: TRLDraw
-        Left = 491
+        Left = 510
         Top = -4
         Width = 2
         Height = 19
         Brush.Color = clBlack
       end
       object RLDraw13: TRLDraw
-        Left = 567
+        Left = 578
         Top = -4
         Width = 2
         Height = 19
         Brush.Color = clBlack
       end
       object RLDraw30: TRLDraw
-        Left = 643
+        Left = 647
         Top = -4
         Width = 2
         Height = 19
@@ -1490,7 +1493,7 @@ object Doc_historico_2022: TDoc_historico_2022
       object RLDraw31: TRLDraw
         Left = 716
         Top = -4
-        Width = 4
+        Width = 2
         Height = 19
         Brush.Color = clBlack
       end
@@ -1504,9 +1507,9 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand8: TRLBand
       Left = 38
-      Top = 433
+      Top = 443
       Width = 718
-      Height = 224
+      Height = 476
       BandType = btSummary
       Borders.Sides = sdCustom
       Borders.DrawLeft = False
@@ -1514,6 +1517,7 @@ object Doc_historico_2022: TDoc_historico_2022
       Borders.DrawRight = False
       Borders.DrawBottom = False
       Borders.FixedTop = True
+      BeforePrint = RLBand8BeforePrint
       object RLDraw1: TRLDraw
         Left = 1
         Top = 21
@@ -1561,7 +1565,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLLabel8: TRLLabel
-        Left = 497
+        Left = 516
         Top = 5
         Width = 49
         Height = 16
@@ -1574,7 +1578,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLLabel9: TRLLabel
-        Left = 672
+        Left = 686
         Top = 5
         Width = 21
         Height = 16
@@ -1675,7 +1679,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDBText7: TRLDBText
-        Left = 498
+        Left = 516
         Top = 23
         Width = 71
         Height = 15
@@ -1689,7 +1693,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDBText8: TRLDBText
-        Left = 675
+        Left = 686
         Top = 23
         Width = 42
         Height = 15
@@ -1731,7 +1735,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDBText11: TRLDBText
-        Left = 498
+        Left = 516
         Top = 40
         Width = 71
         Height = 15
@@ -1745,7 +1749,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDBText12: TRLDBText
-        Left = 675
+        Left = 686
         Top = 40
         Width = 42
         Height = 15
@@ -1787,7 +1791,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDBText15: TRLDBText
-        Left = 498
+        Left = 516
         Top = 57
         Width = 71
         Height = 15
@@ -1801,7 +1805,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object RLDBText16: TRLDBText
-        Left = 675
+        Left = 686
         Top = 57
         Width = 42
         Height = 15
@@ -1818,7 +1822,8 @@ object Doc_historico_2022: TDoc_historico_2022
         Left = 8
         Top = 121
         Width = 681
-        Height = 65
+        Height = 315
+        Alignment = taJustify
         AutoSize = False
         DataField = 'OBS_HIST'
         DataSource = DM.dsAlunos
@@ -1830,8 +1835,8 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object data: TRLSystemInfo
-        Left = 375
-        Top = 202
+        Left = 399
+        Top = 448
         Width = 119
         Height = 16
         Font.Charset = DEFAULT_CHARSET
@@ -1885,14 +1890,14 @@ object Doc_historico_2022: TDoc_historico_2022
         Brush.Color = clBlack
       end
       object RLDraw56: TRLDraw
-        Left = 491
+        Left = 510
         Top = -1
         Width = 2
         Height = 74
         Brush.Color = clBlack
       end
       object RLDraw57: TRLDraw
-        Left = 669
+        Left = 682
         Top = 0
         Width = 2
         Height = 74
@@ -1901,8 +1906,9 @@ object Doc_historico_2022: TDoc_historico_2022
       object RLDraw58: TRLDraw
         Left = 716
         Top = -1
-        Width = 3
+        Width = 2
         Height = 74
+        Borders.Width = 2
         Brush.Color = clBlack
       end
       object RLLabel18: TRLLabel
@@ -1936,7 +1942,7 @@ object Doc_historico_2022: TDoc_historico_2022
     end
     object RLBand9: TRLBand
       Left = 38
-      Top = 657
+      Top = 919
       Width = 718
       Height = 20
       BandType = btFooter
@@ -1958,7 +1964,7 @@ object Doc_historico_2022: TDoc_historico_2022
   end
   object DsTemp: TDataSource
     DataSet = QTemp
-    Left = 646
+    Left = 494
     Top = 152
   end
   object QTemp: TIBQuery
@@ -1983,7 +1989,7 @@ object Doc_historico_2022: TDoc_historico_2022
       'join hist_notas h on d.codigo = h.disciplina'
       'where h.codigo = :cod_aluno'
       'order by i.codigo, a.nome_area, d.nome')
-    Left = 694
+    Left = 542
     Top = 152
     ParamData = <
       item
@@ -2020,6 +2026,7 @@ object Doc_historico_2022: TDoc_historico_2022
     object QTempNOTA1: TIBBCDField
       FieldName = 'NOTA1'
       Origin = '"HIST_NOTAS"."NOTA1"'
+      DisplayFormat = '#0.0'
       Precision = 4
       Size = 1
     end
@@ -2030,6 +2037,7 @@ object Doc_historico_2022: TDoc_historico_2022
     object QTempNOTA2: TIBBCDField
       FieldName = 'NOTA2'
       Origin = '"HIST_NOTAS"."NOTA2"'
+      DisplayFormat = '#0.0'
       Precision = 4
       Size = 1
     end
@@ -2040,6 +2048,7 @@ object Doc_historico_2022: TDoc_historico_2022
     object QTempNOTA3: TIBBCDField
       FieldName = 'NOTA3'
       Origin = '"HIST_NOTAS"."NOTA3"'
+      DisplayFormat = '#0.0'
       Precision = 4
       Size = 1
     end

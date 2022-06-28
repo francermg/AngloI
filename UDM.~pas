@@ -1628,7 +1628,7 @@ begin
    else if (dm.BloquetosQST.Value = 'P') then
        dm.BloquetosQSITIACAO_EXT.Value := 'PAGO'
    else if (dm.BloquetosQST.Value = 'C') then
-       dm.BloquetosQSITIACAO_EXT.Value := 'CANCELADO';
+       dm.BloquetosQSITIACAO_EXT.Value := 'CANCELADO'
    else if (dm.BloquetosQST.Value = 'G') then
        dm.BloquetosQSITIACAO_EXT.Value := 'GERADO';
 

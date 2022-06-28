@@ -16,22 +16,6 @@ type
     RLMemo1: TRLMemo;
     RLLabel2: TRLLabel;
     RLDraw14: TRLDraw;
-    RLDraw16: TRLDraw;
-    RLLabel20: TRLLabel;
-    RLLabel21: TRLLabel;
-    RLLabel22: TRLLabel;
-    RLDraw18: TRLDraw;
-    RLDraw19: TRLDraw;
-    RLDraw20: TRLDraw;
-    RLDraw21: TRLDraw;
-    RLDraw22: TRLDraw;
-    RLDraw23: TRLDraw;
-    RLLabel23: TRLLabel;
-    RLLabel24: TRLLabel;
-    RLLabel25: TRLLabel;
-    RLLabel26: TRLLabel;
-    RLLabel27: TRLLabel;
-    RLLabel28: TRLLabel;
     Group_Formacao: TRLGroup;
     RLBand4: TRLBand;
     RLLabel3: TRLLabel;
@@ -92,26 +76,7 @@ type
     CH1: TRLLabel;
     CH2: TRLLabel;
     CH3: TRLLabel;
-    RLDraw3: TRLDraw;
-    RLDraw4: TRLDraw;
-    RLDraw5: TRLDraw;
-    RLDraw6: TRLDraw;
-    RLDraw9: TRLDraw;
-    RLDraw15: TRLDraw;
-    RLDraw17: TRLDraw;
-    RLDraw25: TRLDraw;
-    RLDraw26: TRLDraw;
-    RLDraw27: TRLDraw;
-    RLDraw28: TRLDraw;
-    RLDraw29: TRLDraw;
-    RLDraw32: TRLDraw;
-    RLDraw33: TRLDraw;
-    RLDraw34: TRLDraw;
-    RLDraw35: TRLDraw;
-    RLDraw36: TRLDraw;
-    RLDraw37: TRLDraw;
     RLDraw39: TRLDraw;
-    RLDraw41: TRLDraw;
     RLDraw42: TRLDraw;
     RLDraw46: TRLDraw;
     RLDraw47: TRLDraw;
@@ -159,6 +124,42 @@ type
     RLLabel19: TRLLabel;
     QTempCODIGO: TIntegerField;
     RLDraw59: TRLDraw;
+    RLLabel17: TRLLabel;
+    RLDraw60: TRLDraw;
+    RLLabel30: TRLLabel;
+    RLDraw61: TRLDraw;
+    RLDraw63: TRLDraw;
+    RLDraw65: TRLDraw;
+    RLDraw66: TRLDraw;
+    RLDraw67: TRLDraw;
+    RLDraw68: TRLDraw;
+    RLDraw69: TRLDraw;
+    RLDraw70: TRLDraw;
+    RLDraw3: TRLDraw;
+    RLDraw25: TRLDraw;
+    RLLabel26: TRLLabel;
+    RLDraw26: TRLDraw;
+    RLDraw5: TRLDraw;
+    RLDraw4: TRLDraw;
+    RLDraw6: TRLDraw;
+    RLDraw9: TRLDraw;
+    RLDraw15: TRLDraw;
+    RLDraw17: TRLDraw;
+    RLLabel20: TRLLabel;
+    RLDraw21: TRLDraw;
+    RLLabel23: TRLLabel;
+    RLDraw20: TRLDraw;
+    RLLabel31: TRLLabel;
+    RLDraw18: TRLDraw;
+    RLLabel21: TRLLabel;
+    RLLabel24: TRLLabel;
+    RLDraw22: TRLDraw;
+    RLLabel27: TRLLabel;
+    RLDraw19: TRLDraw;
+    RLLabel22: TRLLabel;
+    RLLabel25: TRLLabel;
+    RLDraw23: TRLDraw;
+    RLLabel28: TRLLabel;
     procedure RLBand3BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLBand1BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLHistorico_2022BeforePrint(Sender: TObject;
@@ -166,8 +167,6 @@ type
     procedure RLBand4BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLBand7BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLBand8BeforePrint(Sender: TObject; var PrintIt: Boolean);
-    procedure Group_FormacaoBeforePrint(Sender: TObject;
-      var PrintIt: Boolean);
     procedure Grupo_areaBeforePrint(Sender: TObject; var PrintIt: Boolean);
   private
     { Private declarations }
@@ -187,37 +186,10 @@ uses UDM, UCad_Alunos;
 procedure TDoc_historico_2022.RLBand3BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-{
-  if (QTempNOTA1.IsNull) then N1.Caption := '---'
-    else N1.Caption := QTempNOTA1.DisplayText;
-  if (QTempNOTA2.IsNull) then  N2.Caption := '---'
-    else N2.Caption := QTempNOTA2.DisplayText;
-  if (QTempNOTA3.IsNull) then N3.Caption := '---'
-    else N3.Caption := QTempNOTA3.DisplayText;
-
-
-  dm.Alunos.close;
-  dm.Alunos.SelectSQL.Strings[2] := 'where Codigo = :Bcodigo';
-  dm.Alunos.ParamByName('Bcodigo').Value := dm.HistNotasCODIGO.Value;
-  dm.Alunos.Open;
-
-
-  if ((dm.AlunosMOD_ESPORTIVA.Value = 'DME') and (dm.HistNotasDISCIPLINA.Value = 10)) then
-       Begin
-         if not QTempNOTA1.IsNull then  N1.Caption := 'DM';
-         if not QTempNOTA2.IsNull then  N2.Caption := 'DM';
-         if not QTempNOTA3.IsNull then  N3.Caption := 'DM';
-       end;
-
-     if QTempCH1.IsNull then CH1.Caption := '---'
-        else CH1.Caption := QTempCH1.DisplayText;
-
-    if QTempCH2.IsNull then  CH2.Caption := '---'
-       else CH2.Caption := QTempCH2.DisplayText;
-
-    if QTempCH3.IsNull then   CH3.Caption := '---'
-       else CH3.Caption := QTempCH3.DisplayText;
- }
+if QTempINTINERARIO.Value = 'nulo' then
+   RLBand3.Height := 0
+   else
+    RLBand3.Height := 18;
 End;
 
 procedure TDoc_historico_2022.RLBand1BeforePrint(Sender: TObject;
@@ -329,26 +301,55 @@ end;
 procedure TDoc_historico_2022.RLBand4BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-  if CH1S.Value = 0 then
+  if ((CH1S.Value = 0) and (Cad_Alunos.Edit1.Text = '')) then
   Begin
     CH1S.Visible := False;
     T1.Visible := True;
-  End;
-  if CH2S.Value = 0 then
+  End else if ((CH1S.Value = 0) and (Cad_Alunos.Edit1.Text <> '')) then
   Begin
-   CH2S.Visible := False;
-   T2.Visible := True;
+      CH1S.Visible := False;
+      T1.Caption := Cad_Alunos.Edit1.Text;
+      T1.Visible := True;
   End;
-  if CH3S.Value = 0 then
-  Begin
-   CH3S.Visible := False;
-   T3.Visible := True;
-  End;
+
+if ((CH2S.Value = 0) and (Cad_Alunos.Edit2.Text = '')) then
+Begin
+  CH2S.Visible := False;
+  T2.Visible := True;
+End else if ((CH2S.Value = 0) and (Cad_Alunos.Edit2.Text <> '')) then
+Begin
+    CH2S.Visible := False;
+    T2.Caption := Cad_Alunos.Edit2.Text;
+    T2.Visible := True;
+End;
+
+if ((CH3S.Value = 0) and (Cad_Alunos.Edit3.Text = '')) then
+Begin
+  CH3S.Visible := False;
+  T3.Visible := True;
+End else if ((CH3S.Value = 0) and (Cad_Alunos.Edit1.Text <> '')) then
+Begin
+    CH3S.Visible := False;
+    T3.Caption := Cad_Alunos.Edit3.Text;
+    T3.Visible := True;
+End;
+
+
+
 end;
 
 procedure TDoc_historico_2022.RLBand7BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
+  if QTempFORMACAO.Value = 'INTINERÁRIOS FORMATIVOS' then
+  begin
+    RLLabel17.Visible := False;
+    RLLabel30.Caption := 'Unidades Curriculares';
+  end;
+
+  if QTempDISCIPLINA.Value = 'LÍNGUA ESPANHOLA' then
+     RLLabel26.Visible := True else
+     RLLabel26.Visible := False;
 
   if (QTempNOTA1.IsNull) then N1.Caption := '---'
     else N1.Caption := QTempNOTA1.DisplayText;
@@ -435,25 +436,28 @@ begin
     if QTempCH3.IsNull then   CH3.Caption := '---'
        else CH3.Caption := QTempCH3.DisplayText;
 
-end;
-
-procedure TDoc_historico_2022.Group_FormacaoBeforePrint(Sender: TObject;
-  var PrintIt: Boolean);
-begin
-      if QTempCODIGO.Value = 0 then
-         RLBand3.Height := 0 Else
-         RLBand3.Height := 17;
-
+   if dm.AlunosOBS_HIST.Text = '(Memo)' then
+   Begin
+      data.Top := 180;
+      Obs1.Height := 50
+   end
+   else
+     Begin
+      Obs1.Height := 315;
+      data.Top := 448;
+     end;
 end;
 
 procedure TDoc_historico_2022.Grupo_areaBeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-//     RLBand6.Height := 0;   Esse aqui ele desliga a área
- if ((dm.AlunosINTINERARIO.Value = 1) and (QTempAREA.Value = '1 - NÚCLEO DE ESTUDOS EM MATEMÁTICA E CIÊNCIAS DA NATUREZA E SUAS TECNOLOGIAS*')) then
-       RLBand6.Height := 19;
-  if ((dm.AlunosINTINERARIO.Value = 2) and (QTempAREA.Value = '2 - NÚCLEO DE ESTUDOS EM LINGUAGENS E CIÊNCIAS HUMANAS E SUAS TECNOLOGIAS*')) then
-      RLBand6.Height := 19;
- end;
+ { if (QTempAREA.Value =  '1 - NÚCLEO DE ESTUDOS EM MATEMÁTICA E CIÊNCIAS DA NATUREZA E SUAS TECNOLOGIAS*') or
+   (QTempAREA.Value =  '2 - NÚCLEO DE ESTUDOS EM LINGUAGENS E CIÊNCIAS HUMANAS E SUAS TECNOLOGIAS*') or
+   (QTempAREA.Value = 'ESTUDOS CIÊNCIAS DA NATUREZA E SUAS TECNOLOGIAS') then
+  Begin
+     RLDraw62.Visible := False; end
+     else
+       RLDraw62.Visible := True;}
+end;
 
 end.
