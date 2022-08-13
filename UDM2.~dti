@@ -1,7 +1,7 @@
 [Designer]
 Version=1
-Left=28
-Top=142
+Left=184
+Top=101
 Width=1118
 Height=708
 Splitter=212
@@ -20,7 +20,7 @@ PrintToFile=0
 PrintBorders=1
 PrintSelected=0
 PrintVisible=0
-ExpandedItems=DM2\DBUsuario
+ExpandedItems=DM2\DBUsuario\TSUsuario
 
 [DataDiagrams]
 Version=1

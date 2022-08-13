@@ -242,7 +242,7 @@ begin
 While not (DM.Alunos.Eof)  do
 Begin
 
-if (dm.AlunosmeBLOQUETO_2SEM.IsNull) then
+if (dm.AlunosBLOQUETO_2SEM.IsNull) then
    t_parcela:= 12 Else
    t_parcela := dm.AlunosBLOQUETO_2SEM.Value;
 
@@ -311,6 +311,7 @@ if (dm.AlunosmeBLOQUETO_2SEM.IsNull) then
                       dm.Bloquetos.Post;
 
                     inc(parc_ini);
+                    if (parc_ini = 13) then parc_ini := 1;
                  end; //fim for
    end;
                    if dm.Bloquetos.State in [dsInsert, dsEdit] then   dm.Bloquetos.Post

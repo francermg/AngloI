@@ -20,7 +20,7 @@ PrintToFile=0
 PrintBorders=1
 PrintSelected=0
 PrintVisible=0
-ExpandedItems=DM\DB_ANGLO\IBTr_ANGLO\Parametros,DM\DB_ANGLO\IBTr_ANGLO\Notas
+ExpandedItems=DM\DB_ANGLO\IBTr_ANGLO\Parametros,DM\DB_ANGLO\IBTr_ANGLO\Notas,DM\DB_ANGLO\IBTr_ANGLO\NotasA
 
 [DataDiagrams]
 Version=1

@@ -73,6 +73,8 @@ type
     QRLabel3: TQRLabel;
     QRLabel9: TQRLabel;
     QRLabel14: TQRLabel;
+    qrlblnucleo: TQRLabel;
+    IntCAlunosINTINERARIO: TIntegerField;
     procedure TitleBand1BeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
     procedure DetNotaBeforePrint(Sender: TQRCustomBand;
@@ -126,6 +128,10 @@ begin
     if AlunosSTATUS.Value = 'O' then QRLabStatus.Caption := 'Outros';
     if AlunosSTATUS.Value = 'R' then QRLabStatus.Caption := 'Reclass.';
   end;
+   if (IntCAlunosINTINERARIO.Value = 1) then
+       qrlblnucleo.Caption := '(Núcleo 1 - Núcleo de Estudos em Matemática e Ciências da Natureza e suas Tecnologias)'
+       Else
+         qrlblnucleo.Caption := '(Núcleo 2 - Núcleo de Estudos em Linguagens e Ciências Humanas e suas Tecnologias)';
 end;
 
 procedure TLst_AlunosQR.QRBand2BeforePrint(Sender: TQRCustomBand;

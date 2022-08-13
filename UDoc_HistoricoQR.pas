@@ -223,19 +223,19 @@ begin
   NascExt.Data := DM.AlunosNASC_DATA.Value;
   if DM.AlunosSEXO.Value = 'M' then
     case Cad_Alunos.RadioGroup2.ItemIndex of
-      0 : Resultado := ' foi APROVADO';
-      1 : Resultado := ' foi REPROVADO';
-      2 : Resultado := ' está CURSANDO';
-      3 : Resultado := ' é DESISTENTE';
-      5 : Resultado := ' está MATRICULADO';
+      0 : Resultado := 'foi APROVADO';
+      1 : Resultado := 'foi REPROVADO';
+      2 : Resultado := 'está CURSANDO';
+      3 : Resultado := 'é DESISTENTE';
+      5 : Resultado := 'está MATRICULADO';
     end
    else
     case Cad_Alunos.RadioGroup2.ItemIndex of
-      0 : Resultado := ' foi APROVADA';
-      1 : Resultado := ' foi REPROVADA';
-      2 : Resultado := ' está CURSANDO';
-      3 : Resultado := ' é DESISTENTE';
-      5 : Resultado := ' está MATRICULADA';
+      0 : Resultado := 'foi APROVADA';
+      1 : Resultado := 'foi REPROVADA';
+      2 : Resultado := 'está CURSANDO';
+      3 : Resultado := 'é DESISTENTE';
+      5 : Resultado := 'está MATRICULADA';
     end;
 
 

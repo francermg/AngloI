@@ -1,6 +1,6 @@
 object Cad_Alunos: TCad_Alunos
-  Left = 144
-  Top = 126
+  Left = 203
+  Top = 105
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'ALUNOS'
@@ -30,7 +30,7 @@ object Cad_Alunos: TCad_Alunos
     Top = 2
     Width = 1096
     Height = 743
-    ActivePage = Tab6
+    ActivePage = Tab1
     BiDiMode = bdLeftToRight
     ParentBiDiMode = False
     TabOrder = 1
@@ -366,25 +366,25 @@ object Cad_Alunos: TCad_Alunos
         OnClick = SpeedButton1Click
       end
       object Label76: TLabel
-        Left = 52
+        Left = 32
         Top = 437
-        Width = 46
+        Width = 66
         Height = 13
-        Caption = 'Celular:'
+        Caption = 'Contato-1 :'
       end
       object Label94: TLabel
-        Left = 48
+        Left = 32
         Top = 461
-        Width = 49
+        Width = 66
         Height = 13
-        Caption = 'Tel. Res.'
+        Caption = 'Contato-2 :'
       end
       object Label95: TLabel
-        Left = 23
+        Left = 32
         Top = 481
-        Width = 74
+        Width = 66
         Height = 13
-        Caption = 'Tel. Contato:'
+        Caption = 'Contato-3 :'
       end
       object lb1: TLabel
         Left = 783
@@ -649,7 +649,7 @@ object Cad_Alunos: TCad_Alunos
         Height = 33
         BevelOuter = bvNone
         Color = clGray
-        TabOrder = 36
+        TabOrder = 37
         object Label47: TLabel
           Left = 13
           Top = 8
@@ -694,7 +694,7 @@ object Cad_Alunos: TCad_Alunos
         Width = 134
         Height = 27
         Caption = '&Puxa dados'
-        TabOrder = 35
+        TabOrder = 36
         OnClick = PuxaDadosClick
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
@@ -717,7 +717,7 @@ object Cad_Alunos: TCad_Alunos
         Width = 134
         Height = 27
         Caption = '&Estatística'
-        TabOrder = 37
+        TabOrder = 38
         OnClick = EstatisticaClick
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
@@ -740,7 +740,7 @@ object Cad_Alunos: TCad_Alunos
         Width = 134
         Height = 27
         Caption = 'E&stat.p/Turma'
-        TabOrder = 38
+        TabOrder = 39
         OnClick = EstatTurClick
         Glyph.Data = {
           76010000424D7601000000000000760000002800000020000000100000000100
@@ -763,7 +763,7 @@ object Cad_Alunos: TCad_Alunos
         Width = 90
         Height = 120
         BevelWidth = 5
-        TabOrder = 39
+        TabOrder = 40
         object Foto: TImage
           Left = 5
           Top = 5
@@ -871,7 +871,7 @@ object Cad_Alunos: TCad_Alunos
         Height = 21
         DataField = 'TEL_RESIDENCIAL'
         DataSource = DM.dsAlunos
-        TabOrder = 33
+        TabOrder = 32
       end
       object DBEdit52: TDBEdit
         Left = 105
@@ -880,11 +880,11 @@ object Cad_Alunos: TCad_Alunos
         Height = 21
         DataField = 'TEL_CONTATO'
         DataSource = DM.dsAlunos
-        TabOrder = 34
+        TabOrder = 33
       end
       object DBRadioGroup5: TDBRadioGroup
-        Left = 331
-        Top = 464
+        Left = 635
+        Top = 528
         Width = 185
         Height = 33
         Caption = 'Participante da formatura?'
@@ -894,7 +894,7 @@ object Cad_Alunos: TCad_Alunos
         Items.Strings = (
           'Sim'
           'Não')
-        TabOrder = 40
+        TabOrder = 41
         Values.Strings = (
           'P'
           'N')
@@ -907,15 +907,6 @@ object Cad_Alunos: TCad_Alunos
         DataField = 'ID'
         DataSource = DM.dsAlunos
         TabOrder = 2
-      end
-      object DBEdit53: TDBEdit
-        Left = 328
-        Top = 432
-        Width = 129
-        Height = 21
-        DataField = 'OBS_TEL'
-        DataSource = DM.dsAlunos
-        TabOrder = 32
       end
       object DBEdit54: TDBEdit
         Left = 104
@@ -942,7 +933,7 @@ object Cad_Alunos: TCad_Alunos
         Height = 21
         DataField = 'RG'
         DataSource = DM.dsAlunos
-        TabOrder = 41
+        TabOrder = 42
       end
       object DBEdit56: TDBEdit
         Left = 404
@@ -974,7 +965,7 @@ object Cad_Alunos: TCad_Alunos
           'Aluno'
           'Pai'
           'Mãe')
-        TabOrder = 42
+        TabOrder = 43
         OnClick = tipo_buscaClick
       end
       object RxDBComboBox1: TRxDBComboBox
@@ -996,10 +987,19 @@ object Cad_Alunos: TCad_Alunos
           'Normal.'
           'Anviado para protesto.')
         ParentFont = False
-        TabOrder = 43
+        TabOrder = 35
         Values.Strings = (
           '1'
           '2')
+      end
+      object dbmmoObsTelefone: TDBMemo
+        Left = 328
+        Top = 432
+        Width = 457
+        Height = 89
+        DataField = 'OBS_TEL'
+        DataSource = DM.dsAlunos
+        TabOrder = 34
       end
     end
     object Tab2: TTabSheet
@@ -1808,7 +1808,7 @@ object Cad_Alunos: TCad_Alunos
         end
         object btnconecta: TBitBtn
           Left = 8
-          Top = 277
+          Top = 311
           Width = 126
           Height = 25
           Cursor = crHandPoint
@@ -1827,7 +1827,7 @@ object Cad_Alunos: TCad_Alunos
         end
         object btnDesconecta: TBitBtn
           Left = 8
-          Top = 304
+          Top = 338
           Width = 128
           Height = 25
           Cursor = crHandPoint
@@ -1847,7 +1847,7 @@ object Cad_Alunos: TCad_Alunos
         end
         object btnCadastra: TBitBtn
           Left = 8
-          Top = 335
+          Top = 369
           Width = 128
           Height = 25
           Cursor = crHandPoint
@@ -1867,7 +1867,7 @@ object Cad_Alunos: TCad_Alunos
         end
         object btnDigital: TBitBtn
           Left = 8
-          Top = 366
+          Top = 400
           Width = 125
           Height = 31
           Cursor = crHandPoint
@@ -1976,6 +1976,15 @@ object Cad_Alunos: TCad_Alunos
             33333337F3FF7F3733333330F08F0F0333333337F7737F7333333330FFFF0033
             33333337FFFF7733333333300000033333333337777773333333}
           NumGlyphs = 2
+        end
+        object btncomunicado: TButton
+          Left = 9
+          Top = 280
+          Width = 124
+          Height = 28
+          Caption = 'Comunicado'
+          TabOrder = 15
+          OnClick = btncomunicadoClick
         end
       end
       object DBEdit23: TDBEdit
@@ -3526,9 +3535,9 @@ object Cad_Alunos: TCad_Alunos
         TabOrder = 21
       end
       object Resultado1: TComboBox
-        Left = 480
-        Top = 496
-        Width = 96
+        Left = 447
+        Top = 494
+        Width = 97
         Height = 21
         ItemHeight = 13
         TabOrder = 22
@@ -3542,9 +3551,9 @@ object Cad_Alunos: TCad_Alunos
           '-----------------')
       end
       object Resultado2: TComboBox
-        Left = 585
-        Top = 496
-        Width = 92
+        Left = 549
+        Top = 494
+        Width = 97
         Height = 21
         ItemHeight = 13
         TabOrder = 23
@@ -3558,9 +3567,9 @@ object Cad_Alunos: TCad_Alunos
           '-----------------')
       end
       object Resultado3: TComboBox
-        Left = 681
-        Top = 496
-        Width = 94
+        Left = 650
+        Top = 494
+        Width = 99
         Height = 21
         ItemHeight = 13
         TabOrder = 24
@@ -3624,22 +3633,22 @@ object Cad_Alunos: TCad_Alunos
       object Edit1: TEdit
         Left = 743
         Top = 534
-        Width = 85
-        Height = 17
+        Width = 76
+        Height = 21
         TabOrder = 27
       end
       object Edit2: TEdit
         Left = 743
         Top = 556
-        Width = 85
-        Height = 17
+        Width = 75
+        Height = 21
         TabOrder = 28
       end
       object Edit3: TEdit
         Left = 743
         Top = 575
-        Width = 85
-        Height = 17
+        Width = 75
+        Height = 21
         TabOrder = 29
       end
     end
@@ -4009,8 +4018,8 @@ object Cad_Alunos: TCad_Alunos
       'select * '
       'from ALUNOS_ANT'
       'where CODIGO = :codigo')
-    Left = 416
-    Top = 433
+    Left = 440
+    Top = 393
     ParamData = <
       item
         DataType = ftUnknown
@@ -4569,10 +4578,13 @@ object Cad_Alunos: TCad_Alunos
     UseRegistry = True
     StoredProps.Strings = (
       'RadioGroup1.ItemIndex'
-      'edt1.Anchors')
+      'edt1.Anchors'
+      'Edit1.Text'
+      'Edit2.Text'
+      'Edit3.Text')
     StoredValues = <>
-    Left = 280
-    Top = 425
+    Left = 808
+    Top = 497
   end
   object AlunosSP: TIBQuery
     Database = DM.DB_ANGLO
@@ -4627,8 +4639,8 @@ object Cad_Alunos: TCad_Alunos
   object Save1: TSaveDialog
     Filter = '*.mec|*.mec|*.txt|*.txt'
     Title = 'Salve'
-    Left = 332
-    Top = 425
+    Left = 340
+    Top = 377
   end
   object IBEtiq_SP: TIBQuery
     Database = DM.DB_ANGLO
@@ -4667,7 +4679,7 @@ object Cad_Alunos: TCad_Alunos
       'select * '
       'from SERIE_IPS'
       'where ip = :bip')
-    Left = 972
+    Left = 844
     Top = 344
     ParamData = <
       item
@@ -4721,7 +4733,7 @@ object Cad_Alunos: TCad_Alunos
       'select *'
       'from bloquetos'
       'where aluno = :baluno and PAGAMENTO is null')
-    Left = 943
+    Left = 847
     Top = 288
     ParamData = <
       item

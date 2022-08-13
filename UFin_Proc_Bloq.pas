@@ -311,6 +311,11 @@ if (dm.AlunosBLOQUETO_2SEM.IsNull) then
                       dm.Bloquetos.Post;
 
                     inc(parc_ini);
+                    if (parc_ini = 13) then
+                    begin
+                      parc_ini := 1;
+                      inc(agoraano);
+                    end;
                  end; //fim for
    end;
                    if dm.Bloquetos.State in [dsInsert, dsEdit] then   dm.Bloquetos.Post

@@ -1564,7 +1564,7 @@ object DM: TDM
     object AlunosOBS_TEL: TIBStringField
       FieldName = 'OBS_TEL'
       Origin = '"ALUNOS"."OBS_TEL"'
-      Size = 15
+      Size = 100
     end
     object AlunosDATA_EFETUACAO: TDateTimeField
       FieldName = 'DATA_EFETUACAO'
@@ -6984,6 +6984,7 @@ object DM: TDM
       '  CODIGO_COR = :OLD_CODIGO_COR')
     GeneratorField.Field = 'CODIGO_COR'
     GeneratorField.Generator = 'GEN_CORES'
+    Active = True
     Left = 216
     Top = 548
     object CoresCODIGO_COR: TIntegerField
@@ -7936,6 +7937,7 @@ object DM: TDM
       '  SANGUE = :SANGUE'
       'where'
       '  ID_SANGUE = :OLD_ID_SANGUE')
+    Active = True
     Left = 672
     Top = 306
     object tiposanguineoID_SANGUE: TIntegerField

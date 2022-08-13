@@ -404,29 +404,6 @@ type
     etiquetaTELEFONE: TIBStringField;
     Alu_3_Rec: TIBQuery;
     dsAlu_3_Rec: TDataSource;
-    Alu_3_RecALU_COD: TIntegerField;
-    Alu_3_RecALU_CHAMADA: TSmallintField;
-    Alu_3_RecALU_NOME: TIBStringField;
-    Alu_3_RecN_01: TIBStringField;
-    Alu_3_RecN_02: TIBStringField;
-    Alu_3_RecN_03: TIBStringField;
-    Alu_3_RecN_04: TIBStringField;
-    Alu_3_RecN_05: TIBStringField;
-    Alu_3_RecN_06: TIBStringField;
-    Alu_3_RecN_07: TIBStringField;
-    Alu_3_RecN_08: TIBStringField;
-    Alu_3_RecN_09: TIBStringField;
-    Alu_3_RecN_10: TIBStringField;
-    Alu_3_RecN_11: TIBStringField;
-    Alu_3_RecN_12: TIBStringField;
-    Alu_3_RecN_13: TIBStringField;
-    Alu_3_RecN_14: TIBStringField;
-    Alu_3_RecN_15: TIBStringField;
-    Alu_3_RecN_16: TIBStringField;
-    Alu_3_RecN_17: TIBStringField;
-    Alu_3_RecN_18: TIBStringField;
-    Alu_3_RecN_19: TIBStringField;
-    Alu_3_RecN_20: TIBStringField;
     iqpresenca: TIBQuery;
     uppresenca: TIBUpdateSQL;
     Dspresenca: TDataSource;
@@ -588,6 +565,37 @@ type
     QBoletosReprocessoMOTIVO: TIBStringField;
     QBoletosReprocessoDATA_LIMITE: TDateField;
     QBoletosReprocessoNEGOCIACAO: TIntegerField;
+    Alu_3_RecALU_COD: TIntegerField;
+    Alu_3_RecALU_CHAMADA: TSmallintField;
+    Alu_3_RecALU_NOME: TIBStringField;
+    Alu_3_RecMES: TIntegerField;
+    Alu_3_RecBIM1: TIntegerField;
+    Alu_3_RecBIM2: TIntegerField;
+    Alu_3_RecN_01: TIBStringField;
+    Alu_3_RecN_02: TIBStringField;
+    Alu_3_RecN_03: TIBStringField;
+    Alu_3_RecN_04: TIBStringField;
+    Alu_3_RecN_05: TIBStringField;
+    Alu_3_RecN_06: TIBStringField;
+    Alu_3_RecN_07: TIBStringField;
+    Alu_3_RecN_08: TIBStringField;
+    Alu_3_RecN_12: TIBStringField;
+    Alu_3_RecN_13: TIBStringField;
+    Alu_3_RecN_19: TIBStringField;
+    Alu_3_RecN_20: TIBStringField;
+    Alu_3_RecN_26: TIBStringField;
+    Alu_3_RecN_27: TIBStringField;
+    Alu_3_RecN_28: TIBStringField;
+    Alu_3_RecN_29: TIBStringField;
+    Alu_3_RecN_30: TIBStringField;
+    Alu_3_RecN_31: TIBStringField;
+    Alu_3_RecN_33: TIBStringField;
+    Alu_3_RecN_34: TIBStringField;
+    Alu_3_RecN_35: TIBStringField;
+    Alu_3_RecN_36: TIBStringField;
+    Alu_3_RecN_37: TIBStringField;
+    Alu_3_RecN_38: TIBStringField;
+    Alu_3_RecN_50: TIBStringField;
     procedure DBUsuarioAfterConnect(Sender: TObject);
     procedure DataModuleCreate(Sender: TObject);
   private
@@ -631,7 +639,6 @@ begin
   DBUsuario.Open;
   DBUsuario.Connected := True;
   TSUsuario.Active := True;
-  //teste pode tirar
   
 
 //***************************Para conexão com o banco de dados LOCAL************

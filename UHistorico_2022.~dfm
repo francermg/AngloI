@@ -3,7 +3,6 @@ object Doc_historico_2022: TDoc_historico_2022
   Top = 140
   Width = 893
   Height = 732
-  VertScrollBar.Position = 333
   Caption = 'Histórico 2022'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +15,7 @@ object Doc_historico_2022: TDoc_historico_2022
   TextHeight = 13
   object RLHistorico_2022: TRLReport
     Left = -1
-    Top = -333
+    Top = 0
     Width = 794
     Height = 1123
     DataSource = DsTemp
@@ -1265,7 +1264,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object CH1S: TRLDBResult
-        Left = 521
+        Left = 517
         Top = 1
         Width = 55
         Height = 14
@@ -1281,7 +1280,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object CH2S: TRLDBResult
-        Left = 592
+        Left = 595
         Top = 1
         Width = 55
         Height = 14
@@ -1297,7 +1296,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object CH3S: TRLDBResult
-        Left = 657
+        Left = 662
         Top = 1
         Width = 55
         Height = 14
@@ -1349,7 +1348,7 @@ object Doc_historico_2022: TDoc_historico_2022
         Brush.Color = clBlack
       end
       object T1: TRLLabel
-        Left = 526
+        Left = 527
         Top = 1
         Width = 31
         Height = 14
@@ -1363,7 +1362,7 @@ object Doc_historico_2022: TDoc_historico_2022
         Visible = False
       end
       object T2: TRLLabel
-        Left = 601
+        Left = 594
         Top = 1
         Width = 31
         Height = 14
@@ -1377,7 +1376,7 @@ object Doc_historico_2022: TDoc_historico_2022
         Visible = False
       end
       object T3: TRLLabel
-        Left = 662
+        Left = 665
         Top = 1
         Width = 31
         Height = 14
@@ -1434,8 +1433,8 @@ object Doc_historico_2022: TDoc_historico_2022
         Visible = False
       end
       object Res1: TRLLabel
-        Left = 542
-        Top = -1
+        Left = 513
+        Top = 0
         Width = 28
         Height = 14
         Font.Charset = DEFAULT_CHARSET
@@ -1446,7 +1445,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object Res2: TRLLabel
-        Left = 610
+        Left = 582
         Top = 0
         Width = 28
         Height = 14
@@ -1458,7 +1457,7 @@ object Doc_historico_2022: TDoc_historico_2022
         ParentFont = False
       end
       object Res3: TRLLabel
-        Left = 655
+        Left = 652
         Top = 0
         Width = 28
         Height = 14
@@ -1836,7 +1835,7 @@ object Doc_historico_2022: TDoc_historico_2022
       end
       object data: TRLSystemInfo
         Left = 399
-        Top = 446
+        Top = 448
         Width = 119
         Height = 16
         Font.Charset = DEFAULT_CHARSET
@@ -1914,11 +1913,11 @@ object Doc_historico_2022: TDoc_historico_2022
       object RLLabel18: TRLLabel
         Left = 4
         Top = 74
-        Width = 404
+        Width = 398
         Height = 14
         Caption = 
-          '*Intinerários de área optativos por Núcleos de Estudos em Áreas ' +
-          'de Conhecimento.'
+          '*Itinerários de área optativos por Núcleos de Estudos em Áreas d' +
+          'e Conhecimento.'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Height = -11

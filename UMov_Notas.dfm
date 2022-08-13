@@ -1,6 +1,6 @@
 object Mov_Notas: TMov_Notas
-  Left = 380
-  Top = 101
+  Left = 294
+  Top = 118
   BorderIcons = [biSystemMenu, biHelp]
   BorderStyle = bsSingle
   Caption = 'QTem'
@@ -881,8 +881,8 @@ object Mov_Notas: TMov_Notas
   end
   object Pop1: TPopupMenu
     AutoPopup = False
-    Left = 628
-    Top = 264
+    Left = 636
+    Top = 256
     object PrxAlunoTurma1: TMenuItem
       Caption = 'Próx.AlunoTurma'
       ShortCut = 116
@@ -918,8 +918,8 @@ object Mov_Notas: TMov_Notas
       'where SERIE = :serie and'
       '           DISCIPLINA = :disciplina')
     UniDirectional = True
-    Left = 580
-    Top = 336
+    Left = 548
+    Top = 328
     ParamData = <
       item
         DataType = ftUnknown

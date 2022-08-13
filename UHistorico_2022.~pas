@@ -176,6 +176,12 @@ type
 
 var
   Doc_historico_2022: TDoc_historico_2022;
+  i, x : integer;
+  CursX : Array[1..25] of String;
+  CursY : Array[1..11] of String;
+  CursZ : Array[1..11] of String;
+
+
 
 implementation
 
@@ -296,6 +302,118 @@ begin
         4 : Res3.Caption := 'Matriculado';
         5 : Res3.Caption := '-------------';
       end;
+
+if dm.Alunosserie.Value = 1 then
+Begin
+  CursX[1] := 'C  ';
+  CursX[2] := 'U  ';
+  CursX[3] := 'R  ';
+  CursX[4] := 'S  ';
+  CursX[5] := 'A  ';
+  CursX[6] := 'N  ';
+  CursX[7] := 'D  ';
+  CursX[8] := 'O  ';
+  CursX[9] := '-  ';
+  CursX[10] := '-  ';
+  CursX[11] := 'C  ';
+  CursX[12] := 'U  ';
+  CursX[13] := 'R  ';
+  CursX[14] := 'S  ';
+  CursX[15] := 'A  ';
+  CursX[16] := 'N  ';
+  CursX[17] := 'D  ';
+  CursX[18] := 'O  ';
+  CursX[19] := '-  ';
+  CursX[20] := '-  ';
+  CursX[21] := '-  ';
+  i := 1;
+end;
+
+if dm.Alunosserie.Value = 2 then
+Begin
+  CursX[1] := 'C  ';
+  CursX[2] := 'U  ';
+  CursX[3] := 'R  ';
+  CursX[4] := 'S  ';
+  CursX[5] := 'A  ';
+  CursX[6] := 'N  ';
+  CursX[7] := 'D  ';
+  CursX[8] := 'O  ';
+  CursX[9] := '-  ';
+  CursX[10] := '-  ';
+  CursX[11] := '-  ';
+  CursX[12] := '-  ';
+  CursX[13] := 'C  ';
+  CursX[14] := 'U  ';
+  CursX[15] := 'R  ';
+  CursX[16] := 'S  ';
+  CursX[17] := 'A  ';
+  CursX[18] := 'N  ';
+  CursX[19] := 'D  ';
+  CursX[20] := 'O  ';
+  CursX[21] := '-  ';
+  CursX[22] := '-  ';
+  CursX[23] := '-  ';
+  CursX[24] := '-  ';
+  CursX[25] := '-  ';
+  i := 1;
+end;
+if dm.Alunosserie.Value = 3 then
+Begin
+  CursX[1] := 'C  ';
+  CursX[2] := 'U  ';
+  CursX[3] := 'R  ';
+  CursX[4] := 'S  ';
+  CursX[5] := 'A  ';
+  CursX[6] := 'N  ';
+  CursX[7] := 'D  ';
+  CursX[8] := 'O  ';
+  CursX[9] := '-  ';
+  CursX[10] := '-  ';
+  CursX[11] := '-  ';
+  CursX[12] := '-  ';
+  CursX[13] := '-  ';
+  CursX[14] := '-  ';
+  CursX[15] := '-  ';
+  CursX[16] := 'C  ';
+  CursX[17] := 'U  ';
+  CursX[18] := 'R  ';
+  CursX[19] := 'S  ';
+  CursX[20] := 'A  ';
+  CursX[21] := 'N  ';
+  CursX[22] := 'D  ';
+  CursX[23] := 'O  ';
+  CursX[24] := '-  ';
+  CursX[25] := '-  ';
+  i := 1;
+end;
+
+
+  {
+  CursY[1] := 'A  ';
+  CursY[2] := 'N  ';
+  CursY[3] := 'E  ';
+  CursY[4] := 'X  ';
+  CursY[5] := 'O  ';
+  CursY[6] := 'S  ';
+  CursY[7] := '-  ';
+  CursY[8] := '-  ';
+  CursY[9] := '-  ';
+  CursY[10] :='-  ';
+  CursY[11] :='-  ';
+  i := 1;
+  CursZ[1] := 'M  ';
+  CursZ[2] := 'A  ';
+  CursZ[3] := 'T  ';
+  CursZ[4] := 'R  ';
+  CursZ[5] := 'I  ';
+  CursZ[6] := 'C  ';
+  CursZ[7] := 'U  ';
+  CursZ[8] := 'L  ';
+  CursZ[9] := 'A  ';
+  CursZ[10] :='D  ';
+  CursZ[11] :='O  ';
+  i := 1;}
 end;
 
 procedure TDoc_historico_2022.RLBand4BeforePrint(Sender: TObject;
@@ -341,7 +459,7 @@ end;
 procedure TDoc_historico_2022.RLBand7BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-  if QTempFORMACAO.Value = 'INTINERÁRIOS FORMATIVOS' then
+  if QTempFORMACAO.Value = 'ITINERÁRIOS FORMATIVOS' then
   begin
     RLLabel17.Visible := False;
     RLLabel30.Caption := 'Unidades Curriculares';
@@ -397,6 +515,21 @@ begin
       RLBand7.Height := 0;
      End;
 
+    if Cad_Alunos.RadioGroup2.ItemIndex = 2 then begin
+      if DM.AlunosSERIE.Value = 1 then N1.Caption := CursX[i];
+      if DM.AlunosSERIE.Value = 2 then N2.Caption := CursX[i];
+      if DM.AlunosSERIE.Value = 3 then N3.Caption := CursX[i];
+      Inc(i); end;
+    if Cad_Alunos.RadioGroup2.ItemIndex = 4 then begin
+      if DM.AlunosSERIE.Value = 1 then N1.Caption := CursY[i];
+      if DM.AlunosSERIE.Value = 2 then N2.Caption := CursY[i];
+      if DM.AlunosSERIE.Value = 3 then N3.Caption := CursY[i];
+      Inc(i); end;
+    if Cad_Alunos.RadioGroup2.ItemIndex = 5 then begin
+      if DM.AlunosSERIE.Value = 1 then N1.Caption := CursZ[i];
+      if DM.AlunosSERIE.Value = 2 then N2.Caption := CursZ[i];
+      if DM.AlunosSERIE.Value = 3 then N3.Caption := CursZ[i];
+      Inc(i); end;
 
 
 
@@ -437,9 +570,15 @@ begin
        else CH3.Caption := QTempCH3.DisplayText;
 
    if dm.AlunosOBS_HIST.Text = '(Memo)' then
-      Obs1.Height := 50 else
+   Begin
+      data.Top := 180;
+      Obs1.Height := 50
+   end
+   else
+     Begin
       Obs1.Height := 315;
-
+      data.Top := 448;
+     end;
 end;
 
 procedure TDoc_historico_2022.Grupo_areaBeforePrint(Sender: TObject;

@@ -1,9 +1,9 @@
 object Mov_Notas: TMov_Notas
-  Left = 380
-  Top = 101
+  Left = 294
+  Top = 118
   BorderIcons = [biSystemMenu, biHelp]
   BorderStyle = bsSingle
-  Caption = 'NOTAS'
+  Caption = 'QTem'
   ClientHeight = 648
   ClientWidth = 910
   Color = clBtnFace
@@ -35,7 +35,7 @@ object Mov_Notas: TMov_Notas
     Top = 0
     Width = 889
     Height = 609
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     TabOrder = 0
     OnChange = PageControl1Change
     object TabSheet1: TTabSheet
@@ -353,7 +353,6 @@ object Mov_Notas: TMov_Notas
             Title.Font.Height = -11
             Title.Font.Name = 'Verdana'
             Title.Font.Style = []
-            Width = 64
             Visible = True
           end
           item
@@ -372,7 +371,6 @@ object Mov_Notas: TMov_Notas
             Title.Font.Height = -11
             Title.Font.Name = 'Verdana'
             Title.Font.Style = []
-            Width = 64
             Visible = True
           end>
       end
@@ -667,7 +665,6 @@ object Mov_Notas: TMov_Notas
             Title.Font.Height = -11
             Title.Font.Name = 'Verdana'
             Title.Font.Style = []
-            Width = 64
             Visible = True
           end
           item
@@ -685,7 +682,6 @@ object Mov_Notas: TMov_Notas
             Title.Font.Height = -11
             Title.Font.Name = 'Verdana'
             Title.Font.Style = []
-            Width = 64
             Visible = True
           end>
       end
@@ -885,8 +881,8 @@ object Mov_Notas: TMov_Notas
   end
   object Pop1: TPopupMenu
     AutoPopup = False
-    Left = 628
-    Top = 264
+    Left = 636
+    Top = 256
     object PrxAlunoTurma1: TMenuItem
       Caption = 'Próx.AlunoTurma'
       ShortCut = 116
@@ -922,8 +918,8 @@ object Mov_Notas: TMov_Notas
       'where SERIE = :serie and'
       '           DISCIPLINA = :disciplina')
     UniDirectional = True
-    Left = 580
-    Top = 336
+    Left = 548
+    Top = 328
     ParamData = <
       item
         DataType = ftUnknown

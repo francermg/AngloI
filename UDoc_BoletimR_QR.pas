@@ -149,6 +149,8 @@ type
       var PrintBand: Boolean);
     procedure RodapeBeforePrint(Sender: TQRCustomBand;
       var PrintBand: Boolean);
+    procedure QuickRepBeforePrint(Sender: TCustomQuickRep;
+      var PrintReport: Boolean);
   private
 
   public
@@ -396,6 +398,15 @@ procedure TDoc_BoletimR_QR.RodapeBeforePrint(Sender: TQRCustomBand;
 begin
   DAbaixo.Caption := IntToStr(DiscAbaixo);
   DAcima.Caption := IntToStr(DiscAcima);
+end;
+
+procedure TDoc_BoletimR_QR.QuickRepBeforePrint(Sender: TCustomQuickRep;
+  var PrintReport: Boolean);
+begin
+  if (DM.TurmasSERIE.Value = 2) then
+     Rodape.Height := 110
+     Else
+     Rodape.Height := 42
 end;
 
 end.

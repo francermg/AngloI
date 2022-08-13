@@ -388,7 +388,6 @@ type
     UltimaParcela: TIBQuery;
     Ds_UltimaParcela: TDataSource;
     UltimaParcelaTOTAL: TSmallintField;
-    DBEdit53: TDBEdit;
     Label110: TLabel;
     BitBtn7: TBitBtn;
     Label111: TLabel;
@@ -541,6 +540,12 @@ type
     Reprocessado1: TMenuItem;
     Label118: TLabel;
     RxDBComboBox1: TRxDBComboBox;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label119: TLabel;
+    dbmmoObsTelefone: TDBMemo;
+    btncomunicado: TButton;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure DBNavigator1Click(Sender: TObject; Button: TNavigateBtn);
@@ -640,6 +645,7 @@ type
     procedure Reprocessado1Click(Sender: TObject);
     procedure Cancelado1Click(Sender: TObject);
     procedure Negociado1Click(Sender: TObject);
+    procedure btncomunicadoClick(Sender: TObject);
   private
    { Private declarations }
     procedure AtualizaSitFin;
@@ -682,7 +688,7 @@ uses UDM, URel_QRFicha_Ocorrencia, UDoc_ContratoQR, UDoc_RequerimentoQR,
   Umensagem, UCad_orgaos, UCadastroescola, Uprematricula, UDoc_ContratoQR1,
   UDoc_ContratoQR2, UDoc_ContratoQR3, Ufparametrosbloqueto, Ufautorizacao,
   USelectAproveitamento, USelecDoc, UHistorico_new, Uprocedimentos, UTermo_resp,
-  UHistorico_2022;
+  UHistorico_2022, UcomunicadoQ;
 
 
 {$R *.DFM}
@@ -1117,7 +1123,8 @@ end;
 
 procedure TCad_Alunos.NomeChange(Sender: TObject);
 begin
-  if Nome.Text <> '' then begin
+
+  if Nome.Text <> '' then  begin
     Codigo.Clear;
     DM.Alunos.SelectSQL.Strings[2] := 'where Nome starting with :nome';
     DM.Alunos.ParamByName('nome').AsString := Nome.Text;
@@ -2272,7 +2279,10 @@ begin
       Doc_historico_2022.QTemp.Close;
       Doc_historico_2022.QTemp.Params[0].Value:= dm.AlunosCODIGO.Value;
       Doc_historico_2022.QTemp.Open;
+      if (RadioGroup1.ItemIndex = 0) then
       Doc_historico_2022.RLLabel1.Caption := 'Histórico Escolar';
+      if (RadioGroup1.ItemIndex = 1) then
+            Doc_historico_2022.RLLabel1.Caption := 'Transferência';
       Doc_historico_2022.RLHistorico_2022.Preview;
     Finally
    end;
@@ -2358,6 +2368,23 @@ begin
    dm.BloquetosQ.close;
    dm.BloquetosQ.Open;
    DM.IBTr_ANGLO.CommitRetaining;
+end;
+
+procedure TCad_Alunos.btncomunicadoClick(Sender: TObject);
+var w_codigo :string;
+begin
+  try
+    w_codigo := dm.AlunosCODIGO.AsString;
+    dm.Alunos.Close;
+      DM.Alunos.SelectSQL.Strings[2] := 'where codigo = :bcodigo';
+      DM.Alunos.ParamByName('bcodigo').AsString := w_codigo;
+    dm.Alunos.Open;
+    comunicadoq.preview;
+  finally
+    dm.Alunos.Close;
+      DM.Alunos.SelectSQL.Strings[2] := 'where codigo is not null';
+    dm.Alunos.Open;
+  end;
 end;
 
 end.

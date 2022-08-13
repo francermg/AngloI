@@ -87,7 +87,7 @@ begin
   dm2.Alu_3_Rec.Open;
   Application.CreateForm(TDoc_Alu_3_Rec, Doc_Alu_3_Rec);
       Doc_Alu_3_Rec.NomeTurma.Caption := IntToStr(DM.TurmasSERIE.Value)+'ª Série '+DM.TurmasTURMA.Value;
-      Doc_Alu_3_Rec.D1.Caption := NomeDisc(1);
+      Doc_Alu_3_Rec.D1.Caption := NomeDisc(1);    //Aqui o que pega é a sequencia
       Doc_Alu_3_Rec.D2.Caption := NomeDisc(2);
       Doc_Alu_3_Rec.D3.Caption := NomeDisc(3);
       Doc_Alu_3_Rec.D4.Caption := NomeDisc(4);
@@ -95,13 +95,23 @@ begin
       Doc_Alu_3_Rec.D6.Caption := NomeDisc(6);
       Doc_Alu_3_Rec.D7.Caption := NomeDisc(7);
       Doc_Alu_3_Rec.D8.Caption := NomeDisc(8);
-      Doc_Alu_3_Rec.D9.Caption := NomeDisc(9);
-      Doc_Alu_3_Rec.D10.Caption := NomeDisc(10);
-      Doc_Alu_3_Rec.D11.Caption := NomeDisc(11);
-      Doc_Alu_3_Rec.D12.Caption := NomeDisc(12);
-      Doc_Alu_3_Rec.D13.Caption := NomeDisc(13);
-      Doc_Alu_3_Rec.D14.Caption := NomeDisc(14);
-      Doc_Alu_3_Rec.D15.Caption := NomeDisc(15);
+      Doc_Alu_3_Rec.D12.Caption := NomeDisc(9);
+      Doc_Alu_3_Rec.D13.Caption := NomeDisc(10);
+      Doc_Alu_3_Rec.D19.Caption := NomeDisc(11);
+      Doc_Alu_3_Rec.D20.Caption := NomeDisc(12);
+      Doc_Alu_3_Rec.D26.Caption := NomeDisc(13);
+      Doc_Alu_3_Rec.D27.Caption := NomeDisc(14);
+      Doc_Alu_3_Rec.D28.Caption := NomeDisc(15);
+      Doc_Alu_3_Rec.D29.Caption := NomeDisc(16);
+      Doc_Alu_3_Rec.D30.Caption := NomeDisc(17);
+      Doc_Alu_3_Rec.D31.Caption := NomeDisc(18);
+      Doc_Alu_3_Rec.D33.Caption := NomeDisc(19);
+      Doc_Alu_3_Rec.D34.Caption := NomeDisc(20);
+      Doc_Alu_3_Rec.D35.Caption := NomeDisc(21);
+      Doc_Alu_3_Rec.D36.Caption := NomeDisc(22);
+      Doc_Alu_3_Rec.D37.Caption := NomeDisc(23);
+      Doc_Alu_3_Rec.D38.Caption := NomeDisc(24);
+      Doc_Alu_3_Rec.D50.Caption := NomeDisc(25);
       Doc_Alu_3_Rec.Preview;
       Doc_Alu_3_Rec.Free;
   end

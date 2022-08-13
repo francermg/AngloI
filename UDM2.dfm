@@ -1,10 +1,10 @@
 object DM2: TDM2
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 66
+  Left = 28
   Top = 142
   Height = 708
-  Width = 1080
+  Width = 1118
   object DsBolsas: TDataSource
     DataSet = Bolsas
     Left = 100
@@ -1836,6 +1836,18 @@ object DM2: TDM2
       Origin = '"ALU_3_REC"."ALU_NOME"'
       Size = 60
     end
+    object Alu_3_RecMES: TIntegerField
+      FieldName = 'MES'
+      Origin = '"ALU_3_REC"."MES"'
+    end
+    object Alu_3_RecBIM1: TIntegerField
+      FieldName = 'BIM1'
+      Origin = '"ALU_3_REC"."BIM1"'
+    end
+    object Alu_3_RecBIM2: TIntegerField
+      FieldName = 'BIM2'
+      Origin = '"ALU_3_REC"."BIM2"'
+    end
     object Alu_3_RecN_01: TIBStringField
       FieldName = 'N_01'
       Origin = '"ALU_3_REC"."N_01"'
@@ -1876,21 +1888,6 @@ object DM2: TDM2
       Origin = '"ALU_3_REC"."N_08"'
       Size = 6
     end
-    object Alu_3_RecN_09: TIBStringField
-      FieldName = 'N_09'
-      Origin = '"ALU_3_REC"."N_09"'
-      Size = 6
-    end
-    object Alu_3_RecN_10: TIBStringField
-      FieldName = 'N_10'
-      Origin = '"ALU_3_REC"."N_10"'
-      Size = 6
-    end
-    object Alu_3_RecN_11: TIBStringField
-      FieldName = 'N_11'
-      Origin = '"ALU_3_REC"."N_11"'
-      Size = 6
-    end
     object Alu_3_RecN_12: TIBStringField
       FieldName = 'N_12'
       Origin = '"ALU_3_REC"."N_12"'
@@ -1901,31 +1898,6 @@ object DM2: TDM2
       Origin = '"ALU_3_REC"."N_13"'
       Size = 6
     end
-    object Alu_3_RecN_14: TIBStringField
-      FieldName = 'N_14'
-      Origin = '"ALU_3_REC"."N_14"'
-      Size = 6
-    end
-    object Alu_3_RecN_15: TIBStringField
-      FieldName = 'N_15'
-      Origin = '"ALU_3_REC"."N_15"'
-      Size = 6
-    end
-    object Alu_3_RecN_16: TIBStringField
-      FieldName = 'N_16'
-      Origin = '"ALU_3_REC"."N_16"'
-      Size = 6
-    end
-    object Alu_3_RecN_17: TIBStringField
-      FieldName = 'N_17'
-      Origin = '"ALU_3_REC"."N_17"'
-      Size = 6
-    end
-    object Alu_3_RecN_18: TIBStringField
-      FieldName = 'N_18'
-      Origin = '"ALU_3_REC"."N_18"'
-      Size = 6
-    end
     object Alu_3_RecN_19: TIBStringField
       FieldName = 'N_19'
       Origin = '"ALU_3_REC"."N_19"'
@@ -1934,6 +1906,71 @@ object DM2: TDM2
     object Alu_3_RecN_20: TIBStringField
       FieldName = 'N_20'
       Origin = '"ALU_3_REC"."N_20"'
+      Size = 6
+    end
+    object Alu_3_RecN_26: TIBStringField
+      FieldName = 'N_26'
+      Origin = '"ALU_3_REC"."N_26"'
+      Size = 6
+    end
+    object Alu_3_RecN_27: TIBStringField
+      FieldName = 'N_27'
+      Origin = '"ALU_3_REC"."N_27"'
+      Size = 6
+    end
+    object Alu_3_RecN_28: TIBStringField
+      FieldName = 'N_28'
+      Origin = '"ALU_3_REC"."N_28"'
+      Size = 6
+    end
+    object Alu_3_RecN_29: TIBStringField
+      FieldName = 'N_29'
+      Origin = '"ALU_3_REC"."N_29"'
+      Size = 6
+    end
+    object Alu_3_RecN_30: TIBStringField
+      FieldName = 'N_30'
+      Origin = '"ALU_3_REC"."N_30"'
+      Size = 6
+    end
+    object Alu_3_RecN_31: TIBStringField
+      FieldName = 'N_31'
+      Origin = '"ALU_3_REC"."N_31"'
+      Size = 6
+    end
+    object Alu_3_RecN_33: TIBStringField
+      FieldName = 'N_33'
+      Origin = '"ALU_3_REC"."N_33"'
+      Size = 6
+    end
+    object Alu_3_RecN_34: TIBStringField
+      FieldName = 'N_34'
+      Origin = '"ALU_3_REC"."N_34"'
+      Size = 6
+    end
+    object Alu_3_RecN_35: TIBStringField
+      FieldName = 'N_35'
+      Origin = '"ALU_3_REC"."N_35"'
+      Size = 6
+    end
+    object Alu_3_RecN_36: TIBStringField
+      FieldName = 'N_36'
+      Origin = '"ALU_3_REC"."N_36"'
+      Size = 6
+    end
+    object Alu_3_RecN_37: TIBStringField
+      FieldName = 'N_37'
+      Origin = '"ALU_3_REC"."N_37"'
+      Size = 6
+    end
+    object Alu_3_RecN_38: TIBStringField
+      FieldName = 'N_38'
+      Origin = '"ALU_3_REC"."N_38"'
+      Size = 6
+    end
+    object Alu_3_RecN_50: TIBStringField
+      FieldName = 'N_50'
+      Origin = '"ALU_3_REC"."N_50"'
       Size = 6
     end
   end

@@ -25,8 +25,6 @@ type
     QRDBText5: TQRDBText;
     img1: TQRImage;
     QRImage1: TQRImage;
-    procedure QuickRepBeforePrint(Sender: TCustomQuickRep;
-      var PrintReport: Boolean);
   private
 
   public
@@ -41,11 +39,5 @@ implementation
 uses UDM;
 
 {$R *.DFM}
-
-procedure TcomunicadoQ.QuickRepBeforePrint(Sender: TCustomQuickRep;
-  var PrintReport: Boolean);
-begin
-//   img1.Picture.LoadFromFile(dm.ParametrosCaminho.Value);
-end;
 
 end.
